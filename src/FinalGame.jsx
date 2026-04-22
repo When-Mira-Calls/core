@@ -2,6 +2,11 @@ import React, { useState } from 'react'
 import aunt1Left from '../assets/Aunt 1_left.png'
 import aunt1 from '../assets/Aunt 1.png'
 import shadowReveal from '../assets/shadow.png'
+import observatoryExt from '../assets/Observatory Ext.png'
+import strongboxOpen from '../assets/Strongbox - open.png'
+import compass from '../assets/Compass.png'
+import prism from '../assets/Prism.png'
+import goldenKnot from '../assets/Golden Knot.png'
 
 const EVIDENCE_A = [
   'Told you not to hand over the items until you were certain — even if that meant doubting her own claim.',
@@ -27,20 +32,17 @@ const WRONG_EXPLANATIONS = [
 const CONFETTI_COLORS = ['#2dd4bf', '#4ade80', '#f59e0b', '#a78bfa', '#fb7185', '#38bdf8', '#fbbf24', '#e879f9', '#34d399', '#60a5fa']
 
 export default function FinalGame({ onComplete }) {
-  const [phase, setPhase] = useState('evidence') // 'evidence' | 'truth' | 'confetti' | 'result-correct' | 'result-wrong'
+  const [phase, setPhase] = useState('evidence')
   const [wrongCount, setWrongCount] = useState(0)
-  const [revealStage, setRevealStage] = useState(0) // 0 → 1(reveal) → 2(morph) → 3(caption)
-  const [hoveredFig, setHoveredFig] = useState(null) // 'A' | 'B' | null
+  const [revealStage, setRevealStage] = useState(0)
+  const [hoveredFig, setHoveredFig] = useState(null)
 
   const handleReady = () => setPhase('truth')
 
   const handleChoice = (c) => {
     if (c === 'A') {
       setPhase('confetti')
-      setTimeout(() => {
-        setPhase('result-correct')
-        setRevealStage(1)
-      }, 2800)
+      setTimeout(() => { setPhase('result-correct'); setRevealStage(1) }, 2800)
       setTimeout(() => setRevealStage(2), 3500)
       setTimeout(() => setRevealStage(3), 5000)
     } else {
@@ -55,7 +57,6 @@ export default function FinalGame({ onComplete }) {
     setPhase('evidence')
   }
 
-  // Full-screen confetti falling from top
   const confettiPieces = Array.from({ length: 68 }).map((_, i) => ({
     x: Math.round(((i * 1.618033) % 1) * 96 + 2),
     delay: i * 0.036,
@@ -112,7 +113,89 @@ export default function FinalGame({ onComplete }) {
       {(phase === 'truth' || phase === 'confetti') && (
         <div className="finalgame-truth-scene">
 
-          {/* Full-screen confetti rain */}
+          {/* ── Layer 1: background ── */}
+          <div className="fgt-bg" aria-hidden="true">
+            <img src={observatoryExt} className="fgt-bg-img" alt="" />
+            <div className="fgt-bg-overlay" />
+          </div>
+
+          {/* ── Layer 2: blurred map + shadow man at Observatory ── */}
+          <div className="fgt-map-layer" aria-hidden="true">
+            {/* preserveAspectRatio="xMidYMid slice" + width/height 100% means
+                SVG center (380,150) maps exactly to the scene center (50%,50%),
+                so the final trail node lands right under the shadow man. */}
+            <svg viewBox="0 0 760 300" className="fgt-map-svg" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <radialGradient id="fgt-tmbg" cx="50%" cy="50%" r="70%">
+                  <stop offset="0%" stopColor="#071c18" />
+                  <stop offset="100%" stopColor="#020c09" />
+                </radialGradient>
+                <filter id="fgt-redglow" x="-80%" y="-80%" width="260%" height="260%">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="b" />
+                  <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+                </filter>
+              </defs>
+
+              <rect width="760" height="300" fill="url(#fgt-tmbg)" />
+
+              {/* Grid */}
+              {[95, 190, 285, 380, 475, 570, 665].map(x => (
+                <line key={`gx${x}`} x1={x} y1="0" x2={x} y2="300" stroke="rgba(0,150,90,0.06)" strokeWidth="1" />
+              ))}
+              {[50, 100, 150, 200, 250].map(y => (
+                <line key={`gy${y}`} x1="0" y1={y} x2="760" y2={y} stroke="rgba(0,150,90,0.06)" strokeWidth="1" />
+              ))}
+
+              {/* Side terrain banks */}
+              <path d="M 0,0 L 175,0 Q 140,50 125,100 Q 110,150 135,200 Q 160,250 140,300 L 0,300 Z" fill="rgba(8,25,18,0.78)" />
+              <path d="M 760,0 L 585,0 Q 625,50 640,100 Q 655,150 630,200 Q 605,250 630,300 L 760,300 Z" fill="rgba(8,25,18,0.78)" />
+              <path d="M 0,0 L 760,0 L 760,24 Q 620,14 500,26 Q 420,34 380,28 Q 320,20 220,32 Q 120,44 0,32 Z" fill="rgba(5,18,12,0.55)" />
+              <path d="M 0,300 L 760,300 L 760,272 Q 620,282 500,270 Q 420,262 380,268 Q 320,274 220,264 Q 120,254 0,268 Z" fill="rgba(5,18,12,0.55)" />
+
+              {/* Topo rings around the two mid waypoints */}
+              <ellipse cx="230" cy="96" rx="44" ry="26" fill="none" stroke="rgba(0,130,75,0.09)" strokeWidth="1" />
+              <ellipse cx="230" cy="96" rx="24" ry="14" fill="none" stroke="rgba(0,130,75,0.12)" strokeWidth="1" />
+              <ellipse cx="530" cy="125" rx="42" ry="24" fill="none" stroke="rgba(0,130,75,0.09)" strokeWidth="1" />
+              <ellipse cx="530" cy="125" rx="23" ry="13" fill="none" stroke="rgba(0,130,75,0.12)" strokeWidth="1" />
+
+              {/* Trail — same S-curve style, start shifted down to y=70 so it clears
+                  the heading text; end stays at SVG center (380,150) = shadow man */}
+              <path
+                d="M 380,50 C 510,56 155,72 230,96 C 305,106 600,113 530,125 C 460,136 200,143 380,150"
+                fill="none" stroke="rgba(195,30,18,0.14)" strokeWidth="10" strokeLinecap="round"
+              />
+              <path
+                d="M 380,50 C 510,56 155,72 230,96 C 305,106 600,113 530,125 C 460,136 200,143 380,150"
+                fill="none" stroke="rgba(210,42,24,0.88)" strokeWidth="1.6" strokeLinecap="round"
+              />
+
+              {/* Waypoints along the trail */}
+              {[{ x: 380, y: 50 }, { x: 230, y: 96 }, { x: 530, y: 125 }].map((loc, i) => (
+                <g key={i}>
+                  <circle cx={loc.x} cy={loc.y} r="8" fill="rgba(210,42,24,0.07)" />
+                  <circle cx={loc.x} cy={loc.y} r="4" fill="rgba(195,38,22,0.82)" />
+                </g>
+              ))}
+
+              {/* Final node at SVG center (380,150) — lines up exactly with shadow man */}
+              <circle cx="380" cy="150" r="18" fill="rgba(210,42,24,0.10)" />
+              <circle cx="380" cy="150" r="10" fill="rgba(210,42,24,0.18)" />
+              <circle cx="380" cy="150" r="6" fill="rgba(220,45,26,1)" filter="url(#fgt-redglow)" />
+
+              <text x="14" y="14" fill="rgba(0,155,85,0.22)" fontSize="7" fontFamily="'Courier New',monospace" letterSpacing="1.6">CLASSIFIED — TRAIL RECONSTRUCTION</text>
+              <text x="746" y="295" textAnchor="end" fill="rgba(0,155,85,0.16)" fontSize="7" fontFamily="'Courier New',monospace">RESTRICTED ACCESS</text>
+            </svg>
+
+            {/* Shadow man pinned to Observatory node (≈85% x, ≈33% of SVG height) */}
+            <div className="fgt-shadow-on-map">
+              <div className="fgt-radar-ring fgt-radar-ring--1" />
+              <div className="fgt-radar-ring fgt-radar-ring--2" />
+              <div className="fgt-radar-ring fgt-radar-ring--3" />
+              <img src={shadowReveal} className="fgt-shadow-ghost" alt="" />
+            </div>
+          </div>
+
+          {/* ── Layer 3: confetti ── */}
           {phase === 'confetti' && (
             <div className="finalgame-confetti-full" aria-hidden="true">
               {confettiPieces.map((p, i) => (
@@ -133,46 +216,60 @@ export default function FinalGame({ onComplete }) {
             </div>
           )}
 
-          {/* Heading floats at top centre */}
+          {/* ── Layer 4: heading ── */}
           <div className="finalgame-truth-top">
             <div className="finalgame-truth-eyebrow">MOMENT OF TRUTH</div>
             <div className="finalgame-truth-heading">WHO IS AUNT MIRA?</div>
-            <div className="finalgame-truth-sub">Choose carefully. Trust what you observed.</div>
+            <div className="finalgame-truth-sub">The strongbox and everything inside it goes to whoever you choose.</div>
           </div>
 
-          {/* Labels at bottom — mirroring the figure positions */}
+          {/* ── Layer 5: strongbox + orbiting items ── */}
+          <div className="fgt-lockbox-scene" aria-hidden="true">
+            <div className="fgt-lockbox-glow" />
+            <img src={strongboxOpen} className="fgt-lockbox-img" alt="" />
+            <div className="fgt-orbit fgt-orbit--compass">
+              <img src={compass} className="fgt-orbit-item" alt="" />
+            </div>
+            <div className="fgt-orbit fgt-orbit--prism">
+              <img src={prism} className="fgt-orbit-item" alt="" />
+            </div>
+            <div className="fgt-orbit fgt-orbit--knot">
+              <img src={goldenKnot} className="fgt-orbit-item" alt="" />
+            </div>
+          </div>
+
+          {/* ── Layer 6: labels ── */}
           <div className="finalgame-truth-labels">
             <span className={`finalgame-truth-fig-label${hoveredFig === 'A' ? ' finalgame-truth-fig-label--lit' : ''}`}>WOMAN A</span>
             <span className={`finalgame-truth-fig-label${hoveredFig === 'B' ? ' finalgame-truth-fig-label--lit' : ''}`}>WOMAN B</span>
           </div>
 
-          {/* Characters — same layout as observatory-figures */}
+          {/* ── Layer 7: characters ── */}
           <div className="finalgame-truth-figures">
-            {/* Wrapper span gets anxiety class — img className never changes so its slide-in animation is never restarted */}
             <button
-              className="finalgame-truth-fig-btn finalgame-truth-fig-btn--left"
+              className={`finalgame-truth-fig-btn finalgame-truth-fig-btn--left${hoveredFig === 'A' ? ' finalgame-fig-hovered' : ''}`}
               onClick={() => handleChoice('A')}
               onMouseEnter={() => setHoveredFig('A')}
               onMouseLeave={() => setHoveredFig(null)}
               disabled={phase === 'confetti'}
             >
-              <span className={hoveredFig === 'A' ? 'finalgame-fig-anxiety' : 'finalgame-fig-idle'}>
-                <img src={aunt1Left} alt="Woman A" className="finalgame-truth-img finalgame-truth-img--left" />
-              </span>
+              <img src={aunt1Left} alt="Woman A" className="finalgame-truth-img" />
             </button>
 
             <button
-              className="finalgame-truth-fig-btn finalgame-truth-fig-btn--right"
+              className={`finalgame-truth-fig-btn finalgame-truth-fig-btn--right${hoveredFig === 'B' ? ' finalgame-fig-hovered' : ''}`}
               onClick={() => handleChoice('B')}
               onMouseEnter={() => setHoveredFig('B')}
               onMouseLeave={() => setHoveredFig(null)}
               disabled={phase === 'confetti'}
             >
-              <span className={hoveredFig === 'B' ? 'finalgame-fig-anxiety' : 'finalgame-fig-idle'}>
-                <img src={aunt1} alt="Woman B" className="finalgame-truth-img finalgame-truth-img--right" />
-              </span>
+              <img src={aunt1} alt="Woman B" className="finalgame-truth-img" />
             </button>
           </div>
+
+          {/* ── Background glow on hover ── */}
+          <div className={`finalgame-hover-glow finalgame-hover-glow--left${hoveredFig === 'A' ? ' finalgame-hover-glow--active' : ''}`} aria-hidden="true" />
+          <div className={`finalgame-hover-glow finalgame-hover-glow--right${hoveredFig === 'B' ? ' finalgame-hover-glow--active' : ''}`} aria-hidden="true" />
         </div>
       )}
 
@@ -180,13 +277,17 @@ export default function FinalGame({ onComplete }) {
       {phase === 'result-correct' && (
         <div className="finalgame-truth-scene finalgame-truth-scene--result">
 
+          <div className="fgt-bg" aria-hidden="true">
+            <img src={observatoryExt} className="fgt-bg-img" alt="" />
+            <div className="fgt-bg-overlay" />
+          </div>
+
           <div className="finalgame-truth-top">
             <div className="finalgame-truth-heading finalgame-truth-heading--correct fg-fade-up">
               AUNT MIRA IDENTIFIED
             </div>
           </div>
 
-          {/* Labels */}
           <div className="finalgame-truth-labels">
             <span className={`finalgame-truth-fig-label${revealStage >= 1 ? ' finalgame-truth-fig-label--mira' : ''}`}>
               {revealStage >= 1 ? 'AUNT MIRA' : 'WOMAN A'}
@@ -196,15 +297,12 @@ export default function FinalGame({ onComplete }) {
             </span>
           </div>
 
-          {/* Characters */}
           <div className="finalgame-truth-figures">
-            {/* Woman A — spotlit */}
             <div className={`finalgame-truth-fig-btn finalgame-truth-fig-btn--left finalgame-truth-fig-btn--static${revealStage >= 1 ? ' finalgame-fig-spotlight' : ''}`}>
               <img src={aunt1Left} alt="Aunt Mira" className="finalgame-truth-img" />
             </div>
 
-            {/* Woman B → Shadow Man morph */}
-            <div className={`finalgame-truth-fig-btn finalgame-truth-fig-btn--right finalgame-truth-fig-btn--static finalgame-truth-fig-btn--dim`}>
+            <div className="finalgame-truth-fig-btn finalgame-truth-fig-btn--right finalgame-truth-fig-btn--static finalgame-truth-fig-btn--dim">
               <div className="finalgame-morph-wrap">
                 <img
                   src={aunt1}

@@ -3,6 +3,9 @@ import PhishGame from './PhishGame'
 import TextAnalyzer from './TextAnalyzer'
 import PasswordChest from './PasswordChest'
 import TrailMap from './TrailMap'
+import TrailRetreat from './TrailRetreat'
+import StrongboxScene from './StrongboxScene'
+import ItemFocusOverlay from './ItemFocusOverlay'
 import FinalGame from './FinalGame'
 import aunt1 from '../assets/Aunt 1.png'
 import aunt1Left from '../assets/Aunt 1_left.png'
@@ -14,8 +17,14 @@ import backArrow from '../assets/Back Arrow.png'
 import nextArrow from '../assets/Next Arrow.png'
 import observatoryExt from '../assets/Observatory Ext.png'
 import observatoryInt from '../assets/Observatory Int.png'
+import observatoryScreen from '../assets/Observatory Screen.png'
+import observatoryLockedDoor from '../assets/Observatory Locked Door.png'
+import observatoryIntRoom from '../assets/Observatory Int Room.png'
+import keypadCardSlot from '../assets/Keypad + Card Slot.png'
+import StrongboxCardScene from './StrongboxCardScene'
 import shadowFigure from '../assets/shadow.png'
 import consolScreenGreen from '../assets/Consol Screen - green.png'
+import consolScreenBlue from '../assets/Consol Screen - blue.png'
 
 // Cinematic narrator positions — irregular left/right rhythm, not strict alternation
 const NARRATOR_POSITIONS = [
@@ -71,45 +80,88 @@ const observatoryStory = {
     { speaker: 'Narrator', text: 'Both of them said it. You cannot tell which gave good advice and which was copying it. You stand in the middle of the Observatory, the strongbox in your hands, and you understand exactly what this is.', showWomen: true },
     { speaker: 'Narrator', text: 'The Shadow Man sent someone ahead. A trap at the finish line. And the only way through it is to use everything you have learned.', showWomen: true },
     { speaker: '[YOUR NAME]', text: 'I am going to look around first. The answer is somewhere in this room.', showWomen: true },
-    { speaker: '', text: '', showSmishing: true, hideBubble: true },
-    { speaker: '[YOUR NAME]', text: 'This is smishing. A fake text - but using real personal information to make it feel real.', showSmishing: true },
-    { speaker: 'WOMAN A', text: 'Look at what it uses. His first name. His school name. A saved contact name that seemed official. All of that came from his public profile. Without the personal information, this is just a generic scam. With it, it feels personal.', showWomen: true, showSmishing: true, emotion: 'thinking' },
-    { speaker: 'WOMAN B', text: 'Look at what it uses. His first name. His school name. A saved contact name that seemed official. All of that came from his public profile. Without the personal information, this is just a generic scam. With it, it feels personal.', showWomen: true, showSmishing: true, emotion: 'thinking' },
-    { speaker: '', text: '', showSmishingInfo: true, hideBubble: true },
-    { speaker: 'WOMAN B', text: 'We are running out of time. He is still tracking the strongbox. Just give me the items now and we can lock him out before he gets closer.', showWomen: true, emotion: 'upset' },
-    { speaker: 'Narrator', text: 'Woman A says nothing. She watches Woman B. Then she looks at the player.', showWomen: true },
-    { speaker: 'Narrator', text: 'The player moves to the next screen. A recorded phone call plays through a small speaker. The player can see a transcript alongside it. This is the call that the family in Sunshare Square received.' },
-    { speaker: '', text: '', showVishing: true, hideBubble: true },
-    { speaker: '[YOUR NAME]', text: 'That is vishing. A phone call instead of a text or email. And it sounds completely real because they used Priya\'s actual school name and her actual first name.' },
-    { speaker: 'WOMAN A', text: 'And notice the final step. The verification code they asked for was not for security. It was the password reset code for Priya\'s account. The caller was using the parent\'s trust and the official-sounding process to intercept a code that would give them access. The personal information opened the door. The code was the key.', showWomen: true, emotion: 'thinking' },
-    { speaker: '', text: '', showVishingInfo: true, hideBubble: true },
-    { speaker: '', text: '', showQuiz: true, hideBubble: true, showWomen: true, hideWomanB: true },
-    { speaker: 'WOMAN B', text: 'You have to trust me. I am your aunt. You know what I sound like from the letter. You know who I am.', showWomen: true, emotion: 'upset' },
-    { speaker: '[YOUR NAME]', text: 'This needs two things to open. A code and a card.', showWomen: true },
-    { speaker: 'WOMAN A', text: 'The code is the passphrase you have been carrying. The card is in the strongbox - Mira left it there before the compass.', showWomen: true, emotion: 'thinking' },
-    { speaker: 'WOMAN A', text: 'That door cannot be opened by guessing the passphrase alone. Even if someone knew your passphrase, they would need the physical card too. And even if they had the card, they would need the passphrase. Both. Always both.', showWomen: true, emotion: 'thinking' },
-    { speaker: '', text: '', showMFAInfo: true, hideBubble: true },
-    { speaker: '', text: '', showMFAQuiz: true, hideBubble: true, showWomen: true, hideWomanB: true },
-    { speaker: 'Narrator', text: 'The locked room reveals the Shadow Man\'s full trail.' },
-    { speaker: '', text: '', showTrailMap: true, hideBubble: true },
-    { speaker: 'Narrator', text: 'The screen in the locked room shows the Shadow Man\'s trail in red — every stop, every gap, every piece of information collected. Seabright: the phishing emails that harvested harbour logins. The lighthouse: circling for weaknesses in the strongbox. Sunshare Square: collecting personal information from public profiles, building a picture of every person who lived and posted there. And then arriving here, ahead of the player, with an impostor in place.' },
-    { speaker: 'WOMAN A', text: 'Look at the dates on his collection from Sunshare Square.', showWomen: true, hideWomanB: true, emotion: 'thinking' },
-    { speaker: 'Narrator', text: 'The player looks at the timestamps on the Shadow Man\'s file. Some entries are from this week. But others are from over a year ago. Two years. Posts that no longer exist on anyone\'s live profile. Still here. Still readable. Still used.' },
-    { speaker: '[YOUR NAME]', text: 'He has posts that were deleted. How does he have those?', showWomen: true },
-    { speaker: 'WOMAN A', text: 'He collected them while they were live. Cached copies. Screenshots. His own archive. The internet does not automatically forget on your behalf — it only forgets when every copy, everywhere, is gone. And you only control one copy.', showWomen: true, hideWomanB: true },
-    { speaker: '', text: '', showPermanenceInfo: true, hideBubble: true },
-    { speaker: 'WOMAN A', text: 'Look at the pattern. Every attack across this journey. The phishing emails at Seabright. The scam texts. The vishing call. The fake ad Tomas almost clicked. The security questions answered from Jaylen\'s public profile. The deleted posts that should not exist any more but do. What do they all have in common?', showWomen: true, hideWomanB: true, emotion: 'thinking' },
-    { speaker: '[YOUR NAME]', text: 'They all used feelings. Fear, urgency, authority. None of them broke in by force. They all found a gap in how someone felt and slipped through it.', showWomen: true },
-    { speaker: '', text: '', showSocialEngInfo: true, hideBubble: true },
-    { speaker: 'WOMAN B', text: 'We do not have time for the lesson. I need the items. He is getting closer.', showWomen: true, emotion: 'upset' },
-    { speaker: 'Narrator', text: 'A pause. Then Woman B adds something quickly, as if filling the silence.', showWomen: true },
-    { speaker: 'WOMAN B', text: 'You have already spoken to both of them — Celia and Rosa. You know how important this is. Please.', showWomen: true, emotion: 'upset' },
-    { speaker: 'Narrator', text: 'The player did not say how many aunts they had visited. They did not mention Rosa by name. Not in this room. Not to either of these women. A wrong note in a familiar song. The room is very quiet for a moment.', showWomen: true },
-    { speaker: 'WOMAN A', text: 'There it is again.', showWomen: true, hideWomanB: true },
-    { speaker: 'Narrator', text: 'You stand in the middle of the Observatory with the strongbox in your hands. Two identical women watch you. The screens show the Shadow Man\'s trail still active — but slowed. He is waiting, too. Waiting to see if his trap works.', showWomen: true },
-    { speaker: 'Narrator', text: 'You have everything you need. You have been building toward this moment since a Saturday morning when a letter arrived with a lighthouse stamp. Think. Look at what happened. Look at what each woman did.', showWomen: true },
-    { speaker: '', text: '', showFinalGameIntro: true, hideBubble: true },
-    { speaker: '', text: '', showFinalGame: true, hideBubble: true },
+    { speaker: '', text: '', hideBubble: true, showObsScreen: true },
+    { speaker: 'Narrator', text: 'The player approaches the first bank of screens on the left wall.', showObsScreen: true },
+    { speaker: '', text: '', showSmishing: true, hideBubble: true, showObsScreen: true },
+    { speaker: '[YOUR NAME]', text: 'This is smishing. A fake text - but using real personal information to make it feel real.', showSmishing: true, showObsScreen: true },
+    { speaker: 'WOMAN A', text: 'Look at what it uses. His first name. His school name. A saved contact name that seemed official. All of that came from his public profile. Without the personal information, this is just a generic scam. With it, it feels personal.', showWomen: true, showSmishing: true, emotion: 'thinking', showObsScreen: true },
+    { speaker: 'WOMAN B', text: 'Look at what it uses. His first name. His school name. A saved contact name that seemed official. All of that came from his public profile. Without the personal information, this is just a generic scam. With it, it feels personal.', showWomen: true, showSmishing: true, emotion: 'thinking', showObsScreen: true },
+    { speaker: '', text: '', showSmishingInfo: true, hideBubble: true, showObsScreen: true },
+    { speaker: 'WOMAN B', text: 'We are running out of time. He is still tracking the strongbox. Just give me the items now and we can lock him out before he gets closer.', showWomen: true, emotion: 'upset', showObsScreen: true },
+    { speaker: 'Narrator', text: 'Woman A says nothing. She watches Woman B. Then she looks at the player.', showWomen: true, showObsScreen: true },
+    { speaker: 'Narrator', text: 'The player moves to the next screen. A recorded phone call plays through a small speaker. The player can see a transcript alongside it. This is the call that the family in Sunshare Square received.', showObsScreen: true },
+    { speaker: '', text: '', showVishing: true, hideBubble: true, showObsScreen: true },
+    { speaker: '[YOUR NAME]', text: 'That is vishing. A phone call instead of a text or email. And it sounds completely real because they used Priya\'s actual school name and her actual first name.', showObsScreen: true },
+    { speaker: 'WOMAN A', text: 'And notice the final step. The verification code they asked for was not for security. It was the password reset code for Priya\'s account. The caller was using the parent\'s trust and the official-sounding process to intercept a code that would give them access. The personal information opened the door. The code was the key.', showWomen: true, emotion: 'thinking', showObsScreen: true },
+    { speaker: '', text: '', showVishingInfo: true, hideBubble: true, showObsScreen: true },
+    { speaker: '', text: '', showQuiz: true, hideBubble: true, showWomen: true, hideWomanB: true, showObsScreen: true },
+    { speaker: 'Narrator', text: 'Woman B moves toward the player again.', showWomen: true, showObsScreen: true },
+    { speaker: 'WOMAN B', text: 'You have to trust me. I am your aunt. You know what I sound like from the letter. You know who I am.', showWomen: true, emotion: 'upset', showObsScreen: true },
+    { speaker: 'Narrator', text: 'On the far side of the Observatory, a heavy door is set into the curved wall. Unlike the entrance door, this one is firmly locked — and the lock is unusual. It has two stages.', showLockedDoor: true },
+    { speaker: '[YOUR NAME]', text: 'This needs two things to open. A code and a card.', showWomen: true, showLockedDoor: true },
+    { speaker: 'WOMAN A', text: 'The code is the passphrase you have been carrying. The card is in the strongbox - Mira left it there before the compass.', showWomen: true, emotion: 'thinking', showLockedDoor: true, showKeypad: true },
+    { speaker: '', text: '', hideBubble: true, showLockedDoor: true, showStrongboxCard: true },
+    { speaker: 'Narrator', text: 'The player enters the passphrase on the keypad. Then slots the card. Two clicks. The door opens.', showLockedDoor: true, showKeypad: true },
+    { speaker: 'WOMAN A', text: 'That door cannot be opened by guessing the passphrase alone. Even if someone knew your passphrase, they would need the physical card too. And even if they had the card, they would need the passphrase. Both. Always both.', showWomen: true, emotion: 'thinking', showLockedDoor: true, showKeypad: true },
+    { speaker: '', text: '', showMFAInfo: true, hideBubble: true, showLockedDoor: true, showKeypad: true },
+    { speaker: '', text: '', showMFAQuiz: true, hideBubble: true, showWomen: true, hideWomanB: true, showLockedDoor: true, showKeypad: true },
+    { speaker: 'Narrator', text: 'The locked room reveals the Shadow Man\'s full trail.', showIntRoom: true },
+    { speaker: '', text: '', showTrailMap: true, hideBubble: true, showIntRoom: true },
+    { speaker: 'Narrator', text: 'The screen in the locked room shows the Shadow Man\'s trail in red — every stop, every gap, every piece of information collected.', showIntRoom: true },
+    { speaker: 'Narrator', text: 'Seabright: the phishing emails that harvested harbour logins.', showIntRoom: true },
+    { speaker: 'Narrator', text: 'The lighthouse: circling for weaknesses in the strongbox.', showIntRoom: true },
+    { speaker: 'Narrator', text: 'Sunshare Square: collecting personal information from public profiles, building a picture of every person who lived and posted there.', showIntRoom: true },
+    { speaker: 'Narrator', text: 'And then arriving here, ahead of the player, with an impostor in place.', showIntRoom: true },
+    { speaker: 'WOMAN A', text: 'Look at the dates on his collection from Sunshare Square.', showWomen: true, hideWomanB: true, emotion: 'thinking', showIntRoom: true },
+    { speaker: 'Narrator', text: 'The player looks at the timestamps on the Shadow Man\'s file. Some entries are from this week. But others are from over a year ago. Two years. Posts that no longer exist on anyone\'s live profile. Still here. Still readable. Still used.', showIntRoom: true },
+    { speaker: '[YOUR NAME]', text: 'He has posts that were deleted. How does he have those?', showWomen: true, showIntRoom: true },
+    { speaker: 'WOMAN A', text: 'He collected them while they were live. Cached copies. Screenshots. His own archive. The internet does not automatically forget on your behalf — it only forgets when every copy, everywhere, is gone. And you only control one copy.', showWomen: true, hideWomanB: true, showIntRoom: true },
+    { speaker: '', text: '', showPermanenceInfo: true, hideBubble: true, showIntRoom: true },
+    { speaker: 'WOMAN A', text: 'Look at the pattern. Every attack across this journey. The phishing emails at Seabright. The scam texts. The vishing call. The fake ad Tomas almost clicked. The security questions answered from Jaylen\'s public profile. The deleted posts that should not exist any more but do. What do they all have in common?', showWomen: true, hideWomanB: true, emotion: 'thinking', showIntRoom: true },
+    { speaker: '[YOUR NAME]', text: 'They all used feelings. Fear, urgency, authority. None of them broke in by force. They all found a gap in how someone felt and slipped through it.', showWomen: true, showIntRoom: true },
+    { speaker: '', text: '', showSocialEngInfo: true, hideBubble: true, showIntRoom: true },
+    { speaker: 'WOMAN B', text: 'We do not have time for the lesson. I need the items. He is getting closer.', showWomen: true, emotion: 'upset', showIntRoom: true },
+    { speaker: 'Narrator', text: 'A pause. Then Woman B adds something quickly, as if filling the silence.', showWomen: true, showIntRoom: true },
+    { speaker: 'WOMAN B', text: 'You have already spoken to both of them — Celia and Rosa. You know how important this is. Please.', showWomen: true, emotion: 'upset', showIntRoom: true },
+    { speaker: 'Narrator', text: 'The player did not say how many aunts they had visited. They did not mention Rosa by name. Not in this room. Not to either of these women. A wrong note in a familiar song. The room is very quiet for a moment.', showWomen: true, showIntRoom: true },
+    { speaker: 'WOMAN A', text: 'There it is again.', showWomen: true, hideWomanB: true, showIntRoom: true },
+    { speaker: 'Narrator', text: 'You stand in the middle of the Observatory with the strongbox in your hands. Two identical women watch you. The screens show the Shadow Man\'s trail still active — but slowed. He is waiting, too. Waiting to see if his trap works.', showWomen: true, showIntRoom: true },
+    { speaker: 'Narrator', text: 'You have everything you need. You have been building toward this moment since a Saturday morning when a letter arrived with a lighthouse stamp. Think. Look at what happened. Look at what each woman did.', showWomen: true, showIntRoom: true },
+    { speaker: '', text: '', showFinalGameIntro: true, hideBubble: true, showIntRoom: true },
+    { speaker: '', text: '', showFinalGame: true, hideBubble: true, showIntRoom: true },
+    { speaker: '[YOUR NAME]', text: 'You are Mira.', showWomen: true, hideWomanB: true, miraMoment: true },
+    { speaker: 'MIRA', text: 'I am Mira. Hello, [PLAYER NAME]. I am very glad you made it.', showWomen: true, hideWomanB: true, miraMoment: true },
+    { speaker: '', text: '', showTrailRetreat: true, hideBubble: true },
+    { speaker: 'Narrator', text: 'The red trail retreats.' },
+    { speaker: 'Narrator', text: 'From Sunshare Square, from the lighthouse cliff, from the edges of Seabright. Moving away.' },
+    { speaker: 'Narrator', text: 'Not gone — the Shadow Man does not disappear. But the trail that was following you, circling the gaps, waiting for an opening... it goes still.' },
+    { speaker: 'Narrator', text: 'There are no gaps left. There is nothing for it to find.' },
+    { speaker: 'MIRA', text: 'He moves on to easier targets. He always does. The people who understand what he does are not worth the time it takes.', showWomen: true, hideWomanB: true },
+    { speaker: '[YOUR NAME]', text: 'Will he come back?', showWomen: true, hideWomanB: true },
+    { speaker: 'MIRA', text: 'He will try different doors. But not these ones. Not yours.', showWomen: true, hideWomanB: true },
+    { speaker: '', text: '', showStrongboxScene: true, hideBubble: true },
+    { speaker: 'MIRA', text: 'The compass first. Old Finn chose well. Did he actually let you leave?', showWomen: true, hideWomanB: true, showItemFocus: 'compass' },
+    { speaker: '[YOUR NAME]', text: 'He waved me off without saying anything.', showWomen: true, hideWomanB: true, showItemFocus: 'compass' },
+    { speaker: 'MIRA', text: 'That is the highest compliment he gives. He waves and says nothing. It means he thinks you are going to be alright.', showWomen: true, hideWomanB: true, showItemFocus: 'compass' },
+    { speaker: 'MIRA', text: 'The prism. Rosa kept it safe. She always does.', showWomen: true, hideWomanB: true, showItemFocus: 'prism' },
+    { speaker: '[YOUR NAME]', text: 'She was watching me the whole time I was in the square. I could feel it.', showWomen: true, hideWomanB: true, showItemFocus: 'prism' },
+    { speaker: 'MIRA', text: 'She watches everything. It is the kindest thing she knows how to do — to really pay attention. Most people do not.', showWomen: true, hideWomanB: true, showItemFocus: 'prism' },
+    { speaker: 'Narrator', text: 'The knot. Mira holds it for a long moment. Turns it in her fingers. The gold catches the light from the Observatory screens.', showWomen: true, hideWomanB: true, showItemFocus: 'knot' },
+    { speaker: 'MIRA', text: 'Celia gave you this properly? She did not make a joke about it?', showWomen: true, hideWomanB: true, showItemFocus: 'knot' },
+    { speaker: '[YOUR NAME]', text: 'She made several jokes about it. But she also made sure I understood it.', showWomen: true, hideWomanB: true, showItemFocus: 'knot' },
+    { speaker: 'MIRA', text: 'That is Celia. She will do the most important thing in the funniest possible way and somehow it still lands.', showWomen: true, hideWomanB: true, showItemFocus: 'knot' },
+    { speaker: 'Narrator', text: 'Three items, across three worlds, carried safely across a journey that started with a photograph on a Saturday morning. All of them here now.', showWomen: true, hideWomanB: true },
+    { speaker: 'MIRA', text: 'Thank you. All of this — the compass, the prism, the knot — these are pieces of work I have been doing for a very long time. Documenting the methods. Building the trail. Creating something that would teach, not just warn. I needed them back, and I could not carry them myself right now. And I needed someone who would learn along the way.', showWomen: true, hideWomanB: true },
+    { speaker: '[YOUR NAME]', text: 'Why me?', showWomen: true, hideWomanB: true },
+    { speaker: 'MIRA', text: 'Because you were ready without knowing you were ready. Because the skills this journey needed are ones that live in the way someone thinks — asking questions before acting, checking before trusting, looking at what is actually there rather than what something claims to be. I knew you had those things. I just needed the journey to prove it to you.', showWomen: true, hideWomanB: true },
+    { speaker: '[YOUR NAME]', text: 'Will you explain the whole story now? Who you are, why you were not at home, what all of this was for?', showWomen: true, hideWomanB: true },
+    { speaker: 'MIRA', text: 'Yes. All of it. Let me make tea first — it is going to take a while. And I should warn you: some of it is complicated.', showWomen: true, hideWomanB: true },
+    { speaker: '[YOUR NAME]', text: 'That is okay. I think I can handle complicated now.', showWomen: true, hideWomanB: true },
+    { speaker: 'MIRA', text: 'I know you can. I watched.', showWomen: true, hideWomanB: true },
+    { speaker: 'Narrator', text: 'And so you sit down in the Observatory at the top of the hill, with the screens showing a world that is a little safer than it was this morning, and Mira makes tea and begins to explain everything. The whole story. All the parts she could not put in the letter.', showExterior: true },
+    { speaker: 'Narrator', text: 'Outside, the lighthouse beam sweeps. The red trail on the big screen holds still.', showExterior: true },
+    { speaker: 'Narrator', text: 'You are here. You made it. And now you know enough that getting here was never really the most important thing.', showExterior: true },
+    { speaker: 'Narrator', text: 'Knowing what you know now — that is.', showExterior: true },
   ],
 }
 
@@ -122,6 +174,7 @@ export default function App() {
   const [playerChoiceConfirmed, setPlayerChoiceConfirmed] = useState(false)
   const [quizAnswer, setQuizAnswer] = useState(null)
   const [mfaQuizAnswer, setMfaQuizAnswer] = useState(null)
+  const [showGameEnd, setShowGameEnd] = useState(false)
   const [obsShowInterior, setObsShowInterior] = useState(false)
   const [obsBgBlack, setObsBgBlack] = useState(false)
   const obsLineIndexRef = useRef(-1)
@@ -149,6 +202,9 @@ export default function App() {
   const showSocialEngInfo = view === 'story-observatory' && Boolean(observatoryLine?.showSocialEngInfo)
   const showFinalGameIntro = view === 'story-observatory' && Boolean(observatoryLine?.showFinalGameIntro)
   const showFinalGame = view === 'story-observatory' && Boolean(observatoryLine?.showFinalGame)
+  const showTrailRetreat = view === 'story-observatory' && Boolean(observatoryLine?.showTrailRetreat)
+  const showStrongboxScene = view === 'story-observatory' && Boolean(observatoryLine?.showStrongboxScene)
+  const showItemFocus = view === 'story-observatory' ? (observatoryLine?.showItemFocus || null) : null
   const isNarratorLine = isStoryView && !hideObservatoryBubble && activeStoryLine?.speaker === 'Narrator'
   // All contiguous narrator lines before the current one (for the book stack)
   const narratorSequenceLines = (() => {
@@ -163,7 +219,7 @@ export default function App() {
     return history
   })()
   const observatorySpeakerSide =
-    observatoryLine?.speaker === 'Woman A' || observatoryLine?.speaker === 'WOMAN A'
+    observatoryLine?.speaker === 'Woman A' || observatoryLine?.speaker === 'WOMAN A' || observatoryLine?.speaker === 'MIRA'
       ? 'left'
       : observatoryLine?.speaker === 'Woman B' || observatoryLine?.speaker === 'WOMAN B'
         ? 'right'
@@ -175,12 +231,20 @@ export default function App() {
     backgroundColor: scene.background,
   }
 
-  const showWhiteBackground = showSmishingScreen || showSmishingInfo || showVishingScreen || showVishingInfo || showQuizScreen || showMFAInfo || showMFAQuizScreen || showTrailMap || showPermanenceInfo || showSocialEngInfo || showFinalGameIntro || showFinalGame
+  const showWhiteBackground = showSmishingScreen || showSmishingInfo || showVishingScreen || showVishingInfo || showQuizScreen || showMFAInfo || showMFAQuizScreen || showTrailMap || showPermanenceInfo || showSocialEngInfo || showFinalGameIntro || showFinalGame || showTrailRetreat || showStrongboxScene
+  const forceExterior = view === 'story-observatory' && Boolean(observatoryLine?.showExterior)
+  const forceObsScreen = view === 'story-observatory' && Boolean(observatoryLine?.showObsScreen)
+  const forceLockedDoor = view === 'story-observatory' && Boolean(observatoryLine?.showLockedDoor)
+  const forceIntRoom = view === 'story-observatory' && Boolean(observatoryLine?.showIntRoom)
+  const showKeypad = view === 'story-observatory' && Boolean(observatoryLine?.showKeypad)
+  const showStrongboxCard = view === 'story-observatory' && Boolean(observatoryLine?.showStrongboxCard)
+  const miraMoment = view === 'story-observatory' && Boolean(observatoryLine?.miraMoment)
+  const bgImage = forceLockedDoor ? observatoryLockedDoor : forceIntRoom ? observatoryIntRoom : forceObsScreen ? observatoryScreen : (obsShowInterior && !forceExterior ? observatoryInt : observatoryExt)
   const observatoryBackgroundStyle = {
     backgroundColor: '#0f1728',
-    backgroundImage: `linear-gradient(180deg, rgba(8, 12, 22, 0.12), rgba(8, 12, 22, 0.28)), url(${obsShowInterior ? observatoryInt : observatoryExt})`,
-    backgroundPosition: 'center',
-    backgroundSize: 'cover',
+    backgroundImage: `linear-gradient(180deg, rgba(8, 12, 22, 0.12), rgba(8, 12, 22, 0.28)), url(${bgImage})`,
+    backgroundPosition: forceLockedDoor && showKeypad ? 'center 20%' : 'center',
+    backgroundSize: forceLockedDoor && showKeypad ? '180%' : 'cover',
     backgroundRepeat: 'no-repeat',
   }
   const renderObservatoryText = (text) => {
@@ -234,6 +298,8 @@ export default function App() {
   const observatoryNext = useCallback(() => {
     if (lineIndex + 1 < observatoryStory.dialogue.length) {
       setLineIndex(lineIndex + 1)
+    } else {
+      setShowGameEnd(true)
     }
   }, [lineIndex])
 
@@ -255,6 +321,9 @@ export default function App() {
     }
 
     if (showFinalGame) return // FinalGame controls its own advancement
+    if (showStrongboxScene) return // StrongboxScene controls its own advancement
+    if (showStrongboxCard) return // StrongboxCardScene controls its own advancement
+    if (showTrailRetreat) return // TrailRetreat controls its own advancement
 
     if (showMFAQuizScreen) {
       if (mfaQuizAnswer === 'B') observatoryNext()
@@ -513,6 +582,9 @@ export default function App() {
         {showWhiteBackground && <div className="obs-white-overlay" aria-hidden="true" />}
         <div className={`stage observatory-stage ${isObservatoryShaking ? 'observatory-shaking' : ''}`}>
           <div className={`observatory-blackout ${observatoryLine?.blackout ? 'active' : ''}`} aria-hidden="true" />
+          {hideObservatoryBubble && !showWhiteBackground && !showFinalGame && !showStrongboxScene && !showStrongboxCard && !showTrailRetreat && !showGameEnd && (
+            <div style={{ position: 'absolute', inset: 0, zIndex: 5, cursor: 'pointer' }} onClick={handleStoryNext} aria-label="tap to continue" />
+          )}
           {showSmishingScreen && (
             <div
               className={`smishing-overlay${hideObservatoryBubble ? ' smishing-overlay--full' : ' smishing-overlay--bg'}`}
@@ -571,7 +643,7 @@ export default function App() {
           {showVishingScreen && (
             <div className="vishing-overlay" onClick={handleStoryNext}>
               <div className="smishing-console-wrap">
-                <img src={consolScreenGreen} className="smishing-console-img" alt="" aria-hidden="true" />
+                <img src={consolScreenBlue} className="smishing-console-img" alt="" aria-hidden="true" />
                 <div className="vishing-panel">
                   <div className="vishing-header">
                     <span className="vishing-rec" aria-hidden="true">⏺</span>
@@ -667,6 +739,21 @@ export default function App() {
             </div>
           )}
           {showFinalGame && <FinalGame onComplete={observatoryNext} />}
+          {showKeypad && (
+            <div style={{ position: 'absolute', inset: 0, zIndex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none' }}>
+              <img src={keypadCardSlot} alt="" style={{ width: 'min(55vw, 420px)', objectFit: 'contain', filter: 'drop-shadow(0 0 24px rgba(80,140,255,0.35))' }} />
+            </div>
+          )}
+          {showStrongboxCard && <StrongboxCardScene onComplete={observatoryNext} />}
+          {showStrongboxScene && <StrongboxScene onComplete={observatoryNext} />}
+          {showItemFocus && <ItemFocusOverlay item={showItemFocus} />}
+          {showTrailRetreat && <TrailRetreat onClick={observatoryNext} />}
+          {showGameEnd && (
+            <div className="game-end-overlay">
+              <p className="game-end-text">THE END</p>
+              <p className="game-end-sub">CYBERSAFE</p>
+            </div>
+          )}
           {showPermanenceInfo && (
             <div className="smishing-info-overlay" onClick={handleStoryNext}>
               <div className="smishing-info-panel permanence-info-panel">
@@ -849,7 +936,7 @@ export default function App() {
               <img src={shadowFigure} alt="" className="observatory-shadow-img" />
             </div>
           )}
-          <div className={`observatory-figures ${showObservatoryWomen ? 'visible' : ''}`} aria-hidden={!showObservatoryWomen}>
+          <div className={`observatory-figures ${showObservatoryWomen ? 'visible' : ''}${miraMoment ? ' mira-moment' : ''}`} aria-hidden={!showObservatoryWomen}>
             {(() => {
               const emotion = (showQuizScreen && quizAnswer)
                 ? (quizAnswer === 'B' ? null : 'upset')
