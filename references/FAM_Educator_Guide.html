@@ -1,0 +1,741 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>When Mira Calls  -  Educator Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:#1A2744;--navy-mid:#243563;--gold:#C8901A;--gold-light:#E8B84B;
+  --gold-pale:#FBF3E0;--cream:#F7F2E8;--cream-dark:#EDE5D4;--ink:#1C1A14;
+  --ink-mid:#3D3826;--slate:#5A6478;--teal:#2A7A6A;--teal-pale:#E6F3F0;
+  --coral:#C04828;--coral-pale:#FAEEE9;--white:#FFFFFF;
+  --seabright:#1A2744;--lighthouse:#7A5A20;--sunshare:#1E6B5A;--observatory:#4A2A7A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#C8BCA4;font-family:'Source Serif 4',Georgia,serif;color:var(--ink);}
+@media print{body{background:white;}.no-print{display:none;}.page{box-shadow:none;margin:0;border-radius:0;page-break-after:always;}.page:last-child{page-break-after:avoid;}}
+.no-print{text-align:center;padding:18px;background:#EDE5D4;font-size:13px;color:#5A4A30;border-bottom:1px solid #C8B898;}
+.no-print strong{color:var(--navy);}
+.guide-wrap{max-width:900px;margin:0 auto;padding:36px 20px 80px;display:flex;flex-direction:column;gap:28px;}
+.page{background:var(--cream);border-radius:3px;box-shadow:0 3px 20px rgba(0,0,0,.13);overflow:hidden;}
+.eyebrow{font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);}
+.h1{font-family:'Playfair Display',serif;font-size:44px;font-weight:900;color:var(--white);line-height:1.08;}
+.h1 em{color:var(--gold-light);font-style:italic;}
+.h2{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--navy);line-height:1.2;}
+.h3-light{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--white);line-height:1.25;}
+.body{font-size:14.5px;font-weight:300;line-height:1.75;color:var(--ink-mid);}
+.body strong{font-weight:600;color:var(--ink);}
+.small{font-size:12.5px;font-weight:300;line-height:1.65;color:var(--slate);}
+.small strong{font-weight:600;color:var(--ink-mid);}
+.gold-rule{width:44px;height:3px;background:linear-gradient(to right,var(--gold),var(--gold-light));border-radius:2px;}
+.rule{width:100%;height:1px;background:var(--cream-dark);}
+
+/* Cover */
+.cover{background:var(--navy);padding:52px 60px 48px;position:relative;overflow:hidden;}
+.cover-glow{position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(200,144,26,.12),transparent 70%);pointer-events:none;}
+.cover-bar{display:flex;align-items:center;gap:16px;margin-bottom:6px;}
+.cover-bar-line{flex:1;height:1px;background:rgba(200,144,26,.25);}
+.cover-eyebrow{font-size:9.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-light);opacity:.8;white-space:nowrap;}
+.cover-sub{font-size:16px;font-weight:300;color:rgba(255,255,255,.6);line-height:1.65;max-width:540px;}
+.cover-sub strong{color:var(--white);font-weight:400;}
+.cover-bottom{margin-top:40px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.cover-stat{background:rgba(255,255,255,.05);border:1px solid rgba(200,144,26,.18);border-radius:3px;padding:14px 16px;}
+.cover-stat-num{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--gold-light);line-height:1;margin-bottom:4px;}
+.cover-stat-label{font-size:11px;font-weight:300;color:rgba(255,255,255,.5);line-height:1.4;}
+
+/* Sections */
+.section{padding:42px 60px;border-bottom:1px solid var(--cream-dark);}
+.section:last-child{border-bottom:none;}
+.section-header{display:flex;flex-direction:column;gap:10px;margin-bottom:24px;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+
+/* Info cards */
+.info-card{background:var(--white);border-radius:3px;padding:20px;border-top:3px solid var(--cream-dark);}
+.info-card.navy{border-top-color:var(--navy);}
+.info-card.gold{border-top-color:var(--gold);}
+.info-card.teal{border-top-color:var(--teal);}
+.info-card.coral{border-top-color:var(--coral);}
+.info-card.seabright{border-top-color:var(--seabright);}
+.info-card.sunshare{border-top-color:var(--sunshare);}
+.info-card.observatory{border-top-color:var(--observatory);}
+.info-card-icon{font-size:22px;margin-bottom:10px;display:block;}
+.info-card-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px;line-height:1.25;}
+.info-card-body{font-size:13px;font-weight:300;line-height:1.65;color:var(--ink-mid);}
+.info-card-body strong{font-weight:600;color:var(--ink);}
+
+/* Timing */
+.time-row{display:flex;align-items:flex-start;gap:16px;padding:16px 0;border-bottom:1px solid var(--cream-dark);}
+.time-row:last-child{border-bottom:none;}
+.time-badge{background:var(--navy);color:var(--gold-light);font-family:'Playfair Display',serif;font-size:13px;font-weight:700;padding:6px 12px;border-radius:2px;white-space:nowrap;flex-shrink:0;}
+.time-title{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:4px;}
+.time-body{font-size:13px;font-weight:300;line-height:1.6;color:var(--ink-mid);}
+
+/* Curriculum table */
+.curr-table{width:100%;border-collapse:collapse;margin-top:4px;}
+.curr-table th{background:var(--navy);color:var(--gold-light);font-family:'Source Serif 4',serif;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:10px 14px;text-align:left;}
+.curr-table td{padding:10px 14px;font-size:12.5px;font-weight:300;color:var(--ink-mid);line-height:1.5;border-bottom:1px solid var(--cream-dark);vertical-align:top;}
+.curr-table tr:nth-child(even) td{background:var(--white);}
+.curr-table td:first-child{font-weight:600;color:var(--navy);width:22%;}
+.curr-table td:nth-child(2){width:30%;}
+
+/* World strips */
+.world-header-strip{padding:20px 60px;display:flex;align-items:center;gap:16px;}
+.world-header-strip.seabright{background:var(--seabright);}
+.world-header-strip.lighthouse{background:var(--lighthouse);}
+.world-header-strip.sunshare{background:var(--sunshare);}
+.world-header-strip.observatory{background:var(--observatory);}
+.world-emoji{font-size:28px;}
+.world-strip-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--white);line-height:1.2;}
+.world-strip-sub{font-size:12px;font-weight:300;color:rgba(255,255,255,.65);margin-top:2px;}
+.world-body{padding:28px 60px 36px;}
+.world-snapshot{background:var(--cream-dark);border-radius:3px;padding:14px 18px;margin-bottom:20px;font-size:13px;font-weight:300;line-height:1.65;color:var(--ink-mid);font-style:italic;}
+.world-snapshot strong{font-style:normal;font-weight:600;color:var(--ink);}
+.outcomes-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;}
+.outcome-tag{font-size:10.5px;font-weight:600;letter-spacing:.06em;padding:4px 10px;border-radius:2px;background:var(--cream-dark);color:var(--navy);}
+
+/* Discussion questions */
+.dq-list{display:flex;flex-direction:column;gap:12px;margin-bottom:18px;}
+.dq-card{display:flex;gap:12px;align-items:flex-start;}
+.dq-num{width:24px;height:24px;border-radius:50%;background:var(--navy);color:var(--gold-light);font-family:'Playfair Display',serif;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.dq-num.seabright{background:var(--seabright);}
+.dq-num.lighthouse{background:var(--lighthouse);}
+.dq-num.sunshare{background:var(--sunshare);}
+.dq-num.observatory{background:var(--observatory);}
+.dq-q{font-family:'Playfair Display',serif;font-size:15px;font-weight:400;font-style:italic;color:var(--ink);line-height:1.5;margin-bottom:4px;}
+.dq-note{font-size:12px;font-weight:300;line-height:1.6;color:var(--slate);}
+.dq-note strong{font-weight:600;color:var(--ink-mid);}
+
+/* Sensitivity flag */
+.sensitivity-flag{background:var(--coral-pale);border-left:4px solid var(--coral);border-radius:0 3px 3px 0;padding:12px 16px;margin-top:16px;}
+.sensitivity-label{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--coral);margin-bottom:4px;}
+.sensitivity-body{font-size:12.5px;font-weight:300;line-height:1.6;color:var(--ink-mid);}
+.sensitivity-body strong{font-weight:600;color:var(--ink);}
+
+/* Activities */
+.activity-card{background:var(--white);border-radius:3px;padding:22px;border-left:4px solid var(--teal);}
+.activity-num{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);margin-bottom:6px;}
+.activity-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px;}
+.activity-meta{display:flex;gap:12px;margin-bottom:10px;flex-wrap:wrap;}
+.activity-chip{font-size:10px;font-weight:600;letter-spacing:.08em;padding:3px 8px;border-radius:2px;background:var(--teal-pale);color:var(--teal);}
+.activity-body{font-size:13px;font-weight:300;line-height:1.65;color:var(--ink-mid);}
+.activity-body strong{font-weight:600;color:var(--ink);}
+
+/* Reflection */
+.reflect-q{padding:14px 0;border-bottom:1px solid var(--cream-dark);display:flex;gap:14px;align-items:flex-start;}
+.reflect-q:last-child{border-bottom:none;}
+.reflect-label{font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);flex-shrink:0;width:60px;padding-top:2px;}
+.reflect-text{font-size:13.5px;font-weight:300;line-height:1.65;color:var(--ink-mid);flex:1;}
+.scale-box{width:28px;height:28px;border:1.5px solid var(--cream-dark);border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--slate);}
+
+/* Safeguarding */
+.safe-header{background:var(--navy);padding:28px 60px;display:flex;align-items:center;gap:16px;}
+.safe-icon{font-size:32px;}
+.safe-step{display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--cream-dark);}
+.safe-step:last-child{border-bottom:none;}
+.safe-step-num{width:32px;height:32px;border-radius:50%;background:var(--navy);color:var(--white);font-family:'Playfair Display',serif;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.safe-step-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--navy);margin-bottom:4px;}
+.safe-step-body{font-size:13px;font-weight:300;line-height:1.65;color:var(--ink-mid);}
+.safe-step-body strong{font-weight:600;color:var(--ink);}
+.trigger-row{background:var(--cream-dark);border-radius:3px;padding:16px 20px;margin-bottom:10px;display:flex;gap:12px;align-items:flex-start;}
+.trigger-tag{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--white);background:var(--coral);padding:3px 8px;border-radius:2px;white-space:nowrap;flex-shrink:0;margin-top:2px;}
+.trigger-body{font-size:12.5px;font-weight:300;line-height:1.6;color:var(--ink-mid);}
+.trigger-body strong{font-weight:600;color:var(--ink);}
+
+/* Closing */
+.closing{background:var(--navy);padding:44px 60px;display:flex;flex-direction:column;gap:24px;}
+.closing-q{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;font-style:italic;color:var(--white);line-height:1.3;}
+.closing-q em{color:var(--gold-light);font-style:normal;}
+.closing-body{font-size:15px;font-weight:300;line-height:1.75;color:rgba(255,255,255,.65);max-width:580px;}
+.closing-body strong{color:var(--white);font-weight:400;}
+.closing-rule{width:100%;height:1px;background:rgba(200,144,26,.2);}
+.closing-footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.closing-logo{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:rgba(255,255,255,.45);}
+.closing-logo span{color:var(--gold-light);font-style:italic;}
+</style>
+</head>
+<body>
+
+<div class="no-print">
+  <strong>When Mira Calls  -  Educator Guide</strong> &nbsp;·&nbsp;
+  For teachers, youth workers, and facilitators &nbsp;·&nbsp; Print or read on screen
+</div>
+
+<div class="guide-wrap">
+
+<!-- COVER -->
+<div class="page">
+  <div class="cover">
+    <div class="cover-glow"></div>
+    <div style="display:flex;flex-direction:column;gap:18px;">
+      <div class="cover-bar">
+        <div class="cover-bar-line"></div>
+        <p class="cover-eyebrow">Educator Guide · When Mira Calls</p>
+        <div class="cover-bar-line"></div>
+      </div>
+      <h1 class="h1">For teachers,<br><em>facilitators</em><br>and youth workers</h1>
+      <p class="cover-sub">Everything you need to use <strong>When Mira Calls</strong> in a classroom, youth group, or after-school setting  -  without needing to be a cybersecurity expert. The game does the teaching. This guide helps you get the most from it.</p>
+    </div>
+    <div class="cover-bottom">
+      <div class="cover-stat"><div class="cover-stat-num">11–13</div><div class="cover-stat-label">Target age range</div></div>
+      <div class="cover-stat"><div class="cover-stat-num">3–5h</div><div class="cover-stat-label">Total play time across all worlds</div></div>
+      <div class="cover-stat"><div class="cover-stat-num">9</div><div class="cover-stat-label">Online safety skills covered</div></div>
+      <div class="cover-stat"><div class="cover-stat-num">15</div><div class="cover-stat-label">Badges earned across the journey</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 1: ABOUT -->
+<div class="page">
+  <div class="section">
+    <div class="section-header">
+      <p class="eyebrow">Section 1</p>
+      <h2 class="h2">About the game</h2>
+      <div class="gold-rule"></div>
+    </div>
+    <p class="body" style="margin-bottom:18px;">When Mira Calls is a narrative adventure game for ages 11–13. A child receives a letter from an aunt they never knew they had. She is missing and needs their help. What follows is a journey across three worlds  -  a fishing village, a busy town square, and a hilltop observatory  -  each in quiet crisis. At every stop the child figures out what went wrong and why. The cybersecurity lessons arrive through the story, not as interruptions to it.</p>
+    <div class="three-col" style="margin-bottom:20px;">
+      <div class="info-card navy">
+        <span class="info-card-icon">🎮</span>
+        <p class="info-card-title">Format</p>
+        <p class="info-card-body">Browser-based adventure game. No download, no account, no personal data collected. Progress saves locally on the device. Works on tablets, laptops, and desktop computers.</p>
+      </div>
+      <div class="info-card gold">
+        <span class="info-card-icon">⏱</span>
+        <p class="info-card-title">Time</p>
+        <p class="info-card-body">Each world takes 45–90 minutes. Full game is 3–5 hours. Individual worlds work as standalone sessions. See Section 3 for detailed timing.</p>
+      </div>
+      <div class="info-card teal">
+        <span class="info-card-icon">👥</span>
+        <p class="info-card-title">Group size</p>
+        <p class="info-card-body">Individual, pairs, small groups of 3–4, or whole class on a shared screen. Each model has different advantages  -  see Section 2.</p>
+      </div>
+    </div>
+    <div class="rule" style="margin-bottom:18px;"></div>
+    <p class="eyebrow" style="margin-bottom:10px;">Topics covered</p>
+    <div class="two-col">
+      <div>
+        <p class="body" style="margin-bottom:7px;"><strong>World 0  -  Home:</strong> Tutorial only. No lesson content.</p>
+        <p class="body" style="margin-bottom:7px;"><strong>World 1  -  Seabright:</strong> Phishing, red flags, scam ads, responding to scams.</p>
+        <p class="body" style="margin-bottom:7px;"><strong>Lighthouse Bridge:</strong> Password strength, passphrases, the strongbox mechanic.</p>
+        <p class="body"><strong>World 2  -  Sunshare Square:</strong> Digital footprint, internet permanence, online trust and grooming warning signs, cyberbullying (all three positions), relational sharing, AI nonconsensual imagery (signpost), password hygiene and reuse.</p>
+      </div>
+      <div>
+        <p class="body" style="margin-bottom:7px;"><strong>World 3  -  Observatory:</strong> Smishing, vishing, MFA, social engineering, the final synthesis test.</p>
+        <p class="body" style="margin-bottom:7px;"><strong>Sensitive content:</strong> Cyberbullying including the perpetrator position; online grooming warning signs; AI-generated nonconsensual imagery (brief signpost only). See Section 6 for safeguarding guidance.</p>
+        <p class="body"><strong>Not covered in depth:</strong> Radicalisation and extremism (named as a pattern only); financial fraud beyond email and ad scams; explicit sexual content of any kind.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2: HOW TO USE IT -->
+<div class="page">
+  <div class="section">
+    <div class="section-header">
+      <p class="eyebrow">Section 2</p>
+      <h2 class="h2">How to use it</h2>
+      <div class="gold-rule"></div>
+      <p class="body">The game is built on one principle that matters for facilitation: <strong>lessons land best when they arrive through experience, not instruction.</strong> The game delivers lessons through character stories and choices. Your role is to create space for reflection after play  -  not to pre-teach the content before it.</p>
+    </div>
+    <p class="eyebrow" style="margin-bottom:12px;">Three models of use</p>
+    <div class="three-col" style="margin-bottom:22px;">
+      <div class="info-card navy">
+        <p class="info-card-title">Individual play</p>
+        <p class="info-card-body">Each child plays on their own device at their own pace. Follow with structured discussion or the reflection tool (Section 7). Works as homework between sessions if devices are available.</p>
+      </div>
+      <div class="info-card sunshare">
+        <p class="info-card-title">Paired or small group</p>
+        <p class="info-card-body">Two to four children share a device and discuss choices together as they play. The choice points become group decisions. Disagreements are productive. <strong>Best model for deepening understanding.</strong></p>
+      </div>
+      <div class="info-card gold">
+        <p class="info-card-title">Whole class, shared screen</p>
+        <p class="info-card-body">One device projected to the class. Pause at each decision point for group discussion before continuing. Time-intensive but high-impact. Best for introducing the game and ensuring all students encounter key moments together.</p>
+      </div>
+    </div>
+    <div style="background:var(--gold-pale);border:1px solid rgba(200,144,26,.25);border-radius:3px;padding:18px 22px;margin-bottom:18px;">
+      <p class="body"><strong>The most important facilitation principle  -  bookend, do not interrupt.</strong> Resist pausing mid-scene to deliver the lesson. The scene is the lesson. Pausing breaks the emotional momentum that makes it stick. Let students play through a complete scene or world, then discuss. Every question in Section 5 is designed to be asked after play, not during it.</p>
+    </div>
+    <p class="eyebrow" style="margin-bottom:10px;">Five-minute activator  -  run before World 1</p>
+    <div style="background:var(--white);border-radius:3px;padding:18px 22px;border-left:4px solid var(--teal);">
+      <p class="body" style="margin-bottom:8px;"><strong>The stranger question:</strong> Ask students to think of three things they would not tell a stranger who walked up to them on the street. Name them. Then ask: are any of those things currently visible on your public social media profile to anyone who searches for you?</p>
+      <p class="small">Takes five minutes, no devices needed. Creates the cognitive frame that makes World 2 land. Do not extend  -  leave it open and let the game close it.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3: TIMING -->
+<div class="page">
+  <div class="section">
+    <div class="section-header">
+      <p class="eyebrow">Section 3</p>
+      <h2 class="h2">Timing and session planning</h2>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="time-row">
+      <div class="time-badge">15–20 min</div>
+      <div>
+        <p class="time-title">World 0  -  Home (Tutorial)</p>
+        <p class="time-body">Movement, inventory, inspecting objects, choices, saving. No lesson content. Can be skipped for confident players. <strong>Do not skip for less confident players</strong>  -  the tutorial builds the confidence that makes the rest accessible.</p>
+      </div>
+    </div>
+    <div class="time-row">
+      <div class="time-badge">50–70 min</div>
+      <div>
+        <p class="time-title">World 1  -  Seabright</p>
+        <p class="time-body">6 scenes + 2 minigames + 6 badges. Complete arc, satisfying resolution. <strong>Recommended as the first full session.</strong> Minigame 1 (Real or Fake?): 8–12 min. Minigame 2 (Danger on the Screen): 6–10 min.</p>
+      </div>
+    </div>
+    <div class="time-row">
+      <div class="time-badge">25–35 min</div>
+      <div>
+        <p class="time-title">The Lighthouse Bridge</p>
+        <p class="time-body">4 scenes + 1 passphrase minigame. Usually played as the end of the Seabright session or the start of Sunshare Square. The passphrase set here carries through to the Observatory. <strong>Remind students to remember their passphrase.</strong></p>
+      </div>
+    </div>
+    <div class="time-row">
+      <div class="time-badge">70–90 min</div>
+      <div>
+        <p class="time-title">World 2  -  Sunshare Square</p>
+        <p class="time-body">9 scenes + 2 minigames + 4 badges. The longest world, the most emotionally complex material. <strong>Allow extra discussion time after this world.</strong> Consider splitting across two sessions: Scenes 1–4 first, then Minigame 2 and Scenes 4.5–5.</p>
+      </div>
+    </div>
+    <div class="time-row">
+      <div class="time-badge">55–75 min</div>
+      <div>
+        <p class="time-title">World 3  -  The Observatory</p>
+        <p class="time-body">7 scenes + 1 final minigame + 4 badges. The final minigame (Who Is the Real Aunt Mira?) requires synthesis across all worlds  -  allow 10–15 minutes. <strong>Do not split across sessions</strong>  -  the emotional payoff of the reunion requires the twin reveal to be fresh.</p>
+      </div>
+    </div>
+    <div style="background:var(--cream-dark);border-radius:3px;padding:14px 18px;margin-top:4px;">
+      <p class="small"><strong>Total:</strong> 3–5 hours of gameplay. A four-session programme  -  one per world, combining Lighthouse with Seabright  -  works well within a typical school half-term unit. Each world can also stand alone.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4: CURRICULUM -->
+<div class="page">
+  <div class="section">
+    <div class="section-header">
+      <p class="eyebrow">Section 4</p>
+      <h2 class="h2">Curriculum links</h2>
+      <div class="gold-rule"></div>
+      <p class="body">The table below maps the game's content to key curriculum frameworks. Links are indicative  -  specific references vary by institution and national framework. The game is designed to complement, not replace, existing online safety provision.</p>
+    </div>
+    <table class="curr-table">
+      <thead>
+        <tr><th>Framework</th><th>Relevant strand</th><th>Game content that addresses it</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>PSHE (UK)</td>
+          <td>Online safety and harms; managing personal information; recognising risky situations</td>
+          <td>All worlds. Specifically: Seabright (recognising scams, responding to harm), Sunshare Square (digital footprint, grooming signs, cyberbullying), Observatory (social engineering pattern)</td>
+        </tr>
+        <tr>
+          <td>RSE / RSHE</td>
+          <td>Online relationships; consent; sharing images; seeking help</td>
+          <td>Sunshare Square: relational sharing (Posts 8 &amp; 9), AI nonconsensual imagery (Amara's story), cyberbullying three positions (Scene 4.5), online trust and grooming warning signs (Scene 3.5)</td>
+        </tr>
+        <tr>
+          <td>Computing KS3</td>
+          <td>Digital literacy; cybersecurity; responsible use of technology</td>
+          <td>All worlds. Specifically: password strength and passphrases (Lighthouse), phishing mechanics (Seabright), MFA (Observatory), digital footprint (Sunshare Square)</td>
+        </tr>
+        <tr>
+          <td>SMSC</td>
+          <td>Social development; moral understanding; cultural awareness of digital life</td>
+          <td>Cyberbullying scene  -  bystander, victim, perpetrator positions. Jaylen's admission. Social engineering as a named moral pattern. Deliberate sharing vs silence.</td>
+        </tr>
+        <tr>
+          <td>UK Online Safety Education Framework</td>
+          <td>Managing online information; privacy and security; online relationships; online reputation; online bullying</td>
+          <td>Comprehensive coverage across all worlds. Strongest alignment: online relationships (Sunshare Square), online bullying (Scene 4.5), managing information (footprint, permanence), privacy and security (passwords, MFA)</td>
+        </tr>
+        <tr>
+          <td>Safeguarding context</td>
+          <td>Children's awareness of grooming; identifying and reporting concerning online contact</td>
+          <td>Sunshare Square Scene 3.5: secrecy as a red flag, platform migration as warning sign, tell-before-you-decide. Observatory: social engineering manipulation pattern broadly applied.</td>
+        </tr>
+        <tr>
+          <td>ISTE Standards</td>
+          <td>Digital citizen: rights and responsibilities in digital environments</td>
+          <td>Digital footprint, internet permanence, relational sharing, cyberbullying three positions, password security, MFA.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- SECTION 5a: SEABRIGHT -->
+<div class="page">
+  <div class="world-header-strip seabright">
+    <div class="world-emoji">⚓</div>
+    <div>
+      <p class="world-strip-title">World 1  -  Seabright</p>
+      <p class="world-strip-sub">Discussion guide · Section 5a</p>
+    </div>
+  </div>
+  <div class="world-body">
+    <div class="world-snapshot">
+      A fishing village paralysed by scam messages. Emails pretending to be from the Harbour Authority, fake delivery texts, an official-sounding phone call, fake ads on the village tablet. Accounts drained, boats grounded. The child works through what happened with each fisherman. <strong>Key emotional moment:</strong> Bram waited three days to tell anyone because he was embarrassed. Old Finn says: "We are not stupid people."
+    </div>
+    <div class="outcomes-row">
+      <span class="outcome-tag">Phishing Spotter</span><span class="outcome-tag">Red Flag Detective</span><span class="outcome-tag">Message Detective</span><span class="outcome-tag">Countdown Buster</span><span class="outcome-tag">First Responder</span><span class="outcome-tag">Quick Reactions</span>
+    </div>
+    <p class="eyebrow" style="margin-bottom:12px;color:var(--seabright);">After playing  -  discussion questions</p>
+    <div class="dq-list">
+      <div class="dq-card">
+        <div class="dq-num seabright">1</div>
+        <div>
+          <p class="dq-q">"Old Finn said they are not stupid people  -  but they still fell for it. Why do smart people get caught by scams?"</p>
+          <p class="dq-note">Key insight: scams are designed by professionals to trigger urgency and fear, which bypass careful thinking. This is not a character flaw. <strong>Paired discussion first, then share with the group.</strong></p>
+        </div>
+      </div>
+      <div class="dq-card">
+        <div class="dq-num seabright">2</div>
+        <div>
+          <p class="dq-q">"Bram waited three days before telling anyone. What did the delay cost him  -  and why do you think he waited?"</p>
+          <p class="dq-note">Opens the conversation about shame as a barrier to reporting. <strong>Key principle:</strong> telling someone quickly is always better than waiting, even if waiting feels safer.</p>
+        </div>
+      </div>
+      <div class="dq-card">
+        <div class="dq-num seabright">3</div>
+        <div>
+          <p class="dq-q">"What are the four steps to take if you think you have been scammed  -  and why does the order matter?"</p>
+          <p class="dq-note">Tell someone → do not engage → report → block. The order matters because telling a trusted adult first means an adult can help with the next steps. <strong>Ask for the order before supplying it.</strong></p>
+        </div>
+      </div>
+      <div class="dq-card">
+        <div class="dq-num seabright">4</div>
+        <div>
+          <p class="dq-q">"If a message arrived on your phone right now saying your account would be closed in two hours  -  walk me through exactly what you would do."</p>
+          <p class="dq-note">Brings it into their real life. Expected: pause, check the sender address independently, do not click the link, verify through the real website or app. <strong>If they say "I would just check it"  -  ask how, specifically.</strong></p>
+        </div>
+      </div>
+    </div>
+    <div class="sensitivity-flag">
+      <p class="sensitivity-label">Sensitivity note</p>
+      <p class="sensitivity-body">Some students may have personal experience of a family member being scammed. The shame framing in Bram's story may resonate more than expected. If a student discloses that financial harm has occurred to a child or family, follow your school's safeguarding protocol.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 5b: LIGHTHOUSE -->
+<div class="page">
+  <div class="world-header-strip lighthouse">
+    <div class="world-emoji">🔦</div>
+    <div>
+      <p class="world-strip-title">The Lighthouse Bridge</p>
+      <p class="world-strip-sub">Discussion guide · Section 5b</p>
+    </div>
+  </div>
+  <div class="world-body">
+    <div class="world-snapshot">
+      At the top of the cliff the child knocks on the lighthouse door. A woman opens it  -  she has Aunt Mira's face. She is not Mira. She is Celia. She gives the child the Golden Knot, Mira's Notebook, and the Strongbox. The strongbox needs a passphrase. <strong>Key metaphor:</strong> "A knot holds not by its complexity, but by its length and its commitment to itself."
+    </div>
+    <div class="outcomes-row">
+      <span class="outcome-tag">Password strength understood</span><span class="outcome-tag">Passphrase set and memorised</span><span class="outcome-tag">Shadow Man introduced</span>
+    </div>
+    <p class="eyebrow" style="margin-bottom:12px;color:var(--lighthouse);">After playing  -  discussion questions</p>
+    <div class="dq-list">
+      <div class="dq-card">
+        <div class="dq-num lighthouse">1</div>
+        <div>
+          <p class="dq-q">"Why is 'tiger cloud lamp river' a stronger password than 'Pa$$w0rd1'? Explain it to someone who has never heard of passphrases."</p>
+          <p class="dq-note">Ask them to explain it peer-to-peer, not to you. The answer: 23 characters vs 9, length multiplies difficulty enormously, no predictable pattern. <strong>If they struggle, ask: which is longer?</strong></p>
+        </div>
+      </div>
+      <div class="dq-card">
+        <div class="dq-num lighthouse">2</div>
+        <div>
+          <p class="dq-q">"Celia said the Shadow Man follows gaps  -  weak passwords, unlocked boxes, things left unprotected. What gaps might exist in your own digital life right now?"</p>
+          <p class="dq-note">Expect answers about reused passwords, easy-to-guess passwords, accounts not updated. <strong>Do not shame specific answers</strong>  -  the point is awareness, not confession.</p>
+        </div>
+      </div>
+    </div>
+    <div style="background:var(--gold-pale);border:1px solid rgba(200,144,26,.2);border-radius:3px;padding:14px 18px;margin-top:16px;">
+      <p style="font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Follow-up activity</p>
+      <p class="activity-body"><strong>Passphrase challenge:</strong> Give students two minutes to create a passphrase of four or more random, unrelated words  -  nothing connected to their name, pets, school, or interests. Then ask: how would you remember it? This surfaces the practical challenge and opens the password manager conversation without requiring a full lesson.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 5c: SUNSHARE SQUARE -->
+<div class="page">
+  <div class="world-header-strip sunshare">
+    <div class="world-emoji">📱</div>
+    <div>
+      <p class="world-strip-title">World 2  -  Sunshare Square</p>
+      <p class="world-strip-sub">Discussion guide · Section 5c</p>
+    </div>
+  </div>
+  <div class="world-body">
+    <div class="world-snapshot">
+      Sunshare Square is built around sharing  -  everything open, everything visible. But someone has been using that openness against young people the same age as the player. Jaylen's gaming account taken over via security questions answered from his public posts. Priya impersonated using her profile information. Soren asked to keep an online friendship secret and move to an unknown app. Maya silent in a group chat where harm is happening. And Amara, quietly on a bench  -  AI-generated fake images of her, shared around her school. <strong>This is the most emotionally dense world. Build in discussion time after it.</strong>
+    </div>
+    <div class="outcomes-row">
+      <span class="outcome-tag">Footprint Tracker</span><span class="outcome-tag">Deliberate Sharer</span><span class="outcome-tag">Password Hygienist</span><span class="outcome-tag">Safe Editor</span>
+    </div>
+    <p class="eyebrow" style="margin-bottom:12px;color:var(--sunshare);">After playing  -  discussion questions</p>
+    <div class="dq-list">
+      <div class="dq-card">
+        <div class="dq-num sunshare">1</div>
+        <div>
+          <p class="dq-q">"What could a stranger learn about Priya from her public profile  -  without her realising she had shared any of it?"</p>
+          <p class="dq-note">School name, teacher's name, weekly routine, friend's username, rough home location. <strong>Key insight: it is the combination, not any single post.</strong> Then: is there anything like that on yours?</p>
+        </div>
+      </div>
+      <div class="dq-card">
+        <div class="dq-num sunshare">2</div>
+        <div>
+          <p class="dq-q">"Soren was asked to keep an online friendship secret and move to an unknown app. Why is the secrecy request the red flag  -  even before anything else happened?"</p>
+          <p class="dq-note">Genuine relationships do not require hiding from the people who care about you. The request to be secret is itself the signal. Ask: what would you do? Who would you tell?</p>
+        </div>
+      </div>
+      <div class="dq-card">
+        <div class="dq-num sunshare">3</div>
+        <div>
+          <p class="dq-q">"Maya had been in the group for three days without saying anything. The game said that was a choice. Do you agree  -  and what were her options?"</p>
+          <p class="dq-note">The bystander position. Silence is read as approval by the person being targeted. <strong>Expect disagreement</strong>  -  some students will argue Maya was protecting herself. That is a productive disagreement to have.</p>
+        </div>
+      </div>
+      <div class="dq-card">
+        <div class="dq-num sunshare">4</div>
+        <div>
+          <p class="dq-q">"Jaylen admitted he had laughed at content in a group chat last year. He did not see himself as a bully. What does that tell us about how online harm works?"</p>
+          <p class="dq-note">Most harm is not done by people who identify as bullies  -  it is done by people who did not think about the person on the other end. <strong>Give this question space. Do not rush to the moral.</strong></p>
+        </div>
+      </div>
+    </div>
+    <div class="sensitivity-flag">
+      <p class="sensitivity-label">Sensitivity note  -  three areas requiring extra care in this world</p>
+      <p class="sensitivity-body">
+        <strong>Cyberbullying (Scene 4.5):</strong> Students may identify strongly with one of the three positions. Allow space without putting individuals on the spot. If a student discloses current bullying, follow your school's anti-bullying and safeguarding protocols.<br><br>
+        <strong>Online grooming warning signs (Scene 3.5):</strong> The secrecy and platform migration scenario may prompt a student to disclose a concerning online contact. Treat as a potential safeguarding matter  -  thank the student, do not probe further, involve the DSL immediately.<br><br>
+        <strong>AI-generated nonconsensual imagery (Scene 5):</strong> Introduced briefly through Amara. If a student discloses that this has happened to them or someone they know, this is a serious safeguarding matter. Do not manage it in the classroom  -  involve the DSL immediately.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 5d: OBSERVATORY -->
+<div class="page">
+  <div class="world-header-strip observatory">
+    <div class="world-emoji">🔭</div>
+    <div>
+      <p class="world-strip-title">World 3  -  The Observatory</p>
+      <p class="world-strip-sub">Discussion guide · Section 5d</p>
+    </div>
+  </div>
+  <div class="world-body">
+    <div class="world-snapshot">
+      Two identical women wait at the top of the hill. Both have Aunt Mira's face. Both say the same thing. One is real. One is a trap. The child explores the Observatory  -  learning smishing, vishing, and MFA through what they find  -  while watching both women interact differently with each discovery. The impostor creates urgency, claims authority, tries to bypass careful thinking. The real Mira waits. The final minigame asks the child to use everything learned to identify which one is real. <strong>The answer is in the behaviour, not the face.</strong>
+    </div>
+    <div class="outcomes-row">
+      <span class="outcome-tag">Smishing Spotter</span><span class="outcome-tag">Vishing Spotter</span><span class="outcome-tag">Second Lock (MFA)</span><span class="outcome-tag">Social Engineer Spotter</span>
+    </div>
+    <p class="eyebrow" style="margin-bottom:12px;color:var(--observatory);">After playing  -  discussion questions</p>
+    <div class="dq-list">
+      <div class="dq-card">
+        <div class="dq-num observatory">1</div>
+        <div>
+          <p class="dq-q">"How did you work out which one was really Aunt Mira? What were the specific signals that told you the other one was the impostor?"</p>
+          <p class="dq-note">This is the synthesis question  -  it contains the whole game. Expected: urgency ("we are running out of time"), authority ("you have to trust me"), pressure to skip thinking, knowledge she should not have had. <strong>Do not supply the answer.</strong></p>
+        </div>
+      </div>
+      <div class="dq-card">
+        <div class="dq-num observatory">2</div>
+        <div>
+          <p class="dq-q">"The game called it social engineering. What does that mean  -  and where else might you see those same tactics used?"</p>
+          <p class="dq-note">Manipulating feelings rather than breaking systems. <strong>Ask where else the pattern appears</strong>  -  in advertising, peer pressure, group dynamics, online recruitment. It extends far beyond scams.</p>
+        </div>
+      </div>
+      <div class="dq-card">
+        <div class="dq-num observatory">3</div>
+        <div>
+          <p class="dq-q">"Why does two-factor authentication make an account so much harder to access  -  even if someone knows your password?"</p>
+          <p class="dq-note">Something you know AND something you have. <strong>Practical follow-up:</strong> which of your accounts have two-factor on? How would you turn it on for your email?</p>
+        </div>
+      </div>
+      <div class="dq-card">
+        <div class="dq-num observatory">4</div>
+        <div>
+          <p class="dq-q">"Mira said: 'He doesn't stop existing  -  but he stops mattering to the people who know what you know now.' What did she mean?"</p>
+          <p class="dq-note">The risks do not disappear. Knowledge changes the relationship to them. <strong>Allow it to land quietly</strong>  -  do not rush to a follow-up question.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 6: ACTIVITIES -->
+<div class="page">
+  <div class="section">
+    <div class="section-header">
+      <p class="eyebrow">Section 6</p>
+      <h2 class="h2">Follow-up activities</h2>
+      <div class="gold-rule"></div>
+      <p class="body">Four offline activities that extend the learning without a screen. Each works as a standalone lesson, homework task, or end-of-unit activity.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div class="activity-card">
+        <p class="activity-num">Activity 1</p>
+        <p class="activity-title">The Profile Audit</p>
+        <div class="activity-meta"><span class="activity-chip">20–30 min</span><span class="activity-chip">Pairs or small groups</span><span class="activity-chip">Connects to: Sunshare Square</span></div>
+        <p class="activity-body">Create a fictional social media profile for a made-up 12-year-old. Give them a name, a school, a few posts, a profile photo description. Swap with another group and answer: what does a stranger now know? What could they use, and how? <strong>The fictional character protects students from feeling personally exposed while making the lesson concrete.</strong></p>
+      </div>
+      <div class="activity-card">
+        <p class="activity-num">Activity 2</p>
+        <p class="activity-title">Spot the Red Flag</p>
+        <div class="activity-meta"><span class="activity-chip">15–20 min</span><span class="activity-chip">Individual or pairs</span><span class="activity-chip">Connects to: Seabright, Observatory</span></div>
+        <p class="activity-body">Give students five written messages  -  a mix of real and fake. Identify the red flags in each fake one. Then ask: which was hardest to spot, and why? The hardest ones are always the most personalised  -  professional language, real-sounding details, no obvious errors. <strong>Lesson: sophistication is not legitimacy.</strong></p>
+      </div>
+      <div class="activity-card">
+        <p class="activity-num">Activity 3</p>
+        <p class="activity-title">Three Positions  -  One Scenario</p>
+        <div class="activity-meta"><span class="activity-chip">25–35 min</span><span class="activity-chip">Groups of 3</span><span class="activity-chip">Connects to: Sunshare Square Scene 4.5</span></div>
+        <p class="activity-body">Give each group a written cyberbullying scenario. Each person takes one position  -  targeted, bystander, contributor. Each writes three sentences: what they are feeling, what they are thinking, what they could do differently. Groups then share across positions. <strong>The perpetrator position is the most important to give space to</strong>  -  it is the one most likely to change actual behaviour.</p>
+      </div>
+      <div class="activity-card">
+        <p class="activity-num">Activity 4</p>
+        <p class="activity-title">A Letter to a Younger Sibling</p>
+        <div class="activity-meta"><span class="activity-chip">20–30 min</span><span class="activity-chip">Individual</span><span class="activity-chip">Connects to: all worlds</span></div>
+        <p class="activity-body">Write a short letter to a fictional 9-year-old sibling about to get their first phone. Explain one thing learned from the game  -  in language a 9-year-old would understand. No jargon. No lists. Just one thing, explained clearly. <strong>If they can explain it simply, they understand it deeply.</strong> This is the best assessment of understanding in this guide.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 7: REFLECTION TOOL -->
+<div class="page">
+  <div class="section">
+    <div class="section-header">
+      <p class="eyebrow">Section 7</p>
+      <h2 class="h2">Before and after reflection tool</h2>
+      <div class="gold-rule"></div>
+      <p class="body">Not a test. Completed by the student before playing and again after. The shift in responses is evidence of learning. <strong>Reassure students there are no wrong answers</strong>  -  this is about what they think, not what they know.</p>
+    </div>
+    <div style="background:var(--white);border-radius:3px;padding:24px 28px;margin-bottom:16px;">
+      <p class="eyebrow" style="margin-bottom:14px;">Name: _________________________________ &nbsp;&nbsp; Date before: ____________ &nbsp;&nbsp; Date after: ____________</p>
+      <div class="reflect-q">
+        <p class="reflect-label">Q1</p>
+        <div class="reflect-text">A text message arrives saying your account will be closed in one hour unless you reply. What do you do?
+          <div style="margin-top:8px;border-bottom:1px solid var(--cream-dark);height:26px;"></div>
+          <div style="margin-top:6px;border-bottom:1px solid var(--cream-dark);height:26px;"></div>
+        </div>
+      </div>
+      <div class="reflect-q">
+        <p class="reflect-label">Q2</p>
+        <div class="reflect-text">How confident do you feel spotting a fake email or text message?
+          <div style="display:flex;gap:6px;margin-top:8px;align-items:center;">
+            <span style="font-size:10px;color:var(--slate);">Not at all</span>
+            <div class="scale-box">1</div><div class="scale-box">2</div><div class="scale-box">3</div><div class="scale-box">4</div><div class="scale-box">5</div>
+            <span style="font-size:10px;color:var(--slate);">Very confident</span>
+          </div>
+        </div>
+      </div>
+      <div class="reflect-q">
+        <p class="reflect-label">Q3</p>
+        <div class="reflect-text">Someone you have been gaming with online for three weeks asks you to move your chat to an app your parents have not heard of, and to keep it secret. What do you do?
+          <div style="margin-top:8px;border-bottom:1px solid var(--cream-dark);height:26px;"></div>
+          <div style="margin-top:6px;border-bottom:1px solid var(--cream-dark);height:26px;"></div>
+        </div>
+      </div>
+      <div class="reflect-q">
+        <p class="reflect-label">Q4</p>
+        <div class="reflect-text">You see a mocking post about a classmate being shared around a group chat. You did not post anything yourself. Do you do anything? What?
+          <div style="margin-top:8px;border-bottom:1px solid var(--cream-dark);height:26px;"></div>
+          <div style="margin-top:6px;border-bottom:1px solid var(--cream-dark);height:26px;"></div>
+        </div>
+      </div>
+      <div class="reflect-q">
+        <p class="reflect-label">Q5</p>
+        <div class="reflect-text">What is one thing you would tell a younger child about being safe online?
+          <div style="margin-top:8px;border-bottom:1px solid var(--cream-dark);height:26px;"></div>
+          <div style="margin-top:6px;border-bottom:1px solid var(--cream-dark);height:26px;"></div>
+        </div>
+      </div>
+    </div>
+    <p class="small">Print one per student. Complete before the first session and after the final session. Keep the before copy. Q2 uses a scale for easy tracking. Q1, Q3, Q4, and Q5 are open  -  look for increased specificity, more options named, and a shift from passive ("I would just check") to active responses over time.</p>
+  </div>
+</div>
+
+<!-- SECTION 8: SAFEGUARDING -->
+<div class="page">
+  <div class="safe-header">
+    <div class="safe-icon">🛡</div>
+    <div>
+      <p class="h3-light">Safeguarding and disclosure protocol</p>
+      <p style="font-size:13px;color:rgba(255,255,255,.6);margin-top:4px;">Section 8 · For all facilitators</p>
+    </div>
+  </div>
+  <div class="section" style="background:var(--white);">
+    <p class="body" style="margin-bottom:20px;">When Mira Calls addresses topics that may prompt a student to disclose something that has happened to them or someone they know. This is not a risk  -  it is often a positive outcome of the game creating a safe context to talk. What matters is how the disclosure is handled.</p>
+    <p class="eyebrow" style="margin-bottom:12px;color:var(--coral);">Potential disclosure triggers by world</p>
+    <div style="margin-bottom:24px;">
+      <div class="trigger-row">
+        <span class="trigger-tag">Seabright</span>
+        <p class="trigger-body">Financial scam affecting the student or family. <strong>Action:</strong> acknowledge, do not probe, refer to DSL if financial harm to a child or family is involved.</p>
+      </div>
+      <div class="trigger-row">
+        <span class="trigger-tag">Sunshare Sq.</span>
+        <p class="trigger-body">Current cyberbullying targeting (any position). Concerning online contact involving secrecy or platform migration. AI-generated harmful imagery  -  this is a serious safeguarding matter. <strong>Action:</strong> treat any disclosure from this world as a potential safeguarding matter; involve the DSL promptly.</p>
+      </div>
+      <div class="trigger-row">
+        <span class="trigger-tag">Observatory</span>
+        <p class="trigger-body">Recognition of social engineering patterns in an existing real relationship or online contact. <strong>Action:</strong> if a student identifies a real relationship matching the pattern, do not dismiss. Take details and involve the DSL.</p>
+      </div>
+    </div>
+    <p class="eyebrow" style="margin-bottom:14px;">If a student discloses during a session</p>
+    <div>
+      <div class="safe-step">
+        <div class="safe-step-num">1</div>
+        <div><p class="safe-step-title">Stay calm and listen</p><p class="safe-step-body">Do not show alarm. Say: <strong>"Thank you for telling me. You did the right thing."</strong> Do not ask probing questions or seek more detail than the student volunteers.</p></div>
+      </div>
+      <div class="safe-step">
+        <div class="safe-step-num">2</div>
+        <div><p class="safe-step-title">Do not promise confidentiality</p><p class="safe-step-body">You may need to share what the student has told you with the designated safeguarding lead. Be honest: <strong>"I will need to share this with someone who can help, but I will do that carefully."</strong></p></div>
+      </div>
+      <div class="safe-step">
+        <div class="safe-step-num">3</div>
+        <div><p class="safe-step-title">Do not investigate</p><p class="safe-step-body">Your role is to receive, record, and refer  -  not to investigate. Ask only: <strong>"Can you tell me a little more about what happened?"</strong> Do not press for detail.</p></div>
+      </div>
+      <div class="safe-step">
+        <div class="safe-step-num">4</div>
+        <div><p class="safe-step-title">Record and refer promptly</p><p class="safe-step-body">Write down what was said as close to verbatim as possible using the student's own words. Include time and date. Refer to your Designated Safeguarding Lead <strong>the same day.</strong></p></div>
+      </div>
+    </div>
+    <div style="background:var(--coral-pale);border:1px solid rgba(192,72,40,.2);border-radius:3px;padding:16px 20px;margin-top:16px;">
+      <p class="small" style="color:var(--ink-mid);"><strong style="color:var(--coral);">Important:</strong> This guide does not replace your institution's safeguarding policy. All disclosures must be handled in accordance with your school or organisation's procedures and the relevant national framework. If you are unsure, contact your DSL immediately rather than waiting.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CLOSING -->
+<div class="page">
+  <div class="closing">
+    <div class="gold-rule" style="width:44px;height:3px;background:linear-gradient(to right,#C8901A,#E8B84B);"></div>
+    <p class="closing-q">"He doesn't stop existing. But he stops <em>mattering</em>  -  to the people who know what you know now."</p>
+    <p class="closing-body">That is what Aunt Mira says at the end of the journey. The risks of the online world do not disappear when the game ends. But a child who can name the tactics  -  urgency, fear, authority, secrecy, manufactured belonging  -  is fundamentally more resilient than one who cannot.</p>
+    <p class="closing-body"><strong>Your role is not to be the expert.</strong> The game is the expert. Your role is to create the space in which what the child learned can become something they own  -  a habit of thought, a reflex of caution, a confidence that they can figure it out. The discussions in this guide deepen that ownership. The activities practise it. The reflection tool evidences it.</p>
+    <p class="closing-body">If a student leaves your sessions with one thing, let it be this: <strong>when something feels wrong online, telling someone is always the right call.</strong> Not because the adult will fix it. Because the adult can help them decide what to do next  -  and they do not have to carry it alone.</p>
+    <div class="closing-rule"></div>
+    <div class="closing-footer">
+      <div class="closing-logo">When <span>Mira Calls</span></div>
+      <div>
+        <p style="font-size:12px;color:rgba(255,255,255,.3);">whenmiracalls.com · Educator resources · Ages 11–13</p>
+        <p style="font-size:12px;color:rgba(255,255,255,.3);margin-top:2px;">No personal data collected · No account required · Plays in browser</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>
+
+

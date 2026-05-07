@@ -15,6 +15,7 @@ import StrongboxScene from './StrongboxScene'
 import ItemFocusOverlay from './ItemFocusOverlay'
 import FinalGame from './FinalGame'
 import EditBeforeYouPost from './EditBeforeYouPost'
+import GuidesOverlay from './GuidesOverlay'
 import aunt1 from '../assets/Aunt 1.png'
 import aunt1Left from '../assets/Aunt 1_left.png'
 import aunt1Thinking from '../assets/Aunt 1 - thinking.png'
@@ -211,6 +212,7 @@ function loadProgress() {
   return _savedOnce
 }
 function saveProgress(data) {
+  _savedOnce = null
   try { localStorage.setItem(SAVE_KEY, JSON.stringify(data)) } catch {}
 }
 export function clearProgress() {
@@ -255,9 +257,10 @@ export default function App() {
   const _demoFlagActive = loadDemoModeFlag()
   const _viewAllowed = _demoFlagActive || !['story-observatory', 'demo'].includes(_savedView)
   const _safeView  = ['home','story','story-classic','story-observatory','seabright','phish','analyzer','chest','start-name','start-reveal','start-opener','start-bedroom'].includes(_savedView) && _viewAllowed ? _savedView : 'home'
-  const [view, setView] = useState(DEMO_ONLY ? 'demo-home' : 'landing') // 'landing' | 'home' | 'story' | 'story-classic' | 'story-observatory' | 'phish' | 'analyzer' | 'chest' | 'start-name' | 'start-reveal' | 'start-opener' | 'start-bedroom'
+  const [view, setView] = useState(DEMO_ONLY ? 'demo-home' : 'home') // 'landing' | 'home' | 'story' | 'story-classic' | 'story-observatory' | 'phish' | 'analyzer' | 'chest' | 'start-name' | 'start-reveal' | 'start-opener' | 'start-bedroom'
   const [startNameInput, setStartNameInput] = useState('')
   const [startName, setStartName] = useState(() => sv.startName ?? '')
+  const [isFullPlaythrough, setIsFullPlaythrough] = useState(false)
   const [startBedroomLine, setStartBedroomLine] = useState(() => sv.startBedroomLine ?? 0)
   const [playerName, setPlayerName] = useState(() => DEMO_ONLY ? (loadDemoProgress()?.playerName ?? '') : (sv.playerName ?? ''))
   const [playerNameInput, setPlayerNameInput] = useState('')
@@ -366,6 +369,8 @@ export default function App() {
   const [quizAnswer, setQuizAnswer] = useState(null)
   const [mfaQuizAnswer, setMfaQuizAnswer] = useState(null)
   const [showGameEnd, setShowGameEnd] = useState(false)
+  const [showDevConsole, setShowDevConsole] = useState(false)
+  const [showGuides, setShowGuides] = useState(false)
   const [demoMode,   setDemoMode]   = useState(() => DEMO_ONLY || loadDemoModeFlag())
   const _dp = DEMO_ONLY ? loadDemoProgress() : null
   const [demoStep,   setDemoStep]   = useState(_dp?.demoStep ?? 'obs') // 'obs' | 'context' | 'game' | 'thanks'
@@ -529,6 +534,7 @@ export default function App() {
     if (showStrongboxScene) return // StrongboxScene controls its own advancement
     if (showStrongboxCard) return // StrongboxCardScene controls its own advancement
     if (showTrailRetreat) return // TrailRetreat controls its own advancement
+    if (showGameEnd) { setShowGameEnd(false); setView('home'); return }
 
     if (showMFAQuizScreen) {
       if (mfaQuizAnswer === 'B') observatoryNext()
@@ -552,7 +558,7 @@ export default function App() {
     }
 
     next()
-  }, [showFinalGame, showQuizScreen, quizAnswer, showMFAQuizScreen, mfaQuizAnswer, showPlayerChoice, isObservatoryView, isTyping, next, observatoryNext, revealCurrentLine])
+  }, [showFinalGame, showGameEnd, showQuizScreen, quizAnswer, showMFAQuizScreen, mfaQuizAnswer, showPlayerChoice, isObservatoryView, isTyping, next, observatoryNext, revealCurrentLine])
 
   const handleStoryPrev = useCallback(() => {
     if (isTyping) {
@@ -669,7 +675,7 @@ export default function App() {
         if (e.key === 'ArrowRight' || e.key === 'Enter') {
           if (currentBedroomLine?.waitForLetter || currentBedroomLine?.isChoice || currentBedroomLine?.photoPhase) return
           if (startBedroomLine >= BEDROOM_LINES.length - 1) {
-            setView('home')
+            isFullPlaythrough ? (setOutroLine(0), setView('outro')) : setView('home')
           } else {
             setStartBedroomLine(l => l + 1)
           }
@@ -779,7 +785,7 @@ export default function App() {
             return
           }
           if (seabrightLine >= SB_LINES_COUNT - 1) {
-            setView('home')
+            setLineIndex(0); setTypedLength(0); setIsObservatoryShaking(false); setView('story-observatory')
           } else {
             setSeabrightLine(l => l + 1)
           }
@@ -887,8 +893,10 @@ export default function App() {
   }, [view, seabrightLine])
 
   // Persist progress to localStorage whenever key state changes
+  // Skip saving 'home' so returning to the menu never overwrites the in-progress position
   useEffect(() => {
     if (DEMO_ONLY) return
+    if (view === 'home') return
     saveProgress({ view, sceneIndex, lineIndex, seabrightLine, playerName, startName, startBedroomLine })
   }, [view, sceneIndex, lineIndex, seabrightLine, playerName, startName, startBedroomLine])
 
@@ -901,6 +909,27 @@ export default function App() {
 
   // show top-left back-link only for the standalone game views
   const showGlobalBack = !DEMO_ONLY && ['phish', 'analyzer', 'chest'].includes(view)
+  const showHomeBtn = !DEMO_ONLY && !['home', 'landing', 'demo', 'demo-home'].includes(view)
+
+  // Imperative home button — works with all early returns
+  const _homeBtnRef = useRef(null)
+  useEffect(() => {
+    let btn = _homeBtnRef.current
+    if (!btn) {
+      btn = document.createElement('button')
+      btn.className = 'global-home-btn'
+      btn.setAttribute('aria-label', 'Return to main menu')
+      btn.textContent = '⌂'
+      document.body.appendChild(btn)
+      _homeBtnRef.current = btn
+    }
+    btn.style.display = showHomeBtn ? 'flex' : 'none'
+    const handler = () => { playClick(); setView('home') }
+    btn.addEventListener('click', handler)
+    return () => btn.removeEventListener('click', handler)
+  })
+
+  if (showGuides) return <GuidesOverlay onClose={() => setShowGuides(false)} />
 
   // Outro narration — black screen after title
   if (view === 'outro') {
@@ -1671,13 +1700,16 @@ export default function App() {
     const advanceSB = () => {
       if (isPhoneInspect && !sbInspectDone) return
       if (isUrlPreview && !urlRevealed) return
-      if (seabrightLine >= SB_LINES_COUNT - 1) { setView('home'); return }
+      if (seabrightLine >= SB_LINES_COUNT - 1) {
+        setLineIndex(0); setTypedLength(0); setIsObservatoryShaking(false); setView('story-observatory')
+        return
+      }
       const nextLine = SB_LINES[seabrightLine + 1]
       const nextType = nextLine?.type
       if (nextType === 'phone-email' || nextType === 'phone-inspect' || nextType === 'phone-text' || nextType === 'public-profile') playPhoneBuzz()
       else if (nextType === 'email-redflags' || nextType === 'phishing-info' || nextType === 'feelings-info' || nextType === 'coral-redflags' || nextType === 'phishing-quiz' || nextType === 'coral-quiz' || nextType === 'scam-ad-quiz' || nextType === 'scammed-info' || nextType === 'scammed-steps' || nextType === 'bram-quiz') playCardIn()
       else playClick()
-      sbAtEnd ? setView('home') : setSeabrightLine(l => l + 1)
+      sbAtEnd ? (setLineIndex(0), setTypedLength(0), setIsObservatoryShaking(false), setView('story-observatory')) : setSeabrightLine(l => l + 1)
     }
     const handleUrlHoldStart = (e) => {
       e.preventDefault()
@@ -1919,7 +1951,7 @@ export default function App() {
           )}
 
           {/* Celia character — stays present throughout lighthouse door + interior, dims when silent */}
-          {celiaSectionActive && !isAuntReveal && (
+          {celiaSectionActive && !isAuntReveal && seabrightLine >= 118 && (
             <div className={`seabright-celia-wrap${celiaSpeaking ? ' seabright-celia-wrap--speaking' : ' seabright-celia-wrap--silent'}`}>
               <img src={celiaImage} alt="Celia" className="seabright-celia-img" />
             </div>
@@ -3765,16 +3797,19 @@ export default function App() {
 
   // Home view
   if (view === 'landing') {
-    const hasSavedProgress = _safeView !== 'home'
+    const freshSaveLanding = (() => { try { return JSON.parse(localStorage.getItem(SAVE_KEY) || 'null') || {} } catch { return {} } })()
+    const freshViewLanding = freshSaveLanding.view
+    const freshSafeViewLanding = ['story','story-classic','story-observatory','seabright','phish','analyzer','chest','start-name','start-reveal','start-opener','start-bedroom','outro','doorway','departure','name-entry'].includes(freshViewLanding) ? freshViewLanding : 'home'
+    const hasSavedProgress = freshSafeViewLanding !== 'home'
     return (
       <div className="landing-root">
         <div className="landing-content">
-          <h1 className="landing-title">CyberSafe</h1>
-          <p className="landing-sub">A mystery about the digital dangers hiding in plain sight.</p>
+          <h1 className="landing-title">When Mira Calls</h1>
+          <p className="landing-sub">A digital mystery.</p>
           {hasSavedProgress && (
             <button
               className="landing-enter-btn landing-continue-btn"
-              onClick={() => { playClick(); setView(_safeView) }}
+              onClick={() => { playClick(); setView(freshSafeViewLanding) }}
             >
               Continue
             </button>
@@ -3791,41 +3826,85 @@ export default function App() {
   }
 
   if (view === 'home') {
+    // Read localStorage directly — bypass the _savedOnce cache which may be stale
+    const freshSave = (() => { try { return JSON.parse(localStorage.getItem(SAVE_KEY) || 'null') || {} } catch { return {} } })()
+    const freshView = freshSave.view
+    const freshAllowed = loadDemoModeFlag() || !['story-observatory', 'demo'].includes(freshView)
+    const freshSafeView = ['story','story-classic','story-observatory','seabright','phish','analyzer','chest','start-name','start-reveal','start-opener','start-bedroom','outro','doorway','departure','name-entry'].includes(freshView) && freshAllowed ? freshView : 'home'
+    const hasSaved = freshSafeView !== 'home'
     return (
-      <div className="game-root" style={{ background: scene.background }}>
-        <div className="stage home-stage">
-          <h1 className="home-title">CyberSafe</h1>
-          <div className="home-actions">
-            <div className="home-story-group">
-              <span className="home-group-label">Story Mode</span>
-              <button onClick={() => setView('story')} className="home-btn story-new">Cinematic</button>
-              <button onClick={() => setView('story-classic')} className="home-btn story-classic">Classic Bubble</button>
-                <button onClick={() => { setStartNameInput(''); setView('start-name') }} className="home-btn story-start">Starting Sequence</button>
-            <button onClick={() => { setPlayerNameInput(''); setView('name-entry') }} className="home-btn story-observatory">Observatory Intro</button>
-            <button onClick={() => { setSeabrightLine(0); setView('seabright') }} className="home-btn story-seabright">Seabright Arrival</button>
-            </div>
-            <button onClick={() => setView('phish')} className="home-btn primary">Phishing Exercise</button>
-            <button onClick={() => setView('analyzer')} className="home-btn primary">Text Detective</button>
-            <button onClick={() => setView('chest')} className="home-btn primary">Password Chest</button>
-            <button onClick={() => { setSeabrightLine(47); setView('seabright') }} className="home-btn primary">Real or Fake?</button>
-            <button onClick={() => { setSeabrightLine(48); setView('seabright') }} className="home-btn story-seabright">After Minigame</button>
-            <button onClick={() => { setSeabrightLine(113); setView('seabright') }} className="home-btn story-seabright">Cliff Path</button>
-            <button onClick={() => { setSeabrightLine(156); setView('seabright') }} className="home-btn story-seabright">After Password Game</button>
-            <button onClick={() => { setSeabrightLine(177); setView('seabright') }} className="home-btn story-seabright">Sunshare Square</button>
-            <button onClick={() => { setSeabrightLine(203); setView('seabright') }} className="home-btn story-seabright">Security Questions</button>
-            <button onClick={() => { setSeabrightLine(218); setView('seabright') }} className="home-btn story-seabright">Online Safety</button>
-            <button onClick={() => { setSeabrightLine(262); setView('seabright') }} className="home-btn story-seabright">Edit Before You Post</button>
-            <button onClick={() => { setSeabrightLine(272); setView('seabright') }} className="home-btn story-seabright">Cyberbullying Scene</button>
-            <button onClick={() => { setSeabrightLine(290); setView('seabright') }} className="home-btn story-seabright">Prism + Amara</button>
-            <button onClick={() => { setSeabrightLine(313); setView('seabright') }} className="home-btn story-seabright">Observatory Direction</button>
-          </div>
+      <div className="landing-root">
+        <div className="home-bg-items" aria-hidden="true">
+          <img src={compassImg}    className="home-bg-item home-bg-item--compass-1" alt="" />
+          <img src={prismImg}      className="home-bg-item home-bg-item--prism-1 home-bg-item--glow" alt="" />
+          <img src={goldenKnotImg} className="home-bg-item home-bg-item--knot-1"    alt="" />
+          <img src={compassImg}    className="home-bg-item home-bg-item--compass-2" alt="" />
+          <img src={prismImg}      className="home-bg-item home-bg-item--prism-2"   alt="" />
+          <img src={goldenKnotImg} className="home-bg-item home-bg-item--knot-2 home-bg-item--glow" alt="" />
+          <img src={compassImg}    className="home-bg-item home-bg-item--compass-3" alt="" />
+          <img src={prismImg}      className="home-bg-item home-bg-item--prism-3 home-bg-item--glow" alt="" />
+          <img src={goldenKnotImg} className="home-bg-item home-bg-item--knot-3"    alt="" />
+          <img src={compassImg}    className="home-bg-item home-bg-item--compass-4 home-bg-item--glow" alt="" />
+          <img src={prismImg}      className="home-bg-item home-bg-item--prism-4"   alt="" />
+        </div>
+        <div className="landing-content">
+          <h1 className="landing-title">When Mira Calls</h1>
+          <p className="landing-sub">A digital mystery.</p>
+
+          {hasSaved && (
+            <button
+              className="landing-enter-btn landing-continue-btn"
+              onClick={() => { playClick(); setDemoMode(false); setDemoModeFlag(false); setShowDevConsole(false); setView(freshSafeView) }}
+            >
+              CONTINUE
+            </button>
+          )}
+
           <button
-            onClick={() => { setDemoModeFlag(true); setDemoMode(true); setDemoStep('obs'); setPlayerNameInput(''); setView('name-entry') }}
-            className="home-btn demo-btn"
+            className="landing-enter-btn"
+            onClick={() => { playClick(); setIsFullPlaythrough(true); setDemoMode(false); setDemoModeFlag(false); setStartNameInput(''); setPlayerNameInput(''); setShowDevConsole(false); setView('start-name') }}
           >
-            User Test Demo
+            NEW GAME
           </button>
-          <div className="home-note">Keyboard: ArrowRight / Enter to advance in story</div>
+
+          <button
+            className="landing-enter-btn landing-dev-toggle"
+            onClick={() => { playClick(); setShowGuides(true) }}
+          >
+            GUIDES
+          </button>
+
+          <button
+            className="landing-enter-btn landing-dev-toggle"
+            onClick={() => { playClick(); setShowDevConsole(v => !v) }}
+          >
+            {showDevConsole ? '▲ DEV CONSOLE' : '▼ DEV CONSOLE'}
+          </button>
+
+          {showDevConsole && (
+            <div className="landing-dev-console">
+              <div className="landing-dev-group">
+                <span className="landing-dev-label">JUMP TO SECTION</span>
+                <button onClick={() => { setIsFullPlaythrough(false); setStartNameInput(''); setShowDevConsole(false); setView('start-name') }} className="landing-dev-btn">Starting Sequence</button>
+                <button onClick={() => { setIsFullPlaythrough(false); setPlayerNameInput(''); setShowDevConsole(false); setView('name-entry') }} className="landing-dev-btn">Observatory Intro</button>
+                <button onClick={() => { setIsFullPlaythrough(false); setSeabrightLine(0); setShowDevConsole(false); setView('seabright') }} className="landing-dev-btn">Seabright Arrival</button>
+                <button onClick={() => { setIsFullPlaythrough(false); setSeabrightLine(48); setShowDevConsole(false); setView('seabright') }} className="landing-dev-btn">After Minigame</button>
+                <button onClick={() => { setIsFullPlaythrough(false); setSeabrightLine(113); setShowDevConsole(false); setView('seabright') }} className="landing-dev-btn">Cliff Path</button>
+                <button onClick={() => { setIsFullPlaythrough(false); setSeabrightLine(156); setShowDevConsole(false); setView('seabright') }} className="landing-dev-btn">After Password Game</button>
+                <button onClick={() => { setIsFullPlaythrough(false); setSeabrightLine(177); setShowDevConsole(false); setView('seabright') }} className="landing-dev-btn">Sunshare Square</button>
+                <button onClick={() => { setIsFullPlaythrough(false); setSeabrightLine(203); setShowDevConsole(false); setView('seabright') }} className="landing-dev-btn">Security Questions</button>
+                <button onClick={() => { setIsFullPlaythrough(false); setSeabrightLine(218); setShowDevConsole(false); setView('seabright') }} className="landing-dev-btn">Online Safety</button>
+              </div>
+              <div className="landing-dev-group">
+                <span className="landing-dev-label">STANDALONE MODULES</span>
+                <button onClick={() => { setShowDevConsole(false); setView('phish') }} className="landing-dev-btn">Phishing Exercise</button>
+                <button onClick={() => { setShowDevConsole(false); setView('analyzer') }} className="landing-dev-btn">Text Detective</button>
+                <button onClick={() => { setShowDevConsole(false); setView('chest') }} className="landing-dev-btn">Password Chest</button>
+                <button onClick={() => { setIsFullPlaythrough(false); setSeabrightLine(47); setShowDevConsole(false); setView('seabright') }} className="landing-dev-btn">Real or Fake?</button>
+                <button onClick={() => { setDemoModeFlag(true); setDemoMode(true); setDemoStep('obs'); setPlayerNameInput(''); setShowDevConsole(false); setView('name-entry') }} className="landing-dev-btn landing-dev-btn--demo">User Test Demo</button>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     )
@@ -3840,8 +3919,8 @@ export default function App() {
       <div className="demo-root demo-root--home">
         <div className="demo-panel demo-panel--home">
           <div className="demo-badge">USER TEST DEMO</div>
-          <h1 className="demo-home-title">CyberSafe</h1>
-          <p className="demo-home-sub">A mystery about the digital dangers hiding in plain sight.</p>
+          <h1 className="demo-home-title">When Mira Calls</h1>
+          <p className="demo-home-sub">A digital mystery.</p>
           <div className="demo-home-actions">
             <button
               className="demo-home-btn demo-home-btn--new"
@@ -3922,7 +4001,7 @@ export default function App() {
             <p className="demo-body">
               If you have notes or observations, please share them with the team. Every detail helps.
             </p>
-            <p className="demo-body demo-body--sig">— The CyberSafe Team</p>
+            <p className="demo-body demo-body--sig">— The When Mira Calls Team</p>
             <button className="demo-start-btn" onClick={() => { clearDemoProgress(); goToDemoHome() }}>← Back to Home</button>
           </div>
         </div>
@@ -3947,6 +4026,7 @@ export default function App() {
     const confirm = () => {
       if (!startNameInput.trim()) return
       setStartName(startNameInput.trim())
+      setPlayerName(startNameInput.trim())
       setView('start-reveal')
     }
     return (
@@ -4020,7 +4100,7 @@ export default function App() {
       .slice(-3)
 
     const advanceBedroom = () => {
-      if (atLast) { setView('home'); return }
+      if (atLast) { isFullPlaythrough ? (setOutroLine(0), setView('outro')) : setView('home'); return }
       setPhotoShook(false)
       setShowTitle(false)
       setStartBedroomLine(l => {
@@ -4236,8 +4316,7 @@ export default function App() {
             <div className="cybersafe-title-overlay" onClick={() => setView('outro')}>
               <div className="cybersafe-title-vignette" />
               <div className="cybersafe-title-content">
-                <div className="cybersafe-title-eyebrow">a&nbsp; digital&nbsp; mystery</div>
-                <h1 className="cybersafe-title-headline">CyberSafe</h1>
+                <h1 className="cybersafe-title-headline">When Mira Calls</h1>
                 <h2 className="cybersafe-title-sub">a digital mystery</h2>
                 <p className="cybersafe-title-tagline">Built by students at Berkeley</p>
                 <div className="cybersafe-title-press">— tap to continue —</div>
@@ -4535,9 +4614,9 @@ export default function App() {
           {showItemFocus && <ItemFocusOverlay item={showItemFocus} />}
           {showTrailRetreat && <TrailRetreat onClick={observatoryNext} />}
           {showGameEnd && (
-            <div className="game-end-overlay">
+            <div className="game-end-overlay" onClick={() => { setShowGameEnd(false); setView('home') }}>
               <p className="game-end-text">THE END</p>
-              <p className="game-end-sub">CYBERSAFE</p>
+              <p className="game-end-sub">WHEN MIRA CALLS</p>
             </div>
           )}
           {showPermanenceInfo && (
