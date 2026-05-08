@@ -60,6 +60,7 @@ import sunshareSquare from '../assets/Sunshare Square.png'
 import aunt2Thinking from '../assets/Aunt 2 - thinking.png'
 import aunt2Upset from '../assets/Aunt 2 - upset.png'
 import goldenKnotImg from '../assets/Golden Knot.png'
+import wmcLogoImg from '../assets/WMC Logo (HD).png'
 import strongboxClosed from '../assets/Strongbox - closed.png'
 
 // Cinematic narrator positions — irregular left/right rhythm, not strict alternation
@@ -3835,19 +3836,19 @@ export default function App() {
     return (
       <div className="landing-root">
         <div className="home-bg-items" aria-hidden="true">
-          <img src={compassImg}    className="home-bg-item home-bg-item--compass-1" alt="" />
-          <img src={prismImg}      className="home-bg-item home-bg-item--prism-1 home-bg-item--glow" alt="" />
-          <img src={goldenKnotImg} className="home-bg-item home-bg-item--knot-1"    alt="" />
-          <img src={compassImg}    className="home-bg-item home-bg-item--compass-2" alt="" />
-          <img src={prismImg}      className="home-bg-item home-bg-item--prism-2"   alt="" />
-          <img src={goldenKnotImg} className="home-bg-item home-bg-item--knot-2 home-bg-item--glow" alt="" />
-          <img src={compassImg}    className="home-bg-item home-bg-item--compass-3" alt="" />
-          <img src={prismImg}      className="home-bg-item home-bg-item--prism-3 home-bg-item--glow" alt="" />
-          <img src={goldenKnotImg} className="home-bg-item home-bg-item--knot-3"    alt="" />
-          <img src={compassImg}    className="home-bg-item home-bg-item--compass-4 home-bg-item--glow" alt="" />
-          <img src={prismImg}      className="home-bg-item home-bg-item--prism-4"   alt="" />
+          <img src={compassImg}    className="home-bg-item home-bg-item--compass-1" alt="" />          {/* top-left */}
+          <img src={prismImg}      className="home-bg-item home-bg-item--prism-1 home-bg-item--glow" alt="" />  {/* top-right */}
+          <img src={goldenKnotImg} className="home-bg-item home-bg-item--knot-3"    alt="" />          {/* top-center */}
+          <img src={compassImg}    className="home-bg-item home-bg-item--compass-3" alt="" />          {/* upper-mid-left */}
+          <img src={prismImg}      className="home-bg-item home-bg-item--prism-2"   alt="" />          {/* mid-right */}
+          <img src={goldenKnotImg} className="home-bg-item home-bg-item--knot-1 home-bg-item--glow" alt="" />   {/* mid-left */}
+          <img src={compassImg}    className="home-bg-item home-bg-item--compass-2" alt="" />          {/* lower-right */}
+          <img src={prismImg}      className="home-bg-item home-bg-item--prism-3"   alt="" />          {/* lower-mid-left */}
+          <img src={goldenKnotImg} className="home-bg-item home-bg-item--knot-2 home-bg-item--glow" alt="" />   {/* bottom-center */}
+          <img src={prismImg}      className="home-bg-item home-bg-item--prism-4"   alt="" />          {/* lower-right */}
         </div>
         <div className="landing-content">
+          <img src={wmcLogoImg} alt="" className="home-wmc-logo" />
           <h1 className="landing-title">When Mira Calls</h1>
           <p className="landing-sub">A digital mystery.</p>
 
