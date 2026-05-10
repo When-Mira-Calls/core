@@ -279,7 +279,6 @@ export default function App() {
   const [timerResetPhase, setTimerResetPhase] = useState('counting') // 'counting' | 'zero' | 'reset'
   const timerResetIntervalRef = useRef(null)
   const timerResetTimeoutRef = useRef(null)
-  const [sbPlayerChoiceConfirmed, setSbPlayerChoiceConfirmed] = useState(false)
   const [sbInspected, setSbInspected] = useState({ sender: false, link: false })
   const [urlRevealed, setUrlRevealed] = useState(false)
   const [urlHolding, setUrlHolding] = useState(false)
@@ -315,6 +314,11 @@ export default function App() {
   // Cyberbullying / bystander-perpetrator-victim quiz (branching)
   const [cyqAnswer, setCyqAnswer] = useState(null)
   const [cyqStep, setCyqStep] = useState(0)
+  const [chapterInfo, setChapterInfo] = useState(null) // { number, title, subtitle }
+  const [chapterDest, setChapterDest] = useState(null) // 'start-bedroom'|'seabright-0'|'seabright-113'|'seabright-177'|'observatory'
+  const [instrPage, setInstrPage] = useState(1)
+  const [showNewGameConfirm, setShowNewGameConfirm] = useState(false)
+  const [devExpandedChapter, setDevExpandedChapter] = useState(null)
   const SB_LINES_COUNT = 327      // keep in sync with SB_LINES array length
   const SB_PHONE_INSPECT_IDX = 15 // index of the phone-inspect entry in SB_LINES
   const SB_URL_PREVIEW_IDX = 22   // index of the url-preview entry in SB_LINES
@@ -366,7 +370,6 @@ export default function App() {
     { showPhotoScene: true, photoPhase: 'zoomWait' },
   ]
   const [typedLength, setTypedLength] = useState(0)
-  const [playerChoiceConfirmed, setPlayerChoiceConfirmed] = useState(false)
   const [quizAnswer, setQuizAnswer] = useState(null)
   const [mfaQuizAnswer, setMfaQuizAnswer] = useState(null)
   const [showGameEnd, setShowGameEnd] = useState(false)
@@ -440,6 +443,7 @@ export default function App() {
   const showStrongboxCard = view === 'story-observatory' && Boolean(observatoryLine?.showStrongboxCard)
   const miraMoment = view === 'story-observatory' && Boolean(observatoryLine?.miraMoment)
   const bgImage = forceLockedDoor ? observatoryLockedDoor : forceIntRoom ? observatoryIntRoom : forceObsScreen ? observatoryScreen : (obsShowInterior && !forceExterior ? observatoryInt : observatoryExt)
+  const bgIsObsExterior = !forceLockedDoor && !forceIntRoom && !forceObsScreen && (!obsShowInterior || forceExterior)
   const observatoryBackgroundStyle = {
     backgroundColor: '#0f1728',
     backgroundImage: `linear-gradient(180deg, rgba(8, 12, 22, 0.12), rgba(8, 12, 22, 0.28)), url(${bgImage})`,
@@ -474,11 +478,11 @@ export default function App() {
   const prevDialogueLine = isObservatoryView
     ? observatoryStory.dialogue[lineIndex - 1]
     : scene.dialogue[lineIndex - 1]
-  const showPlayerChoice = isPlayerLine && !playerChoiceConfirmed && prevDialogueLine?.speaker !== '[YOUR NAME]'
-  const isTyping = isStoryView && !hideObservatoryBubble && !showPlayerChoice && !isPlayerLine && !isNarratorLine && typedLength < activeStoryText.length
+  const isTyping = isStoryView && !hideObservatoryBubble && !isPlayerLine && !isNarratorLine && typedLength < activeStoryText.length
   const displayedStoryText = hideObservatoryBubble ? '' : activeStoryText.slice(0, typedLength)
 
   const next = useCallback(() => {
+    playClick()
     if (lineIndex + 1 < scene.dialogue.length) {
       setLineIndex(lineIndex + 1)
     } else if (sceneIndex + 1 < story.length) {
@@ -492,6 +496,7 @@ export default function App() {
   }, [lineIndex, scene.dialogue.length, sceneIndex])
 
   const prev = useCallback(() => {
+    playBack()
     if (lineIndex > 0) {
       setLineIndex(lineIndex - 1)
     } else if (sceneIndex > 0) {
@@ -502,6 +507,7 @@ export default function App() {
   }, [lineIndex, sceneIndex])
 
   const observatoryNext = useCallback(() => {
+    playClick()
     if (lineIndex + 1 < observatoryStory.dialogue.length) {
       setLineIndex(lineIndex + 1)
     } else {
@@ -515,6 +521,7 @@ export default function App() {
   }, [lineIndex, demoMode])
 
   const observatoryPrev = useCallback(() => {
+    playBack()
     if (lineIndex > 0) {
       setLineIndex(lineIndex - 1)
     }
@@ -527,7 +534,7 @@ export default function App() {
   const handleStoryNext = useCallback(() => {
     if (showQuizScreen) {
       if (quizAnswer === 'B') observatoryNext()
-      else setQuizAnswer(null)
+      else { playWrong(); setQuizAnswer(null) }
       return
     }
 
@@ -535,20 +542,16 @@ export default function App() {
     if (showStrongboxScene) return // StrongboxScene controls its own advancement
     if (showStrongboxCard) return // StrongboxCardScene controls its own advancement
     if (showTrailRetreat) return // TrailRetreat controls its own advancement
-    if (showGameEnd) { setShowGameEnd(false); setView('home'); return }
+    if (showGameEnd) { playClick(); setShowGameEnd(false); setView('home'); return }
 
     if (showMFAQuizScreen) {
       if (mfaQuizAnswer === 'B') observatoryNext()
-      else setMfaQuizAnswer(null)
-      return
-    }
-
-    if (showPlayerChoice) {
-      setPlayerChoiceConfirmed(true)
+      else { playWrong(); setMfaQuizAnswer(null) }
       return
     }
 
     if (isTyping) {
+      playClick()
       revealCurrentLine()
       return
     }
@@ -559,7 +562,7 @@ export default function App() {
     }
 
     next()
-  }, [showFinalGame, showGameEnd, showQuizScreen, quizAnswer, showMFAQuizScreen, mfaQuizAnswer, showPlayerChoice, isObservatoryView, isTyping, next, observatoryNext, revealCurrentLine])
+  }, [showFinalGame, showGameEnd, showQuizScreen, quizAnswer, showMFAQuizScreen, mfaQuizAnswer, isObservatoryView, isTyping, next, observatoryNext, revealCurrentLine])
 
   const handleStoryPrev = useCallback(() => {
     if (isTyping) {
@@ -591,7 +594,6 @@ export default function App() {
   }, [activeStoryText, hideObservatoryBubble, isStoryView])
 
   useEffect(() => {
-    setPlayerChoiceConfirmed(false)
     setQuizAnswer(null)
     setMfaQuizAnswer(null)
   }, [lineIndex])
@@ -786,7 +788,11 @@ export default function App() {
             return
           }
           if (seabrightLine >= SB_LINES_COUNT - 1) {
-            setLineIndex(0); setTypedLength(0); setIsObservatoryShaking(false); setView('story-observatory')
+            goToChapter({ number: 'V', title: 'At the Edge of the Sky' }, 'observatory')
+          } else if (seabrightLine + 1 === 113) {
+            goToChapter({ number: 'III', title: 'Into The Lighthouse' }, 'seabright-113')
+          } else if (seabrightLine + 1 === 177) {
+            goToChapter({ number: 'IV', title: 'Echoes in the Sunshare Square' }, 'seabright-177')
           } else {
             setSeabrightLine(l => l + 1)
           }
@@ -818,7 +824,6 @@ export default function App() {
     setSbQuizBHolding({ sender: false, link: false })
     if (sbQuizBSenderTimer.current) { clearTimeout(sbQuizBSenderTimer.current); sbQuizBSenderTimer.current = null }
     if (sbQuizBLinkTimer.current) { clearTimeout(sbQuizBLinkTimer.current); sbQuizBLinkTimer.current = null }
-    setSbPlayerChoiceConfirmed(false)
     setCqAnswer(null)
     setCqStep(0)
     setSaqAnswer(null)
@@ -837,10 +842,6 @@ export default function App() {
     setCyqStep(0)
   }, [seabrightLine])
 
-  // Reset player choice when stepping through quiz steps
-  useEffect(() => {
-    setSbPlayerChoiceConfirmed(false)
-  }, [sbQuizStep, cqStep, saqStep, bqStep, pqStep, sqStep, oqStep, fqStep])
 
   // Tablet popup countdown — runs only while that line is active
   useEffect(() => {
@@ -898,6 +899,7 @@ export default function App() {
   useEffect(() => {
     if (DEMO_ONLY) return
     if (view === 'home') return
+    if (playerName === 'Dev') return  // dev console jumps don't overwrite the real save
     saveProgress({ view, sceneIndex, lineIndex, seabrightLine, playerName, startName, startBedroomLine })
   }, [view, sceneIndex, lineIndex, seabrightLine, playerName, startName, startBedroomLine])
 
@@ -907,6 +909,30 @@ export default function App() {
     if (view === 'demo-home') return // nothing to resume from home
     saveDemoProgress({ view, demoStep, lineIndex, playerName })
   }, [view, demoStep, lineIndex, playerName])
+
+  const goToChapter = (info, dest) => {
+    setChapterInfo(info)
+    setChapterDest(dest)
+    setView('chapter')
+  }
+
+  const goAfterChapter = () => {
+    playClick()
+    const dest = chapterDest
+    setChapterInfo(null)
+    setChapterDest(null)
+    // Black overlay fades out to reveal the new scene
+    const overlay = document.createElement('div')
+    overlay.style.cssText = 'position:fixed;inset:0;background:#000;z-index:9999;pointer-events:none;animation:scene-from-black 2.6s ease forwards'
+    document.body.appendChild(overlay)
+    overlay.addEventListener('animationend', () => overlay.remove(), { once: true })
+    if (dest === 'instructions') { setView('instructions') }
+    else if (dest === 'start-bedroom') { setView('start-bedroom') }
+    else if (dest === 'seabright-0') { setSeabrightLine(0); setView('seabright') }
+    else if (dest === 'seabright-113') { setSeabrightLine(113); setView('seabright') }
+    else if (dest === 'seabright-177') { setSeabrightLine(177); setView('seabright') }
+    else if (dest === 'observatory') { setLineIndex(0); setTypedLength(0); setIsObservatoryShaking(false); setView('story-observatory') }
+  }
 
   // show top-left back-link only for the standalone game views
   const showGlobalBack = !DEMO_ONLY && ['phish', 'analyzer', 'chest'].includes(view)
@@ -932,11 +958,108 @@ export default function App() {
 
   if (showGuides) return <GuidesOverlay onClose={() => setShowGuides(false)} />
 
+  if (view === 'chapter' && chapterInfo) {
+    return (
+      <div className="game-root chapter-screen" onClick={goAfterChapter}>
+        <div className="chapter-glow" aria-hidden="true" />
+        <div className="chapter-inner">
+          <div className="chapter-label">Chapter {chapterInfo.number}</div>
+          <div className="chapter-ornament">
+            <span className="chapter-ornament-dot" />
+            <span className="chapter-ornament-line" />
+            <span className="chapter-ornament-diamond">◆</span>
+            <span className="chapter-ornament-line" />
+            <span className="chapter-ornament-dot" />
+          </div>
+          <h2 className="chapter-title">{chapterInfo.title}</h2>
+        </div>
+        <div className="chapter-continue">— tap to continue —</div>
+      </div>
+    )
+  }
+
+  if (view === 'instructions') {
+    const goNext = (e) => {
+      e.stopPropagation()
+      if (instrPage === 1) { playClick(); setInstrPage(2) }
+      else { playClick(); setInstrPage(1); setStartBedroomLine(0); goToChapter({ number: 'I', title: 'A Letter from Nowhere' }, 'start-bedroom') }
+    }
+    return (
+      <div className="game-root instr-screen" onClick={goNext}>
+
+        {instrPage === 1 && (
+          <div key="p1" className="instr-inner instr-p1">
+            <p className="instr-heading">How to navigate</p>
+            <p className="instr-desc">Click the buttons — or use the <span className="instr-key">←</span> <span className="instr-key">→</span> arrow keys — to move through the story.</p>
+
+            <div className="instr-nav-row">
+              <div className="instr-nav-side">
+                <div className="instr-nav-btn-row">
+                  <div className="instr-chevrons instr-chevrons--left">
+                    <span>◂</span><span>◂</span><span>◂</span>
+                  </div>
+                  <div className="dialogue-controls instr-controls-mock">
+                    <button className="back-inline" tabIndex={-1} aria-hidden="true">
+                      <img src={backArrow} alt="back" />
+                    </button>
+                  </div>
+                </div>
+                <p className="instr-nav-label">Go back</p>
+              </div>
+
+              <div className="instr-nav-divider" />
+
+              <div className="instr-nav-side">
+                <div className="instr-nav-btn-row">
+                  <div className="dialogue-controls instr-controls-mock">
+                    <button className="next-btn" tabIndex={-1} aria-hidden="true">
+                      <img src={nextArrow} alt="next" />
+                    </button>
+                  </div>
+                  <div className="instr-chevrons instr-chevrons--right">
+                    <span>▸</span><span>▸</span><span>▸</span>
+                  </div>
+                </div>
+                <p className="instr-nav-label">Continue</p>
+              </div>
+            </div>
+
+            <p className="instr-tap-hint">tap anywhere to continue</p>
+          </div>
+        )}
+
+        {instrPage === 2 && (
+          <div key="p2" className="instr-inner instr-p2">
+            <p className="instr-heading">Your progress</p>
+
+            <ul className="instr-facts">
+              <li>
+                <span className="instr-fact-icon">⌂</span>
+                <span>The <strong>home button</strong> in the top-left corner returns you to the menu at any time</span>
+              </li>
+              <li>
+                <span className="instr-fact-icon">↺</span>
+                <span>Progress is saved automatically — <strong>step away and return</strong> whenever you like</span>
+              </li>
+              <li>
+                <span className="instr-fact-icon">⬡</span>
+                <span>Come back on <strong>the same browser</strong> and you will pick up exactly where you left off</span>
+              </li>
+            </ul>
+
+            <p className="instr-tap-hint">tap anywhere to begin</p>
+          </div>
+        )}
+
+      </div>
+    )
+  }
+
   // Outro narration — black screen after title
   if (view === 'outro') {
     return (
       <div className="game-root" style={{ background: '#000' }}>
-        <div className="outro-root" onClick={() => { setOutroLine(0); setView('doorway') }}>
+        <div className="outro-root" onClick={() => { playClick(); setOutroLine(0); setView('doorway') }}>
           <p className="outro-text">
             You have a name. You have a destination. You have a letter from an aunt you did not know existed, telling you to collect things and keep them safe and not let anyone take them. You are not entirely sure what you are walking into. But that, if anything, is exactly the kind of Saturday you wanted.
           </p>
@@ -961,8 +1084,8 @@ export default function App() {
     ]
     const line = DOORWAY_LINES[outroLine]
     const atEnd = outroLine >= DOORWAY_LINES.length - 1
-    const advanceDoorway = () => atEnd ? (setDepartureLine(0), setView('departure')) : setOutroLine(l => l + 1)
-    const goBackDoorway = () => setOutroLine(l => Math.max(0, l - 1))
+    const advanceDoorway = () => { playClick(); atEnd ? (setDepartureLine(0), setView('departure')) : setOutroLine(l => l + 1) }
+    const goBackDoorway = () => { playBack(); setOutroLine(l => Math.max(0, l - 1)) }
     return (
       <div className="game-root" style={{ background: '#0a0f1a' }}>
         <div className="start-bedroom-screen">
@@ -1006,7 +1129,7 @@ export default function App() {
       <div className="game-root" style={{ background: '#000' }}>
       <div
         className={`departure-root${isFinal ? ' departure-root--final' : ''}`}
-        onClick={() => depAtEnd ? (setSeabrightLine(0), setView('seabright')) : setDepartureLine(l => l + 1)}
+        onClick={() => { playClick(); depAtEnd ? goToChapter({ number: 'II', title: 'SeaBright Ahoy!' }, 'seabright-0') : setDepartureLine(l => l + 1) }}
       >
         <p key={departureLine} className="departure-text">{depLine}</p>
         <div className="departure-press">
@@ -1085,7 +1208,7 @@ export default function App() {
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'Right. And look at the address bar at the top of the screen. What does it say?' },
       { type: 'dialogue', speaker: 'CORAL', text: 'seabright-freegear-claims.co. Is that... wrong?' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'What is the name of the actual fishing gear shop in the village?' },
-      { type: 'dialogue', speaker: 'CORAL', text: 'SeaGear Direct. Their website is seageardirect.co.uk.' },
+      { type: 'dialogue', speaker: 'CORAL', text: 'SeaGear Marine. Their website is seagearmarine.com.' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'So this ad is not from them. It is from a different website entirely that just used the word Seabright to look local and relevant.' },
       { type: 'scam-ad-info' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'And this countdown timer — watch what happens if we let it run to zero.' },
@@ -1132,7 +1255,7 @@ export default function App() {
       { type: 'dialogue', speaker: 'OLD FINN', text: 'She also said to tell you: the lighthouse. Once the village was right again. She said you would know what to do.' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'The lighthouse on the cliff?' },
       { type: 'dialogue', speaker: 'OLD FINN', text: 'There is someone up there. Has been for three days. We did not ask questions — she had Mira\'s eyes and we have learned not to ask too many questions about people with Mira\'s eyes.' },
-      { type: 'narrator', bg: 'lighthouse', text: 'You look up at the cliff. The lighthouse beam is sweeping in its slow circle — steady now, where it flickered before. Someone is up there, keeping the light running, waiting for you to finish what you came to do.\n\nYou say goodbye to Old Finn and Coral and Carol. You promise to come back when you have found Mira. Old Finn waves you off without a word, which from Old Finn, you are beginning to understand, is the highest possible compliment.' },
+      { type: 'narrator', bg: 'lighthouse', text: 'You look up at the cliff. The lighthouse beam is sweeping in its slow circle — steady now, where it flickered before. Someone is up there, keeping the light running, waiting for you to finish what you came to do.\n\nYou say goodbye to Old Finn and Coral. You promise to come back when you have found Mira. Old Finn waves you off without a word, which from Old Finn, you are beginning to understand, is the highest possible compliment.' },
       { type: 'narrator', bg: 'lighthouse', text: 'The path up the cliff is narrow and winds between gorse bushes that smell of coconut in the cold air. Below, you can hear the harbour coming back to life — the chug of an engine, someone calling across the water. You did that. Not bad for a Saturday.' },
       { type: 'dialogue', bg: 'lighthouse', speaker: '[YOUR NAME]', text: 'She climbed this path. Mira climbed this path and left something at the top and then disappeared before breakfast. Who does that?' },
       { type: 'narrator', bg: 'lighthouse', text: 'Apparently, the kind of person whose face is in a photograph you never noticed, who marks coastlines on globes, who leaves compasses and riddles and knows the names of cats.' },
@@ -1509,7 +1632,7 @@ export default function App() {
       ? { speaker: '[YOUR NAME]', text: 'That is not quite right — real companies do advertise competitions online. But real competitions exist on the company\'s own verified website. The test is not whether the ad exists. The test is whether the competition exists on the real website when you search for it yourself.' }
       : isSaqBDialogue
       ? saqStep === 1
-        ? { speaker: '[YOUR NAME]', text: 'If SeaGear Direct are running a competition, it will be on seageardirect.co.uk. You can find that yourself. You do not need the ad to take you there. Going directly to the real website bypasses the scam entirely — because you are in control of where you go.' }
+        ? { speaker: '[YOUR NAME]', text: 'If SeaGear Marine are running a competition, it will be on seagearmarine.com. You can find that yourself. You do not need the ad to take you there. Going directly to the real website bypasses the scam entirely — because you are in control of where you go.' }
         : saqStep === 2
         ? { speaker: 'CORAL', text: 'So the ad becomes pointless if I just go to the real site myself.' }
         : { speaker: '[YOUR NAME]', text: 'Exactly. The ad\'s power is in directing you. When you choose your own direction, it loses that power.' }
@@ -1537,13 +1660,13 @@ export default function App() {
     const bqDialogueLine = isBqADialogue
       ? bqStep === 1
         ? { speaker: 'OLD FINN', text: 'That is not a helpful thing to say.' }
-        : { speaker: '[YOUR NAME]', text: 'You are right. I am sorry, Carol. Age and experience do not protect you from scams — they are designed to work on everyone. What matters now is acting quickly.' }
+        : { speaker: '[YOUR NAME]', text: 'You are right. I am sorry, Coral. Age and experience do not protect you from scams — they are designed to work on everyone. What matters now is acting quickly.' }
       : isBqBDialogue
       ? bqStep === 1
-        ? { speaker: 'CAROL', text: 'I know. I know I should have said something. I just thought — I am a grown man, how do I explain that I fell for something like this?' }
+        ? { speaker: 'CORAL', text: 'I know. I know I should have said something. I just thought — I am a grown man, how do I explain that I fell for something like this?' }
         : bqStep === 2
         ? { speaker: '[YOUR NAME]', text: 'Because it was not stupidity. It was a trap set by professionals. And right now, someone has been in your account for three days changing things. Every hour you wait is another hour they have access. Telling someone today matters.' }
-        : { speaker: 'CAROL', text: '...Alright. I will tell Old Finn.' }
+        : { speaker: 'CORAL', text: '...Alright. I will tell Old Finn.' }
       : isBqCDialogue
       ? bqStep === 1
         ? { speaker: 'CORAL', text: 'It is not too late. We can still lock the compromised account, change the password, and check what was changed. Three days makes it harder but not impossible.' }
@@ -1688,7 +1811,7 @@ export default function App() {
         : { speaker: '[YOUR NAME]', text: 'Right — so even when the page looks right, the address bar tells the truth. Always look at the address bar before typing anything.' }
       : isQuizBDialogue
       ? sbQuizStep === 1
-        ? { speaker: '[YOUR NAME]', text: 'There it is. The real sender address is not HMRC. The real link does not go to the government website. Two checks, five seconds, and the whole trick falls apart.' }
+        ? { speaker: '[YOUR NAME]', text: 'There it is. The real sender address is not the NMC. The real link does not go to the official website. Two checks, five seconds, and the whole trick falls apart.' }
         : sbQuizStep === 2
         ? { speaker: 'OLD FINN', text: 'If I had done that two days ago...' }
         : { speaker: '[YOUR NAME]', text: 'You know now. And knowing now means it will not work on you again.' }
@@ -1702,15 +1825,26 @@ export default function App() {
       if (isPhoneInspect && !sbInspectDone) return
       if (isUrlPreview && !urlRevealed) return
       if (seabrightLine >= SB_LINES_COUNT - 1) {
-        setLineIndex(0); setTypedLength(0); setIsObservatoryShaking(false); setView('story-observatory')
+        goToChapter({ number: 'V', title: 'At the Edge of the Sky' }, 'observatory')
         return
       }
-      const nextLine = SB_LINES[seabrightLine + 1]
+      const nextIdx = seabrightLine + 1
+      if (nextIdx === 113) {
+        playClick()
+        goToChapter({ number: 'III', title: 'Into The Lighthouse' }, 'seabright-113')
+        return
+      }
+      if (nextIdx === 177) {
+        playClick()
+        goToChapter({ number: 'IV', title: 'Echoes in the Sunshare Square' }, 'seabright-177')
+        return
+      }
+      const nextLine = SB_LINES[nextIdx]
       const nextType = nextLine?.type
       if (nextType === 'phone-email' || nextType === 'phone-inspect' || nextType === 'phone-text' || nextType === 'public-profile') playPhoneBuzz()
       else if (nextType === 'email-redflags' || nextType === 'phishing-info' || nextType === 'feelings-info' || nextType === 'coral-redflags' || nextType === 'phishing-quiz' || nextType === 'coral-quiz' || nextType === 'scam-ad-quiz' || nextType === 'scammed-info' || nextType === 'scammed-steps' || nextType === 'bram-quiz') playCardIn()
       else playClick()
-      sbAtEnd ? (setLineIndex(0), setTypedLength(0), setIsObservatoryShaking(false), setView('story-observatory')) : setSeabrightLine(l => l + 1)
+      setSeabrightLine(l => l + 1)
     }
     const handleUrlHoldStart = (e) => {
       e.preventDefault()
@@ -1767,7 +1901,7 @@ export default function App() {
       : isCqBDialogue
       ? cqStep === 1
         ? { speaker: '[YOUR NAME]', text: 'If you are ever genuinely worried that something is a real emergency, you call the coastguard yourself. On a number you already have saved or that you find on the official website. Not by replying to the message that told you there was an emergency. That way, if it is real, help is on the way. If it was fake, you have given them nothing.' }
-        : { speaker: 'CAROL', text: '...That actually makes sense.' }
+        : { speaker: 'CORAL', text: '...That actually makes sense.' }
       : isCqCDialogue
       ? { speaker: '[YOUR NAME]', text: 'Asking an adult is always a good move — but it helps to understand why too, so you can make the call yourself when no adult is around. The rule is: verify the concern through a channel you found yourself, not one the message gave you.' }
       : null
@@ -1882,7 +2016,10 @@ export default function App() {
       >
         <div className="seabright-stage" onClick={
           isNarrator ? advanceSB
-          : (isPhoneEmail || isPhoneInspect || isEmailRedflags || isPhishingInfo || isPhoneText || isPublicProfile || isSecurityQuestionsProfile || isSecurityQuestionInfo || isSecretKeepingInfo || isVerificationInfo || isOnlineTrustInfo || isBystanderInfo || isVictimInfo || isAllPositionsInfo || isLocationPinDemo || isEditBeforePostInstructions || isProfileFootprints || isDigitalFootprintInfo || isPictureTestInstructions || isFeelingsInfo || isCoralRedflags || isTabletPopup || isScamAdInfo || (isTimerReset && timerResetPhase === 'reset') || isScamAdRedflags || isScammedInfo || isScammedSteps || isMg2Instructions || isCompassReveal || isAuntReveal || isNotebookReveal || isKnotReveal || isPrismReveal || isNotebookPage || isStrongboxReveal || isShadowReveal || isDeepfakeInfo || isPasswordLesson || isPasswordMinigameInstructions || isShadowManInfo) ? advanceSB
+          // Partial-UI overlays (phone/tablet don't cover the full stage — stage click acts as fallback)
+          : (isPhoneEmail || isPhoneInspect || isPhoneText || isPublicProfile || isTabletPopup || (isTimerReset && timerResetPhase === 'reset')) ? advanceSB
+          // Full-screen overlays (smishing-info-overlay is inset:0 and handles its own onClick —
+          // do NOT duplicate here or the click fires advanceSB twice via event bubbling)
           : isSaqBSafeMove ? advanceSAQ
           : isBqBSafeMove ? advanceBQ
           : isPqCSafeMove ? advancePQ
@@ -2669,49 +2806,31 @@ export default function App() {
             const activeLine = inCyqDialogue ? cyqDialogueLine : inFqDialogue ? fqDialogueLine : inOqDialogue ? oqDialogueLine : inSqDialogue ? sqDialogueLine : inPqDialogue ? pqDialogueLine : inBqDialogue ? bqDialogueLine : inSaqDialogue ? saqDialogueLine : inCqDialogue ? cqDialogueLine : inQuizDialogue ? quizDialogueLine : sbLine
             const activeText = resolveName(activeLine.text)
             const activeSpeaker = resolveName(activeLine.speaker)
-            const isPlayerLine = activeLine.speaker === '[YOUR NAME]'
-            const showChoice = isPlayerLine && !sbPlayerChoiceConfirmed
             const onAdvance = inPqDialogue ? advancePQ : inBqDialogue ? advanceBQ : inSaqDialogue ? advanceSAQ : inCqDialogue ? advanceCQ : inQuizDialogue ? advanceQuizStep : advanceSB
             const onBack = () => inPqDialogue ? setPqStep(s => Math.max(0, s - 1)) : inBqDialogue ? setBqStep(s => Math.max(0, s - 1)) : inSaqDialogue ? setSaqStep(s => Math.max(0, s - 1)) : inCqDialogue ? setCqStep(s => Math.max(0, s - 1)) : inQuizDialogue ? setSbQuizStep(s => Math.max(0, s - 1)) : goBackSB()
             return (
               <div className="seabright-bubble-anchor">
-                {showChoice ? (
-                  <div className="bubble-tail-container player-choice-wrap"
-                    onClick={() => { playClick(); setSbPlayerChoiceConfirmed(true) }}>
-                    <div className="bubble">
-                      <div className="bubble-inner player-choice-inner">
-                        <div className="bubble-line">
-                          <span className="player-choice-arrow" aria-hidden="true">▷</span>{' '}{activeText}
-                        </div>
+                <div className="bubble-tail-container observatory-bubble-wrap">
+                  <div className="bubble">
+                    <div className="nameplate">{activeSpeaker}</div>
+                    <div className="bubble-inner" onClick={onAdvance}>
+                      <div className="bubble-line">{activeText}</div>
+                      <div className="dialogue-controls">
+                        <button className="back-inline" aria-label="previous"
+                          onClick={e => { e.stopPropagation(); onBack() }}>
+                          <img src={backArrow} alt="back" />
+                        </button>
+                        <button className="next-btn" aria-label="next"
+                          onClick={e => { e.stopPropagation(); onAdvance() }}>
+                          <img src={nextArrow} alt="next" />
+                        </button>
                       </div>
                     </div>
-                    <svg className="bubble-tail" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" fill="rgba(18,18,18,0.86)">
-                      <path d="M 140 -16 Q 140 160  224 140 140 140  160 -16" />
-                    </svg>
                   </div>
-                ) : (
-                  <div className="bubble-tail-container observatory-bubble-wrap">
-                    <div className="bubble">
-                      <div className="nameplate">{activeSpeaker}</div>
-                      <div className="bubble-inner" onClick={onAdvance}>
-                        <div className="bubble-line">{activeText}</div>
-                        <div className="dialogue-controls">
-                          <button className="back-inline" aria-label="previous"
-                            onClick={e => { e.stopPropagation(); onBack() }}>
-                            <img src={backArrow} alt="back" />
-                          </button>
-                          <button className="next-btn" aria-label="next"
-                            onClick={e => { e.stopPropagation(); onAdvance() }}>
-                            <img src={nextArrow} alt="next" />
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                    <svg className="bubble-tail" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" fill="rgba(18,18,18,0.86)">
-                      <path d="M 140 -16 Q 140 160  224 140 140 140  160 -16" />
-                    </svg>
-                  </div>
-                )}
+                  <svg className="bubble-tail" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" fill="rgba(18,18,18,0.86)">
+                    <path d="M 140 -16 Q 140 160  224 140 140 140  160 -16" />
+                  </svg>
+                </div>
               </div>
             )
           })()}
@@ -2924,7 +3043,7 @@ export default function App() {
                 {!sbQuizAnswer && (
                   <>
                     <div className="quiz-header">WHAT DO YOU DO?</div>
-                    <p className="quiz-question">A new email arrives on Old Finn's phone while you are sitting there. Subject: <strong>'FINAL WARNING — Seabright Fishing Licence expires TODAY.'</strong> Sender name: <strong>'HMRC Licencing Department.'</strong> What do you do?</p>
+                    <p className="quiz-question">A new email arrives on Old Finn's phone while you are sitting there. Subject: <strong>'FINAL WARNING - Seabright Fishing Licence expires TODAY.'</strong> Sender name: <strong>'National Maritime Center (NMC) .'</strong> What do you do?</p>
                     <div className="quiz-options">
                       {[
                         { id: 'A', text: 'Tap the link immediately — if the licence really expires today there is no time to waste.' },
@@ -2950,18 +3069,18 @@ export default function App() {
                       <div className="sb-fake-browser">
                         <div className="sb-fake-browser-bar">
                           <span className="sb-fake-browser-lock">🔒</span>
-                          <span className="sb-fake-browser-domain sb-fake-browser-domain--bad">hmrc-licence-renewal-seabright.co</span>
+                          <span className="sb-fake-browser-domain sb-fake-browser-domain--bad">nmc-licence-renewal.com</span>
                           <span className="sb-fake-browser-warn">⚠</span>
                         </div>
                         <div className="sb-fake-browser-page">
-                          <div className="sb-fake-login-logo">HMRC</div>
-                          <div className="sb-fake-login-title">Sign in to your HMRC account</div>
-                          <div className="sb-fake-login-field"><div className="sb-fake-login-label">Government Gateway ID</div><div className="sb-fake-login-input" /></div>
+                          <div className="sb-fake-login-logo">NMC</div>
+                          <div className="sb-fake-login-title">Sign in to your NMC account</div>
+                          <div className="sb-fake-login-field"><div className="sb-fake-login-label">Licence ID</div><div className="sb-fake-login-input" /></div>
                           <div className="sb-fake-login-field"><div className="sb-fake-login-label">Password</div><div className="sb-fake-login-input" /></div>
                           <div className="sb-fake-login-btn">Sign in</div>
                         </div>
                       </div>
-                      <p className="quiz-woman-says" style={{ marginTop: 10 }}>Address bar shows <strong style={{ color: 'rgba(200,40,30,0.9)' }}>hmrc-licence-renewal-seabright.co</strong> — not <strong>hmrc.gov.uk</strong>. Even if the page looks official, the address gives it away.</p>
+                      <p className="quiz-woman-says" style={{ marginTop: 10 }}>Address bar shows <strong style={{ color: 'rgba(200,40,30,0.9)' }}>nmc-licence-renewal.com</strong> — not <strong>nmc.gov</strong>. Even if the page looks official, the address gives it away.</p>
                     </div>
                     <div className="smishing-continue" style={{ padding: '10px 22px', cursor: 'pointer' }} onClick={advanceQuizStep}>tap to continue</div>
                   </div>
@@ -2976,7 +3095,7 @@ export default function App() {
                         <>
                           <p className="quiz-narrator-beat">Old Finn watches as the player checks.</p>
                           <div className="pq-email-check">
-                            <div className="pq-email-row"><span className="pq-email-label">From:</span><span className="pq-email-display"> HMRC Licencing Department</span></div>
+                            <div className="pq-email-row"><span className="pq-email-label">From:</span><span className="pq-email-display"> National Maritime Center (NMC)</span></div>
                             <div className="pq-email-row">
                               <span className="pq-email-label">Address:</span>
                               <div className="sb-url-hold-wrap" style={{ display: 'inline-block', marginLeft: 4 }}>
@@ -2984,7 +3103,7 @@ export default function App() {
                                   onPointerDown={handleQBSenderStart} onPointerUp={handleQBSenderEnd} onPointerCancel={handleQBSenderEnd}
                                   onClick={e => e.stopPropagation()}>hold to reveal</span>
                                 {sbQuizBHolding.sender && <div className="sb-url-hold-bar"><div className="sb-url-hold-bar-fill" /></div>}
-                                {sbQuizBReveals.sender && <div className="sb-url-preview-popup"><div className="sb-url-preview-label">REAL SENDER ADDRESS</div><div><span className="sb-url-preview-domain">noreply@</span><span className="sb-url-preview-path">hmrc-licence-renewal.co</span></div><div style={{ fontSize: '0.64rem', color: 'rgba(160,160,160,0.6)', marginTop: 2 }}>not hmrc.gov.uk</div></div>}
+                                {sbQuizBReveals.sender && <div className="sb-url-preview-popup"><div className="sb-url-preview-label">REAL SENDER ADDRESS</div><div><span className="sb-url-preview-domain">noreply@</span><span className="sb-url-preview-path">nmc-licence-renewal.com</span></div><div style={{ fontSize: '0.64rem', color: 'rgba(160,160,160,0.6)', marginTop: 2 }}>not nmc.gov</div></div>}
                               </div>
                             </div>
                             <div className="pq-email-row">
@@ -2994,7 +3113,7 @@ export default function App() {
                                   onPointerDown={handleQBLinkStart} onPointerUp={handleQBLinkEnd} onPointerCancel={handleQBLinkEnd}
                                   onClick={e => e.stopPropagation()}>hold to reveal</span>
                                 {sbQuizBHolding.link && <div className="sb-url-hold-bar"><div className="sb-url-hold-bar-fill" /></div>}
-                                {sbQuizBReveals.link && <div className="sb-url-preview-popup"><div className="sb-url-preview-label">ACTUAL DESTINATION</div><div><span className="sb-url-preview-path">hmrc-licence-renewal.co</span><span className="sb-url-preview-domain">/verify</span></div><div style={{ fontSize: '0.64rem', color: 'rgba(160,160,160,0.6)', marginTop: 2 }}>same fake domain as the sender</div></div>}
+                                {sbQuizBReveals.link && <div className="sb-url-preview-popup"><div className="sb-url-preview-label">ACTUAL DESTINATION</div><div><span className="sb-url-preview-path">nmc-licence-renewal.com</span><span className="sb-url-preview-domain">/verify</span></div><div style={{ fontSize: '0.64rem', color: 'rgba(160,160,160,0.6)', marginTop: 2 }}>same fake domain as the sender</div></div>}
                               </div>
                             </div>
                           </div>
@@ -3063,7 +3182,7 @@ export default function App() {
                     <div className="tablet-popup">
                       <div className="tablet-popup-banner">⭐ YOU HAVE BEEN SELECTED ⭐</div>
                       <div className="tablet-popup-rod">🎣</div>
-                      <div className="tablet-popup-prize">WIN A PROFESSIONAL<br />FISHING ROD SET<br /><span className="tablet-popup-value">WORTH £350</span></div>
+                      <div className="tablet-popup-prize">WIN A PROFESSIONAL<br />FISHING ROD SET<br /><span className="tablet-popup-value">WORTH $350</span></div>
                       <div className="tablet-popup-claim">Claim your prize in the next 60 seconds!</div>
                       <div className="tablet-popup-timer">
                         {String(Math.floor(tabletCountdown / 60)).padStart(2, '0')}:{String(tabletCountdown % 60).padStart(2, '0')}
@@ -3168,7 +3287,7 @@ export default function App() {
                         {timerResetPhase === 'reset' ? '🔄 NEW OPPORTUNITY 🔄' : '⭐ YOU HAVE BEEN SELECTED ⭐'}
                       </div>
                       <div className="tablet-popup-rod">🎣</div>
-                      <div className="tablet-popup-prize">WIN A PROFESSIONAL<br />FISHING ROD SET<br /><span className="tablet-popup-value">WORTH £350</span></div>
+                      <div className="tablet-popup-prize">WIN A PROFESSIONAL<br />FISHING ROD SET<br /><span className="tablet-popup-value">WORTH $350</span></div>
                       <div className="tablet-popup-claim">
                         {timerResetPhase === 'zero' ? 'Prize expired. Resetting...' : 'Claim your prize in the next 60 seconds!'}
                       </div>
@@ -3623,7 +3742,7 @@ export default function App() {
                 {!bqAnswer && (
                   <>
                     <div className="quiz-header">WHAT DO YOU DO?</div>
-                    <p className="quiz-question">Carol has just told you he clicked a suspicious link three days ago, gave his harbour login on the fake page, but has been too embarrassed to tell anyone because he is the most experienced fisherman in the village and feels like he should have known better. What do you say?</p>
+                    <p className="quiz-question">Coral has just told you he clicked a suspicious link three days ago, gave his harbour login on the fake page, but has been too embarrassed to tell anyone because he is the most experienced fisherman in the village and feels like he should have known better. What do you say?</p>
                     <div className="quiz-options">
                       {[
                         { id: 'A', text: 'He should have known better — he is old enough to recognise a scam.' },
@@ -3653,7 +3772,7 @@ export default function App() {
                   <div className="quiz-result">
                     <div className="quiz-feedback quiz-feedback--correct">
                       <div className="quiz-verdict">✓ CORRECT</div>
-                      <p className="quiz-narrator-beat">Carol sits down heavily on the harbour wall.</p>
+                      <p className="quiz-narrator-beat">Coral sits down heavily on the harbour wall.</p>
                     </div>
                     <div className="smishing-continue" style={{ padding: '10px 22px', cursor: 'pointer' }} onClick={e => { e.stopPropagation(); advanceBQ() }}>tap to continue</div>
                   </div>
@@ -3696,7 +3815,7 @@ export default function App() {
                 {!cqAnswer && (
                   <>
                     <div className="quiz-header">WHAT DO YOU DO?</div>
-                    <p className="quiz-question">You are helping Coral explain this to three other fishermen who received similar messages. One of them, big Carol, crosses his arms and says: <strong>"But what if it HAD been real? What if I had ignored a real emergency?"</strong></p>
+                    <p className="quiz-question">You are helping Coral explain this to three other fishermen who received similar messages. One of them crosses his arms and says: <strong>"But what if it HAD been real? What if I had ignored a real emergency?"</strong></p>
                     <div className="quiz-options">
                       {[
                         { id: 'A', text: 'He has a point — it is better to respond to everything just in case.' },
@@ -3717,7 +3836,7 @@ export default function App() {
                   <div className="quiz-result">
                     <div className="quiz-feedback quiz-feedback--wrong">
                       <div className="quiz-verdict">✗ INCORRECT</div>
-                      <p className="quiz-narrator-beat">Carol nods, satisfied. Coral looks uncertain. Old Finn shakes his head slowly.</p>
+                      <p className="quiz-narrator-beat">Coral nods, satisfied at first, then uncertain. Old Finn shakes his head slowly.</p>
                       <p className="quiz-woman-says">Responding to everything just in case is exactly what scammers count on. They only need one person in a hundred to bite. There is a better approach.</p>
                     </div>
                     <div className="smishing-continue" style={{ padding: '10px 22px', cursor: 'pointer' }} onClick={e => { e.stopPropagation(); advanceCQ() }}>tap to continue</div>
@@ -3730,7 +3849,7 @@ export default function App() {
                     <div className="quiz-feedback quiz-feedback--correct">
                       <div className="quiz-verdict">✓ CORRECT</div>
                       {cqStep === 0 && (
-                        <p className="quiz-narrator-beat">Carol uncrosses his arms. Old Finn raises an eyebrow at Coral. She had not thought of it quite like that either.</p>
+                        <p className="quiz-narrator-beat">Coral uncrosses her arms. Old Finn raises an eyebrow at her. She had not thought of it quite like that either.</p>
                       )}
                       {cqStep === 3 && (
                         <div className="quiz-remember">
@@ -3748,7 +3867,7 @@ export default function App() {
                   <div className="quiz-result">
                     <div className="quiz-feedback quiz-feedback--partial">
                       <div className="quiz-verdict quiz-verdict--partial">~ PARTIALLY RIGHT</div>
-                      <p className="quiz-narrator-beat">Coral nods. Old Finn strokes his beard. Carol does not look convinced.</p>
+                      <p className="quiz-narrator-beat">Coral nods slowly. Old Finn strokes his beard. She is not entirely convinced.</p>
                     </div>
                     <div className="smishing-continue" style={{ padding: '10px 22px', cursor: 'pointer' }} onClick={e => { e.stopPropagation(); advanceCQ() }}>tap to continue</div>
                   </div>
@@ -3855,7 +3974,18 @@ export default function App() {
           {hasSaved && (
             <button
               className="landing-enter-btn landing-continue-btn"
-              onClick={() => { playClick(); setDemoMode(false); setDemoModeFlag(false); setShowDevConsole(false); setView(freshSafeView) }}
+              onClick={() => {
+                playClick()
+                setDemoMode(false)
+                setDemoModeFlag(false)
+                setShowDevConsole(false)
+                // Restore full save state from localStorage so dev console jumps don't bleed in
+                if (freshSave.playerName)         setPlayerName(freshSave.playerName)
+                if (freshSave.seabrightLine != null) setSeabrightLine(freshSave.seabrightLine)
+                if (freshSave.lineIndex != null)  setLineIndex(freshSave.lineIndex)
+                if (freshSave.startBedroomLine != null) setStartBedroomLine(freshSave.startBedroomLine)
+                setView(freshSafeView)
+              }}
             >
               CONTINUE
             </button>
@@ -3863,7 +3993,11 @@ export default function App() {
 
           <button
             className="landing-enter-btn"
-            onClick={() => { playClick(); setIsFullPlaythrough(true); setDemoMode(false); setDemoModeFlag(false); setStartNameInput(''); setPlayerNameInput(''); setShowDevConsole(false); setView('start-name') }}
+            onClick={() => {
+              playClick()
+              if (hasSaved) { setShowNewGameConfirm(true) }
+              else { setIsFullPlaythrough(true); setDemoMode(false); setDemoModeFlag(false); setStartNameInput(''); setPlayerNameInput(''); setShowDevConsole(false); setView('start-name') }
+            }}
           >
             NEW GAME
           </button>
@@ -3876,37 +4010,157 @@ export default function App() {
           </button>
 
           <button
-            className="landing-enter-btn landing-dev-toggle"
+            className="landing-enter-btn landing-dev-toggle landing-dev-toggle--chapters"
             onClick={() => { playClick(); setShowDevConsole(v => !v) }}
           >
-            {showDevConsole ? '▲ DEV CONSOLE' : '▼ DEV CONSOLE'}
+            {showDevConsole ? '▲ CHAPTERS' : '▼ CHAPTERS'}
+            <svg className="dev-lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <rect x="3" y="11" width="18" height="11" rx="2" />
+              <path d="M7 11V7a5 5 0 0 1 9.9-1" />
+            </svg>
           </button>
 
-          {showDevConsole && (
-            <div className="landing-dev-console">
-              <div className="landing-dev-group">
-                <span className="landing-dev-label">JUMP TO SECTION</span>
-                <button onClick={() => { setIsFullPlaythrough(false); setStartNameInput(''); setShowDevConsole(false); setView('start-name') }} className="landing-dev-btn">Starting Sequence</button>
-                <button onClick={() => { setIsFullPlaythrough(false); setPlayerNameInput(''); setShowDevConsole(false); setView('name-entry') }} className="landing-dev-btn">Observatory Intro</button>
-                <button onClick={() => { setIsFullPlaythrough(false); setSeabrightLine(0); setShowDevConsole(false); setView('seabright') }} className="landing-dev-btn">Seabright Arrival</button>
-                <button onClick={() => { setIsFullPlaythrough(false); setSeabrightLine(48); setShowDevConsole(false); setView('seabright') }} className="landing-dev-btn">After Minigame</button>
-                <button onClick={() => { setIsFullPlaythrough(false); setSeabrightLine(113); setShowDevConsole(false); setView('seabright') }} className="landing-dev-btn">Cliff Path</button>
-                <button onClick={() => { setIsFullPlaythrough(false); setSeabrightLine(156); setShowDevConsole(false); setView('seabright') }} className="landing-dev-btn">After Password Game</button>
-                <button onClick={() => { setIsFullPlaythrough(false); setSeabrightLine(177); setShowDevConsole(false); setView('seabright') }} className="landing-dev-btn">Sunshare Square</button>
-                <button onClick={() => { setIsFullPlaythrough(false); setSeabrightLine(203); setShowDevConsole(false); setView('seabright') }} className="landing-dev-btn">Security Questions</button>
-                <button onClick={() => { setIsFullPlaythrough(false); setSeabrightLine(218); setShowDevConsole(false); setView('seabright') }} className="landing-dev-btn">Online Safety</button>
+          {showDevConsole && (() => {
+            const devNav = (fn) => () => {
+              playClick()
+              setPlayerName('Dev')
+              setIsFullPlaythrough(false)
+              setShowDevConsole(false)
+              setDevExpandedChapter(null)
+              fn()
+            }
+            const sb = (line) => devNav(() => { setSeabrightLine(line); setView('seabright') })
+            const toggleChapter = (ch) => setDevExpandedChapter(prev => prev === ch ? null : ch)
+            const DEV_CHAPTERS = [
+              {
+                num: 'I', title: 'A Letter from Nowhere', img: bedroomImg,
+                start: devNav(() => { setStartBedroomLine(0); goToChapter({ number: 'I', title: 'A Letter from Nowhere' }, 'start-bedroom') }),
+                subs: [
+                  { label: 'Bedroom — opening', fn: devNav(() => { setStartBedroomLine(0); setView('start-bedroom') }) },
+                ]
+              },
+              {
+                num: 'II', title: 'SeaBright Ahoy!', img: seabrightHarbour,
+                start: devNav(() => goToChapter({ number: 'II', title: 'SeaBright Ahoy!' }, 'seabright-0')),
+                subs: [
+                  { label: 'Harbour arrival', fn: sb(0) },
+                  { label: 'Email inspection', fn: sb(15) },
+                  { label: 'Phishing quiz', fn: sb(27) },
+                  { label: 'Red flags card', fn: sb(39) },
+                  { label: 'Real or Fake? minigame', fn: sb(47) },
+                  { label: 'Spot the Scam Bot', fn: sb(93) },
+                ]
+              },
+              {
+                num: 'III', title: 'Into The Lighthouse', img: lighthouseInt,
+                start: devNav(() => goToChapter({ number: 'III', title: 'Into The Lighthouse' }, 'seabright-113')),
+                subs: [
+                  { label: 'Cliff path arrival', fn: sb(113) },
+                  { label: 'Password Challenge', fn: sb(153) },
+                ]
+              },
+              {
+                num: 'IV', title: 'Echoes in the Sunshare Square', img: sunshareSquare,
+                start: devNav(() => goToChapter({ number: 'IV', title: 'Echoes in the Sunshare Square' }, 'seabright-177')),
+                subs: [
+                  { label: 'Sunshare Square arrival', fn: sb(177) },
+                  { label: 'The Picture Test', fn: sb(198) },
+                  { label: 'Security questions quiz', fn: sb(217) },
+                  { label: 'Online safety quiz', fn: sb(232) },
+                  { label: 'Password fix quiz', fn: sb(255) },
+                  { label: 'Edit Before You Post', fn: sb(262) },
+                  { label: 'Cyberbullying quiz', fn: sb(286) },
+                ]
+              },
+              {
+                num: 'V', title: 'At the Edge of the Sky', img: observatoryExt,
+                start: devNav(() => goToChapter({ number: 'V', title: 'At the Edge of the Sky' }, 'observatory')),
+                subs: [
+                  { label: 'Observatory arrival', fn: devNav(() => { setLineIndex(0);  setTypedLength(0); setIsObservatoryShaking(false); setView('story-observatory') }) },
+                  { label: 'The two women appear', fn: devNav(() => { setLineIndex(12); setTypedLength(0); setIsObservatoryShaking(false); setView('story-observatory') }) },
+                  { label: 'Smishing screen', fn: devNav(() => { setLineIndex(23); setTypedLength(0); setIsObservatoryShaking(false); setView('story-observatory') }) },
+                  { label: 'Vishing screen', fn: devNav(() => { setLineIndex(31); setTypedLength(0); setIsObservatoryShaking(false); setView('story-observatory') }) },
+                  { label: 'MFA lesson', fn: devNav(() => { setLineIndex(44); setTypedLength(0); setIsObservatoryShaking(false); setView('story-observatory') }) },
+                  { label: 'The locked room', fn: devNav(() => { setLineIndex(46); setTypedLength(0); setIsObservatoryShaking(false); setView('story-observatory') }) },
+                  { label: 'The final game', fn: devNav(() => { setLineIndex(68); setTypedLength(0); setIsObservatoryShaking(false); setView('story-observatory') }) },
+                ]
+              },
+            ]
+            return (
+              <div className="landing-dev-console">
+                <div className="landing-dev-group">
+                  <span className="landing-dev-label">CHAPTERS</span>
+                  {DEV_CHAPTERS.map(ch => (
+                    <div key={ch.num} className="landing-dev-chapter">
+                      <div className="landing-dev-chapter-row">
+                        <button className="landing-dev-btn landing-dev-btn--chapter" onClick={ch.start}>
+                          {ch.num} — {ch.title}
+                        </button>
+                        {ch.subs.length > 0 && (
+                          <button className="landing-dev-expand" onClick={() => toggleChapter(ch.num)}>
+                            {devExpandedChapter === ch.num ? '▲' : '▼'}
+                          </button>
+                        )}
+                        {ch.img && <img className="dev-chapter-thumb" src={ch.img} alt={ch.title} />}
+                      </div>
+                      {devExpandedChapter === ch.num && (
+                        <div className="landing-dev-subs">
+                          {ch.subs.map(sub => (
+                            <button key={sub.label} className="landing-dev-btn landing-dev-btn--sub" onClick={sub.fn}>
+                              {sub.label}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+                <div className="landing-dev-group">
+                  <span className="landing-dev-label">MINIGAMES</span>
+                  <button className="landing-dev-btn" onClick={sb(47)}>Real or Fake?</button>
+                  <button className="landing-dev-btn" onClick={sb(93)}>Spot the Scam Bot</button>
+                  <button className="landing-dev-btn" onClick={sb(153)}>Password Challenge</button>
+                  <button className="landing-dev-btn" onClick={sb(198)}>The Picture Test</button>
+                  <button className="landing-dev-btn" onClick={sb(262)}>Edit Before You Post</button>
+                </div>
               </div>
-              <div className="landing-dev-group">
-                <span className="landing-dev-label">STANDALONE MODULES</span>
-                <button onClick={() => { setShowDevConsole(false); setView('phish') }} className="landing-dev-btn">Phishing Exercise</button>
-                <button onClick={() => { setShowDevConsole(false); setView('analyzer') }} className="landing-dev-btn">Text Detective</button>
-                <button onClick={() => { setShowDevConsole(false); setView('chest') }} className="landing-dev-btn">Password Chest</button>
-                <button onClick={() => { setIsFullPlaythrough(false); setSeabrightLine(47); setShowDevConsole(false); setView('seabright') }} className="landing-dev-btn">Real or Fake?</button>
-                <button onClick={() => { setDemoModeFlag(true); setDemoMode(true); setDemoStep('obs'); setPlayerNameInput(''); setShowDevConsole(false); setView('name-entry') }} className="landing-dev-btn landing-dev-btn--demo">User Test Demo</button>
+            )
+          })()}
+        </div>
+
+        {showNewGameConfirm && (
+          <div className="ng-confirm-overlay" onClick={() => { playBack(); setShowNewGameConfirm(false) }}>
+            <div className="ng-confirm-box" onClick={e => e.stopPropagation()}>
+              <p className="ng-confirm-title">Start a new game?</p>
+              <p className="ng-confirm-body">All your current progress will be lost and cannot be recovered.</p>
+              <div className="ng-confirm-actions">
+                <button
+                  className="ng-confirm-btn ng-confirm-btn--confirm"
+                  onClick={() => {
+                    playClick()
+                    clearProgress()
+                    setShowNewGameConfirm(false)
+                    setIsFullPlaythrough(true)
+                    setDemoMode(false)
+                    setDemoModeFlag(false)
+                    setStartNameInput('')
+                    setPlayerNameInput('')
+                    setShowDevConsole(false)
+                    setView('start-name')
+                  }}
+                >
+                  Start New Game
+                </button>
+                <button
+                  className="ng-confirm-btn ng-confirm-btn--cancel"
+                  onClick={() => { playBack(); setShowNewGameConfirm(false) }}
+                >
+                  Cancel
+                </button>
               </div>
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     )
   }
@@ -4015,7 +4269,7 @@ export default function App() {
     return (
       <div className="game-root">
         <div className="stage">
-          {showGlobalBack && <button className="back-link" onClick={() => setView('home')}>← Back</button>}
+          {showGlobalBack && <button className="back-link" onClick={() => { playBack(); setView('home') }}>← Back</button>}
           <PhishGame onExit={() => setView('home')} />
         </div>
       </div>
@@ -4026,6 +4280,7 @@ export default function App() {
   if (view === 'start-name') {
     const confirm = () => {
       if (!startNameInput.trim()) return
+      playClick()
       setStartName(startNameInput.trim())
       setPlayerName(startNameInput.trim())
       setView('start-reveal')
@@ -4055,7 +4310,7 @@ export default function App() {
   // Starting sequence — name reveal
   if (view === 'start-reveal') {
     return (
-      <div className="game-root start-reveal-root" onClick={() => { setStartBedroomLine(0); setView('start-opener') }}>
+      <div className="game-root start-reveal-root" onClick={() => { playClick(); setStartBedroomLine(0); setView('start-opener') }}>
         <div className="start-reveal-screen">
           <p className="start-reveal-name">{startName}</p>
           <p className="start-reveal-hello">Hello, {startName}.</p>
@@ -4068,7 +4323,7 @@ export default function App() {
   // Starting sequence — atmospheric opener (black screen)
   if (view === 'start-opener') {
     return (
-      <div className="game-root start-opener-root" onClick={() => { setStartBedroomLine(0); setView('start-bedroom') }}>
+      <div className="game-root start-opener-root" onClick={() => { playClick(); setView('instructions') }}>
         <div className="start-opener-screen">
           <p className="start-opener-text">
             Somewhere, in a house full of maps and curiosities and one very large cat, a Saturday morning is about to get much more interesting than usual.
@@ -4101,6 +4356,7 @@ export default function App() {
       .slice(-3)
 
     const advanceBedroom = () => {
+      playClick()
       if (atLast) { isFullPlaythrough ? (setOutroLine(0), setView('outro')) : setView('home'); return }
       setPhotoShook(false)
       setShowTitle(false)
@@ -4112,6 +4368,7 @@ export default function App() {
     }
 
     const goBackBedroom = () => {
+      playBack()
       setPhotoShook(false)
       setPhotoZooming(false)
       setShowTitle(false)
@@ -4126,6 +4383,7 @@ export default function App() {
     const closeLetter = () => {
       setShowBedroomLetter(false)
       if (isWaitForLetter) advanceBedroom()
+      else playClick()
     }
 
     return (
@@ -4163,7 +4421,7 @@ export default function App() {
           {/* Envelope — appears when post is mentioned, tap to read letter */}
           <div
             className={`bedroom-envelope${showBedroomEnvelope ? ' bedroom-envelope--visible' : ''}`}
-            onClick={showBedroomEnvelope ? (e) => { e.stopPropagation(); setShowBedroomLetter(true) } : undefined}
+            onClick={showBedroomEnvelope ? (e) => { e.stopPropagation(); playCardIn(); setShowBedroomLetter(true) } : undefined}
             style={showBedroomEnvelope ? { pointerEvents: 'auto', cursor: 'pointer' } : undefined}
           >
             <div className="bedroom-envelope__flap" />
@@ -4215,9 +4473,9 @@ export default function App() {
                 alt="Aunt Mira photograph"
                 className={`bedroom-photo${photoShook ? ' bedroom-photo--shake' : ''}`}
                 onClick={photoPhase === 'wait' && !photoShook
-                  ? e => { e.stopPropagation(); setPhotoShook(true) }
+                  ? e => { e.stopPropagation(); playReveal(); setPhotoShook(true) }
                   : photoPhase === 'zoomWait'
-                  ? e => { e.stopPropagation(); setPhotoZooming(true) }
+                  ? e => { e.stopPropagation(); playReveal(); setPhotoZooming(true) }
                   : undefined
                 }
                 onAnimationEnd={photoShook && photoPhase === 'wait'
@@ -4378,7 +4636,7 @@ export default function App() {
     return (
       <div className="game-root">
         <div className="stage">
-          {showGlobalBack && <button className="back-link" onClick={() => setView('home')}>← Back</button>}
+          {showGlobalBack && <button className="back-link" onClick={() => { playBack(); setView('home') }}>← Back</button>}
           <TextAnalyzer onExit={() => setView('home')} />
         </div>
       </div>
@@ -4390,7 +4648,7 @@ export default function App() {
     return (
       <div className="game-root">
         <div className="stage">
-          {showGlobalBack && <button className="back-link" onClick={() => setView('home')}>← Back</button>}
+          {showGlobalBack && <button className="back-link" onClick={() => { playBack(); setView('home') }}>← Back</button>}
           <PasswordChest onExit={() => setView('home')} />
         </div>
       </div>
@@ -4615,7 +4873,7 @@ export default function App() {
           {showItemFocus && <ItemFocusOverlay item={showItemFocus} />}
           {showTrailRetreat && <TrailRetreat onClick={observatoryNext} />}
           {showGameEnd && (
-            <div className="game-end-overlay" onClick={() => { setShowGameEnd(false); setView('home') }}>
+            <div className="game-end-overlay" onClick={() => { playClick(); setShowGameEnd(false); setView('home') }}>
               <p className="game-end-text">THE END</p>
               <p className="game-end-sub">WHEN MIRA CALLS</p>
             </div>
@@ -4682,7 +4940,7 @@ export default function App() {
           {showMFAQuizScreen && (
             <div
               className="quiz-overlay"
-              onClick={mfaQuizAnswer === 'B' ? handleStoryNext : mfaQuizAnswer ? () => setMfaQuizAnswer(null) : undefined}
+              onClick={mfaQuizAnswer === 'B' ? handleStoryNext : mfaQuizAnswer ? () => { playBack(); setMfaQuizAnswer(null) } : undefined}
             >
               <div className="quiz-panel">
                 <div className="quiz-header">WHAT DO YOU DO?</div>
@@ -4698,7 +4956,7 @@ export default function App() {
                       <div
                         key={id}
                         className="quiz-option"
-                        onClick={(e) => { e.stopPropagation(); setMfaQuizAnswer(id) }}
+                        onClick={(e) => { e.stopPropagation(); playOptionSelect(); id === 'B' ? playCorrect() : playWrong(); setMfaQuizAnswer(id) }}
                       >
                         <span className="quiz-option-key">{id}</span>
                         <span className="quiz-option-text">{text}</span>
@@ -4741,7 +4999,7 @@ export default function App() {
           {showQuizScreen && (
             <div
               className="quiz-overlay"
-              onClick={quizAnswer === 'B' ? handleStoryNext : quizAnswer ? () => setQuizAnswer(null) : undefined}
+              onClick={quizAnswer === 'B' ? handleStoryNext : quizAnswer ? () => { playBack(); setQuizAnswer(null) } : undefined}
             >
               <div className="quiz-panel">
                 <div className="quiz-header">WHAT DO YOU DO?</div>
@@ -4757,7 +5015,7 @@ export default function App() {
                       <div
                         key={id}
                         className="quiz-option"
-                        onClick={(e) => { e.stopPropagation(); setQuizAnswer(id) }}
+                        onClick={(e) => { e.stopPropagation(); playOptionSelect(); id === 'B' ? playCorrect() : playWrong(); setQuizAnswer(id) }}
                       >
                         <span className="quiz-option-key">{id}</span>
                         <span className="quiz-option-text">{text}</span>
@@ -4835,21 +5093,7 @@ export default function App() {
               )
             })()}
           </div>
-          {showPlayerChoice ? (
-            <div className="bubble-tail-container player-choice-wrap" onClick={handleStoryNext}>
-              <div className="bubble">
-                <div className="bubble-inner player-choice-inner">
-                  <div className="bubble-line">
-                    <span className="player-choice-arrow" aria-hidden="true">▷</span>{' '}
-                    {activeStoryText}
-                  </div>
-                </div>
-              </div>
-              <svg className="bubble-tail" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" fill="rgba(18,18,18,0.86)">
-                <path d="M 140 -16 Q 140 160  224 140 140 140  160 -16" />
-              </svg>
-            </div>
-          ) : isPlayerLine ? (
+          {isPlayerLine ? (
             <div className="bubble-tail-container observatory-bubble-wrap" onClick={handleStoryNext}>
               <div className="bubble">
                 <div className="nameplate">{playerName || '[YOUR NAME]'}</div>
@@ -4872,7 +5116,7 @@ export default function App() {
               </svg>
             </div>
           ) : isNarratorLine ? (
-            <div className="narrator-overlay" onClick={handleStoryNext}>
+            <div className={`narrator-overlay${bgIsObsExterior ? ' narrator-overlay--exterior' : ''}`} onClick={handleStoryNext}>
               <div className="narrator-lines">
                 {narratorSequenceLines.slice(-3).map((histLine, i, arr) => {
                   const pastLevel = arr.length - i
@@ -4942,21 +5186,7 @@ export default function App() {
         ))}
       </div>
 
-      {showPlayerChoice ? (
-        <div className="bubble-tail-container player-choice-wrap" onClick={handleStoryNext}>
-          <div className="bubble">
-            <div className="bubble-inner player-choice-inner">
-              <div className="bubble-line">
-                <span className="player-choice-arrow" aria-hidden="true">▷</span>{' '}
-                {activeStoryText}
-              </div>
-            </div>
-          </div>
-          <svg className="bubble-tail" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" fill="rgba(18,18,18,0.86)">
-            <path d="M 140 -16 Q 140 160  224 140 140 140  160 -16" />
-          </svg>
-        </div>
-      ) : isPlayerLine ? (
+      {isPlayerLine ? (
         <div className="bubble-tail-container" onClick={handleStoryNext}>
           <div className="bubble">
             <div className="nameplate">{playerName || '[YOUR NAME]'}</div>
