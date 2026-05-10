@@ -118,27 +118,27 @@ const observatoryStory = {
     { speaker: 'Narrator', text: 'The Shadow Man sent someone ahead. A trap at the finish line. And the only way through it is to use everything you have learned.', showWomen: true },
     { speaker: '[YOUR NAME]', text: 'I am going to look around first. The answer is somewhere in this room.', showWomen: true },
     { speaker: '', text: '', hideBubble: true, showObsScreen: true },
-    { speaker: 'Narrator', text: 'The player approaches the first bank of screens on the left wall.', showObsScreen: true },
+    { speaker: 'Narrator', text: 'You approach the first bank of screens on the left wall.', showObsScreen: true },
     { speaker: '', text: '', showSmishing: true, hideBubble: true, showObsScreen: true },
     { speaker: '[YOUR NAME]', text: 'This is smishing. A fake text - but using real personal information to make it feel real.', showSmishing: true, showObsScreen: true },
     { speaker: 'WOMAN A', text: 'Look at what it uses. His first name. His school name. A saved contact name that seemed official. All of that came from his public profile. Without the personal information, this is just a generic scam. With it, it feels personal.', showWomen: true, showSmishing: true, emotion: 'thinking', showObsScreen: true },
     { speaker: 'WOMAN B', text: 'Look at what it uses. His first name. His school name. A saved contact name that seemed official. All of that came from his public profile. Without the personal information, this is just a generic scam. With it, it feels personal.', showWomen: true, showSmishing: true, emotion: 'thinking', showObsScreen: true },
     { speaker: '', text: '', showSmishingInfo: true, hideBubble: true, showObsScreen: true },
     { speaker: 'WOMAN B', text: 'We are running out of time. He is still tracking the strongbox. Just give me the items now and we can lock him out before he gets closer.', showWomen: true, emotion: 'upset', showObsScreen: true },
-    { speaker: 'Narrator', text: 'Woman A says nothing. She watches Woman B. Then she looks at the player.', showWomen: true, showObsScreen: true },
-    { speaker: 'Narrator', text: 'The player moves to the next screen. A recorded phone call plays through a small speaker. The player can see a transcript alongside it. This is the call that the family in Sunshare Square received.', showObsScreen: true },
+    { speaker: 'Narrator', text: 'Woman A says nothing. She watches Woman B. Then she looks at you.', showWomen: true, showObsScreen: true },
+    { speaker: 'Narrator', text: 'You move to the next screen. A recorded phone call plays through a small speaker. You can see a transcript alongside it. This is the call that the family in Sunshare Square received.', showObsScreen: true },
     { speaker: '', text: '', showVishing: true, hideBubble: true, showObsScreen: true },
     { speaker: '[YOUR NAME]', text: 'That is vishing. A phone call instead of a text or email. And it sounds completely real because they used Priya\'s actual school name and her actual first name.', showObsScreen: true },
     { speaker: 'WOMAN A', text: 'And notice the final step. The verification code they asked for was not for security. It was the password reset code for Priya\'s account. The caller was using the parent\'s trust and the official-sounding process to intercept a code that would give them access. The personal information opened the door. The code was the key.', showWomen: true, emotion: 'thinking', showObsScreen: true },
     { speaker: '', text: '', showVishingInfo: true, hideBubble: true, showObsScreen: true },
     { speaker: '', text: '', showQuiz: true, hideBubble: true, showWomen: true, hideWomanB: true, showObsScreen: true },
-    { speaker: 'Narrator', text: 'Woman B moves toward the player again.', showWomen: true, showObsScreen: true },
+    { speaker: 'Narrator', text: 'Woman B moves toward you again.', showWomen: true, showObsScreen: true },
     { speaker: 'WOMAN B', text: 'You have to trust me. I am your aunt. You know what I sound like from the letter. You know who I am.', showWomen: true, emotion: 'upset', showObsScreen: true },
     { speaker: 'Narrator', text: 'On the far side of the Observatory, a heavy door is set into the curved wall. Unlike the entrance door, this one is firmly locked - and the lock is unusual. It has two stages.', showLockedDoor: true },
     { speaker: '[YOUR NAME]', text: 'This needs two things to open. A code and a card.', showWomen: true, showLockedDoor: true },
     { speaker: 'WOMAN A', text: 'The code is the passphrase you have been carrying. The card is in the strongbox - Mira left it there before the compass.', showWomen: true, emotion: 'thinking', showLockedDoor: true, showKeypad: true },
     { speaker: '', text: '', hideBubble: true, showLockedDoor: true, showStrongboxCard: true },
-    { speaker: 'Narrator', text: 'The player enters the passphrase on the keypad. Then slots the card. Two clicks. The door opens.', showLockedDoor: true, showKeypad: true },
+    { speaker: 'Narrator', text: 'You enter the passphrase on the keypad. Then slot the card. Two clicks. The door opens.', showLockedDoor: true, showKeypad: true },
     { speaker: 'WOMAN A', text: 'That door cannot be opened by guessing the passphrase alone. Even if someone knew your passphrase, they would need the physical card too. And even if they had the card, they would need the passphrase. Both. Always both.', showWomen: true, emotion: 'thinking', showLockedDoor: true, showKeypad: true },
     { speaker: '', text: '', showMFAInfo: true, hideBubble: true, showLockedDoor: true, showKeypad: true },
     { speaker: '', text: '', showMFAQuiz: true, hideBubble: true, showWomen: true, hideWomanB: true, showLockedDoor: true, showKeypad: true },
@@ -148,9 +148,9 @@ const observatoryStory = {
     { speaker: 'Narrator', text: 'Seabright: the phishing emails that harvested harbour logins.', showIntRoom: true },
     { speaker: 'Narrator', text: 'The lighthouse: circling for weaknesses in the strongbox.', showIntRoom: true },
     { speaker: 'Narrator', text: 'Sunshare Square: collecting personal information from public profiles, building a picture of every person who lived and posted there.', showIntRoom: true },
-    { speaker: 'Narrator', text: 'And then arriving here, ahead of the player, with an impostor in place.', showIntRoom: true },
+    { speaker: 'Narrator', text: 'And then arriving here, ahead of you, with an impostor in place.', showIntRoom: true },
     { speaker: 'WOMAN A', text: 'Look at the dates on his collection from Sunshare Square.', showWomen: true, hideWomanB: true, emotion: 'thinking', showIntRoom: true },
-    { speaker: 'Narrator', text: 'The player looks at the timestamps on the Shadow Man\'s file. Some entries are from this week. But others are from over a year ago. Two years. Posts that no longer exist on anyone\'s live profile. Still here. Still readable. Still used.', showIntRoom: true },
+    { speaker: 'Narrator', text: 'You look at the timestamps on the Shadow Man\'s file. Some entries are from this week. But others are from over a year ago. Two years. Posts that no longer exist on anyone\'s live profile. Still here. Still readable. Still used.', showIntRoom: true },
     { speaker: '[YOUR NAME]', text: 'He has posts that were deleted. How does he have those?', showWomen: true, showIntRoom: true },
     { speaker: 'WOMAN A', text: 'He collected them while they were live. Cached copies. Screenshots. His own archive. The internet does not automatically forget on your behalf - it only forgets when every copy, everywhere, is gone. And you only control one copy.', showWomen: true, hideWomanB: true, showIntRoom: true },
     { speaker: '', text: '', showPermanenceInfo: true, hideBubble: true, showIntRoom: true },
@@ -160,7 +160,7 @@ const observatoryStory = {
     { speaker: 'WOMAN B', text: 'We do not have time for the lesson. I need the items. He is getting closer.', showWomen: true, emotion: 'upset', showIntRoom: true },
     { speaker: 'Narrator', text: 'A pause. Then Woman B adds something quickly, as if filling the silence.', showWomen: true, showIntRoom: true },
     { speaker: 'WOMAN B', text: 'You have already spoken to both of them - Celia and Rosa. You know how important this is. Please.', showWomen: true, emotion: 'upset', showIntRoom: true },
-    { speaker: 'Narrator', text: 'The player did not say how many aunts they had visited. They did not mention Rosa by name. Not in this room. Not to either of these women. A wrong note in a familiar song. The room is very quiet for a moment.', showWomen: true, showIntRoom: true },
+    { speaker: 'Narrator', text: 'You did not say how many aunts you had visited. You did not mention Rosa by name. Not in this room. Not to either of these women. A wrong note in a familiar song. The room is very quiet for a moment.', showWomen: true, showIntRoom: true },
     { speaker: 'WOMAN A', text: 'There it is again.', showWomen: true, hideWomanB: true, showIntRoom: true },
     { speaker: 'Narrator', text: 'You stand in the middle of the Observatory with the strongbox in your hands. Two identical women watch you. The screens show the Shadow Man\'s trail still active - but slowed. He is waiting, too. Waiting to see if his trap works.', showWomen: true, showIntRoom: true },
     { speaker: 'Narrator', text: 'You have everything you need. You have been building toward this moment since a Saturday morning when a letter arrived with a lighthouse stamp. Think. Look at what happened. Look at what each woman did.', showWomen: true, showIntRoom: true },
@@ -1202,7 +1202,7 @@ export default function App() {
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'Stop. Do not tap it yet.' },
       { type: 'dialogue', speaker: 'CORAL', text: 'But the clock-' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'I know. That is the point of the clock. It wants you looking at the numbers instead of the ad. Look at the ad itself for a second.' },
-      { type: 'narrator', text: 'Coral looks. The player talks her through it.' },
+      { type: 'narrator', text: 'Coral looks. You talk her through it.' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'You were just checking tide times. You did not enter any competition. How did a fishing rod competition know to pop up for you, specifically, right now?' },
       { type: 'dialogue', speaker: 'CORAL', text: 'I... did not enter anything.' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'Right. And look at the address bar at the top of the screen. What does it say?' },
@@ -1250,7 +1250,7 @@ export default function App() {
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'Mira? What else did she say?' },
       { type: 'dialogue', speaker: 'OLD FINN', text: 'She said you were on your way to find her and that you would pick things up fast. She said the village needed help and that you were the right person to give it. She was right about both things.' },
       { type: 'dialogue', speaker: 'CORAL', text: 'She also left something for you. She gave it to Old Finn before she went. Said you would earn it by the time you came to collect it.' },
-      { type: 'narrator', text: 'Old Finn reaches into his coat and produces a small object wrapped in a piece of cloth. He holds it out to the player.' },
+      { type: 'narrator', text: 'Old Finn reaches into his coat and produces a small object wrapped in a piece of cloth. He holds it out to you.' },
       { type: 'compass-reveal' },
       { type: 'dialogue', speaker: 'OLD FINN', text: 'She also said to tell you: the lighthouse. Once the village was right again. She said you would know what to do.' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'The lighthouse on the cliff?' },
@@ -1350,7 +1350,7 @@ export default function App() {
       ]},
       { type: 'dialogue', bg: 'lighthouse-int', speaker: '[YOUR NAME]', text: 'Sunshare Square. A place where everything is shared and nothing is hidden. That sounds like exactly the kind of place that could go wrong.' },
       { type: 'dialogue', bg: 'lighthouse-int', speaker: 'CELIA', text: 'It has. That is why you need to go there.' },
-      { type: 'narrator', bg: 'lighthouse-door', text: 'The player stands up to leave. Celia walks them to the lighthouse door. At the threshold she pauses.' },
+      { type: 'narrator', bg: 'lighthouse-door', text: 'You stand up to leave. Celia walks you to the lighthouse door. At the threshold she pauses.' },
       { type: 'dialogue', bg: 'lighthouse-door', speaker: 'CELIA', text: 'One more thing. The Shadow Man was at the base of the path. He watched you arrive. He will watch you leave. He cannot stop you - he does not work that way. But he will follow the trail.' },
       { type: 'dialogue', bg: 'lighthouse-door', speaker: '[YOUR NAME]', text: 'How do I know where he is?' },
       { type: 'dialogue', bg: 'lighthouse-door', speaker: 'CELIA', text: 'You usually do not. You just make sure the gaps are closed and the important things are locked. That is the answer. Not watching for him - making sure there is nothing for him to take.' },
@@ -1376,7 +1376,7 @@ export default function App() {
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'You were not. But it adds up. On its own, knowing your school name is not dangerous. But knowing your school, your teacher, your routine, your friend\'s username, and roughly where you live - that is a full picture. And someone built that picture from your public posts.' },
       { type: 'digital-footprint-info', bg: 'sunshare' },
       { type: 'privacy-quiz', bg: 'sunshare' },
-      { type: 'narrator', bg: 'sunshare', text: 'Rosa takes the player to a larger screen in the square - one of the public posting boards. A queue of posts is waiting to go live. Priya and a few other young people gather around. They want to know how to check their own posts before they share them.' },
+      { type: 'narrator', bg: 'sunshare', text: 'Rosa takes you to a larger screen in the square - one of the public posting boards. A queue of posts is waiting to go live. Priya and a few other young people gather around. They want to know how to check their own posts before they share them.' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'Each post below is about to go public. Your job is to check each one before it goes live. Look at what it reveals - not just on its own, but combined with what the person has already posted.' },
       { type: 'picture-test-instructions', bg: 'sunshare' },
       { type: 'picture-test-game', bg: 'sunshare' },
@@ -1398,9 +1398,9 @@ export default function App() {
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'The posts were not. But they were the answers to security questions that were protecting something important. The problem is not the post - it is using personal information that is publicly visible as a security measure.' },
       { type: 'security-question-info', bg: 'sunshare' },
       { type: 'security-question-quiz', bg: 'sunshare' },
-      { type: 'narrator', bg: 'sunshare', text: 'Priya catches up with Rosa and the player on the far side of the square. She has her phone in her hand and looks uncertain about whether to show it to anyone.' },
+      { type: 'narrator', bg: 'sunshare', text: 'Priya catches up with Rosa and you on the far side of the square. She has her phone in her hand and looks uncertain about whether to show it to anyone.' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'PRIYA', text: 'Rosa - can I show you something? There is someone I have been playing Minecraft with online for three weeks. We have never met in real life. He just messaged me and said we should move our chat to a different app - one my parents have not heard of - and not to tell them because they would not understand gaming friendships. And he wants my phone number.' },
-      { type: 'narrator', bg: 'sunshare', text: 'Rosa does not look alarmed. She looks thoughtful. She turns to the player.' },
+      { type: 'narrator', bg: 'sunshare', text: 'Rosa does not look alarmed. She looks thoughtful. She turns to you.' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'What do you notice about that message?' },
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'Three things. He wants to move to a platform Priya\'s parents have not heard of. He is asking Priya to keep it secret from them. And he is asking for a real-world phone number after three weeks of online contact only.' },
       { type: 'secret-keeping-info', bg: 'sunshare' },
@@ -1416,7 +1416,7 @@ export default function App() {
       { type: 'dialogue', bg: 'sunshare', speaker: 'PRIYA', text: 'Okay. I will talk to my parents tonight.' },
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'Good. And if you turn out to be wrong about him, the worst thing that happens is your dad knows you have a gaming friend. That is not a bad outcome.' },
       { type: 'online-trust-info', bg: 'sunshare' },
-      { type: 'narrator', bg: 'sunshare', text: 'Rosa takes the player and Priya to a quiet corner of the square. Priya sits for a moment. She has just understood exactly how it happened - and understanding does not feel as good as she thought it would.' },
+      { type: 'narrator', bg: 'sunshare', text: 'Rosa takes you and Priya to a quiet corner of the square. Priya sits for a moment. She has just understood exactly how it happened - and understanding does not feel as good as she thought it would.' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'PRIYA', text: 'My posts. My profile. I put all of that there. I just did not know what it could be used for.' },
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'Now you do. That is the difference.' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'PRIYA', text: 'It does not feel like enough of a difference.' },
@@ -1459,7 +1459,7 @@ export default function App() {
       { type: 'dialogue', bg: 'sunshare', speaker: 'PRIYA', text: 'The cat birthday post got approved. That is the content we are all here for.' },
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'The cat birthday post is exactly right. That is what sharing looks like when you have thought about it.' },
       { type: 'narrator', bg: 'sunshare', text: 'The square is quieter now. The crowd that gathered for the editing session has drifted off. You find Priya sitting alone, looking at her phone with the expression of someone deciding something.' },
-      { type: 'narrator', bg: 'sunshare', text: 'The player approaches. Priya quickly turns the phone face-down.' },
+      { type: 'narrator', bg: 'sunshare', text: 'You approach. Priya quickly turns the phone face-down.' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'PRIYA', text: 'Sorry. It is nothing.' },
       { type: 'narrator', bg: 'sunshare', text: 'Rosa sits down beside her.' },
       { type: 'narrator', bg: 'sunshare', text: 'Priya turns the phone back over. The screen shows a group chat. Someone has posted a photo of a classmate with a mocking caption underneath. It has been shared by several people in the group. A few have added laughing reactions. Priya is in the group. She has not reacted. She has not said anything. She has not left.' },
@@ -1469,7 +1469,7 @@ export default function App() {
       { type: 'bystander-info', bg: 'sunshare' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'PRIYA', text: 'But if I say something they will turn on me.' },
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'Maybe. What are the options? You can speak up in the group. You can message the person being targeted privately to let them know someone sees what is happening. You can report the post to the platform. You can tell a trusted adult. You do not have to be loud to break the silence. You just have to not be part of the wall.' },
-      { type: 'narrator', bg: 'sunshare', text: 'Priya has gone quiet. The player notices.' },
+      { type: 'narrator', bg: 'sunshare', text: 'Priya has gone quiet. You notice.' },
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'Priya. You have been in this position before - on the other side. You know what it is like to be the person people are talking about.' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'PRIYA', text: 'Yes.' },
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'So you know what it means when one person says something.' },
@@ -1481,7 +1481,7 @@ export default function App() {
       { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'There are three positions in every situation like this. The person it is happening to. The person doing it. And everyone watching. All three have a choice. The choices look different. But they all matter.' },
       { type: 'all-positions-info', bg: 'sunshare' },
       { type: 'narrator', bg: 'sunshare', text: 'Sunshare Square is different by the time you are done. Not fixed - nobody fixes something like this completely in an afternoon. But the young people here know something they did not know before. They are checking their settings. They are talking about what they post and why. That matters.' },
-      { type: 'narrator', bg: 'sunshare', text: 'Rosa leads the player to a quiet spot at the edge of the square - away from the screens and the noise. She takes a small box from a bag over her shoulder.' },
+      { type: 'narrator', bg: 'sunshare', text: 'Rosa leads you to a quiet spot at the edge of the square - away from the screens and the noise. She takes a small box from a bag over her shoulder.' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'She left this with me. She said you would know what it is for.' },
       { type: 'prism-reveal', bg: 'sunshare' },
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'Everything visible has a source. Like a footprint.' },
@@ -1500,7 +1500,7 @@ export default function App() {
       { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'You have seen the Shadow Man twice now. Once at the lighthouse. Once here - at the edge of the square just before you arrived. He was watching. He has been building a picture of you the same way someone builds a picture of a person from their public posts. Piece by piece.' },
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'What does he know about me?' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'Less than he wants to. Because you have been careful. Because the strongbox is locked. But he knows you are going to the Observatory. And he knows that Mira is there.' },
-      { type: 'narrator', bg: 'sunshare', text: 'The player looks toward the edge of the square. A narrow gap between two stalls. Something stands in that gap - the wrong shape for a shadow, the wrong stillness for a person passing through. The player watches the gap for five full seconds. Then someone walks past and when the view is clear again, the gap is empty.' },
+      { type: 'narrator', bg: 'sunshare', text: 'You look toward the edge of the square. A narrow gap between two stalls. Something stands in that gap - the wrong shape for a shadow, the wrong stillness for a person passing through. You watch the gap for five full seconds. Then someone walks past and when the view is clear again, the gap is empty.' },
       { type: 'shadow-glimpse', bg: 'sunshare' },
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'He was just there.' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'He is always just there. That is his method.' },
@@ -1537,7 +1537,7 @@ export default function App() {
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'Ask before. Not after.' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'She says that is the hardest habit to build. Because in the moment of posting, everything feels temporary. It feels like you can always take it back. You usually can. But not always. And you cannot know in advance which posts will be the ones that stay.' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'She left one clue at every stop. This is the last one.' },
-      { type: 'narrator', bg: 'sunshare', text: 'The player opens it. A card in Mira\'s writing - simpler than the previous riddles.' },
+      { type: 'narrator', bg: 'sunshare', text: 'You open it. A card in Mira\'s writing - simpler than the previous riddles.' },
       { type: 'notebook-page', bg: 'sunshare', heading: "From Mira's Notebook - Mira's Final Clue", lines: [
         'No riddle this time.',
         'You have earned the address.',
@@ -2641,7 +2641,7 @@ export default function App() {
                   <div className="quiz-result">
                     <div className="quiz-feedback quiz-feedback--wrong">
                       <div className="quiz-verdict">✗ INCORRECT</div>
-                      <p className="quiz-narrator-beat">Rosa speaks before the player can.</p>
+                      <p className="quiz-narrator-beat">Rosa speaks before you can.</p>
                     </div>
                     <div className="smishing-continue" style={{ padding: '10px 22px', cursor: 'pointer' }} onClick={e => { e.stopPropagation(); advanceCYQ() }}>tap to continue</div>
                   </div>
@@ -2659,7 +2659,7 @@ export default function App() {
                   <div className="quiz-result">
                     <div className="quiz-feedback quiz-feedback--wrong">
                       <div className="quiz-verdict">✗ INCORRECT</div>
-                      <p className="quiz-narrator-beat">Rosa looks at the player.</p>
+                      <p className="quiz-narrator-beat">Rosa looks at you.</p>
                     </div>
                     <div className="smishing-continue" style={{ padding: '10px 22px', cursor: 'pointer' }} onClick={e => { e.stopPropagation(); advanceCYQ() }}>tap to continue</div>
                   </div>
@@ -3114,7 +3114,7 @@ export default function App() {
                       <div className="quiz-verdict">✓ CORRECT</div>
                       {sbQuizStep === 0 && (
                         <>
-                          <p className="quiz-narrator-beat">Old Finn watches as the player checks.</p>
+                          <p className="quiz-narrator-beat">Old Finn watches as you check.</p>
                           <div className="pq-email-check">
                             <div className="pq-email-row"><span className="pq-email-label">From:</span><span className="pq-email-display"> National Maritime Center (NMC)</span></div>
                             <div className="pq-email-row">
@@ -3161,7 +3161,7 @@ export default function App() {
                   <div className="quiz-result">
                     <div className="quiz-feedback quiz-feedback--partial">
                       <div className="quiz-verdict quiz-verdict--partial">~ PARTIALLY RIGHT</div>
-                      <p className="quiz-narrator-beat">Old Finn nods, but the player thinks it through further.</p>
+                      <p className="quiz-narrator-beat">Old Finn nods, but you think it through further.</p>
                     </div>
                     <div className="smishing-continue" style={{ padding: '10px 22px', cursor: 'pointer' }} onClick={advanceQuizStep}>tap to continue</div>
                   </div>
@@ -3783,7 +3783,7 @@ export default function App() {
                   <div className="quiz-result">
                     <div className="quiz-feedback quiz-feedback--wrong">
                       <div className="quiz-verdict">✗ INCORRECT</div>
-                      <p className="quiz-narrator-beat">Old Finn looks at the player sharply.</p>
+                      <p className="quiz-narrator-beat">Old Finn looks at you sharply.</p>
                     </div>
                     <div className="smishing-continue" style={{ padding: '10px 22px', cursor: 'pointer' }} onClick={e => { e.stopPropagation(); advanceBQ() }}>tap to continue</div>
                   </div>
@@ -4057,40 +4057,43 @@ export default function App() {
                 num: 'I', title: 'A Letter from Nowhere', img: bedroomImg,
                 start: devNav(() => { setStartBedroomLine(0); goToChapter({ number: 'I', title: 'A Letter from Nowhere' }, 'start-bedroom') }),
                 subs: [
-                  { label: 'Bedroom - opening', fn: devNav(() => { setStartBedroomLine(0); setView('start-bedroom') }) },
+                  { label: 'Bedroom — the letter arrives', fn: devNav(() => { setStartBedroomLine(0); setView('start-bedroom') }) },
                 ]
               },
               {
                 num: 'II', title: 'SeaBright Ahoy!', img: seabrightHarbour,
                 start: devNav(() => goToChapter({ number: 'II', title: 'SeaBright Ahoy!' }, 'seabright-0')),
                 subs: [
-                  { label: 'Harbour arrival', fn: sb(0) },
-                  { label: 'Email inspection', fn: sb(15) },
-                  { label: 'Phishing quiz', fn: sb(27) },
-                  { label: 'Red flags card', fn: sb(39) },
+                  { label: 'Harbour arrival — meeting Old Finn', fn: sb(0) },
+                  { label: 'Old Finn\'s phishing email', fn: sb(8) },
+                  { label: 'Meeting Coral — smishing text', fn: sb(28) },
                   { label: 'Real or Fake? minigame', fn: sb(47) },
-                  { label: 'Spot the Scam Bot', fn: sb(93) },
+                  { label: 'Scam ad on the village computer', fn: sb(53) },
+                  { label: 'Spot the Scam Bot minigame', fn: sb(94) },
                 ]
               },
               {
                 num: 'III', title: 'Into The Lighthouse', img: lighthouseInt,
                 start: devNav(() => goToChapter({ number: 'III', title: 'Into The Lighthouse' }, 'seabright-113')),
                 subs: [
-                  { label: 'Cliff path arrival', fn: sb(113) },
-                  { label: 'Password Challenge', fn: sb(153) },
+                  { label: 'Cliff path to the lighthouse', fn: sb(112) },
+                  { label: 'At the lighthouse door — meeting Celia', fn: sb(116) },
+                  { label: 'Strongbox reveal', fn: sb(137) },
+                  { label: 'Password Challenge minigame', fn: sb(153) },
+                  { label: 'Leaving the lighthouse', fn: sb(170) },
                 ]
               },
               {
                 num: 'IV', title: 'Echoes in the Sunshare Square', img: sunshareSquare,
                 start: devNav(() => goToChapter({ number: 'IV', title: 'Echoes in the Sunshare Square' }, 'seabright-176')),
                 subs: [
-                  { label: 'Sunshare Square arrival', fn: sb(177) },
-                  { label: 'The Picture Test', fn: sb(198) },
-                  { label: 'Security questions quiz', fn: sb(217) },
-                  { label: 'Online safety quiz', fn: sb(232) },
-                  { label: 'Password fix quiz', fn: sb(255) },
-                  { label: 'Edit Before You Post', fn: sb(262) },
-                  { label: 'Cyberbullying quiz', fn: sb(286) },
+                  { label: 'Sunshare Square arrival', fn: sb(176) },
+                  { label: 'Priya\'s story — digital footprint', fn: sb(188) },
+                  { label: 'The Picture Test minigame', fn: sb(199) },
+                  { label: 'Password reuse lessons', fn: sb(246) },
+                  { label: 'Edit Before You Post minigame', fn: sb(263) },
+                  { label: 'Cyberbullying — Priya\'s phone', fn: sb(268) },
+                  { label: 'Deepfake — Amara\'s story', fn: sb(297) },
                 ]
               },
               {
@@ -4138,11 +4141,11 @@ export default function App() {
                 </div>
                 <div className="landing-dev-group">
                   <span className="landing-dev-label">MINIGAMES</span>
-                  <button className="landing-dev-btn" onClick={sb(47)}>Real or Fake?</button>
-                  <button className="landing-dev-btn" onClick={sb(93)}>Spot the Scam Bot</button>
-                  <button className="landing-dev-btn" onClick={sb(153)}>Password Challenge</button>
-                  <button className="landing-dev-btn" onClick={sb(198)}>The Picture Test</button>
-                  <button className="landing-dev-btn" onClick={sb(262)}>Edit Before You Post</button>
+                  <button className="landing-dev-btn" onClick={sb(47)}>Seabright1: Real or Fake?</button>
+                  <button className="landing-dev-btn" onClick={sb(93)}>Seabright2: Spot the Scam Bot</button>
+                  <button className="landing-dev-btn" onClick={sb(153)}>Lighthouse: Password Challenge</button>
+                  <button className="landing-dev-btn" onClick={sb(198)}>Sunshare1: The Picture Test</button>
+                  <button className="landing-dev-btn" onClick={sb(262)}>Sunshare2: Edit Before You Post</button>
                 </div>
               </div>
             )
@@ -4938,7 +4941,7 @@ export default function App() {
                     <li>Vishing used a professional voice and a structured process</li>
                     <li>The security question exploit used public personal information</li>
                     <li>Deleted posts collected before removal gave the attacker a permanent record the victim thought was gone</li>
-                    <li>In this room, the Shadow Man used the player's emotional desire to find Aunt Mira to plant an impostor at the finish line</li>
+                    <li>In this room, the Shadow Man used your emotional desire to find Aunt Mira to plant an impostor at the finish line</li>
                     <li>Online groups recruiting young people use the same pattern: manufactured belonging, urgency, requests for secrecy, isolation from people who care about you</li>
                   </ul>
                 </div>
