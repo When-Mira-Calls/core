@@ -275,6 +275,7 @@ export default function App() {
   const [photoZooming, setPhotoZooming] = useState(false)
   const [showTitle, setShowTitle] = useState(false)
   const [titleClickable, setTitleClickable] = useState(false)
+  const [isMuted, setIsMuted] = useState(false)
   const [outroLine, setOutroLine] = useState(0)
   const [departureLine, setDepartureLine] = useState(0)
   const [seabrightLine, setSeabrightLine] = useState(() => sv.seabrightLine ?? 0)
@@ -1069,6 +1070,13 @@ export default function App() {
     const t = setTimeout(() => setTitleClickable(true), 4500)
     return () => clearTimeout(t)
   }, [showTitle])
+
+  // Sync mute toggle to all audio elements
+  useEffect(() => {
+    [mainAudioRef, introAudioRef, seabrightAudioRef, sunshareAudioRef].forEach(ref => {
+      if (ref.current) ref.current.muted = isMuted
+    })
+  }, [isMuted])
 
   // Persist progress to localStorage whenever key state changes
   // Skip saving 'home' or 'chapter' so returning to menu / passing a chapter card never overwrites position
@@ -4152,6 +4160,25 @@ export default function App() {
     const hasSaved = freshSafeView !== 'home'
     return (
       <div className="landing-root">
+        <button
+          className="home-mute-btn"
+          aria-label={isMuted ? 'Unmute' : 'Mute'}
+          onClick={() => setIsMuted(m => !m)}
+        >
+          {isMuted ? (
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+              <line x1="23" y1="9" x2="17" y2="15" />
+              <line x1="17" y1="9" x2="23" y2="15" />
+            </svg>
+          ) : (
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+            </svg>
+          )}
+        </button>
         <div className="home-bg-items" aria-hidden="true">
           <img src={compassImg}    className="home-bg-item home-bg-item--compass-1" alt="" />          {/* top-left */}
           <img src={prismImg}      className="home-bg-item home-bg-item--prism-1 home-bg-item--glow" alt="" />  {/* top-right */}
