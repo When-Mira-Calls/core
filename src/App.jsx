@@ -41,6 +41,10 @@ import consolScreenGreen from '../assets/Consol Screen - green.png'
 import consolScreenBlue from '../assets/Consol Screen - blue.png'
 import starrySky from '../assets/Starry Sky.png'
 import seabrightHarbour from '../assets/SeaBright Harbor.png'
+import seabrightAmbience from '../audio/seabright.wav'
+import sunshareAmbience from '../audio/sunshare.mp3'
+import mainAmbience from '../audio/main.mp3'
+import introAmbience from '../audio/intro.mp3'
 import lighthouseExt from '../assets/Lighthouse Ext.png'
 import oldFinn from '../assets/Old Finn.png'
 import coralImg from '../assets/Coral.png'
@@ -270,10 +274,17 @@ export default function App() {
   const [photoShook, setPhotoShook] = useState(false)
   const [photoZooming, setPhotoZooming] = useState(false)
   const [showTitle, setShowTitle] = useState(false)
+  const [titleClickable, setTitleClickable] = useState(false)
   const [outroLine, setOutroLine] = useState(0)
   const [departureLine, setDepartureLine] = useState(0)
   const [seabrightLine, setSeabrightLine] = useState(() => sv.seabrightLine ?? 0)
   const [tabletCountdown, setTabletCountdown] = useState(47)
+  const seabrightAudioRef = useRef(null)
+  const sunshareAudioRef = useRef(null)
+  const mainAudioRef = useRef(null)
+  const introAudioRef = useRef(null)
+  const mainAudioOffsetRef = useRef(null)    // null = don't seek; number = seek to that second on next play
+  const mainGamePositionRef = useRef(null)   // real-game position saved before any chapter jump; null = not overridden
   const tabletTimerRef = useRef(null)
   const [timerResetVal, setTimerResetVal] = useState(5)
   const [timerResetPhase, setTimerResetPhase] = useState('counting') // 'counting' | 'zero' | 'reset'
@@ -894,11 +905,177 @@ export default function App() {
     }
   }, [view, seabrightLine])
 
+  // Intro + main crossfade — both stop on home menu, resume in game
+  useEffect(() => {
+    const inGame = !['home', 'landing', 'demo-home'].includes(view)
+
+    let intro = introAudioRef.current
+    if (!intro) {
+      intro = new Audio(introAmbience)
+      intro.loop = true
+      intro.volume = 0
+      introAudioRef.current = intro
+    }
+    let main = mainAudioRef.current
+    if (!main) {
+      main = new Audio(mainAmbience)
+      main.loop = true
+      main.volume = 0
+      mainAudioRef.current = main
+    }
+
+    let frameId
+    if (!inGame) {
+      // Fade out both tracks when on home/landing
+      // Restore real-game position before pausing so Continue resumes from the right spot
+      if (mainGamePositionRef.current !== null) {
+        main.currentTime = mainGamePositionRef.current
+        mainGamePositionRef.current = null
+      }
+      const fadeOut = () => {
+        let running = false
+        if (intro.volume > 0) { intro.volume = Math.max(0, intro.volume - 0.006); running = true }
+        if (main.volume  > 0) { main.volume  = Math.max(0, main.volume  - 0.006); running = true }
+        if (running) { frameId = requestAnimationFrame(fadeOut) }
+        else { intro.pause(); main.pause() }
+      }
+      frameId = requestAnimationFrame(fadeOut)
+    } else if (!showTitle) {
+      // In game, before title card: play intro only
+      main.volume = 0; main.pause()
+      intro.play().catch(() => {})
+      const fadeIn = () => {
+        if (intro.volume < 0.22) {
+          intro.volume = Math.min(0.22, intro.volume + 0.003)
+          frameId = requestAnimationFrame(fadeIn)
+        }
+      }
+      frameId = requestAnimationFrame(fadeIn)
+    } else {
+      // In game, after title card: crossfade intro → main
+      if (mainAudioOffsetRef.current !== null) {
+        main.currentTime = mainAudioOffsetRef.current
+        mainAudioOffsetRef.current = null
+      }
+      main.play().catch(() => {})
+      const cross = () => {
+        let running = false
+        if (intro.volume > 0)   { intro.volume = Math.max(0,    intro.volume - 0.004); running = true }
+        if (main.volume  < 0.18){ main.volume  = Math.min(0.18, main.volume  + 0.003); running = true }
+        if (running) { frameId = requestAnimationFrame(cross) }
+        else { intro.pause() }
+      }
+      frameId = requestAnimationFrame(cross)
+    }
+
+    return () => cancelAnimationFrame(frameId)
+  }, [view, showTitle])
+
+  // Seabright waves — full volume at harbour (0–111), quiet at lighthouse (112–175), off at sunshare
+  useEffect(() => {
+    let audio = seabrightAudioRef.current
+    if (!audio) {
+      audio = new Audio(seabrightAmbience)
+      audio.loop = true
+      audio.volume = 0
+      seabrightAudioRef.current = audio
+    }
+
+    const isHarbour    = view === 'seabright' && seabrightLine < 112
+    const isLighthouse = view === 'seabright' && seabrightLine >= 112 && seabrightLine < 176
+    const targetVol    = isHarbour ? 1.0 : isLighthouse ? 0.28 : 0
+
+    let frameId
+    if (targetVol > 0) {
+      audio.play().catch(() => {})
+      const fade = () => {
+        const diff = targetVol - audio.volume
+        if (Math.abs(diff) > 0.005) {
+          audio.volume = Math.max(0, Math.min(1, audio.volume + (diff > 0 ? 0.005 : -0.008)))
+          frameId = requestAnimationFrame(fade)
+        } else {
+          audio.volume = targetVol
+        }
+      }
+      frameId = requestAnimationFrame(fade)
+      return () => cancelAnimationFrame(frameId)
+    } else {
+      audio.volume = 0
+      audio.pause()
+    }
+  }, [view, seabrightLine])
+
+  // Sunshare Square ambience — plays when in sunshare section (seabrightLine >= 176)
+  useEffect(() => {
+    let audio = sunshareAudioRef.current
+    if (!audio) {
+      audio = new Audio(sunshareAmbience)
+      audio.loop = true
+      audio.volume = 0
+      sunshareAudioRef.current = audio
+    }
+
+    const active = view === 'seabright' && seabrightLine >= 176
+    let frameId
+    if (active) {
+      audio.play().catch(() => {})
+      const fadeIn = () => {
+        if (audio.volume < 0.15) {
+          audio.volume = Math.min(0.15, audio.volume + 0.005)
+          frameId = requestAnimationFrame(fadeIn)
+        }
+      }
+      frameId = requestAnimationFrame(fadeIn)
+      return () => cancelAnimationFrame(frameId)
+    } else {
+      audio.volume = 0
+      audio.pause()
+    }
+  }, [view, seabrightLine])
+
+  const resetAudioForNewGame = useCallback(() => {
+    if (introAudioRef.current) { introAudioRef.current.pause(); introAudioRef.current.currentTime = 0; introAudioRef.current.volume = 0 }
+    if (mainAudioRef.current)  { mainAudioRef.current.pause();  mainAudioRef.current.currentTime  = 0; mainAudioRef.current.volume  = 0 }
+    mainAudioOffsetRef.current = null
+    // mainGamePositionRef is intentionally NOT cleared here — the ch1 helper saves the position
+    // before calling this, and the home audio effect consumes+clears it when navigating home.
+    // By the time New Game is clicked (from home), the home effect has already consumed+nulled it.
+    setShowTitle(false)
+  }, [])
+
+  // Jump straight to main audio at a specific timestamp — used for chapters 2–5 and minigames
+  const startChapterAudio = useCallback((offsetSeconds) => {
+    if (introAudioRef.current) { introAudioRef.current.pause(); introAudioRef.current.volume = 0 }
+    // Save real-game position on the first chapter jump only (chaining chapters must not overwrite it)
+    if (mainGamePositionRef.current === null && mainAudioRef.current) {
+      mainGamePositionRef.current = mainAudioRef.current.currentTime
+    }
+    if (mainAudioRef.current) {
+      // Apply the seek immediately — the audio effect won't re-run if view/showTitle don't change
+      // (e.g. navigating between seabright sub-chapters while already in seabright)
+      mainAudioRef.current.currentTime = offsetSeconds
+      mainAudioRef.current.play().catch(() => {})
+      mainAudioOffsetRef.current = null  // already consumed; prevent double-seek in the effect
+    } else {
+      // Audio element not yet created; effect will create it and seek on first run
+      mainAudioOffsetRef.current = offsetSeconds
+    }
+    setShowTitle(true) // skip intro, go straight to main
+  }, [])
+
+  // Unlock title-card click only after all CSS animations finish (~4.2 s total)
+  useEffect(() => {
+    if (!showTitle) { setTitleClickable(false); return }
+    const t = setTimeout(() => setTitleClickable(true), 4500)
+    return () => clearTimeout(t)
+  }, [showTitle])
+
   // Persist progress to localStorage whenever key state changes
-  // Skip saving 'home' so returning to the menu never overwrites the in-progress position
+  // Skip saving 'home' or 'chapter' so returning to menu / passing a chapter card never overwrites position
   useEffect(() => {
     if (DEMO_ONLY) return
     if (view === 'home') return
+    if (view === 'chapter') return  // chapter transition card — not a real save point
     if (playerName === 'Dev') return  // dev console jumps don't overwrite the real save
     saveProgress({ view, sceneIndex, lineIndex, seabrightLine, playerName, startName, startBedroomLine })
   }, [view, sceneIndex, lineIndex, seabrightLine, playerName, startName, startBedroomLine])
@@ -4005,6 +4182,9 @@ export default function App() {
                 if (freshSave.seabrightLine != null) setSeabrightLine(freshSave.seabrightLine)
                 if (freshSave.lineIndex != null)  setLineIndex(freshSave.lineIndex)
                 if (freshSave.startBedroomLine != null) setStartBedroomLine(freshSave.startBedroomLine)
+                // Reset showTitle: pre-bedroom views haven't shown the title card yet; everything after has
+                const preTitleViews = ['start-name','start-reveal','start-opener','start-bedroom']
+                setShowTitle(!preTitleViews.includes(freshSafeView))
                 setView(freshSafeView)
               }}
             >
@@ -4017,7 +4197,7 @@ export default function App() {
             onClick={() => {
               playClick()
               if (hasSaved) { setShowNewGameConfirm(true) }
-              else { setIsFullPlaythrough(true); setDemoMode(false); setDemoModeFlag(false); setStartNameInput(''); setPlayerNameInput(''); setShowDevConsole(false); setView('start-name') }
+              else { resetAudioForNewGame(); setStartBedroomLine(0); setPhotoZooming(false); setPhotoShook(false); setShowBedroomLetter(false); setIsFullPlaythrough(true); setDemoMode(false); setDemoModeFlag(false); setStartNameInput(''); setPlayerNameInput(''); setShowDevConsole(false); setView('start-name') }
             }}
           >
             NEW GAME
@@ -4042,71 +4222,82 @@ export default function App() {
           </button>
 
           {showDevConsole && (() => {
-            const devNav = (fn) => () => {
-              playClick()
-              setPlayerName('Dev')
-              setIsFullPlaythrough(false)
-              setShowDevConsole(false)
-              setDevExpandedChapter(null)
-              fn()
+            const base = (fn) => () => {
+              playClick(); setPlayerName('Dev'); setIsFullPlaythrough(false); setShowDevConsole(false); setDevExpandedChapter(null); fn()
             }
-            const sb = (line) => devNav(() => { setSeabrightLine(line); setView('seabright') })
+            // Chapter 1: intro → main flow (reset audio to beginning, but first save real-game position)
+            const ch1 = (fn) => base(() => {
+              if (mainGamePositionRef.current === null && mainAudioRef.current) {
+                mainGamePositionRef.current = mainAudioRef.current.currentTime
+              }
+              resetAudioForNewGame()
+              setPhotoZooming(false); setPhotoShook(false); setShowBedroomLetter(false)
+              fn()
+            })
+            // Chapters 2–5 + minigames: jump straight into main at a chapter-specific offset
+            const ch  = (offset) => (fn) => base(() => { startChapterAudio(offset); fn() })
+            // Seabright nav helpers per chapter
+            const sb1      = (line) => ch1(() => { setSeabrightLine(line); setView('seabright') })
+            const sb2      = (line) => ch(54)(() => { setSeabrightLine(line); setView('seabright') })
+            const sb3      = (line) => ch(343)(() => { setSeabrightLine(line); setView('seabright') })
+            const sb4      = (line) => ch(690)(() => { setSeabrightLine(line); setView('seabright') })
+            const obs      = (idx)  => ch(1240)(() => { setLineIndex(idx); setTypedLength(0); setIsObservatoryShaking(false); setView('story-observatory') })
             const toggleChapter = (ch) => setDevExpandedChapter(prev => prev === ch ? null : ch)
             const DEV_CHAPTERS = [
               {
                 num: 'I', title: 'A Letter from Nowhere', img: bedroomImg,
-                start: devNav(() => { setStartBedroomLine(0); goToChapter({ number: 'I', title: 'A Letter from Nowhere' }, 'start-bedroom') }),
+                start: ch1(() => { setStartBedroomLine(0); goToChapter({ number: 'I', title: 'A Letter from Nowhere' }, 'start-bedroom') }),
                 subs: [
-                  { label: 'Bedroom — the letter arrives', fn: devNav(() => { setStartBedroomLine(0); setView('start-bedroom') }) },
+                  { label: 'Bedroom — the letter arrives', fn: ch1(() => { setStartBedroomLine(0); setView('start-bedroom') }) },
                 ]
               },
               {
                 num: 'II', title: 'SeaBright Ahoy!', img: seabrightHarbour,
-                start: devNav(() => goToChapter({ number: 'II', title: 'SeaBright Ahoy!' }, 'seabright-0')),
+                start: ch(54)(() => goToChapter({ number: 'II', title: 'SeaBright Ahoy!' }, 'seabright-0')),
                 subs: [
-                  { label: 'Harbour arrival — meeting Old Finn', fn: sb(0) },
-                  { label: 'Old Finn\'s phishing email', fn: sb(8) },
-                  { label: 'Meeting Coral — smishing text', fn: sb(28) },
-                  { label: 'Real or Fake? minigame', fn: sb(47) },
-                  { label: 'Scam ad on the village computer', fn: sb(53) },
-                  { label: 'Spot the Scam Bot minigame', fn: sb(94) },
+                  { label: 'Harbour arrival — meeting Old Finn', fn: sb2(0) },
+                  { label: 'Old Finn\'s phishing email', fn: sb2(8) },
+                  { label: 'Meeting Coral — smishing text', fn: sb2(28) },
+                  { label: 'Real or Fake? minigame', fn: sb2(47) },
+                  { label: 'Scam ad on the village computer', fn: sb2(53) },
+                  { label: 'Spot the Scam Bot minigame', fn: sb2(94) },
                 ]
               },
               {
                 num: 'III', title: 'Into The Lighthouse', img: lighthouseInt,
-                start: devNav(() => goToChapter({ number: 'III', title: 'Into The Lighthouse' }, 'seabright-113')),
+                start: ch(343)(() => goToChapter({ number: 'III', title: 'Into The Lighthouse' }, 'seabright-113')),
                 subs: [
-                  { label: 'Cliff path to the lighthouse', fn: sb(112) },
-                  { label: 'At the lighthouse door — meeting Celia', fn: sb(116) },
-                  { label: 'Strongbox reveal', fn: sb(137) },
-                  { label: 'Password Challenge minigame', fn: sb(153) },
-                  { label: 'Leaving the lighthouse', fn: sb(170) },
+                  { label: 'Cliff path to the lighthouse', fn: sb3(112) },
+                  { label: 'At the lighthouse door — meeting Celia', fn: sb3(116) },
+                  { label: 'Strongbox reveal', fn: sb3(137) },
+                  { label: 'Password Challenge minigame', fn: sb3(153) },
+                  { label: 'Leaving the lighthouse', fn: sb3(170) },
                 ]
               },
               {
                 num: 'IV', title: 'Echoes in the Sunshare Square', img: sunshareSquare,
-                start: devNav(() => goToChapter({ number: 'IV', title: 'Echoes in the Sunshare Square' }, 'seabright-176')),
+                start: ch(690)(() => goToChapter({ number: 'IV', title: 'Echoes in the Sunshare Square' }, 'seabright-176')),
                 subs: [
-                  { label: 'Sunshare Square arrival', fn: sb(176) },
-                  { label: 'Priya\'s story — digital footprint', fn: sb(188) },
-                  { label: 'The Picture Test minigame', fn: sb(199) },
-                  { label: 'Password reuse lessons', fn: sb(246) },
-                  { label: 'Edit Before You Post minigame', fn: sb(263) },
-                  { label: 'Cyberbullying — Priya\'s phone', fn: sb(268) },
-                  { label: 'Deepfake — Amara\'s story', fn: sb(297) },
+                  { label: 'Sunshare Square arrival', fn: sb4(176) },
+                  { label: 'Priya\'s story — digital footprint', fn: sb4(188) },
+                  { label: 'The Picture Test minigame', fn: sb4(199) },
+                  { label: 'Password reuse lessons', fn: sb4(246) },
+                  { label: 'Edit Before You Post minigame', fn: sb4(263) },
+                  { label: 'Cyberbullying — Priya\'s phone', fn: sb4(268) },
+                  { label: 'Deepfake — Amara\'s story', fn: sb4(297) },
                 ]
               },
               {
                 num: 'V', title: 'At the Edge of the Sky', img: observatoryExt,
-                start: devNav(() => goToChapter({ number: 'V', title: 'At the Edge of the Sky' }, 'observatory')),
+                start: ch(1240)(() => goToChapter({ number: 'V', title: 'At the Edge of the Sky' }, 'observatory')),
                 subs: [
-                  { label: 'Observatory arrival', fn: devNav(() => { setLineIndex(0);  setTypedLength(0); setIsObservatoryShaking(false); setView('story-observatory') }) },
-                  { label: 'The two women appear', fn: devNav(() => { setLineIndex(12); setTypedLength(0); setIsObservatoryShaking(false); setView('story-observatory') }) },
-                  { label: 'Smishing screen', fn: devNav(() => { setLineIndex(23); setTypedLength(0); setIsObservatoryShaking(false); setView('story-observatory') }) },
-                  { label: 'Vishing screen', fn: devNav(() => { setLineIndex(31); setTypedLength(0); setIsObservatoryShaking(false); setView('story-observatory') }) },
-                  { label: 'MFA lesson', fn: devNav(() => { setLineIndex(44); setTypedLength(0); setIsObservatoryShaking(false); setView('story-observatory') }) },
-                  { label: 'The locked room', fn: devNav(() => { setLineIndex(46); setTypedLength(0); setIsObservatoryShaking(false); setView('story-observatory') }) },
-                  { label: 'The final game', fn: devNav(() => { setLineIndex(68); setTypedLength(0); setIsObservatoryShaking(false); setView('story-observatory') }) },
+                  { label: 'Observatory arrival',                     fn: obs(0)  },
+                  { label: 'The two women appear',                    fn: obs(12) },
+                  { label: 'Smishing screen',                         fn: obs(23) },
+                  { label: 'Vishing screen',                          fn: obs(31) },
+                  { label: 'MFA lesson',                              fn: obs(44) },
+                  { label: 'The locked room',                         fn: obs(46) },
+                  { label: 'The final game',                          fn: obs(68) },
                 ]
               },
             ]
@@ -4141,11 +4332,11 @@ export default function App() {
                 </div>
                 <div className="landing-dev-group">
                   <span className="landing-dev-label">MINIGAMES</span>
-                  <button className="landing-dev-btn" onClick={sb(47)}>Seabright1: Real or Fake?</button>
-                  <button className="landing-dev-btn" onClick={sb(93)}>Seabright2: Spot the Scam Bot</button>
-                  <button className="landing-dev-btn" onClick={sb(153)}>Lighthouse: Password Challenge</button>
-                  <button className="landing-dev-btn" onClick={sb(198)}>Sunshare1: The Picture Test</button>
-                  <button className="landing-dev-btn" onClick={sb(262)}>Sunshare2: Edit Before You Post</button>
+                  <button className="landing-dev-btn" onClick={sb2(47)}>Seabright: Real or Fake?</button>
+                  <button className="landing-dev-btn" onClick={sb2(94)}>Seabright: Spot the Scam Bot</button>
+                  <button className="landing-dev-btn" onClick={sb3(153)}>Lighthouse: Password Challenge</button>
+                  <button className="landing-dev-btn" onClick={sb4(199)}>Sunshare: The Picture Test</button>
+                  <button className="landing-dev-btn" onClick={sb4(263)}>Sunshare: Edit Before You Post</button>
                 </div>
               </div>
             )
@@ -4163,6 +4354,11 @@ export default function App() {
                   onClick={() => {
                     playClick()
                     clearProgress()
+                    resetAudioForNewGame()
+                    setStartBedroomLine(0)
+                    setPhotoZooming(false)
+                    setPhotoShook(false)
+                    setShowBedroomLetter(false)
                     setShowNewGameConfirm(false)
                     setIsFullPlaythrough(true)
                     setDemoMode(false)
@@ -4596,13 +4792,17 @@ export default function App() {
 
           {/* CyberSafe title overlay - appears after photo fills screen */}
           {showTitle && (
-            <div className="cybersafe-title-overlay" onClick={() => setView('outro')}>
+            <div
+              className="cybersafe-title-overlay"
+              style={titleClickable ? { cursor: 'pointer' } : { cursor: 'default', pointerEvents: 'none' }}
+              onClick={titleClickable ? () => setView('outro') : undefined}
+            >
               <div className="cybersafe-title-vignette" />
               <div className="cybersafe-title-content">
                 <h1 className="cybersafe-title-headline">When Mira Calls</h1>
                 <h2 className="cybersafe-title-sub">a digital mystery</h2>
-                <p className="cybersafe-title-tagline">Built by students at Berkeley</p>
-                <div className="cybersafe-title-press">- tap to continue -</div>
+                <p className="cybersafe-title-tagline">Written, Drawn and Developed by students at UC Berkeley</p>
+                {titleClickable && <div className="cybersafe-title-press">- tap to continue -</div>}
               </div>
             </div>
           )}
