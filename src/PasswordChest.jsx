@@ -50,7 +50,7 @@ export default function PasswordChest({ onExit }) {
       setUnlocked(true)
       setFeedback({ ok: true, text: 'Strongbox unlocked! The files are protected.' })
     } else {
-      setFeedback({ ok: false, text: 'Password too weak — the Shadow Man could crack this.' })
+      setFeedback({ ok: false, text: 'Password too weak - the Shadow Man could crack this.' })
     }
     setTimeout(() => setFeedback(null), 2000)
   }
@@ -71,7 +71,7 @@ export default function PasswordChest({ onExit }) {
       </header>
 
       <div className="chest-narrative">
-        A locked strongbox sits on the observatory desk. Inside is everything we know about the Shadow Man — his methods, his targets, his next move. The information is only as safe as the password protecting it. Set a password strong enough that no one can break through.
+        A locked strongbox sits on the observatory desk. Inside is everything we know about the Shadow Man - his methods, his targets, his next move. The information is only as safe as the password protecting it. Set a password strong enough that no one can break through.
       </div>
 
       <div className="chest-area">

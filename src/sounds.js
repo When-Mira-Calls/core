@@ -1,4 +1,4 @@
-// Procedural sound engine — Web Audio API only, no asset files.
+// Procedural sound engine - Web Audio API only, no asset files.
 // All functions are safe to call before any user gesture: AudioContext
 // is created lazily on first call and resumed if suspended.
 
@@ -17,7 +17,7 @@ function out(volume = 0.2) {
   return g
 }
 
-// ── Soft UI click — dialogue advance, button press ────────────────────────
+// ── Soft UI click - dialogue advance, button press ────────────────────────
 export function playClick() {
   const c = ac(), t = c.currentTime
   const osc = c.createOscillator()
@@ -31,7 +31,7 @@ export function playClick() {
   osc.start(t); osc.stop(t + 0.07)
 }
 
-// ── Slightly lower click — back navigation ────────────────────────────────
+// ── Slightly lower click - back navigation ────────────────────────────────
 export function playBack() {
   const c = ac(), t = c.currentTime
   const osc = c.createOscillator()
@@ -45,7 +45,7 @@ export function playBack() {
   osc.start(t); osc.stop(t + 0.09)
 }
 
-// ── Ascending chime — correct quiz answer (C5–E5–G5) ─────────────────────
+// ── Ascending chime - correct quiz answer (C5–E5–G5) ─────────────────────
 export function playCorrect() {
   const c = ac()
   ;[523.25, 659.25, 783.99].forEach((freq, i) => {
@@ -61,7 +61,7 @@ export function playCorrect() {
   })
 }
 
-// ── Descending sawtooth — wrong answer ────────────────────────────────────
+// ── Descending sawtooth - wrong answer ────────────────────────────────────
 export function playWrong() {
   const c = ac(), t = c.currentTime
   const osc = c.createOscillator()
@@ -75,7 +75,7 @@ export function playWrong() {
   osc.start(t); osc.stop(t + 0.35)
 }
 
-// ── Two-tone neutral — partial answer (A4 then G4) ────────────────────────
+// ── Two-tone neutral - partial answer (A4 then G4) ────────────────────────
 export function playPartial() {
   const c = ac()
   ;[440, 392].forEach((freq, i) => {
@@ -91,7 +91,7 @@ export function playPartial() {
   })
 }
 
-// ── Ascending frequency sweep — hold complete / inspect reveal ────────────
+// ── Ascending frequency sweep - hold complete / inspect reveal ────────────
 export function playReveal() {
   const c = ac(), t = c.currentTime
   const osc = c.createOscillator()
@@ -105,7 +105,7 @@ export function playReveal() {
   osc.start(t); osc.stop(t + 0.26)
 }
 
-// ── Low thud — info card / overlay slides in ─────────────────────────────
+// ── Low thud - info card / overlay slides in ─────────────────────────────
 export function playCardIn() {
   const c = ac(), t = c.currentTime
   const osc = c.createOscillator()
@@ -119,7 +119,7 @@ export function playCardIn() {
   osc.start(t); osc.stop(t + 0.22)
 }
 
-// ── Three short square-wave pulses — phone buzz / SMS notification ─────────
+// ── Three short square-wave pulses - phone buzz / SMS notification ─────────
 export function playPhoneBuzz() {
   const c = ac()
   for (let i = 0; i < 3; i++) {
@@ -135,7 +135,7 @@ export function playPhoneBuzz() {
   }
 }
 
-// ── Magnifying-glass inspect click — subtle high tick ────────────────────
+// ── Magnifying-glass inspect click - subtle high tick ────────────────────
 export function playInspect() {
   const c = ac(), t = c.currentTime
   const osc = c.createOscillator()
@@ -149,7 +149,7 @@ export function playInspect() {
   osc.start(t); osc.stop(t + 0.06)
 }
 
-// ── Selecting a quiz option — neutral mid tick ────────────────────────────
+// ── Selecting a quiz option - neutral mid tick ────────────────────────────
 export function playOptionSelect() {
   const c = ac(), t = c.currentTime
   const osc = c.createOscillator()

@@ -23,7 +23,7 @@ const LOCATIONS = [
     numX: 223, numY: 133,
     num: '02',
     name: 'Lighthouse Cliff',
-    desc: 'Repeated passes — circling for weaknesses in the strongbox transfer route.',
+    desc: 'Repeated passes - circling for weaknesses in the strongbox transfer route.',
   },
   {
     id: 'sunshare',
@@ -34,7 +34,7 @@ const LOCATIONS = [
     numX: 438, numY: 225,
     num: '03',
     name: 'Sunshare Square',
-    desc: 'Personal information collected from public profiles — names, schools, relationships.',
+    desc: 'Personal information collected from public profiles - names, schools, relationships.',
   },
   {
     id: 'observatory',
@@ -45,7 +45,7 @@ const LOCATIONS = [
     numX: 634, numY: 95,
     num: '04',
     name: 'The Observatory',
-    desc: 'Final position. Arrived ahead — impostor placed inside to intercept the strongbox.',
+    desc: 'Final position. Arrived ahead - impostor placed inside to intercept the strongbox.',
     isFinal: true,
   },
 ]
@@ -69,7 +69,7 @@ export default function TrailMap({ onClick }) {
         <div className="trailmap-panel">
           <div className="trailmap-heading">
             <span className="trailmap-heading-dot" aria-hidden="true" />
-            SHADOW MAN — FULL TRAIL RECONSTRUCTED
+            SHADOW MAN - FULL TRAIL RECONSTRUCTED
             <span className="trailmap-heading-tag">CLASSIFIED</span>
           </div>
 
@@ -139,11 +139,11 @@ export default function TrailMap({ onClick }) {
                 </g>
               ))}
 
-              <text x="14" y="18" fill="rgba(0,155,85,0.22)" fontSize="7.5" fontFamily="'Courier New',monospace" letterSpacing="1.8">CLASSIFIED — TRAIL RECONSTRUCTION</text>
+              <text x="14" y="18" fill="rgba(0,155,85,0.22)" fontSize="7.5" fontFamily="'Courier New',monospace" letterSpacing="1.8">CLASSIFIED - TRAIL RECONSTRUCTION</text>
               <text x="746" y="293" textAnchor="end" fill="rgba(0,155,85,0.18)" fontSize="7.5" fontFamily="'Courier New',monospace">RESTRICTED ACCESS</text>
             </svg>
 
-            {/* Shadow Man — on top of SVG, translucent ghost over Observatory */}
+            {/* Shadow Man - on top of SVG, translucent ghost over Observatory */}
             <img
               src={shadowImg}
               alt=""

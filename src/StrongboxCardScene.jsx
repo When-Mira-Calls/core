@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import strongboxClosed from '../assets/Strongbox - closed.png'
 import strongboxOpen from '../assets/Strongbox - open.png'
 
-// phase 0 — closed strongbox
-// phase 1 — open strongbox, card slides up
-// phase 2 — card prominent, tap to continue
+// phase 0 - closed strongbox
+// phase 1 - open strongbox, card slides up
+// phase 2 - card prominent, tap to continue
 
 export default function StrongboxCardScene({ onComplete }) {
   const [phase, setPhase] = useState(0)

@@ -30,11 +30,11 @@ function getStrength(pw) {
 }
 
 const FEEDBACK = {
-  'few-words':    "Four words, not one — the length is where the strength comes from. Mira's notebook: tiger, cloud, lamp, river. Four separate random words. Try again.",
-  'personal':     "That one is too close to you. The Shadow Man knows things about you. Use something completely random — words that have nothing to do with your life.",
-  'known-phrase': "That one is a bit too well-known — if you have heard it, others have too. The best passphrase is one that has never been said in that combination before. Try something more unexpected.",
+  'few-words':    "Four words, not one - the length is where the strength comes from. Mira's notebook: tiger, cloud, lamp, river. Four separate random words. Try again.",
+  'personal':     "That one is too close to you. The Shadow Man knows things about you. Use something completely random - words that have nothing to do with your life.",
+  'known-phrase': "That one is a bit too well-known - if you have heard it, others have too. The best passphrase is one that has never been said in that combination before. Try something more unexpected.",
   'too-short':    "That is the kind of thing the Shadow Man cracks before breakfast. Longer, please.",
-  'medium':       "Better. But Mira's notebook said four random words — can you go longer?",
+  'medium':       "Better. But Mira's notebook said four random words - can you go longer?",
   'strong':       "There it is. That is a knot that holds.",
 }
 
@@ -89,7 +89,7 @@ export default function StrongboxPasswordGame({ onComplete }) {
             spellCheck={false}
           />
 
-          {/* Word chips — show each word as it's typed */}
+          {/* Word chips - show each word as it's typed */}
           {words.length > 0 && (
             <div className="sbpw-chips-row">
               {words.map((w, i) => (
@@ -100,7 +100,7 @@ export default function StrongboxPasswordGame({ onComplete }) {
                   )}
                 </React.Fragment>
               ))}
-              {/* Combined preview — appears once 2+ words exist */}
+              {/* Combined preview - appears once 2+ words exist */}
               {words.length >= 2 && (
                 <span className={`sbpw-combined${isStrong ? ' sbpw-combined--strong' : ''}`}>
                   = {words.join('-')}
@@ -123,12 +123,12 @@ export default function StrongboxPasswordGame({ onComplete }) {
           {/* Celia feedback */}
           {strength && (
             <div className={`sbpw-feedback sbpw-feedback--${strength}`}>
-              <span className="sbpw-feedback-speaker">CELIA —</span>{' '}
+              <span className="sbpw-feedback-speaker">CELIA -</span>{' '}
               {FEEDBACK[strength]}
             </div>
           )}
 
-          {/* Lock button — only when strong */}
+          {/* Lock button - only when strong */}
           {isStrong && (
             <button className="sbpw-lock-btn" onClick={handleLock}>
               LOCK IT ↗
@@ -136,7 +136,7 @@ export default function StrongboxPasswordGame({ onComplete }) {
           )}
         </div>
       ) : (
-        /* Locked state — show the sealed passphrase */
+        /* Locked state - show the sealed passphrase */
         <div className="sbpw-sealed-panel">
           <div className="sbpw-sealed-label">PASSPHRASE SEALED</div>
           <div className="sbpw-sealed-pw">{words.join('-')}</div>

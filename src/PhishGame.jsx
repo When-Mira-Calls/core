@@ -7,13 +7,13 @@ const sampleMessages = [
     subject: 'Verify Your Student Account Immediately',
     body: 'Your Sunshare Academy student account has been flagged for unusual activity. To prevent suspension, confirm your login credentials using the secure link below. This must be completed within 24 hours or your access to grades and assignments will be permanently revoked.',
     phishing: true,
-    redFlags: ['Wrong domain — .net, not .edu', 'Artificial 24-hour deadline', 'Threatens permanent account loss'],
+    redFlags: ['Wrong domain - .net, not .edu', 'Artificial 24-hour deadline', 'Threatens permanent account loss'],
   },
   {
     id: 2,
     from: 'office@sunshareacademy.edu',
-    subject: 'Spring Science Fair — Project Registration Open',
-    body: 'Hello Sunshare Academy families! Project registration for the Spring Science Fair is now open. Students may submit their project title and a short description through the Student Portal by April 25th. Reply to this email with any questions — we look forward to seeing your projects!',
+    subject: 'Spring Science Fair - Project Registration Open',
+    body: 'Hello Sunshare Academy families! Project registration for the Spring Science Fair is now open. Students may submit their project title and a short description through the Student Portal by April 25th. Reply to this email with any questions - we look forward to seeing your projects!',
     phishing: false,
   },
   {
@@ -22,30 +22,30 @@ const sampleMessages = [
     subject: 'URGENT: Your Seabright Account Has Been Suspended',
     body: 'We detected an unauthorized login to your Seabright Bank account from an unrecognized device. Your account is temporarily suspended for your protection. To restore access immediately, verify your account number and the last 4 digits of your Social Security number at the link below.',
     phishing: true,
-    redFlags: ['Wrong domain — not the official bank site', 'Requests Social Security number', 'Urgent suspension threat to create panic'],
+    redFlags: ['Wrong domain - not the official bank site', 'Requests Social Security number', 'Urgent suspension threat to create panic'],
   },
   {
     id: 4,
     from: 'priya.k@sunshareacademy.edu',
     subject: 'Study group this Saturday?',
-    body: 'Hey! Are you free Saturday afternoon? Jaylen and I are heading to the library around 2pm to go over the chemistry notes before the exam next week. Let me know if you can make it — the more the merrier!',
+    body: 'Hey! Are you free Saturday afternoon? Jaylen and I are heading to the library around 2pm to go over the chemistry notes before the exam next week. Let me know if you can make it - the more the merrier!',
     phishing: false,
   },
   {
     id: 5,
     from: 'awards@sunshare-spring-fund.com',
-    subject: 'Congratulations — Sunshare Academy Educational Grant',
+    subject: 'Congratulations - Sunshare Academy Educational Grant',
     body: 'You have been selected as a recipient of the $500 Sunshare Academy Spring Educational Grant! To claim your award, reply with your full legal name, date of birth, and student ID number within 48 hours. Failure to respond means forfeiting your grant.',
     phishing: true,
-    redFlags: ['Unsolicited award you never applied for', 'Requests date of birth and student ID', 'Fake scarcity — "48 hours or you lose it"'],
+    redFlags: ['Unsolicited award you never applied for', 'Requests date of birth and student ID', 'Fake scarcity - "48 hours or you lose it"'],
   },
   {
     id: 6,
     from: 'itsupport@sunshare-edu.online',
-    subject: 'Password Expires Tonight — Reset Required',
+    subject: 'Password Expires Tonight - Reset Required',
     body: 'IT Support Notice: Your Sunshare Academy account password expires at midnight tonight. Failure to reset it will lock you out of all school systems, including Gradebook and the Student Portal. Reset your password immediately using the form at the link below.',
     phishing: true,
-    redFlags: ['Wrong domain — .online, not .edu', 'IT departments do not send unsolicited reset emails', 'Threatens lockout from school systems'],
+    redFlags: ['Wrong domain - .online, not .edu', 'IT departments do not send unsolicited reset emails', 'Threatens lockout from school systems'],
   },
 ]
 
@@ -70,8 +70,8 @@ export default function PhishGame({ onExit }) {
       setTimeout(() => setShowConfetti(false), 900)
     }
     const feedbackText = correct
-      ? (card.phishing ? 'Correct — that was phishing.' : 'Correct — this one is safe.')
-      : (card.phishing ? 'Missed it — that was phishing.' : 'Careful — that one was actually safe.')
+      ? (card.phishing ? 'Correct - that was phishing.' : 'Correct - this one is safe.')
+      : (card.phishing ? 'Missed it - that was phishing.' : 'Careful - that one was actually safe.')
 
     setScore((s) => s + (correct ? 1 : 0))
     setCompleted((c) => c + 1)

@@ -25,7 +25,7 @@ export default function StrongboxSealScene({ onComplete }) {
       onClick={phase === 'done' ? () => { playClick(); onComplete() } : undefined}
       style={{ cursor: phase === 'done' ? 'pointer' : 'default' }}
     >
-      {/* Compass — left side */}
+      {/* Compass - left side */}
       <img
         src={compassImg}
         alt=""
@@ -33,7 +33,7 @@ export default function StrongboxSealScene({ onComplete }) {
         className={`sbseal-item sbseal-item--compass${flying ? ' sbseal-item--fly' : ''}`}
       />
 
-      {/* Strongbox — centre */}
+      {/* Strongbox - centre */}
       <div className="sbseal-box-wrap">
         <img
           src={strongboxOpenImg}
@@ -49,7 +49,7 @@ export default function StrongboxSealScene({ onComplete }) {
         />
       </div>
 
-      {/* Golden Knot — right side */}
+      {/* Golden Knot - right side */}
       <img
         src={goldenKnotImg}
         alt=""

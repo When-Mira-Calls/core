@@ -10,24 +10,24 @@ const ROUNDS = [
         banner: '⭐ YOU HAVE BEEN SELECTED ⭐',
         emoji: '🎣',
         headline: ['WIN A PROFESSIONAL', 'FISHING ROD SET'],
-        value: 'WORTH £350',
+        value: 'WORTH $350',
         claim: 'Claim your prize in the next 60 seconds!',
         hasTimer: true,
         cta: 'CLAIM NOW →',
         domain: 'seabright-freegear-claims.co',
         mark: 'seabright-freegear-claims.co',
         flag: 'FAKE DOMAIN',
-        explanation: 'Real SeaGear Direct emails come from seageardirect.co.uk. The countdown resets on loop — the prize never disappears. You cannot win a competition you never entered.',
+        explanation: 'Real SeaGear Direct emails come from seageardirect.com. The countdown resets on loop - the prize never disappears. You cannot win a competition you never entered.',
       },
       {
         id: 'r1-b', verdict: 'real', template: 'notification',
         appIcon: '🌊', appName: 'Seabright Tides',
         title: 'Tide update for today',
         body: 'High tide 14:22 · Wind 18 kn NW · Swell 1.2 m · Small craft advisory until 18:00',
-        domain: 'seabright-tides.gov.uk',
-        mark: 'seabright-tides.gov.uk',
-        flag: 'OFFICIAL .GOV.UK DOMAIN',
-        explanation: 'The notification comes from seabright-tides.gov.uk — a government-verified domain. No urgency, no personal information requested.',
+        domain: 'seabright-tides.gov',
+        mark: 'seabright-tides.gov',
+        flag: 'OFFICIAL .GOV DOMAIN',
+        explanation: 'The notification comes from seabright-tides.gov - a government-verified domain. No urgency, no personal information requested.',
       },
       {
         id: 'r1-c', verdict: 'real', template: 'notification',
@@ -37,7 +37,7 @@ const ROUNDS = [
         domain: 'roblox.com',
         mark: 'roblox.com',
         flag: 'OFFICIAL DOMAIN',
-        explanation: 'The notification is from roblox.com — the real Roblox domain. No login details requested, no urgency. This is a standard friend request notification.',
+        explanation: 'The notification is from roblox.com - the real Roblox domain. No login details requested, no urgency. This is a standard friend request notification.',
       },
     ],
   },
@@ -46,17 +46,17 @@ const ROUNDS = [
     popups: [
       {
         id: 'r2-a', verdict: 'fake', template: 'ad',
-        banner: '🎁 CONGRATULATIONS — 1,000,000TH CUSTOMER 🎁',
+        banner: '🎁 CONGRATULATIONS - 1,000,000TH CUSTOMER 🎁',
         emoji: '💰',
-        headline: ['YOU HAVE WON', 'A £500 GIFT CARD'],
-        value: '£500 AMAZON CREDIT',
+        headline: ['YOU HAVE WON', 'A $500 GIFT CARD'],
+        value: '$500 AMAZON CREDIT',
         claim: 'This offer expires in 30 minutes. Tap below to claim.',
         hasTimer: false,
         cta: 'CLAIM YOUR PRIZE →',
         domain: 'amazon-prize-centre.com',
         mark: 'amazon-prize-centre.com',
         flag: 'FAKE DOMAIN',
-        explanation: 'Real Amazon emails come from amazon.co.uk — never amazon-prize-centre.com. Amazon does not give away prizes to millionth customers. The 30-minute deadline is a pressure tactic.',
+        explanation: 'Real Amazon emails come from amazon.com - never amazon-prize-centre.com. Amazon does not give away prizes to millionth customers. The 30-minute deadline is a pressure tactic.',
       },
       {
         id: 'r2-b', verdict: 'fake', template: 'sms',
@@ -72,21 +72,21 @@ const ROUNDS = [
         id: 'r2-c', verdict: 'real', template: 'notification',
         appIcon: '▶', appName: 'YouTube',
         title: 'CrabCam uploaded a new video',
-        body: 'Storm season at Seabright Harbour — watch now on youtube.com',
+        body: 'Storm season at Seabright Harbour - watch now on youtube.com',
         domain: 'youtube.com',
         mark: 'youtube.com',
         flag: 'OFFICIAL DOMAIN',
-        explanation: 'The notification is from youtube.com — the real YouTube domain. No personal information requested, no urgency.',
+        explanation: 'The notification is from youtube.com - the real YouTube domain. No personal information requested, no urgency.',
       },
       {
         id: 'r2-d', verdict: 'real', template: 'notification',
-        appIcon: '🛵', appName: 'Deliveroo',
+        appIcon: '🛵', appName: 'DoorDash',
         title: 'Your order is on its way',
-        body: 'The Harbour Kitchen · Arriving in ~25 min · Track at deliveroo.co.uk',
-        domain: 'deliveroo.co.uk',
-        mark: 'deliveroo.co.uk',
+        body: 'The Harbour Kitchen · Arriving in ~25 min · Track at doordash.com',
+        domain: 'doordash.com',
+        mark: 'doordash.com',
         flag: 'OFFICIAL DOMAIN',
-        explanation: 'The notification is from deliveroo.co.uk — the real Deliveroo UK domain. No payment details requested. This is a genuine delivery update.',
+        explanation: 'The notification is from doordash.com - the real DoorDash domain. No payment details requested. This is a genuine delivery update.',
       },
     ],
   },
@@ -95,17 +95,17 @@ const ROUNDS = [
     popups: [
       {
         id: 'r3-a', verdict: 'fake', template: 'ad',
-        banner: '⏱ FINAL CHANCE — CLAIM NOW ⏱',
+        banner: '⏱ FINAL CHANCE - CLAIM NOW ⏱',
         emoji: '🎣',
         headline: ['LAST OPPORTUNITY', 'FISHING ROD PRIZE'],
-        value: 'WORTH £350',
+        value: 'WORTH $350',
         claim: 'When it reaches zero the prize is gone.',
         hasTimer: true,
         cta: 'CLAIM BEFORE TIME RUNS OUT →',
         domain: 'seabright-prizes-online.net',
         mark: 'seabright-prizes-online.net',
         flag: 'FAKE DOMAIN + FAKE TIMER',
-        explanation: 'Same looping timer trick — different fake domain. seabright-prizes-online.net is not SeaGear Direct. The timer resets forever. There is no prize.',
+        explanation: 'Same looping timer trick - different fake domain. seabright-prizes-online.net is not SeaGear Direct. The timer resets forever. There is no prize.',
       },
       {
         id: 'r3-b', verdict: 'fake', template: 'alert',
@@ -117,7 +117,7 @@ const ROUNDS = [
         domain: 'minecraft-bans-support.net',
         mark: 'minecraft-bans-support.net',
         flag: 'FAKE DOMAIN',
-        explanation: 'Real Minecraft emails come from minecraft.net or microsoft.com — not minecraft-bans-support.net. Ban warnings with urgent deadlines sent to off-brand domains are a classic scam.',
+        explanation: 'Real Minecraft emails come from minecraft.net or microsoft.com - not minecraft-bans-support.net. Ban warnings with urgent deadlines sent to off-brand domains are a classic scam.',
       },
       {
         id: 'r3-c', verdict: 'fake', template: 'alert',
@@ -129,7 +129,7 @@ const ROUNDS = [
         domain: 'playstation-account-alerts.org',
         mark: 'playstation-account-alerts.org',
         flag: 'FAKE DOMAIN',
-        explanation: 'Real PlayStation emails come from playstation.com — not playstation-account-alerts.org. Suspension warnings with off-domain links and 6-hour deadlines are scam patterns.',
+        explanation: 'Real PlayStation emails come from playstation.com - not playstation-account-alerts.org. Suspension warnings with off-domain links and 6-hour deadlines are scam patterns.',
       },
       {
         id: 'r3-d', verdict: 'real', template: 'notification',
@@ -139,17 +139,17 @@ const ROUNDS = [
         domain: 'accounts.google.com',
         mark: 'accounts.google.com',
         flag: 'OFFICIAL GOOGLE SUBDOMAIN',
-        explanation: 'The notification is from accounts.google.com — a verified Google subdomain. No credentials requested, no urgency. This is a routine security confirmation.',
+        explanation: 'The notification is from accounts.google.com - a verified Google subdomain. No credentials requested, no urgency. This is a routine security confirmation.',
       },
       {
         id: 'r3-e', verdict: 'real', template: 'notification',
-        appIcon: '📚', appName: 'Seabright Primary',
+        appIcon: '📚', appName: 'Seabright Elementary',
         title: 'September newsletter',
-        body: 'Term dates, events, and a message from the head teacher. View at seabright-primary.sch.uk',
-        domain: 'seabright-primary.sch.uk',
-        mark: 'seabright-primary.sch.uk',
-        flag: 'OFFICIAL .SCH.UK DOMAIN',
-        explanation: '.sch.uk domains are reserved for UK schools. No urgency, no personal information requested. This is a genuine school newsletter.',
+        body: 'Term dates, events, and a message from the principal. View at seabrightelem.edu',
+        domain: 'seabrightelem.edu',
+        mark: 'seabrightelem.edu',
+        flag: 'OFFICIAL .EDU DOMAIN',
+        explanation: '.edu domains are registered to accredited US schools and educational institutions. No urgency, no personal information requested. This is a genuine school newsletter.',
       },
     ],
   },
@@ -162,11 +162,11 @@ const ROUNDS = [
         alertBrand: 'Amazon',
         alertTitle: 'Action Required: Verify Your Payment Method',
         alertBody: 'We were unable to process your recent payment. To avoid service interruption, please verify your payment details within 48 hours.',
-        alertCta: 'UPDATE PAYMENT → amazon-uk.co/payments/verify',
-        domain: 'amazon-uk.co',
-        mark: 'amazon-uk.co',
-        flag: 'WRONG DOMAIN ENDING',
-        explanation: 'This is the hardest to spot. The name and design look right — but the address is amazon-uk.co, not amazon.co.uk. The .co ending and the hyphen are the giveaway. Real Amazon UK emails always come from amazon.co.uk.',
+        alertCta: 'UPDATE PAYMENT → amazon-us.co/payments/verify',
+        domain: 'amazon-us.co',
+        mark: 'amazon-us.co',
+        flag: 'WRONG DOMAIN',
+        explanation: 'This is the hardest to spot. The name and design look right - but the address is amazon-us.co, not amazon.com. The hyphen and the .co ending are the giveaway. Real Amazon emails always come from amazon.com.',
       },
     ],
   },
@@ -428,15 +428,22 @@ export default function PopupGame({ onComplete }) {
 
       {phase === 'result' && (
         <div className={'pg-verdict-panel' + (isCorrect ? ' pg-verdict-panel--ok' : ' pg-verdict-panel--wrong')}>
-          <div className="pg-verdict-result">
-            {choice === 'timeout'
-              ? '⏱ TOO SLOW — this was ' + popup.verdict.toUpperCase()
-              : isCorrect
-              ? '✓ CORRECT — this is ' + popup.verdict.toUpperCase()
-              : '✗ INCORRECT — this is ' + popup.verdict.toUpperCase()}
+          <div className="pg-verdict-header">
+            <span className="pg-verdict-icon">
+              {choice === 'timeout' ? '⏱' : isCorrect ? '✓' : '✗'}
+            </span>
+            <div className="pg-verdict-text">
+              <div className="pg-verdict-result">
+                {choice === 'timeout' ? 'TOO SLOW' : isCorrect ? 'CORRECT' : 'INCORRECT'}
+              </div>
+              <div className="pg-verdict-sub">THIS WAS {popup.verdict.toUpperCase()}</div>
+            </div>
           </div>
           <div className="pg-verdict-flag">
-            {popup.verdict === 'fake' ? 'RED FLAG: ' + popup.flag : "WHY IT'S SAFE: " + popup.flag}
+            <span className="pg-verdict-flag-label">
+              {popup.verdict === 'fake' ? 'RED FLAG' : "WHY IT'S SAFE"}
+            </span>
+            <span className="pg-verdict-flag-text">{popup.flag}</span>
           </div>
           <p className="pg-verdict-body">{popup.explanation}</p>
           <button className="pg-next-btn" onClick={advance}>

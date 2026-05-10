@@ -9,23 +9,23 @@ import prism from '../assets/Prism.png'
 import goldenKnot from '../assets/Golden Knot.png'
 
 const EVIDENCE_A = [
-  'Told you not to hand over the items until you were certain — even if that meant doubting her own claim.',
-  'Walked through smishing, vishing, and MFA — explaining each step before making any ask.',
+  'Told you not to hand over the items until you were certain - even if that meant doubting her own claim.',
+  'Walked through smishing, vishing, and MFA - explaining each step before making any ask.',
   'Never once created urgency or pressure. Let the investigation move at your pace, through every question.',
   'Noticed when Woman B named Rosa without being told. Said quietly: "There it is again."',
 ]
 
 const EVIDENCE_B = [
-  'Demanded the items repeatedly — "He is getting closer", "We are running out of time", "I need them now."',
-  'Cut off every lesson — "We do not have time for this" — each time you were learning something new.',
+  'Demanded the items repeatedly - "He is getting closer", "We are running out of time", "I need them now."',
+  'Cut off every lesson - "We do not have time for this" - each time you were learning something new.',
   'Used urgency in every message. Every request came with a reason to stop thinking and act fast.',
-  'Named Celia and Rosa — your other aunts — to seem familiar. You never said those names in this room.',
+  'Named Celia and Rosa - your other aunts - to seem familiar. You never said those names in this room.',
 ]
 
 const WRONG_EXPLANATIONS = [
-  'Look at who told you not to give anything away until you were certain — even if that meant not trusting her. An impostor wants the items. The real Aunt Mira wanted you to be sure first.',
+  'Look at who told you not to give anything away until you were certain - even if that meant not trusting her. An impostor wants the items. The real Aunt Mira wanted you to be sure first.',
   'Look at who used urgency and pressure every time. Every attack on this journey used urgency to stop you thinking carefully.',
-  'Woman B named Rosa without being told. You never said that name in the Observatory. She used personal information gathered in advance — the same tactic the Shadow Man used throughout.',
+  'Woman B named Rosa without being told. You never said that name in the Observatory. She used personal information gathered in advance - the same tactic the Shadow Man used throughout.',
   'Woman A caught the slip herself. "There it is again." She had been watching. A real person does not need to manufacture familiarity.',
 ]
 
@@ -104,7 +104,7 @@ export default function FinalGame({ onComplete }) {
           </div>
 
           <button className="finalgame-cta" onClick={handleReady}>
-            I have reviewed the evidence — make my choice →
+            I have reviewed the evidence - make my choice →
           </button>
         </div>
       )}
@@ -158,7 +158,7 @@ export default function FinalGame({ onComplete }) {
               <ellipse cx="530" cy="125" rx="42" ry="24" fill="none" stroke="rgba(0,130,75,0.09)" strokeWidth="1" />
               <ellipse cx="530" cy="125" rx="23" ry="13" fill="none" stroke="rgba(0,130,75,0.12)" strokeWidth="1" />
 
-              {/* Trail — same S-curve style, start shifted down to y=70 so it clears
+              {/* Trail - same S-curve style, start shifted down to y=70 so it clears
                   the heading text; end stays at SVG center (380,150) = shadow man */}
               <path
                 d="M 380,50 C 510,56 155,72 230,96 C 305,106 600,113 530,125 C 460,136 200,143 380,150"
@@ -177,12 +177,12 @@ export default function FinalGame({ onComplete }) {
                 </g>
               ))}
 
-              {/* Final node at SVG center (380,150) — lines up exactly with shadow man */}
+              {/* Final node at SVG center (380,150) - lines up exactly with shadow man */}
               <circle cx="380" cy="150" r="18" fill="rgba(210,42,24,0.10)" />
               <circle cx="380" cy="150" r="10" fill="rgba(210,42,24,0.18)" />
               <circle cx="380" cy="150" r="6" fill="rgba(220,45,26,1)" filter="url(#fgt-redglow)" />
 
-              <text x="14" y="14" fill="rgba(0,155,85,0.22)" fontSize="7" fontFamily="'Courier New',monospace" letterSpacing="1.6">CLASSIFIED — TRAIL RECONSTRUCTION</text>
+              <text x="14" y="14" fill="rgba(0,155,85,0.22)" fontSize="7" fontFamily="'Courier New',monospace" letterSpacing="1.6">CLASSIFIED - TRAIL RECONSTRUCTION</text>
               <text x="746" y="295" textAnchor="end" fill="rgba(0,155,85,0.16)" fontSize="7" fontFamily="'Courier New',monospace">RESTRICTED ACCESS</text>
             </svg>
 
@@ -321,7 +321,7 @@ export default function FinalGame({ onComplete }) {
 
           {revealStage >= 3 && (
             <div className="finalgame-caption fg-fade-up">
-              <p>You recognised the pattern. Every tactic that failed across the entire journey — urgency, mirroring, manufactured familiarity — was used in this room too. And you saw it.</p>
+              <p>You recognised the pattern. Every tactic that failed across the entire journey - urgency, mirroring, manufactured familiarity - was used in this room too. And you saw it.</p>
               <button className="finalgame-continue-btn" onClick={onComplete}>Continue →</button>
             </div>
           )}
@@ -331,7 +331,7 @@ export default function FinalGame({ onComplete }) {
       {/* ── Wrong result ── */}
       {phase === 'result-wrong' && (
         <div className="finalgame-panel">
-          <div className="finalgame-verdict finalgame-verdict--wrong">✗ NOT QUITE — LOOK AGAIN</div>
+          <div className="finalgame-verdict finalgame-verdict--wrong">✗ NOT QUITE - LOOK AGAIN</div>
           <div className="finalgame-result-body">
             <img src={aunt1Left} alt="Aunt Mira" className="finalgame-portrait" />
             <div className="finalgame-result-text">

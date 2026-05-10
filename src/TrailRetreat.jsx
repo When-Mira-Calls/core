@@ -38,7 +38,7 @@ export default function TrailRetreat({ onClick }) {
   // phase 1 = observatory arm erasing
   // phase 2 = sunshare erasing
   // phase 3 = lighthouse erasing, trail going still
-  // phase 4 = stopped — tap to continue
+  // phase 4 = stopped - tap to continue
   const [phase, setPhase] = useState(0)
 
   useEffect(() => {
@@ -80,7 +80,7 @@ export default function TrailRetreat({ onClick }) {
         <div className="trailmap-panel">
           <div className="trailmap-heading">
             <span className="trailmap-heading-dot" aria-hidden="true" />
-            SHADOW MAN — TRAIL STATUS
+            SHADOW MAN - TRAIL STATUS
             <span className={`trailmap-heading-tag trailretreat-tag${phase >= 4 ? ' trailretreat-tag--still' : ''}`}>
               {phase >= 4 ? 'STILL' : 'RETREATING'}
             </span>
@@ -121,7 +121,7 @@ export default function TrailRetreat({ onClick }) {
               <ellipse cx="648" cy="100" rx="46" ry="28" fill="none" stroke="rgba(0,130,75,0.08)" strokeWidth="1" />
               <ellipse cx="648" cy="100" rx="25" ry="15" fill="none" stroke="rgba(0,130,75,0.11)" strokeWidth="1" />
 
-              {/* Trail glow — fades with trail */}
+              {/* Trail glow - fades with trail */}
               <path
                 d={TRAIL}
                 fill="none"
@@ -132,7 +132,7 @@ export default function TrailRetreat({ onClick }) {
                 strokeDashoffset={dashOffset}
                 style={{ transition: 'stroke-dashoffset 1.8s ease-in-out' }}
               />
-              {/* Trail line — retreating */}
+              {/* Trail line - retreating */}
               <path
                 d={TRAIL}
                 fill="none"
@@ -144,7 +144,7 @@ export default function TrailRetreat({ onClick }) {
                 style={{ transition: 'stroke-dashoffset 1.8s ease-in-out' }}
               />
 
-              {/* Nodes — fade out as trail retreats past them */}
+              {/* Nodes - fade out as trail retreats past them */}
               {LOCATIONS.map((loc) => {
                 const faded = nodeFaded(loc.id)
                 return (
@@ -165,7 +165,7 @@ export default function TrailRetreat({ onClick }) {
                 )
               })}
 
-              <text x="14" y="18" fill="rgba(0,155,85,0.22)" fontSize="7.5" fontFamily="'Courier New',monospace" letterSpacing="1.8">CLASSIFIED — TRAIL RECONSTRUCTION</text>
+              <text x="14" y="18" fill="rgba(0,155,85,0.22)" fontSize="7.5" fontFamily="'Courier New',monospace" letterSpacing="1.8">CLASSIFIED - TRAIL RECONSTRUCTION</text>
               <text x="746" y="293" textAnchor="end" fill="rgba(0,155,85,0.18)" fontSize="7.5" fontFamily="'Courier New',monospace">RESTRICTED ACCESS</text>
             </svg>
 

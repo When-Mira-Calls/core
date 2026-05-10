@@ -24,7 +24,7 @@ const MESSAGES = [
     link: 'www.amazon-delivery-alert.net/confirm',
     verdict: 'fake',
     flag: 'FAKE DOMAIN',
-    explanation: 'Real Amazon emails come from amazon.co.uk or amazon.com — not amazon-delivery-alert.net. Never click a link asking for card details in an email.',
+    explanation: 'Real Amazon emails come from amazon.co.uk or amazon.com - not amazon-delivery-alert.net. Never click a link asking for card details in an email.',
     mark: 'amazon-delivery-alert.net',
   },
   {
@@ -36,7 +36,7 @@ const MESSAGES = [
     link: 'deliveroo-support-help.com/refund',
     verdict: 'fake',
     flag: 'FAKE DOMAIN',
-    explanation: "Real Deliveroo emails come from deliveroo.co.uk or deliveroo.com — not deliveroo-support-help.com. The extra words 'support-help' are the giveaway. Real refunds are automatic — they never ask you to click and confirm payment details.",
+    explanation: "Real Deliveroo emails come from deliveroo.co.uk or deliveroo.com - not deliveroo-support-help.com. The extra words 'support-help' are the giveaway. Real refunds are automatic - they never ask you to click and confirm payment details.",
     mark: 'deliveroo-support-help.com',
   },
   {
@@ -48,7 +48,7 @@ const MESSAGES = [
     link: 'roblox.com/settings/security',
     verdict: 'real',
     flag: 'OFFICIAL DOMAIN',
-    explanation: 'The sender address is @roblox.com — the real Roblox domain. The link goes to roblox.com/settings. No urgency, no request for payment details. This is a genuine security notification.',
+    explanation: 'The sender address is @roblox.com - the real Roblox domain. The link goes to roblox.com/settings. No urgency, no request for payment details. This is a genuine security notification.',
     mark: 'roblox.com',
   },
   {
@@ -73,7 +73,7 @@ const MESSAGES = [
     link: 'playstation.com/support',
     verdict: 'real',
     flag: 'OFFICIAL DOMAIN',
-    explanation: 'The sender is no-reply@playstation.com — the real PlayStation domain. The support link goes to playstation.com. No unusual urgency. This is the kind of receipt email that gaming platforms send automatically.',
+    explanation: 'The sender is no-reply@playstation.com - the real PlayStation domain. The support link goes to playstation.com. No unusual urgency. This is the kind of receipt email that gaming platforms send automatically.',
     mark: 'playstation.com',
   },
 ]
@@ -136,7 +136,7 @@ export default function RealOrFakeGame({ onComplete }) {
       'One correct. Scammers study what makes people trust. Study each message again.',
       'Two of five identified. The tricky ones always look the most official. Try again.',
       'Three of five. The domain is always the thing they cannot quite hide. Almost there.',
-      'Four of five. One slipped through — find it and try again.',
+      'Four of five. One slipped through - find it and try again.',
       'Every intercept correctly classified. The fishermen are taking notes.',
     ]
     const reset = () => {
@@ -254,7 +254,7 @@ export default function RealOrFakeGame({ onComplete }) {
             </div>
           )}
 
-          {/* Header — SMS or Email */}
+          {/* Header - SMS or Email */}
           {msg.msgType === 'sms' ? (
             <div className="orf-email-header">
               <div className="orf-sms-badge">SMS</div>
@@ -299,8 +299,8 @@ export default function RealOrFakeGame({ onComplete }) {
           <div className={`orf-verdict-panel${correct ? ' orf-verdict-panel--ok' : ' orf-verdict-panel--wrong'}`}>
             <div className="orf-verdict-result">
               {correct
-                ? `✓ CORRECT — this is ${msg.verdict.toUpperCase()}`
-                : `✗ INCORRECT — this is ${msg.verdict.toUpperCase()}`}
+                ? `✓ CORRECT - this is ${msg.verdict.toUpperCase()}`
+                : `✗ INCORRECT - this is ${msg.verdict.toUpperCase()}`}
             </div>
             <div className="orf-verdict-flag">
               {msg.verdict === 'fake' ? `RED FLAG: ${msg.flag}` : `WHY IT'S REAL: ${msg.flag}`}

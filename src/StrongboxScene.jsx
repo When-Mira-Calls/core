@@ -11,10 +11,10 @@ const ITEMS = [
   { id: 'knot',      src: goldenKnot, label: 'THE GOLDEN KNOT' },
 ]
 
-// phase 0 — closed strongbox
-// phase 1 — open strongbox (glow)
-// phase 2 — all three items appear greyed; each item individually clickable
-// phase 3 — transition: items + box fade, solo compass rises → onComplete
+// phase 0 - closed strongbox
+// phase 1 - open strongbox (glow)
+// phase 2 - all three items appear greyed; each item individually clickable
+// phase 3 - transition: items + box fade, solo compass rises → onComplete
 
 export default function StrongboxScene({ onComplete }) {
   const [phase, setPhase] = useState(0)
@@ -41,7 +41,7 @@ export default function StrongboxScene({ onComplete }) {
   return (
     <div className="sbscene-root" onClick={handleRootClick}>
 
-      {/* Strongbox — shrinks when items appear, fades out in transition */}
+      {/* Strongbox - shrinks when items appear, fades out in transition */}
       <div
         className={`sbscene-box-wrap${itemsVisible ? ' sbscene-box-wrap--small' : ''}`}
         style={{ opacity: transitioning ? 0 : 1, transition: 'opacity 0.4s ease' }}
@@ -54,7 +54,7 @@ export default function StrongboxScene({ onComplete }) {
         />
       </div>
 
-      {/* Items row — slides in at phase 2, fades out in phase 3 */}
+      {/* Items row - slides in at phase 2, fades out in phase 3 */}
       <div
         className={`sbscene-items${itemsVisible ? ' sbscene-items--visible' : ''}`}
         style={{ opacity: transitioning ? 0 : undefined, transition: transitioning ? 'opacity 0.4s ease' : undefined }}
@@ -81,12 +81,12 @@ export default function StrongboxScene({ onComplete }) {
         })}
       </div>
 
-      {/* Solo compass — fades in during phase 3 then floats (matching ItemFocusOverlay) */}
+      {/* Solo compass - fades in during phase 3 then floats (matching ItemFocusOverlay) */}
       <div className={`sbscene-solo${transitioning ? ' sbscene-solo--visible' : ''}`}>
         <img src={compass} alt="" className="sbscene-solo-img" />
       </div>
 
-      {/* Hint — changes once all items are lit */}
+      {/* Hint - changes once all items are lit */}
       {!transitioning && (
         <div className="sbscene-hint">
           {phase < 2

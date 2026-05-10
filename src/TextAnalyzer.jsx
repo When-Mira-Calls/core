@@ -14,7 +14,7 @@ const sampleTexts = [
     id: 2,
     type: 'Email',
     from: 'office@sunshareacademy.edu',
-    subject: 'Parent-Teacher Conference — Thursday, April 17th',
+    subject: 'Parent-Teacher Conference - Thursday, April 17th',
     body: 'Dear Sunshare Academy families, this is a reminder that parent-teacher conferences are scheduled for Thursday, April 17th from 4pm to 7pm. Please sign up for a time slot through the Student Portal. We look forward to meeting with you.',
     suspiciousWords: [],
     explanation: 'This email comes from the official school domain, contains no links, and makes no urgent demands.',
@@ -82,7 +82,7 @@ export default function TextAnalyzer({ onExit }) {
 
     setScore((s) => s + earned)
     setCompleted((c) => c + 1)
-    setFeedback({ ok: !!earned, text: earned ? 'Well spotted!' : 'Not quite — see the explanation below.' })
+    setFeedback({ ok: !!earned, text: earned ? 'Well spotted!' : 'Not quite - see the explanation below.' })
     setShowExplanation(true)
     setTimeout(() => setFeedback(null), 1800)
   }
@@ -166,7 +166,7 @@ export default function TextAnalyzer({ onExit }) {
             <div className="analyzer-instruction">
               {suspiciousWordsSet.size > 0
                 ? 'Tap the words and phrases that are red flags for phishing or social engineering.'
-                : 'Read carefully — tap any words that seem suspicious, then submit.'}
+                : 'Read carefully - tap any words that seem suspicious, then submit.'}
             </div>
           )}
 

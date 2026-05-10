@@ -3,6 +3,7 @@ import { playCorrect, playClick } from './sounds'
 import strongboxOpenImg   from '../assets/Strongbox - open.png'
 import strongboxClosedImg from '../assets/Strongbox - closed.png'
 import compassImg         from '../assets/Compass.png'
+import goldenKnotImg      from '../assets/Golden Knot.png'
 import prismImg           from '../assets/Prism.png'
 
 // phases: 'floating' → 'flying' → 'sealed' → 'done'
@@ -25,15 +26,13 @@ export default function PrismStoreScene({ onComplete }) {
       onClick={phase === 'done' ? () => { playClick(); onComplete() } : undefined}
       style={{ cursor: phase === 'done' ? 'pointer' : 'default' }}
     >
-      {/* Compass — already inside, shown faintly on the left as a "placed" item */}
-      <img
-        src={compassImg}
-        alt=""
-        aria-hidden="true"
-        className="sbseal-item prism-store-item--compass-placed"
-      />
+      {/* Compass + Knot - already inside; fade out when box seals */}
+      <div className={`prism-store-placed-group${sealed ? ' prism-store-placed-group--hidden' : ''}`}>
+        <img src={compassImg}    alt="" aria-hidden="true" className="sbseal-item prism-store-item--placed" />
+        <img src={goldenKnotImg} alt="" aria-hidden="true" className="sbseal-item prism-store-item--placed prism-store-item--placed-knot" />
+      </div>
 
-      {/* Strongbox — centre */}
+      {/* Strongbox - centre */}
       <div className="sbseal-box-wrap">
         <img
           src={strongboxOpenImg}
@@ -49,7 +48,7 @@ export default function PrismStoreScene({ onComplete }) {
         />
       </div>
 
-      {/* Prism — right side, flies in */}
+      {/* Prism - right side, flies in */}
       <img
         src={prismImg}
         alt=""

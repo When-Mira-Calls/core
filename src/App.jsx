@@ -63,7 +63,7 @@ import goldenKnotImg from '../assets/Golden Knot.png'
 import wmcLogoImg from '../assets/WMC Logo (HD).png'
 import strongboxClosed from '../assets/Strongbox - closed.png'
 
-// Cinematic narrator positions — irregular left/right rhythm, not strict alternation
+// Cinematic narrator positions - irregular left/right rhythm, not strict alternation
 const NARRATOR_POSITIONS = [
   'left', 'right', 'left', 'left', 'right', 'right',
   'left', 'right', 'left', 'right', 'right', 'left',
@@ -97,11 +97,11 @@ const story = [
 const observatoryStory = {
   dialogue: [
     { speaker: 'Narrator', text: 'The hill is steeper than it looked from the square. You climb slowly, the strongbox tucked under your arm, your legs aching by the time the path levels out.' },
-    { speaker: 'Narrator', text: 'The Observatory is a round stone building with a domed roof. Older than you expected. The windows are narrow, and a small light blinks near the top — steady and slow, like a heartbeat.' },
+    { speaker: 'Narrator', text: 'The Observatory is a round stone building with a domed roof. Older than you expected. The windows are narrow, and a small light blinks near the top - steady and slow, like a heartbeat.' },
     { speaker: 'Narrator', text: 'You push open the front door. It is heavier than it looks.' },
     { speaker: 'Narrator', text: 'Inside it is cool and quiet. The walls curve around you. The room smells faintly of old paper and electricity.' },
     { speaker: 'Narrator', text: 'You made it. You are actually here.' },
-    { speaker: 'Narrator', text: 'You are still catching your breath when one of the screens near the window flickers — and on it, just for a second, you see a dark shape moving outside. Someone walking fast. Away from the building.' },
+    { speaker: 'Narrator', text: 'You are still catching your breath when one of the screens near the window flickers - and on it, just for a second, you see a dark shape moving outside. Someone walking fast. Away from the building.' },
     { speaker: '[YOUR NAME]', text: 'That is him. That is the Shadow Man.' },
     { speaker: '[YOUR NAME]', text: 'That is him. That is the Shadow Man.', shake: true, showShadow: true },
     { speaker: 'Narrator', text: 'You go very still. You watch the screen. The shape does not come back.' },
@@ -134,7 +134,7 @@ const observatoryStory = {
     { speaker: '', text: '', showQuiz: true, hideBubble: true, showWomen: true, hideWomanB: true, showObsScreen: true },
     { speaker: 'Narrator', text: 'Woman B moves toward the player again.', showWomen: true, showObsScreen: true },
     { speaker: 'WOMAN B', text: 'You have to trust me. I am your aunt. You know what I sound like from the letter. You know who I am.', showWomen: true, emotion: 'upset', showObsScreen: true },
-    { speaker: 'Narrator', text: 'On the far side of the Observatory, a heavy door is set into the curved wall. Unlike the entrance door, this one is firmly locked — and the lock is unusual. It has two stages.', showLockedDoor: true },
+    { speaker: 'Narrator', text: 'On the far side of the Observatory, a heavy door is set into the curved wall. Unlike the entrance door, this one is firmly locked - and the lock is unusual. It has two stages.', showLockedDoor: true },
     { speaker: '[YOUR NAME]', text: 'This needs two things to open. A code and a card.', showWomen: true, showLockedDoor: true },
     { speaker: 'WOMAN A', text: 'The code is the passphrase you have been carrying. The card is in the strongbox - Mira left it there before the compass.', showWomen: true, emotion: 'thinking', showLockedDoor: true, showKeypad: true },
     { speaker: '', text: '', hideBubble: true, showLockedDoor: true, showStrongboxCard: true },
@@ -144,7 +144,7 @@ const observatoryStory = {
     { speaker: '', text: '', showMFAQuiz: true, hideBubble: true, showWomen: true, hideWomanB: true, showLockedDoor: true, showKeypad: true },
     { speaker: 'Narrator', text: 'The locked room reveals the Shadow Man\'s full trail.', showIntRoom: true },
     { speaker: '', text: '', showTrailMap: true, hideBubble: true, showIntRoom: true },
-    { speaker: 'Narrator', text: 'The screen in the locked room shows the Shadow Man\'s trail in red — every stop, every gap, every piece of information collected.', showIntRoom: true },
+    { speaker: 'Narrator', text: 'The screen in the locked room shows the Shadow Man\'s trail in red - every stop, every gap, every piece of information collected.', showIntRoom: true },
     { speaker: 'Narrator', text: 'Seabright: the phishing emails that harvested harbour logins.', showIntRoom: true },
     { speaker: 'Narrator', text: 'The lighthouse: circling for weaknesses in the strongbox.', showIntRoom: true },
     { speaker: 'Narrator', text: 'Sunshare Square: collecting personal information from public profiles, building a picture of every person who lived and posted there.', showIntRoom: true },
@@ -152,17 +152,17 @@ const observatoryStory = {
     { speaker: 'WOMAN A', text: 'Look at the dates on his collection from Sunshare Square.', showWomen: true, hideWomanB: true, emotion: 'thinking', showIntRoom: true },
     { speaker: 'Narrator', text: 'The player looks at the timestamps on the Shadow Man\'s file. Some entries are from this week. But others are from over a year ago. Two years. Posts that no longer exist on anyone\'s live profile. Still here. Still readable. Still used.', showIntRoom: true },
     { speaker: '[YOUR NAME]', text: 'He has posts that were deleted. How does he have those?', showWomen: true, showIntRoom: true },
-    { speaker: 'WOMAN A', text: 'He collected them while they were live. Cached copies. Screenshots. His own archive. The internet does not automatically forget on your behalf — it only forgets when every copy, everywhere, is gone. And you only control one copy.', showWomen: true, hideWomanB: true, showIntRoom: true },
+    { speaker: 'WOMAN A', text: 'He collected them while they were live. Cached copies. Screenshots. His own archive. The internet does not automatically forget on your behalf - it only forgets when every copy, everywhere, is gone. And you only control one copy.', showWomen: true, hideWomanB: true, showIntRoom: true },
     { speaker: '', text: '', showPermanenceInfo: true, hideBubble: true, showIntRoom: true },
-    { speaker: 'WOMAN A', text: 'Look at the pattern. Every attack across this journey. The phishing emails at Seabright. The scam texts. The vishing call. The fake ad Tomas almost clicked. The security questions answered from Jaylen\'s public profile. The deleted posts that should not exist any more but do. What do they all have in common?', showWomen: true, hideWomanB: true, emotion: 'thinking', showIntRoom: true },
+    { speaker: 'WOMAN A', text: 'Look at the pattern. Every attack across this journey. The phishing emails at Seabright. The scam texts. The vishing call. The fake ad Coral almost clicked. The security questions answered from Jaylen\'s public profile. The deleted posts that should not exist any more but do. What do they all have in common?', showWomen: true, hideWomanB: true, emotion: 'thinking', showIntRoom: true },
     { speaker: '[YOUR NAME]', text: 'They all used feelings. Fear, urgency, authority. None of them broke in by force. They all found a gap in how someone felt and slipped through it.', showWomen: true, showIntRoom: true },
     { speaker: '', text: '', showSocialEngInfo: true, hideBubble: true, showIntRoom: true },
     { speaker: 'WOMAN B', text: 'We do not have time for the lesson. I need the items. He is getting closer.', showWomen: true, emotion: 'upset', showIntRoom: true },
     { speaker: 'Narrator', text: 'A pause. Then Woman B adds something quickly, as if filling the silence.', showWomen: true, showIntRoom: true },
-    { speaker: 'WOMAN B', text: 'You have already spoken to both of them — Celia and Rosa. You know how important this is. Please.', showWomen: true, emotion: 'upset', showIntRoom: true },
+    { speaker: 'WOMAN B', text: 'You have already spoken to both of them - Celia and Rosa. You know how important this is. Please.', showWomen: true, emotion: 'upset', showIntRoom: true },
     { speaker: 'Narrator', text: 'The player did not say how many aunts they had visited. They did not mention Rosa by name. Not in this room. Not to either of these women. A wrong note in a familiar song. The room is very quiet for a moment.', showWomen: true, showIntRoom: true },
     { speaker: 'WOMAN A', text: 'There it is again.', showWomen: true, hideWomanB: true, showIntRoom: true },
-    { speaker: 'Narrator', text: 'You stand in the middle of the Observatory with the strongbox in your hands. Two identical women watch you. The screens show the Shadow Man\'s trail still active — but slowed. He is waiting, too. Waiting to see if his trap works.', showWomen: true, showIntRoom: true },
+    { speaker: 'Narrator', text: 'You stand in the middle of the Observatory with the strongbox in your hands. Two identical women watch you. The screens show the Shadow Man\'s trail still active - but slowed. He is waiting, too. Waiting to see if his trap works.', showWomen: true, showIntRoom: true },
     { speaker: 'Narrator', text: 'You have everything you need. You have been building toward this moment since a Saturday morning when a letter arrived with a lighthouse stamp. Think. Look at what happened. Look at what each woman did.', showWomen: true, showIntRoom: true },
     { speaker: '', text: '', showFinalGameIntro: true, hideBubble: true, showIntRoom: true },
     { speaker: '', text: '', showFinalGame: true, hideBubble: true, showIntRoom: true },
@@ -171,7 +171,7 @@ const observatoryStory = {
     { speaker: '', text: '', showTrailRetreat: true, hideBubble: true },
     { speaker: 'Narrator', text: 'The red trail retreats.' },
     { speaker: 'Narrator', text: 'From Sunshare Square, from the lighthouse cliff, from the edges of Seabright. Moving away.' },
-    { speaker: 'Narrator', text: 'Not gone — the Shadow Man does not disappear. But the trail that was following you, circling the gaps, waiting for an opening... it goes still.' },
+    { speaker: 'Narrator', text: 'Not gone - the Shadow Man does not disappear. But the trail that was following you, circling the gaps, waiting for an opening... it goes still.' },
     { speaker: 'Narrator', text: 'There are no gaps left. There is nothing for it to find.' },
     { speaker: 'MIRA', text: 'He moves on to easier targets. He always does. The people who understand what he does are not worth the time it takes.', showWomen: true, hideWomanB: true },
     { speaker: '[YOUR NAME]', text: 'Will he come back?', showWomen: true, hideWomanB: true },
@@ -182,23 +182,23 @@ const observatoryStory = {
     { speaker: 'MIRA', text: 'That is the highest compliment he gives. He waves and says nothing. It means he thinks you are going to be alright.', showWomen: true, hideWomanB: true, showItemFocus: 'compass' },
     { speaker: 'MIRA', text: 'The prism. Rosa kept it safe. She always does.', showWomen: true, hideWomanB: true, showItemFocus: 'prism' },
     { speaker: '[YOUR NAME]', text: 'She was watching me the whole time I was in the square. I could feel it.', showWomen: true, hideWomanB: true, showItemFocus: 'prism' },
-    { speaker: 'MIRA', text: 'She watches everything. It is the kindest thing she knows how to do — to really pay attention. Most people do not.', showWomen: true, hideWomanB: true, showItemFocus: 'prism' },
+    { speaker: 'MIRA', text: 'She watches everything. It is the kindest thing she knows how to do - to really pay attention. Most people do not.', showWomen: true, hideWomanB: true, showItemFocus: 'prism' },
     { speaker: 'Narrator', text: 'The knot. Mira holds it for a long moment. Turns it in her fingers. The gold catches the light from the Observatory screens.', showWomen: true, hideWomanB: true, showItemFocus: 'knot' },
     { speaker: 'MIRA', text: 'Celia gave you this properly? She did not make a joke about it?', showWomen: true, hideWomanB: true, showItemFocus: 'knot' },
     { speaker: '[YOUR NAME]', text: 'She made several jokes about it. But she also made sure I understood it.', showWomen: true, hideWomanB: true, showItemFocus: 'knot' },
     { speaker: 'MIRA', text: 'That is Celia. She will do the most important thing in the funniest possible way and somehow it still lands.', showWomen: true, hideWomanB: true, showItemFocus: 'knot' },
     { speaker: 'Narrator', text: 'Three items, across three worlds, carried safely across a journey that started with a photograph on a Saturday morning. All of them here now.', showWomen: true, hideWomanB: true },
-    { speaker: 'MIRA', text: 'Thank you. All of this — the compass, the prism, the knot — these are pieces of work I have been doing for a very long time. Documenting the methods. Building the trail. Creating something that would teach, not just warn. I needed them back, and I could not carry them myself right now. And I needed someone who would learn along the way.', showWomen: true, hideWomanB: true },
+    { speaker: 'MIRA', text: 'Thank you. All of this - the compass, the prism, the knot - these are pieces of work I have been doing for a very long time. Documenting the methods. Building the trail. Creating something that would teach, not just warn. I needed them back, and I could not carry them myself right now. And I needed someone who would learn along the way.', showWomen: true, hideWomanB: true },
     { speaker: '[YOUR NAME]', text: 'Why me?', showWomen: true, hideWomanB: true },
-    { speaker: 'MIRA', text: 'Because you were ready without knowing you were ready. Because the skills this journey needed are ones that live in the way someone thinks — asking questions before acting, checking before trusting, looking at what is actually there rather than what something claims to be. I knew you had those things. I just needed the journey to prove it to you.', showWomen: true, hideWomanB: true },
+    { speaker: 'MIRA', text: 'Because you were ready without knowing you were ready. Because the skills this journey needed are ones that live in the way someone thinks - asking questions before acting, checking before trusting, looking at what is actually there rather than what something claims to be. I knew you had those things. I just needed the journey to prove it to you.', showWomen: true, hideWomanB: true },
     { speaker: '[YOUR NAME]', text: 'Will you explain the whole story now? Who you are, why you were not at home, what all of this was for?', showWomen: true, hideWomanB: true },
-    { speaker: 'MIRA', text: 'Yes. All of it. Let me make tea first — it is going to take a while. And I should warn you: some of it is complicated.', showWomen: true, hideWomanB: true },
+    { speaker: 'MIRA', text: 'Yes. All of it. Let me make tea first - it is going to take a while. And I should warn you: some of it is complicated.', showWomen: true, hideWomanB: true },
     { speaker: '[YOUR NAME]', text: 'That is okay. I think I can handle complicated now.', showWomen: true, hideWomanB: true },
     { speaker: 'MIRA', text: 'I know you can. I watched.', showWomen: true, hideWomanB: true },
     { speaker: 'Narrator', text: 'And so you sit down in the Observatory at the top of the hill, with the screens showing a world that is a little safer than it was this morning, and Mira makes tea and begins to explain everything. The whole story. All the parts she could not put in the letter.', showExterior: true },
     { speaker: 'Narrator', text: 'Outside, the lighthouse beam sweeps. The red trail on the big screen holds still.', showExterior: true },
     { speaker: 'Narrator', text: 'You are here. You made it. And now you know enough that getting here was never really the most important thing.', showExterior: true },
-    { speaker: 'Narrator', text: 'Knowing what you know now — that is.', showExterior: true },
+    { speaker: 'Narrator', text: 'Knowing what you know now - that is.', showExterior: true },
   ],
 }
 
@@ -221,7 +221,7 @@ export function clearProgress() {
   try { localStorage.removeItem(SAVE_KEY) } catch {}
 }
 
-// ── Demo-mode flag — separate key so it survives general save rewrites ───────
+// ── Demo-mode flag - separate key so it survives general save rewrites ───────
 const DEMO_MODE_KEY = 'cybersafe_demo_mode'
 function loadDemoModeFlag() {
   try { return localStorage.getItem(DEMO_MODE_KEY) === 'true' } catch { return false }
@@ -252,7 +252,7 @@ export default function App() {
   const [sceneIndex, setSceneIndex] = useState(() => loadProgress().sceneIndex ?? 0)
   const [lineIndex, setLineIndex]   = useState(() => DEMO_ONLY ? (loadDemoProgress()?.lineIndex ?? 0) : (loadProgress().lineIndex ?? 0))
   const sv = DEMO_ONLY ? {} : loadProgress()   // shorthand for all initialisers below
-  // Restore view — skip transient/demo views, fall back to home
+  // Restore view - skip transient/demo views, fall back to home
   // Only restore story-observatory if demo mode is also active (flag is in its own key)
   const _savedView = sv.view
   const _demoFlagActive = loadDemoModeFlag()
@@ -315,7 +315,7 @@ export default function App() {
   const [cyqAnswer, setCyqAnswer] = useState(null)
   const [cyqStep, setCyqStep] = useState(0)
   const [chapterInfo, setChapterInfo] = useState(null) // { number, title, subtitle }
-  const [chapterDest, setChapterDest] = useState(null) // 'start-bedroom'|'seabright-0'|'seabright-113'|'seabright-177'|'observatory'
+  const [chapterDest, setChapterDest] = useState(null) // 'start-bedroom'|'seabright-0'|'seabright-113'|'seabright-176'|'observatory'
   const [instrPage, setInstrPage] = useState(1)
   const [showNewGameConfirm, setShowNewGameConfirm] = useState(false)
   const [devExpandedChapter, setDevExpandedChapter] = useState(null)
@@ -347,26 +347,26 @@ export default function App() {
     { text: 'The smell of toast is coming from somewhere downstairs and through the window you can see a sky that cannot decide between grey and blue.' },
     { text: 'A perfectly normal morning, by all appearances.' },
     { text: 'Your parent appears from the kitchen, holding something.' },
-    { speaker: 'PARENT', text: 'There is post for you. Actual post — like, with a stamp and an envelope. When did anyone last get actual post?' },
+    { speaker: 'PARENT', text: 'There is post for you. Actual post - like, with a stamp and an envelope. When did anyone last get actual post?' },
     { speaker: '[YOUR NAME]', text: 'Post? Who sends me post?' },
-    { speaker: 'PARENT', text: 'It has your name on it. Unless there is another [PLAYER NAME] I do not know about. It was in the letterbox this morning. Stamp on it looks like a lighthouse.', showEnvelope: true },
+    { speaker: 'PARENT', text: 'It has your name on it. Unless there is another [PLAYER NAME], I do not know about. It was in the letterbox this morning. Stamp on it looks like a lighthouse.', showEnvelope: true },
     { waitForLetter: true, showEnvelope: true },
     { speaker: '[YOUR NAME]', text: '...I have an Aunt Mira. Who I have never met. Who knows the cat\'s name.' },
     { isChoice: true, showBookshelf: true, prompt: 'WHAT DO YOU DO?', sub: 'The letter says to look at something you have already seen. What do you do?', options: [
-      { label: 'A', text: 'Ask your parent — maybe they know who Aunt Mira is and where she might be.', path: 'continue' },
+      { label: 'A', text: 'Ask your parent - maybe they know who Aunt Mira is and where she might be.', path: 'continue' },
       { label: 'B', text: 'Take a look around your room more carefully.', path: 'blank' },
     ]},
     { isSelectedChoice: true, showBookshelf: true },
     { text: 'Your parent reads the letter and goes quiet for a moment.', showBookshelf: true },
-    { speaker: 'PARENT', text: 'Mira. I have not heard that name in... a long time. She is your dad\'s sister. She travelled everywhere — always sending postcards, always somewhere interesting. She knows this house well. She would have been here when you were very small.', showBookshelf: true },
+    { speaker: 'PARENT', text: 'Mira. I have not heard that name in... a long time. She is your dad\'s sister. She travelled everywhere - always sending postcards, always somewhere interesting. She knows this house well. She would have been here when you were very small.', showBookshelf: true },
     { speaker: '[YOUR NAME]', text: 'She says she left me a way to find her. Something I have already seen.', showBookshelf: true },
-    { speaker: 'PARENT', text: 'Something in this house, then. Something she left here. Think about what caught your eye this morning — anything unusual?', showBookshelf: true },
+    { speaker: 'PARENT', text: 'Something in this house, then. Something she left here. Think about what caught your eye this morning - anything unusual?', showBookshelf: true },
     { showBlank: true, showBookshelf: true },
     { showPhotoScene: true, photoPhase: 'wait' },
-    { showPhotoScene: true, text: 'A faded photograph in a wooden frame. A woman stands outside a lighthouse, laughing at the camera. She is wearing a long coat and holding a notebook against her chest. Behind her, carved into a stone post at the lighthouse entrance: SEABRIGHT LIGHTHOUSE.' },
-    { showPhotoScene: true, speaker: '[YOUR NAME]', text: 'She marked it. She was here and she placed the photograph on my shelf — that IS Seabright Lighthouse. That is where she is.' },
+    { showPhotoScene: true, text: 'A faded photograph in a wooden frame. A woman stands outside a lighthouse, Laughing at the camera, she is wearing a long coat and holding a notebook against her chest. Behind her, carved into a stone post at the lighthouse entrance: SEABRIGHT LIGHTHOUSE.' },
     { showPhotoScene: true, speaker: '[YOUR NAME]', text: 'The photograph. On my bookshelf. A woman in front of a lighthouse. It says Seabright Lighthouse on the stone.' },
-    { showPhotoScene: true, speaker: 'PARENT', text: 'Seabright! Yes — she loved that lighthouse. If she is anywhere, she is there. That is your clue, [PLAYER NAME].' },
+    { showPhotoScene: true, speaker: '[YOUR NAME]', text: 'She marked it. She was here and she placed the photograph on my shelf - that is Seabright Lighthouse. That is where she is.' },
+    { showPhotoScene: true, speaker: 'PARENT', text: 'Seabright! Yes - she loved that lighthouse. If she is anywhere, she is there. That is your clue, [PLAYER NAME].' },
     { showPhotoScene: true, photoPhase: 'zoomWait' },
   ]
   const [typedLength, setTypedLength] = useState(0)
@@ -646,28 +646,28 @@ export default function App() {
     const prev = obsLineIndexRef.current
     obsLineIndexRef.current = lineIndex
 
-    const isNowInterior = lineIndex >= 2
+    const isNowInterior = lineIndex >= 3
 
     if (prev === -1) {
-      // Fresh entry — set interior state immediately, no fade
+      // Fresh entry - set interior state immediately, no fade
       setObsShowInterior(isNowInterior)
       setObsBgBlack(false)
       return undefined
     }
 
-    const wasInterior = prev >= 2
+    const wasInterior = prev >= 3
     if (isNowInterior === wasInterior) {
       setObsBgBlack(false) // safety: clear any stuck black from an aborted transition
       return undefined
     }
 
-    // Threshold crossed — swap background immediately, animate black overlay over it
+    // Threshold crossed - swap background immediately, animate black overlay over it
     setObsShowInterior(isNowInterior)
     setObsBgBlack(true)
     const t = window.setTimeout(() => setObsBgBlack(false), 700)
     return () => {
       window.clearTimeout(t)
-      setObsBgBlack(false) // aborted — clear overlay, background already correct
+      setObsBgBlack(false) // aborted - clear overlay, background already correct
     }
   }, [lineIndex, view])
 
@@ -792,7 +792,7 @@ export default function App() {
           } else if (seabrightLine + 1 === 113) {
             goToChapter({ number: 'III', title: 'Into The Lighthouse' }, 'seabright-113')
           } else if (seabrightLine + 1 === 177) {
-            goToChapter({ number: 'IV', title: 'Echoes in the Sunshare Square' }, 'seabright-177')
+            goToChapter({ number: 'IV', title: 'Echoes in the Sunshare Square' }, 'seabright-176')
           } else {
             setSeabrightLine(l => l + 1)
           }
@@ -843,7 +843,7 @@ export default function App() {
   }, [seabrightLine])
 
 
-  // Tablet popup countdown — runs only while that line is active
+  // Tablet popup countdown - runs only while that line is active
   useEffect(() => {
     if (view !== 'seabright' || seabrightLine !== 54) {
       clearInterval(tabletTimerRef.current)
@@ -930,7 +930,7 @@ export default function App() {
     else if (dest === 'start-bedroom') { setView('start-bedroom') }
     else if (dest === 'seabright-0') { setSeabrightLine(0); setView('seabright') }
     else if (dest === 'seabright-113') { setSeabrightLine(113); setView('seabright') }
-    else if (dest === 'seabright-177') { setSeabrightLine(177); setView('seabright') }
+    else if (dest === 'seabright-176') { setSeabrightLine(176); setView('seabright') }
     else if (dest === 'observatory') { setLineIndex(0); setTypedLength(0); setIsObservatoryShaking(false); setView('story-observatory') }
   }
 
@@ -938,7 +938,7 @@ export default function App() {
   const showGlobalBack = !DEMO_ONLY && ['phish', 'analyzer', 'chest'].includes(view)
   const showHomeBtn = !DEMO_ONLY && !['home', 'landing', 'demo', 'demo-home'].includes(view)
 
-  // Imperative home button — works with all early returns
+  // Imperative home button - works with all early returns
   const _homeBtnRef = useRef(null)
   useEffect(() => {
     let btn = _homeBtnRef.current
@@ -973,7 +973,7 @@ export default function App() {
           </div>
           <h2 className="chapter-title">{chapterInfo.title}</h2>
         </div>
-        <div className="chapter-continue">— tap to continue —</div>
+        <div className="chapter-continue">- tap to continue -</div>
       </div>
     )
   }
@@ -990,7 +990,7 @@ export default function App() {
         {instrPage === 1 && (
           <div key="p1" className="instr-inner instr-p1">
             <p className="instr-heading">How to navigate</p>
-            <p className="instr-desc">Click the buttons — or use the <span className="instr-key">←</span> <span className="instr-key">→</span> arrow keys — to move through the story.</p>
+            <p className="instr-desc">Click the buttons - or use the <span className="instr-key">←</span> <span className="instr-key">→</span> arrow keys - to move through the story.</p>
 
             <div className="instr-nav-row">
               <div className="instr-nav-side">
@@ -1039,7 +1039,7 @@ export default function App() {
               </li>
               <li>
                 <span className="instr-fact-icon">↺</span>
-                <span>Progress is saved automatically — <strong>step away and return</strong> whenever you like</span>
+                <span>Progress is saved automatically - <strong>step away and return</strong> whenever you like</span>
               </li>
               <li>
                 <span className="instr-fact-icon">⬡</span>
@@ -1055,7 +1055,7 @@ export default function App() {
     )
   }
 
-  // Outro narration — black screen after title
+  // Outro narration - black screen after title
   if (view === 'outro') {
     return (
       <div className="game-root" style={{ background: '#000' }}>
@@ -1063,13 +1063,13 @@ export default function App() {
           <p className="outro-text">
             You have a name. You have a destination. You have a letter from an aunt you did not know existed, telling you to collect things and keep them safe and not let anyone take them. You are not entirely sure what you are walking into. But that, if anything, is exactly the kind of Saturday you wanted.
           </p>
-          <div className="outro-press">— tap to continue —</div>
+          <div className="outro-press">- tap to continue -</div>
         </div>
       </div>
     )
   }
 
-  // Doorway dialogue — parent in bedroom doorway
+  // Doorway dialogue - parent in bedroom doorway
   if (view === 'doorway') {
     const DOORWAY_LINES = [
       { speaker: 'PARENT', text: 'I have put my number at the top of your contacts. You call me if anything feels off, alright? Not after something goes wrong. Before.' },
@@ -1078,7 +1078,7 @@ export default function App() {
       { speaker: '[YOUR NAME]', text: 'Yes.' },
       { speaker: 'PARENT', text: 'You have looked at the map?' },
       { speaker: '[YOUR NAME]', text: 'Seabright Lighthouse is right on the coast road. Forty minutes on the bus. I have the map open already.' },
-      { speaker: 'PARENT', text: `Good. And ${resolveName('[YOUR NAME]')} — Mira has a way of putting people in the middle of interesting situations. Just… be ready for things to be a bit unexpected.` },
+      { speaker: 'PARENT', text: `Good. And ${resolveName('[YOUR NAME]')} - Mira has a way of putting people in the middle of interesting situations. Just… be ready for things to be a bit unexpected.` },
       { speaker: '[YOUR NAME]', text: 'What kind of interesting situations?' },
       { speaker: 'PARENT', text: 'The kind where you end up knowing something important that you did not know before. That is usually how it goes with her.' },
     ]
@@ -1115,10 +1115,10 @@ export default function App() {
     )
   }
 
-  // Departure narration — three beats before the journey begins
+  // Departure narration - three beats before the journey begins
   if (view === 'departure') {
     const DEPARTURE_LINES = [
-      'You put on your jacket. You check your bag. You look around your room one last time — the console, the laptop, the bookshelf with its snow globe and its rocks and the empty space where the photograph used to be.',
+      'You put on your jacket. You check your bag. You look around your room one last time - the console, the laptop, the bookshelf with its snow globe and its rocks and the empty space where the photograph used to be.',
       'Something about that empty space feels like the beginning of something.',
       'The journey to Seabright Lighthouse begins.',
     ]
@@ -1133,7 +1133,7 @@ export default function App() {
       >
         <p key={departureLine} className="departure-text">{depLine}</p>
         <div className="departure-press">
-          {depAtEnd ? '— tap to begin —' : '— tap to continue —'}
+          {depAtEnd ? '- tap to begin -' : '- tap to continue -'}
         </div>
       </div>
       </div>
@@ -1143,13 +1143,13 @@ export default function App() {
   // Seabright arrival scene
   if (view === 'seabright') {
     const SB_LINES = [
-      { type: 'narrator', text: 'The bus drops you at the edge of Seabright and you smell the sea before you see it. Salt and cold air and something else — something quieter than you expected. A fishing village should be noisy. Engines, voices, the clank of equipment. But Seabright is almost silent.' },
+      { type: 'narrator', text: 'The bus drops you at the edge of Seabright and you smell the sea before you see it. Salt and cold air and something else - something quieter than you expected. A fishing village should be noisy. Engines, voices, the clank of equipment. But Seabright is almost silent.' },
       { type: 'narrator', text: 'Something is really wrong here. This place looks like it has just… stopped.' },
-      { type: 'narrator', text: 'You take a few steps toward the harbour. Almost immediately, a weathered man in a heavy coat breaks away from one of the groups and walks straight toward you — like he was watching for you.' },
+      { type: 'narrator', text: 'You take a few steps toward the harbour. Almost immediately, a weathered man in a heavy coat breaks away from one of the groups and walks straight toward you - like he was watching for you.' },
       { type: 'dialogue', speaker: 'OLD FINN', text: 'You must be the one she said was coming. She described you exactly right.' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'She? Do you mean Mira? My aunt?' },
       { type: 'dialogue', speaker: 'OLD FINN', text: 'She was here two days ago. Sat in my kitchen, drank half my tea supply, fixed the latch on my door that has been broken for three years, and then left before I woke up. She said her nephew or niece would arrive and would help us sort out what has been happening. Are you them?' },
-      { type: 'dialogue', speaker: '[YOUR NAME]', text: 'I am looking for her — she sent me a letter. But I will help. What has been happening?' },
+      { type: 'dialogue', speaker: '[YOUR NAME]', text: 'I am looking for her - she sent me a letter. But I will help. What has been happening?' },
       { type: 'dialogue', speaker: 'OLD FINN', text: 'Sit down. It is going to take a moment to explain. And it is embarrassing, honestly. We are not stupid people. But we were tricked, and badly, and now the village cannot function properly and nobody knows how to fix it.' },
       { type: 'narrator', text: 'Old Finn holds out his phone. On the screen is an email. He has read it so many times trying to figure out what went wrong that the edges of the screen are worn from his thumbs.' },
       { type: 'phone-email' },
@@ -1159,15 +1159,15 @@ export default function App() {
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'Can I look at the email more carefully?' },
       { type: 'dialogue', speaker: 'OLD FINN', text: 'Be my guest. I wish I had looked more carefully myself.' },
       { type: 'phone-inspect' },
-      { type: 'dialogue', speaker: '[YOUR NAME]', text: 'The sender name says "Seabright Harbour Authority" — but look at the actual email address underneath. seabright-port-renewal.com. That is not a real harbour authority address.' },
+      { type: 'dialogue', speaker: '[YOUR NAME]', text: 'The sender name says "Seabright Harbour Authority" - but look at the actual email address underneath. seabright-port-renewal.com. That is not a real harbour authority address.' },
       { type: 'dialogue', speaker: 'OLD FINN', text: 'I did not look at the address. Just the name.' },
-      { type: 'dialogue', speaker: '[YOUR NAME]', text: 'That is exactly what they were counting on. The display name is just whatever they want to type — anyone can write "Seabright Harbour Authority" as their name. The real address is what matters, and that one has been made up to look official.' },
-      { type: 'dialogue', speaker: '[YOUR NAME]', text: 'And the link — where does it actually go?' },
+      { type: 'dialogue', speaker: '[YOUR NAME]', text: 'That is exactly what they were counting on. The display name is just whatever they want to type - anyone can write "Seabright Harbour Authority" as their name. The real address is what matters, and that one has been made up to look official.' },
+      { type: 'dialogue', speaker: '[YOUR NAME]', text: 'And the link - where does it actually go?' },
       { type: 'dialogue', speaker: 'OLD FINN', text: 'I did not check. I just tapped it.' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'On a phone, if you press and hold a link before tapping it, the real web address appears. On a computer, you hover your mouse over it without clicking. Let me show you.' },
       { type: 'url-preview' },
       { type: 'dialogue', speaker: 'OLD FINN', text: 'It says steal-data right in the address?' },
-      { type: 'dialogue', speaker: '[YOUR NAME]', text: 'They do not always make it that obvious. But the point is — checking before you tap tells you where you are actually going. The link text can say anything. The real address is what the link actually does.' },
+      { type: 'dialogue', speaker: '[YOUR NAME]', text: 'They do not always make it that obvious. But the point is - checking before you tap tells you where you are actually going. The link text can say anything. The real address is what the link actually does.' },
       { type: 'email-redflags' },
       { type: 'phishing-info' },
       { type: 'phishing-quiz' },
@@ -1177,7 +1177,7 @@ export default function App() {
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'Can I see what the message said?' },
       { type: 'phone-text' },
       { type: 'dialogue', speaker: 'CORAL', text: 'My friend\'s boat was out that day. When I read that, my heart stopped. What if it was real? What if ignoring it meant something terrible happened?' },
-      { type: 'dialogue', speaker: '[YOUR NAME]', text: 'That feeling — that sudden panic — that was not an accident. That was designed.' },
+      { type: 'dialogue', speaker: '[YOUR NAME]', text: 'That feeling - that sudden panic - that was not an accident. That was designed.' },
       { type: 'dialogue', speaker: 'CORAL', text: 'What do you mean, designed?' },
       { type: 'feelings-info' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'Look at this message carefully. How many things in it are trying to make you feel scared or rushed?' },
@@ -1191,16 +1191,16 @@ export default function App() {
       { type: 'dialogue', speaker: 'OLD FINN', text: 'We have been going through these for two days and we keep second-guessing ourselves. Can you help us sort them out?' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'Yes. And I am going to show you what to look for in each one so you can do this yourselves next time.' },
       { type: 'real-or-fake' },
-      { type: 'narrator', text: 'As the player sorts through the messages, the fishermen begin to see the patterns. Someone shouts out a red flag before the player does. Someone else spots a fake address. The group starts working together.' },
+      { type: 'narrator', text: 'As you sort through the messages, the fishermen begin to see the patterns. Someone shouts out a red flag before you even do. Someone else spots a fake address. The group starts working together.' },
       { type: 'dialogue', speaker: 'OLD FINN', text: 'It is the address every time, is it not. The address never quite matches.' },
-      { type: 'dialogue', speaker: '[YOUR NAME]', text: 'That is the thing they cannot fake perfectly. The name, the logo, the urgent language — all of that is easy to copy. But registering a domain that is identical to the real one is much harder. There is always something slightly off.' },
+      { type: 'dialogue', speaker: '[YOUR NAME]', text: 'That is the thing they cannot fake perfectly. The name, the logo, the urgent language - all of that is easy to copy. But registering a domain that is identical to the real one is much harder. There is always something slightly off.' },
       { type: 'dialogue', speaker: 'CORAL', text: 'Amazon-delivery-alert. Deliveroo-support-help. School-accounts-verify. They add extra words to make it look official but it is always wrong.' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'Exactly. And once you see that pattern, you start seeing it everywhere.' },
-      { type: 'narrator', text: 'Old Finn leads you to the village square where a community tablet computer is mounted on a post — a donation from a local charity so the fishermen can check weather reports and tide times. Coral is standing in front of it, finger hovering over the screen, staring at something with wide eyes.' },
+      { type: 'narrator', text: 'Old Finn leads you to the village square where a community tablet computer is mounted on a post - a donation from a local charity so the fishermen can check weather reports and tide times. Coral is standing in front of it, finger hovering over the screen, staring at something with wide eyes.' },
       { type: 'tablet-popup' },
-      { type: 'dialogue', speaker: 'CORAL', text: 'I was just checking the tide chart and this came up. It says I have to claim in sixty seconds or I lose the prize. I have been trying to replace my waterproof kit for months and I cannot afford it right now and — should I tap it? The clock is at forty seconds now.' },
+      { type: 'dialogue', speaker: 'CORAL', text: 'I was just checking the tide chart and this came up. It says I have to claim in sixty seconds or I lose the prize. I have been trying to replace my waterproof kit for months and I cannot afford it right now and - should I tap it? The clock is at forty seconds now.' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'Stop. Do not tap it yet.' },
-      { type: 'dialogue', speaker: 'CORAL', text: 'But the clock—' },
+      { type: 'dialogue', speaker: 'CORAL', text: 'But the clock-' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'I know. That is the point of the clock. It wants you looking at the numbers instead of the ad. Look at the ad itself for a second.' },
       { type: 'narrator', text: 'Coral looks. The player talks her through it.' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'You were just checking tide times. You did not enter any competition. How did a fishing rod competition know to pop up for you, specifically, right now?' },
@@ -1211,7 +1211,7 @@ export default function App() {
       { type: 'dialogue', speaker: 'CORAL', text: 'SeaGear Marine. Their website is seagearmarine.com.' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'So this ad is not from them. It is from a different website entirely that just used the word Seabright to look local and relevant.' },
       { type: 'scam-ad-info' },
-      { type: 'dialogue', speaker: '[YOUR NAME]', text: 'And this countdown timer — watch what happens if we let it run to zero.' },
+      { type: 'dialogue', speaker: '[YOUR NAME]', text: 'And this countdown timer - watch what happens if we let it run to zero.' },
       { type: 'tablet-timer-reset' },
       { type: 'dialogue', speaker: 'CORAL', text: 'It just... reset?' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'It was never a real countdown. The urgency was completely made up. These timers are programmed to loop forever. Nobody is going to lose a prize because they took an extra minute to think.' },
@@ -1220,31 +1220,31 @@ export default function App() {
       { type: 'scam-ad-redflags' },
       { type: 'scam-ad-quiz' },
       { type: 'narrator', text: 'Back at the harbour wall, Coral pulls you aside. She looks like someone who has been carrying something uncomfortable for three days and is finally ready to put it down.' },
-      { type: 'dialogue', speaker: 'CORAL', text: 'I need to tell you something I have not told Old Finn yet. Yesterday morning — before I knew about any of this — I tapped a link in a text message before I could stop myself. The page loaded for maybe two seconds before I realised and closed it. I do not think anything happened. But I have been worried ever since.' },
+      { type: 'dialogue', speaker: 'CORAL', text: 'I need to tell you something I have not told Old Finn yet. Yesterday morning - before I knew about any of this - I tapped a link in a text message before I could stop myself. The page loaded for maybe two seconds before I realised and closed it. I do not think anything happened. But I have been worried ever since.' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'You did the right thing closing it. How long ago was this?' },
       { type: 'dialogue', speaker: 'CORAL', text: 'Yesterday. About ten in the morning.' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'Okay. Here is what we do.' },
       { type: 'scammed-info' },
       { type: 'scammed-steps' },
-      { type: 'dialogue', speaker: '[YOUR NAME]', text: 'Coral — did the page that loaded ask you to type anything?' },
+      { type: 'dialogue', speaker: '[YOUR NAME]', text: 'Coral - did the page that loaded ask you to type anything?' },
       { type: 'dialogue', speaker: 'CORAL', text: 'No. It loaded and I immediately thought something was wrong and closed it.' },
-      { type: 'dialogue', speaker: '[YOUR NAME]', text: 'Then the most important thing is to tell a trusted adult today — not because you are in trouble, but because an adult can check your phone for anything suspicious and make sure nothing happened in those two seconds. If something did get through, catching it today is much better than catching it next week.' },
+      { type: 'dialogue', speaker: '[YOUR NAME]', text: 'Then the most important thing is to tell a trusted adult today - not because you are in trouble, but because an adult can check your phone for anything suspicious and make sure nothing happened in those two seconds. If something did get through, catching it today is much better than catching it next week.' },
       { type: 'dialogue', speaker: 'CORAL', text: 'You are saying I am not going to get in trouble?' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'You spotted something was wrong and closed it immediately. That is good instinct. The only mistake would be staying quiet about it out of embarrassment. The scam was designed by people who study how to trick people. Getting nearly caught does not mean you were careless. It means they were skilled.' },
-      { type: 'dialogue', speaker: 'OLD FINN', text: '(arriving, having overheard the last part) She is right, Coral. Come on — we will call the harbour authority together and you can talk to your dad tonight.' },
+      { type: 'dialogue', speaker: 'OLD FINN', text: '(arriving, having overheard the last part) She is right, Coral. Come on - we will call the harbour authority together and you can talk to your dad tonight.' },
       { type: 'bram-quiz' },
-      { type: 'narrator', text: 'Old Finn has an idea. He rounds up a few of the younger fishermen — including Coral — and sets them in front of the village tablet. If they are going to understand how to protect themselves, they need to practice reacting quickly to what they see. He asks you to run the exercise.' },
+      { type: 'narrator', text: 'Old Finn has an idea. He rounds up a few of the younger fishermen - including Coral - and sets them in front of the village tablet. If they are going to understand how to protect themselves, they need to practice reacting quickly to what they see. He asks you to run the exercise.' },
       { type: 'dialogue', speaker: 'OLD FINN', text: 'They know the theory now. Let them practice the reaction.' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'Good idea. Let\'s go.' },
       { type: 'minigame2-instructions' },
       { type: 'minigame2' },
       { type: 'narrator', text: 'After the final round, Coral high-fives someone. Old Finn looks at the screen where the scoreboard shows the fishermen\'s results. Everyone got better round by round.' },
       { type: 'dialogue', speaker: 'OLD FINN', text: 'Look at that. By round three they were getting them right almost immediately.' },
-      { type: 'dialogue', speaker: '[YOUR NAME]', text: 'That is the thing about this skill. The more you practice, the faster it becomes automatic. You stop reading every suspicious message carefully after a while — you just feel when something is wrong and you check before you act.' },
+      { type: 'dialogue', speaker: '[YOUR NAME]', text: 'That is the thing about this skill. The more you practice, the faster it becomes automatic. You stop reading every suspicious message carefully after a while - you just feel when something is wrong and you check before you act.' },
       { type: 'dialogue', speaker: 'CORAL', text: 'It gets easier?' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'Much easier. And once it is automatic, it is actually quite satisfying. Like spotting the trick before the magician finishes the trick.' },
       { type: 'narrator', text: 'It takes the rest of the afternoon. You go with Old Finn from fisherman to fisherman, and each time the conversation goes roughly the same way: embarrassment, then relief, then understanding, then a kind of quiet determination. By early evening, compromised accounts have been reported and locked. Passwords have been changed. The harbour booking system is back online.' },
-      { type: 'dialogue', speaker: 'OLD FINN', text: 'You have done something today that we could not do for ourselves. Not because we are stupid — but because nobody had ever explained it to us in plain language. Where did you learn all of this?' },
+      { type: 'dialogue', speaker: 'OLD FINN', text: 'You have done something today that we could not do for ourselves. Not because we are stupid - but because nobody had ever explained it to us in plain language. Where did you learn all of this?' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'Honestly? I did not know most of it this morning. I think I just knew enough to ask the right questions.' },
       { type: 'dialogue', speaker: 'OLD FINN', text: 'She said you would say something like that.' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'Mira? What else did she say?' },
@@ -1254,17 +1254,17 @@ export default function App() {
       { type: 'compass-reveal' },
       { type: 'dialogue', speaker: 'OLD FINN', text: 'She also said to tell you: the lighthouse. Once the village was right again. She said you would know what to do.' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'The lighthouse on the cliff?' },
-      { type: 'dialogue', speaker: 'OLD FINN', text: 'There is someone up there. Has been for three days. We did not ask questions — she had Mira\'s eyes and we have learned not to ask too many questions about people with Mira\'s eyes.' },
-      { type: 'narrator', bg: 'lighthouse', text: 'You look up at the cliff. The lighthouse beam is sweeping in its slow circle — steady now, where it flickered before. Someone is up there, keeping the light running, waiting for you to finish what you came to do.\n\nYou say goodbye to Old Finn and Coral. You promise to come back when you have found Mira. Old Finn waves you off without a word, which from Old Finn, you are beginning to understand, is the highest possible compliment.' },
-      { type: 'narrator', bg: 'lighthouse', text: 'The path up the cliff is narrow and winds between gorse bushes that smell of coconut in the cold air. Below, you can hear the harbour coming back to life — the chug of an engine, someone calling across the water. You did that. Not bad for a Saturday.' },
-      { type: 'dialogue', bg: 'lighthouse', speaker: '[YOUR NAME]', text: 'She climbed this path. Mira climbed this path and left something at the top and then disappeared before breakfast. Who does that?' },
-      { type: 'narrator', bg: 'lighthouse', text: 'Apparently, the kind of person whose face is in a photograph you never noticed, who marks coastlines on globes, who leaves compasses and riddles and knows the names of cats.' },
+      { type: 'dialogue', speaker: 'OLD FINN', text: 'There is someone up there. Has been for three days. We did not ask questions - she had Mira\'s eyes and we have learned not to ask too many questions about people with Mira\'s eyes.' },
+      { type: 'narrator', bg: 'lighthouse', text: 'You look up at the cliff. The lighthouse beam is sweeping in its slow circle - steady now, where it flickered before. Someone is up there, keeping the light running, waiting for you to finish what you came to do.\n\nYou say goodbye to Old Finn and Coral. You promise to come back when you have found Mira. Old Finn waves you off without a word, which from Old Finn, you are beginning to understand, is the highest possible compliment.' },
+      { type: 'narrator', bg: 'lighthouse', text: 'The path up the cliff is narrow and winds between gorse bushes that smell of coconut in the cold air. Below, you can hear the harbour coming back to life - the chug of an engine, someone calling across the water. You did that. Not bad for a Saturday.' },
+      { type: 'dialogue', bg: 'lighthouse', speaker: '[YOUR NAME]', text: 'She climbed this path. Mira climbed this path and I am finally gonna find her.' },
+      { type: 'narrator', bg: 'lighthouse', text: 'You keep climbing, your heart pounding in your chest.' },
       { type: 'narrator', bg: 'lighthouse-door', text: 'Footsteps. Quick, light footsteps. The door opens. And you go absolutely still.' },
       { type: 'aunt-reveal', bg: 'lighthouse-door' },
-      { type: 'narrator', bg: 'lighthouse-door', text: 'The face in the doorway is the face from the photograph. The same dark eyes. The same cheekbones. The same slight tilt of the head. For one breathless second you think: I found her. I actually found her.\n\nAnd then the woman in the doorway raises one eyebrow and says —' },
+      { type: 'narrator', bg: 'lighthouse-door', text: 'The face in the doorway is the face from the photograph. The same dark eyes. The same cheekbones. The same slight tilt of the head. For one breathless second you think: I found her. I actually found her.\n\nAnd then the woman in the doorway raises one eyebrow and says -' },
       { type: 'dialogue', bg: 'lighthouse-door', speaker: 'CELIA', text: 'Well. You definitely found the right lighthouse. You have exactly the expression she said you would have.' },
       { type: 'dialogue', bg: 'lighthouse-door', speaker: '[YOUR NAME]', text: '...You are not Mira.' },
-      { type: 'dialogue', bg: 'lighthouse-door', speaker: 'CELIA', text: 'No. Though I have been told the resemblance is remarkable. I am Celia. Come in — I have already made tea and I made it for two so do not bother saying you do not want any because it is already poured.' },
+      { type: 'dialogue', bg: 'lighthouse-door', speaker: 'CELIA', text: 'No. Though I have been told the resemblance is remarkable. I am Celia. Come in - I have already made tea and I made it for two so do not bother saying you do not want any because it is already poured.' },
       { type: 'dialogue', bg: 'lighthouse-int', speaker: '[YOUR NAME]', text: 'How many of you are there? Sisters, I mean.' },
       { type: 'dialogue', bg: 'lighthouse-int', speaker: 'CELIA', text: 'Three. Mira is the oldest. I am the middle one. There is also Rosa, who is the youngest and by far the most sensible, which has always annoyed both of us. Mira did not tell you about us?' },
       { type: 'dialogue', bg: 'lighthouse-int', speaker: '[YOUR NAME]', text: 'She sent one letter. It did not have an address on it.' },
@@ -1277,8 +1277,8 @@ export default function App() {
       { type: 'knot-reveal', bg: 'lighthouse-int' },
       { type: 'dialogue', bg: 'lighthouse-int', speaker: '[YOUR NAME]', text: 'What is the knot for?' },
       { type: 'dialogue', bg: 'lighthouse-int', speaker: 'CELIA', text: 'Mira will explain the whole of it when you reach her. But she wrote something about it in the notebook. First bookmark.' },
-      { type: 'notebook-page', bg: 'lighthouse-int', heading: 'From Mira\'s Notebook — On the Golden Knot', lines: [
-        'A knot holds not by its complexity —',
+      { type: 'notebook-page', bg: 'lighthouse-int', heading: 'From Mira\'s Notebook - On the Golden Knot', lines: [
+        'A knot holds not by its complexity -',
         'but by its length,',
         'and its commitment to itself.',
         '',
@@ -1289,17 +1289,17 @@ export default function App() {
       { type: 'dialogue', bg: 'lighthouse-int', speaker: '[YOUR NAME]', text: 'A knot holds by its length. Not its complexity. What does that mean for a strongbox?' },
       { type: 'dialogue', bg: 'lighthouse-int', speaker: 'CELIA', text: 'Ah. That is where the third thing comes in.' },
       { type: 'strongbox-reveal', bg: 'lighthouse-int' },
-      { type: 'dialogue', bg: 'lighthouse-int', speaker: 'CELIA', text: 'This is for carrying Mira\'s things safely from here to her. You already have the compass from Old Finn. The knot goes in here too. And whatever you pick up on the way. The box needs a password before you leave this lighthouse — one that only you know. Because there is someone on this path who would very much like to get into it.' },
+      { type: 'dialogue', bg: 'lighthouse-int', speaker: 'CELIA', text: 'This is for carrying Mira\'s things safely from here to her. You already have the compass from Old Finn. The knot goes in here too. And whatever you pick up on the way. The box needs a password before you leave this lighthouse - one that only you know. Because there is someone on this path who would very much like to get into it.' },
       { type: 'dialogue', bg: 'lighthouse-int', speaker: '[YOUR NAME]', text: 'Who?' },
-      { type: 'dialogue', bg: 'lighthouse-int', speaker: 'CELIA', text: 'He does not have a name that anyone knows. We call him the Shadow Man. He follows the gaps — weak passwords, unlocked boxes, information left unprotected. He has been following Mira\'s trail for a long time. He wants what she has gathered. And now he knows you have some of it.' },
+      { type: 'dialogue', bg: 'lighthouse-int', speaker: 'CELIA', text: 'He does not have a name that anyone knows. We call him the Shadow Man. He follows the gaps - weak passwords, unlocked boxes, information left unprotected. He has been following Mira\'s trail for a long time. He wants what she has gathered. And now he knows you have some of it.' },
       { type: 'dialogue', bg: 'lighthouse-int', speaker: '[YOUR NAME]', text: 'How does he know?' },
       { type: 'dialogue', bg: 'lighthouse-int', speaker: 'CELIA', text: 'Because he was watching the harbour when you arrived at Seabright. And he has been watching this cliff path since you started climbing.' },
       { type: 'shadow-reveal', bg: 'lighthouse-int' },
       { type: 'narrator', bg: 'lighthouse-int', text: 'The lighthouse beam sweeps the cliff path below. For two full seconds, caught in the light, a figure stands at the base of the path. Completely still. Watching. Then the beam moves on. By the time it sweeps back: nothing. Only the pressed-down grass where something stood.' },
       { type: 'dialogue', bg: 'lighthouse-int', speaker: '[YOUR NAME]', text: '...Was that him?' },
-      { type: 'dialogue', bg: 'lighthouse-int', speaker: 'CELIA', text: 'That was him. He will not come up here — he does not do direct confrontation. He waits for gaps. Our job is to make sure there are none.' },
+      { type: 'dialogue', bg: 'lighthouse-int', speaker: 'CELIA', text: 'That was him. He will not come up here - he does not do direct confrontation. He waits for gaps. Our job is to make sure there are none.' },
       { type: 'dialogue', bg: 'lighthouse-int', speaker: 'CELIA', text: 'So. The strongbox needs a password. And Mira left you a page in the notebook about how to make a good one. Second bookmark.' },
-      { type: 'notebook-page', bg: 'lighthouse-int', heading: 'From Mira\'s Notebook — On Passwords — Length and Complexity', lines: [
+      { type: 'notebook-page', bg: 'lighthouse-int', heading: 'From Mira\'s Notebook - On Passwords - Length and Complexity', lines: [
         'People are told to make passwords complex.',
         'Capital letters. Symbols. Numbers.',
         'So they make something like: P@ssw0rd1',
@@ -1326,23 +1326,23 @@ export default function App() {
       ]},
       { type: 'password-lesson-length', bg: 'lighthouse-int' },
       { type: 'password-lesson-random', bg: 'lighthouse-int' },
-      { type: 'dialogue', bg: 'lighthouse-int', speaker: '[YOUR NAME]', text: 'So the knot holds by its length — and so does a password.' },
-      { type: 'dialogue', bg: 'lighthouse-int', speaker: 'CELIA', text: 'She really likes a good metaphor. The knot, the compass — she is building a whole collection. Open the strongbox panel and set your password.' },
+      { type: 'dialogue', bg: 'lighthouse-int', speaker: '[YOUR NAME]', text: 'So the knot holds by its length - and so does a password.' },
+      { type: 'dialogue', bg: 'lighthouse-int', speaker: 'CELIA', text: 'She really likes a good metaphor. The knot, the compass - she is building a whole collection. Open the strongbox panel and set your password.' },
       { type: 'password-minigame-instructions', bg: 'lighthouse-int' },
       { type: 'password-minigame', bg: 'lighthouse-int' },
       { type: 'strongbox-seal', bg: 'lighthouse-int' },
       { type: 'dialogue', bg: 'lighthouse-int', speaker: 'CELIA', text: 'Good. Now it holds. And now he cannot get into it by guessing.' },
       { type: 'dialogue', bg: 'lighthouse-int', speaker: 'CELIA', text: 'Before you go. There is something you need to understand about him.' },
-      { type: 'narrator', bg: 'lighthouse-int', text: 'Celia sits back down. She is quieter now. The chaotic energy has not gone — it is just directed.' },
+      { type: 'narrator', bg: 'lighthouse-int', text: 'Celia sits back down. She is quieter now. The chaotic energy has not gone - it is just directed.' },
       { type: 'dialogue', bg: 'lighthouse-int', speaker: 'CELIA', text: 'He does not break things. He does not force doors. He finds the gaps that people leave open and slips through them. A weak password on an account. A login left active on a shared device. A piece of personal information left visible to anyone who looks. He collects those gaps the way some people collect coins. Patiently. One at a time.' },
       { type: 'dialogue', bg: 'lighthouse-int', speaker: '[YOUR NAME]', text: 'Is that what happened to Seabright?' },
-      { type: 'dialogue', bg: 'lighthouse-int', speaker: 'CELIA', text: 'Partly. The people who sent those scam messages to Seabright were working for people like him — collecting login information, account access, whatever they could get. He was not the one who sent the emails. But he would have used what they found.' },
+      { type: 'dialogue', bg: 'lighthouse-int', speaker: 'CELIA', text: 'Partly. The people who sent those scam messages to Seabright were working for people like him - collecting login information, account access, whatever they could get. He was not the one who sent the emails. But he would have used what they found.' },
       { type: 'dialogue', bg: 'lighthouse-int', speaker: '[YOUR NAME]', text: 'And he wants what is in the strongbox.' },
       { type: 'dialogue', bg: 'lighthouse-int', speaker: 'CELIA', text: 'He wants everything Mira has gathered. The compass, the knot, the things you will collect further along the path. Partly because they are valuable to her. Partly because having them means she cannot finish what she started. So you protect the box. You use strong passwords. You do not leave gaps.' },
       { type: 'shadow-man-info', bg: 'lighthouse-int' },
       { type: 'narrator', bg: 'lighthouse-int', text: 'Celia goes to a small drawer in the kitchen table and takes out a folded envelope. She holds it out.' },
-      { type: 'dialogue', bg: 'lighthouse-int', speaker: 'CELIA', text: 'From Mira. She left one of these at each stop. It tells you where to go next — but it is a riddle, not an address. She was quite proud of them. I thought they were unnecessarily complicated but she pointed out that I am not the one building an adventure trail so my opinion is irrelevant.' },
-      { type: 'notebook-page', bg: 'lighthouse-int', heading: 'From Mira\'s Notebook — Mira\'s Clue — Where to Go Next', lines: [
+      { type: 'dialogue', bg: 'lighthouse-int', speaker: 'CELIA', text: 'From Mira. She left one of these at each stop. It tells you where to go next - but it is a riddle, not an address. She was quite proud of them. I thought they were unnecessarily complicated but she pointed out that I am not the one building an adventure trail so my opinion is irrelevant.' },
+      { type: 'notebook-page', bg: 'lighthouse-int', heading: 'From Mira\'s Notebook - Mira\'s Clue - Where to Go Next', lines: [
         'Find the place where everything is shared',
         'and nothing is hidden,',
         'where the screens are bright',
@@ -1351,33 +1351,33 @@ export default function App() {
       { type: 'dialogue', bg: 'lighthouse-int', speaker: '[YOUR NAME]', text: 'Sunshare Square. A place where everything is shared and nothing is hidden. That sounds like exactly the kind of place that could go wrong.' },
       { type: 'dialogue', bg: 'lighthouse-int', speaker: 'CELIA', text: 'It has. That is why you need to go there.' },
       { type: 'narrator', bg: 'lighthouse-door', text: 'The player stands up to leave. Celia walks them to the lighthouse door. At the threshold she pauses.' },
-      { type: 'dialogue', bg: 'lighthouse-door', speaker: 'CELIA', text: 'One more thing. The Shadow Man was at the base of the path. He watched you arrive. He will watch you leave. He cannot stop you — he does not work that way. But he will follow the trail.' },
+      { type: 'dialogue', bg: 'lighthouse-door', speaker: 'CELIA', text: 'One more thing. The Shadow Man was at the base of the path. He watched you arrive. He will watch you leave. He cannot stop you - he does not work that way. But he will follow the trail.' },
       { type: 'dialogue', bg: 'lighthouse-door', speaker: '[YOUR NAME]', text: 'How do I know where he is?' },
-      { type: 'dialogue', bg: 'lighthouse-door', speaker: 'CELIA', text: 'You usually do not. You just make sure the gaps are closed and the important things are locked. That is the answer. Not watching for him — making sure there is nothing for him to take.' },
+      { type: 'dialogue', bg: 'lighthouse-door', speaker: 'CELIA', text: 'You usually do not. You just make sure the gaps are closed and the important things are locked. That is the answer. Not watching for him - making sure there is nothing for him to take.' },
       { type: 'shadow-reveal', bg: 'lighthouse-door' },
-      { type: 'narrator', bg: 'lighthouse-door', text: 'You carry the strongbox. You carry Mira\'s notebook. You carry the compass and the golden knot inside the locked box. And you carry the knowledge that someone is watching the trail behind you — waiting for a gap that will not come.\n\nYou do not let him have one.' },
+      { type: 'narrator', bg: 'lighthouse-door', text: 'You carry the strongbox. You carry Mira\'s notebook. You carry the compass and the golden knot inside the locked box. And you carry the knowledge that someone is watching the trail behind you - waiting for a gap that will not come.\n\nYou do not let him have one.' },
       { type: 'narrator', bg: 'sunshare', text: 'Sunshare Square hits you like a change of weather. After grey Seabright and the quiet cliff path, it is loud and colourful and full of light. Screens everywhere. Public feeds scrolling on boards around the square. People posting, sharing, tagging. Everything visible. Everything open. It has the energy of a place that is proud of itself.' },
       { type: 'narrator', bg: 'sunshare', text: 'And then you see her. Standing at the entrance to the square, watching you arrive with the focused attention of someone who notices everything and says only what is needed. She has Mira\'s face. Of course she does.' },
       { type: 'dialogue', bg: 'sunshare', speaker: '???', text: 'You are later than Celia said you would be. But only by twelve minutes, which for a first journey is actually quite good.' },
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'Aunt Mira! I found you.' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'I am not Mira, I am Rosa! And you are [PLAYER NAME], and you have the strongbox, and the compass and the knot are inside it, and Celia told you about the Shadow Man. Good. We have a lot to get through.' },
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'Oh. You are very different from Celia.' },
-      { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'Everyone says that. Come — there are two young people here who need your help and I want you to understand what happened to them before I tell you what Mira left for you.' },
+      { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'Everyone says that. Come - there are some young people here who need your help and I want you to understand what happened to them before I tell you what Mira left for you.' },
       { type: 'narrator', bg: 'sunshare', text: 'Rosa leads you to a bench on the quieter side of the square where a girl is sitting with her knees pulled up, phone face-down on the bench beside her like she does not want to look at it.' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'PRIYA', text: 'You are the one Rosa said would come?' },
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'Yes. What happened?' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'PRIYA', text: 'Three days ago, two of my friends received messages that looked like they came from me. My account name, my profile picture, the way I write. One of them almost sent money because the message said I was in trouble. Another one told their parents something private because they thought it was me asking. It was not me. Someone else sent those messages pretending to be me. And I do not understand how they knew enough to fake it that well.' },
-      { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'That is what I want you to figure out. Walk us through Priya\'s public profile — everything anyone can see without being her friend or follower.' },
+      { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'That is what I want you to figure out. Walk us through Priya\'s public profile - everything anyone can see without being her friend or follower.' },
       { type: 'public-profile', bg: 'sunshare' },
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'Okay. Let me go through this.' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'Out loud, please. So Priya hears it too.' },
       { type: 'profile-footprints', bg: 'sunshare' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'PRIYA', text: '...I just thought I was posting normal things. I was not trying to share any of that.' },
-      { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'You were not. But it adds up. On its own, knowing your school name is not dangerous. But knowing your school, your teacher, your routine, your friend\'s username, and roughly where you live — that is a full picture. And someone built that picture from your public posts.' },
+      { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'You were not. But it adds up. On its own, knowing your school name is not dangerous. But knowing your school, your teacher, your routine, your friend\'s username, and roughly where you live - that is a full picture. And someone built that picture from your public posts.' },
       { type: 'digital-footprint-info', bg: 'sunshare' },
       { type: 'privacy-quiz', bg: 'sunshare' },
-      { type: 'narrator', bg: 'sunshare', text: 'Rosa takes the player to a larger screen in the square — one of the public posting boards. A queue of posts is waiting to go live. Priya and a few other young people gather around. They want to know how to check their own posts before they share them.' },
-      { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'Each post below is about to go public. Your job is to check each one before it goes live. Look at what it reveals — not just on its own, but combined with what the person has already posted.' },
+      { type: 'narrator', bg: 'sunshare', text: 'Rosa takes the player to a larger screen in the square - one of the public posting boards. A queue of posts is waiting to go live. Priya and a few other young people gather around. They want to know how to check their own posts before they share them.' },
+      { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'Each post below is about to go public. Your job is to check each one before it goes live. Look at what it reveals - not just on its own, but combined with what the person has already posted.' },
       { type: 'picture-test-instructions', bg: 'sunshare' },
       { type: 'picture-test-game', bg: 'sunshare' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'Did you notice something? The hardest ones were not the obviously dangerous posts. They were the ones that seemed fine on their own.' },
@@ -1389,17 +1389,17 @@ export default function App() {
       { type: 'dialogue', bg: 'sunshare', speaker: 'PRIYA', text: 'The questions the game asks when you forget your password. To prove it is you.' },
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'What were your security questions?' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'PRIYA', text: 'Name of your first pet. Name of your primary school. Your favourite football team.' },
-      { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'And now look at what we just examined. Your public profile — still on screen.' },
+      { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'And now look at what we just examined. Your public profile - still on screen.' },
       { type: 'security-questions-profile', bg: 'sunshare' },
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'Priya. Your security questions were answered by your own public profile.' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'PRIYA', text: '...my pet is in a post. My primary school is in a post. And things I like are literally in my bio.' },
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'All three answers to your security questions were publicly visible on your profile. Anyone who spent two minutes reading your posts could reset your password without knowing anything else about you.' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'PRIYA', text: 'They are not supposed to be a security risk.' },
-      { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'The posts were not. But they were the answers to security questions that were protecting something important. The problem is not the post — it is using personal information that is publicly visible as a security measure.' },
+      { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'The posts were not. But they were the answers to security questions that were protecting something important. The problem is not the post - it is using personal information that is publicly visible as a security measure.' },
       { type: 'security-question-info', bg: 'sunshare' },
       { type: 'security-question-quiz', bg: 'sunshare' },
       { type: 'narrator', bg: 'sunshare', text: 'Priya catches up with Rosa and the player on the far side of the square. She has her phone in her hand and looks uncertain about whether to show it to anyone.' },
-      { type: 'dialogue', bg: 'sunshare', speaker: 'PRIYA', text: 'Rosa — can I show you something? There is someone I have been playing Minecraft with online for three weeks. We have never met in real life. He just messaged me and said we should move our chat to a different app — one my parents have not heard of — and not to tell them because they would not understand gaming friendships. And he wants my phone number.' },
+      { type: 'dialogue', bg: 'sunshare', speaker: 'PRIYA', text: 'Rosa - can I show you something? There is someone I have been playing Minecraft with online for three weeks. We have never met in real life. He just messaged me and said we should move our chat to a different app - one my parents have not heard of - and not to tell them because they would not understand gaming friendships. And he wants my phone number.' },
       { type: 'narrator', bg: 'sunshare', text: 'Rosa does not look alarmed. She looks thoughtful. She turns to the player.' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'What do you notice about that message?' },
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'Three things. He wants to move to a platform Priya\'s parents have not heard of. He is asking Priya to keep it secret from them. And he is asking for a real-world phone number after three weeks of online contact only.' },
@@ -1416,7 +1416,7 @@ export default function App() {
       { type: 'dialogue', bg: 'sunshare', speaker: 'PRIYA', text: 'Okay. I will talk to my parents tonight.' },
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'Good. And if you turn out to be wrong about him, the worst thing that happens is your dad knows you have a gaming friend. That is not a bad outcome.' },
       { type: 'online-trust-info', bg: 'sunshare' },
-      { type: 'narrator', bg: 'sunshare', text: 'Rosa takes the player and Priya to a quiet corner of the square. Priya sits for a moment. She has just understood exactly how it happened — and understanding does not feel as good as she thought it would.' },
+      { type: 'narrator', bg: 'sunshare', text: 'Rosa takes the player and Priya to a quiet corner of the square. Priya sits for a moment. She has just understood exactly how it happened - and understanding does not feel as good as she thought it would.' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'PRIYA', text: 'My posts. My profile. I put all of that there. I just did not know what it could be used for.' },
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'Now you do. That is the difference.' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'PRIYA', text: 'It does not feel like enough of a difference.' },
@@ -1429,14 +1429,14 @@ export default function App() {
       { type: 'password-lesson-reuse', bg: 'sunshare' },
       { type: 'password-lesson-domino', bg: 'sunshare' },
       { type: 'password-lesson-manager', bg: 'sunshare' },
-      { type: 'dialogue', bg: 'sunshare', speaker: 'PRIYA', text: 'So the strongbox password I heard about from Celia — that is the kind of password I should use as a master passphrase?' },
+      { type: 'dialogue', bg: 'sunshare', speaker: 'PRIYA', text: 'So the strongbox password I heard about from Celia - that is the kind of password I should use as a master passphrase?' },
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'Exactly. Long, random words, nothing personal. And then every other account gets its own completely different password that you do not need to remember because the manager holds it.' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'Open the notebook. Third bookmark.' },
-      { type: 'notebook-page', bg: 'sunshare', heading: 'From Mira\'s Notebook — On Password Hygiene', lines: [
+      { type: 'notebook-page', bg: 'sunshare', heading: 'From Mira\'s Notebook - On Password Hygiene', lines: [
         'One password for everything',
         'is one key that opens every door you own.',
         '',
-        'Lose that key —',
+        'Lose that key -',
         'and you have lost everything.',
         '',
         'Different doors deserve different keys.',
@@ -1446,15 +1446,15 @@ export default function App() {
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'Different doors deserve different keys.' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'She is consistent. You will see the pattern when you meet her.' },
       { type: 'password-fix-quiz', bg: 'sunshare' },
-      { type: 'narrator', bg: 'sunshare', text: 'The two of you — you and Priya — have become an unofficial checking team for the square. A crowd has gathered. People want to know: how do I share without leaving a trail? Rosa stands to one side, watching with the slight smile of someone who planned this.' },
+      { type: 'narrator', bg: 'sunshare', text: 'The two of you - you and Priya - have become an unofficial checking team for the square. A crowd has gathered. People want to know: how do I share without leaving a trail? Rosa stands to one side, watching with the slight smile of someone who planned this.' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'They have the theory. Now they need the habit. Show them.' },
       { type: 'location-pin-demo', bg: 'sunshare' },
-      { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'One thing to know before you start. Many apps add your location to photos and posts automatically — without asking. A photo you take at home can carry your home address as hidden data, or as a visible tag, without you realising it was added. Part of the job is checking for those tags before anything goes live.' },
+      { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'One thing to know before you start. Many apps add your location to photos and posts automatically - without asking. A photo you take at home can carry your home address as hidden data, or as a visible tag, without you realising it was added. Part of the job is checking for those tags before anything goes live.' },
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'So the risky detail is not always something you wrote. Sometimes the app added it for you.' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'Exactly. Keep an eye on location pins. They appear more often than people expect.' },
       { type: 'edit-before-post-instructions', bg: 'sunshare' },
       { type: 'edit-before-post-game', bg: 'sunshare' },
-      { type: 'narrator', bg: 'sunshare', text: 'At the end of the stream, the crowd in Sunshare Square actually applauds. Not for you — for themselves. For learning something they can now use.' },
+      { type: 'narrator', bg: 'sunshare', text: 'At the end of the stream, the crowd in Sunshare Square actually applauds. Not for you - for themselves. For learning something they can now use.' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'PRIYA', text: 'It is actually not that hard once you know what to look for.' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'PRIYA', text: 'The cat birthday post got approved. That is the content we are all here for.' },
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'The cat birthday post is exactly right. That is what sharing looks like when you have thought about it.' },
@@ -1470,7 +1470,7 @@ export default function App() {
       { type: 'dialogue', bg: 'sunshare', speaker: 'PRIYA', text: 'But if I say something they will turn on me.' },
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'Maybe. What are the options? You can speak up in the group. You can message the person being targeted privately to let them know someone sees what is happening. You can report the post to the platform. You can tell a trusted adult. You do not have to be loud to break the silence. You just have to not be part of the wall.' },
       { type: 'narrator', bg: 'sunshare', text: 'Priya has gone quiet. The player notices.' },
-      { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'Priya. You have been in this position before — on the other side. You know what it is like to be the person people are talking about.' },
+      { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'Priya. You have been in this position before - on the other side. You know what it is like to be the person people are talking about.' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'PRIYA', text: 'Yes.' },
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'So you know what it means when one person says something.' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'PRIYA', text: '...It means you are not invisible. It means someone noticed. Even one person.' },
@@ -1480,37 +1480,37 @@ export default function App() {
       { type: 'narrator', bg: 'sunshare', text: 'Nobody says anything for a moment. The square noise carries on around them. Screens scrolling. People posting. All that visibility.' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'There are three positions in every situation like this. The person it is happening to. The person doing it. And everyone watching. All three have a choice. The choices look different. But they all matter.' },
       { type: 'all-positions-info', bg: 'sunshare' },
-      { type: 'narrator', bg: 'sunshare', text: 'Sunshare Square is different by the time you are done. Not fixed — nobody fixes something like this completely in an afternoon. But the young people here know something they did not know before. They are checking their settings. They are talking about what they post and why. That matters.' },
-      { type: 'narrator', bg: 'sunshare', text: 'Rosa leads the player to a quiet spot at the edge of the square — away from the screens and the noise. She takes a small box from a bag over her shoulder.' },
+      { type: 'narrator', bg: 'sunshare', text: 'Sunshare Square is different by the time you are done. Not fixed - nobody fixes something like this completely in an afternoon. But the young people here know something they did not know before. They are checking their settings. They are talking about what they post and why. That matters.' },
+      { type: 'narrator', bg: 'sunshare', text: 'Rosa leads the player to a quiet spot at the edge of the square - away from the screens and the noise. She takes a small box from a bag over her shoulder.' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'She left this with me. She said you would know what it is for.' },
       { type: 'prism-reveal', bg: 'sunshare' },
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'Everything visible has a source. Like a footprint.' },
-      { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'Like a footprint. Like a trail. Everything you can see came from somewhere. And everything you share becomes visible to someone — the question is always, to whom, and what does it let them see?' },
+      { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'Like a footprint. Like a trail. Everything you can see came from somewhere. And everything you share becomes visible to someone - the question is always, to whom, and what does it let them see?' },
       { type: 'prism-stored', bg: 'sunshare' },
-      { type: 'narrator', bg: 'sunshare', text: 'A girl nearby catches Priya\'s eye — maybe thirteen, sitting alone on a bench, staring at her phone with the expression of someone who has just seen something they cannot unsee. Priya knows her vaguely. She nods toward her.' },
-      { type: 'dialogue', bg: 'sunshare', speaker: 'PRIYA', text: 'That is Amara. Something happened to her last month. Someone used photos from her public profile to make fake images of her — images that looked real but were not — and sent them to people at school. She did not post those images. She never agreed to them. But they existed and people saw them.' },
-      { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'This is something that is happening more often. Images, audio, video — things that look completely real but were made by someone using AI tools, without the person\'s knowledge or consent. The person in the image did not choose to be there. But it looks like they did.' },
+      { type: 'narrator', bg: 'sunshare', text: 'A girl nearby catches Priya\'s eye - maybe thirteen, sitting alone on a bench, staring at her phone with the expression of someone who has just seen something they cannot unsee. Priya knows her vaguely. She nods toward her.' },
+      { type: 'dialogue', bg: 'sunshare', speaker: 'PRIYA', text: 'That is Amara. Something happened to her last month. Someone used photos from her public profile to make fake images of her - images that looked real but were not - and sent them to people at school. She did not post those images. She never agreed to them. But they existed and people saw them.' },
+      { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'This is something that is happening more often. Images, audio, video - things that look completely real but were made by someone using AI tools, without the person\'s knowledge or consent. The person in the image did not choose to be there. But it looks like they did.' },
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'And once it exists and has been seen, you cannot fully take it back.' },
-      { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'No. Which is why the most important things to know are: this is not the victim\'s fault, it is never acceptable regardless of what someone posted publicly, and telling a trusted adult immediately is the only right response — not trying to deal with it alone, not silence out of embarrassment.' },
+      { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'No. Which is why the most important things to know are: this is not the victim\'s fault, it is never acceptable regardless of what someone posted publicly, and telling a trusted adult immediately is the only right response - not trying to deal with it alone, not silence out of embarrassment.' },
       { type: 'deepfake-info', bg: 'sunshare' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'PRIYA', text: 'She tried to deal with it by herself for two weeks before she told anyone. Two weeks.' },
-      { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'The silence always makes it worse. Not because it is her fault — it is not. But because the people who can actually do something about it are the ones who do not know it is happening.' },
-      { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'One more thing. There is something you need to understand about what is ahead.' },
-      { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'The Observatory.' },
-      { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'You have seen the Shadow Man twice now. Once at the lighthouse. Once here — at the edge of the square just before you arrived. He was watching. He has been building a picture of you the same way someone builds a picture of a person from their public posts. Piece by piece.' },
+      { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'The silence always makes it worse. Not because it is her fault - it is not. But because the people who can actually do something about it are the ones who do not know it is happening.' },
+      { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'One more thing. There is something you need to understand about what is ahead. The Observatory.' },
+      { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'The Observatory??' },
+      { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'You have seen the Shadow Man twice now. Once at the lighthouse. Once here - at the edge of the square just before you arrived. He was watching. He has been building a picture of you the same way someone builds a picture of a person from their public posts. Piece by piece.' },
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'What does he know about me?' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'Less than he wants to. Because you have been careful. Because the strongbox is locked. But he knows you are going to the Observatory. And he knows that Mira is there.' },
-      { type: 'narrator', bg: 'sunshare', text: 'The player looks toward the edge of the square. A narrow gap between two stalls. Something stands in that gap — the wrong shape for a shadow, the wrong stillness for a person passing through. The player watches the gap for five full seconds. Then someone walks past and when the view is clear again, the gap is empty.' },
+      { type: 'narrator', bg: 'sunshare', text: 'The player looks toward the edge of the square. A narrow gap between two stalls. Something stands in that gap - the wrong shape for a shadow, the wrong stillness for a person passing through. The player watches the gap for five full seconds. Then someone walks past and when the view is clear again, the gap is empty.' },
       { type: 'shadow-glimpse', bg: 'sunshare' },
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'He was just there.' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'He is always just there. That is his method.' },
-      { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'The Observatory is above the square — you will see it when you walk north. Mira is waiting. She has been waiting for a while.' },
+      { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'The Observatory is above the square - you will see it when you walk north. Mira is waiting. She has been waiting for a while.' },
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'What is she like? Celia would not say much. You are being careful too.' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'She is the reason the three of us do what we do. She understood something about the way these things work that most people only understand after they have been hurt by it. She wanted to make sure other people understood it first. That is what this whole journey has been.' },
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'And the Observatory is where she explains the rest.' },
-      { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'The Observatory is where you will see it all at once. Everything you have learned — it connects there. Mira will show you how.' },
-      { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'She left one clue at every stop. This is the last one. But first — the notebook. Fourth bookmark. She said to open it here.' },
-      { type: 'notebook-page', bg: 'sunshare', heading: "From Mira's Notebook — On the Permanence of the Internet", lines: [
+      { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'The Observatory is where you will see it all at once. Everything you have learned - it connects there. Mira will show you how.' },
+      { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'She left one clue at every stop. This is the last one. But first - the notebook. Fourth bookmark. She said to open it here.' },
+      { type: 'notebook-page', bg: 'sunshare', heading: "From Mira's Notebook - On the Permanence of the Internet", lines: [
         'People talk about deleting things',
         'as though deletion is the end of the story.',
         '',
@@ -1537,8 +1537,8 @@ export default function App() {
       { type: 'dialogue', bg: 'sunshare', speaker: '[YOUR NAME]', text: 'Ask before. Not after.' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'She says that is the hardest habit to build. Because in the moment of posting, everything feels temporary. It feels like you can always take it back. You usually can. But not always. And you cannot know in advance which posts will be the ones that stay.' },
       { type: 'dialogue', bg: 'sunshare', speaker: 'ROSA', text: 'She left one clue at every stop. This is the last one.' },
-      { type: 'narrator', bg: 'sunshare', text: 'The player opens it. A card in Mira\'s writing — simpler than the previous riddles.' },
-      { type: 'notebook-page', bg: 'sunshare', heading: "From Mira's Notebook — Mira's Final Clue", lines: [
+      { type: 'narrator', bg: 'sunshare', text: 'The player opens it. A card in Mira\'s writing - simpler than the previous riddles.' },
+      { type: 'notebook-page', bg: 'sunshare', heading: "From Mira's Notebook - Mira's Final Clue", lines: [
         'No riddle this time.',
         'You have earned the address.',
         '',
@@ -1554,7 +1554,7 @@ export default function App() {
         'I am so proud of you.',
         'Come and find me.',
         '',
-        '  —  M',
+        '  -  M',
       ]},
       { type: 'narrator', bg: 'sunshare', text: 'No riddle. Just an address. And four words you have been waiting for since the photograph fell into your hands on a Saturday morning that feels like a different world now.\n\nI am so proud.' },
     ]
@@ -1629,17 +1629,17 @@ export default function App() {
     const showSaqOverlay = isScamAdQuiz && !isSaqADialogue && !isSaqBDialogue && !isSaqBSafeMove && !isSaqCDialogue
     const inSaqDialogue = isSaqADialogue || isSaqBDialogue || isSaqCDialogue
     const saqDialogueLine = isSaqADialogue
-      ? { speaker: '[YOUR NAME]', text: 'That is not quite right — real companies do advertise competitions online. But real competitions exist on the company\'s own verified website. The test is not whether the ad exists. The test is whether the competition exists on the real website when you search for it yourself.' }
+      ? { speaker: '[YOUR NAME]', text: 'That is not quite right - real companies do advertise competitions online. But real competitions exist on the company\'s own verified website. The test is not whether the ad exists. The test is whether the competition exists on the real website when you search for it yourself.' }
       : isSaqBDialogue
       ? saqStep === 1
-        ? { speaker: '[YOUR NAME]', text: 'If SeaGear Marine are running a competition, it will be on seagearmarine.com. You can find that yourself. You do not need the ad to take you there. Going directly to the real website bypasses the scam entirely — because you are in control of where you go.' }
+        ? { speaker: '[YOUR NAME]', text: 'If SeaGear Marine are running a competition, it will be on seagearmarine.com. You can find that yourself. You do not need the ad to take you there. Going directly to the real website bypasses the scam entirely - because you are in control of where you go.' }
         : saqStep === 2
         ? { speaker: 'CORAL', text: 'So the ad becomes pointless if I just go to the real site myself.' }
         : { speaker: '[YOUR NAME]', text: 'Exactly. The ad\'s power is in directing you. When you choose your own direction, it loses that power.' }
       : isSaqCDialogue
       ? saqStep === 1
         ? { speaker: 'CORAL', text: 'The message that nearly tricked me had perfect grammar and looked completely professional. Scammers know how to make things look right. Appearance is not a reliable test.' }
-        : { speaker: '[YOUR NAME]', text: 'Coral is right — the quality of the design means nothing. The address and the independent search are the only reliable tests.' }
+        : { speaker: '[YOUR NAME]', text: 'Coral is right - the quality of the design means nothing. The address and the independent search are the only reliable tests.' }
       : null
     const advanceSAQ = () => {
       if (!saqAnswer) return
@@ -1660,13 +1660,13 @@ export default function App() {
     const bqDialogueLine = isBqADialogue
       ? bqStep === 1
         ? { speaker: 'OLD FINN', text: 'That is not a helpful thing to say.' }
-        : { speaker: '[YOUR NAME]', text: 'You are right. I am sorry, Coral. Age and experience do not protect you from scams — they are designed to work on everyone. What matters now is acting quickly.' }
+        : { speaker: '[YOUR NAME]', text: 'You are right. I am sorry, Coral. Age and experience do not protect you from scams - they are designed to work on everyone. What matters now is acting quickly.' }
       : isBqBDialogue
       ? bqStep === 1
-        ? { speaker: 'CORAL', text: 'I know. I know I should have said something. I just thought — I am a grown man, how do I explain that I fell for something like this?' }
+        ? { speaker: 'CORAL', text: 'I know. I know I should have said something. I just thought - I am a grown woman, how do I explain that I fell for something like this?' }
         : bqStep === 2
         ? { speaker: '[YOUR NAME]', text: 'Because it was not stupidity. It was a trap set by professionals. And right now, someone has been in your account for three days changing things. Every hour you wait is another hour they have access. Telling someone today matters.' }
-        : { speaker: 'CORAL', text: '...Alright. I will tell Old Finn.' }
+        : { speaker: 'CORAL', text: '...Alright. I will tell my parents.' }
       : isBqCDialogue
       ? bqStep === 1
         ? { speaker: 'CORAL', text: 'It is not too late. We can still lock the compromised account, change the password, and check what was changed. Three days makes it harder but not impossible.' }
@@ -1738,11 +1738,11 @@ export default function App() {
     const showOqOverlay = isOnlineTrustQuiz && !isOqADialogue && !isOqBDialogue && !isOqCDialogue && !isOqBSafeMove
     const inOqDialogue = isOqADialogue || isOqBDialogue || isOqCDialogue
     const oqDialogueLine = isOqADialogue
-      ? { speaker: 'ROSA', text: 'Blocking without telling anyone means the discomfort goes away — but nobody knows it happened. If this person is approaching other children the same way, reporting it matters.' }
+      ? { speaker: 'ROSA', text: 'Blocking without telling anyone means the discomfort goes away - but nobody knows it happened. If this person is approaching other children the same way, reporting it matters.' }
       : isOqBDialogue
-      ? { speaker: '[YOUR NAME]', text: 'Tell a trusted adult first — not because something is definitely wrong, but because this is exactly the kind of situation where another perspective helps. You do not have to accuse anyone. You just share what happened and let someone who cares about you help you decide. If you are wrong about the person, the only cost is a conversation with your parent. That is a very good trade.' }
+      ? { speaker: '[YOUR NAME]', text: 'Tell a trusted adult first - not because something is definitely wrong, but because this is exactly the kind of situation where another perspective helps. You do not have to accuse anyone. You just share what happened and let someone who cares about you help you decide. If you are wrong about the person, the only cost is a conversation with your parent. That is a very good trade.' }
       : isOqCDialogue
-      ? { speaker: 'ROSA', text: 'Staying on the current app is sensible. But it still means nobody who cares about Priya knows what happened — and it does not protect anyone else this person might be approaching. Telling a trusted adult is still the right first step.' }
+      ? { speaker: 'ROSA', text: 'Staying on the current app is sensible. But it still means nobody who cares about Priya knows what happened - and it does not protect anyone else this person might be approaching. Telling a trusted adult is still the right first step.' }
       : null
     const advanceOQ = () => {
       if (!oqAnswer) return
@@ -1760,11 +1760,11 @@ export default function App() {
     const showFqOverlay = isPasswordFixQuiz && !isFqADialogue && !isFqBDialogue && !isFqCDialogue && !isFqBSafeMove
     const inFqDialogue = isFqADialogue || isFqBDialogue || isFqCDialogue
     const fqDialogueLine = isFqADialogue
-      ? { speaker: 'ROSA', text: 'The email is the master key. If they have the email, they can reset every other account — including the gaming account she just changed. Email has to come first.' }
+      ? { speaker: 'ROSA', text: 'The email is the master key. If they have the email, they can reset every other account - including the gaming account she just changed. Email has to come first.' }
       : isFqBDialogue
       ? { speaker: '[YOUR NAME]', text: 'Email first because it controls everything. Once email is secured with a new, unique password, no other account can be reset without it. Then change everything else. Then get a password manager so this cannot happen again.' }
       : isFqCDialogue
-      ? { speaker: 'ROSA', text: 'Setting up the password manager is smart — but if the attacker still has email access while you are doing it, they can reset accounts faster than you can change them. Email comes first.' }
+      ? { speaker: 'ROSA', text: 'Setting up the password manager is smart - but if the attacker still has email access while you are doing it, they can reset accounts faster than you can change them. Email comes first.' }
       : null
     const advanceFQ = () => {
       if (!fqAnswer) return
@@ -1782,11 +1782,11 @@ export default function App() {
     const showCyqOverlay = isCyberbullyingQuiz && !isCyqADialogue && !isCyqBDialogue && !isCyqCDialogue && !isCyqBSafeMove
     const inCyqDialogue = isCyqADialogue || isCyqBDialogue || isCyqCDialogue
     const cyqDialogueLine = isCyqADialogue
-      ? { speaker: 'ROSA', text: 'That is not useful. And it is not accurate. People make choices that cause harm without meaning to cause harm — especially at this age, when the line between jokes and cruelty is not always clear and the group makes it feel normal. What matters is whether they understand the effect and what they choose next.' }
+      ? { speaker: 'ROSA', text: 'That is not useful. And it is not accurate. People make choices that cause harm without meaning to cause harm - especially at this age, when the line between jokes and cruelty is not always clear and the group makes it feel normal. What matters is whether they understand the effect and what they choose next.' }
       : isCyqBDialogue
       ? cyqStep === 1
         ? { speaker: 'PRIYA', text: 'What do I do next?' }
-        : { speaker: '[YOUR NAME]', text: 'You cannot undo what happened. But you can decide not to do it again. And you can be the person who speaks up in the next group where it starts. Not because you are brave — because you know what it costs the person on the other end. You know now. That changes what you can choose.' }
+        : { speaker: '[YOUR NAME]', text: 'You cannot undo what happened. But you can decide not to do it again. And you can be the person who speaks up in the next group where it starts. Not because you are brave - because you know what it costs the person on the other end. You know now. That changes what you can choose.' }
       : isCyqCDialogue
       ? { speaker: 'PRIYA', text: 'It always matters to the person it is about.' }
       : null
@@ -1808,7 +1808,7 @@ export default function App() {
     const quizDialogueLine = isQuizADialogue
       ? sbQuizStep === 1
         ? { speaker: 'OLD FINN', text: 'That is exactly what I did. The page looked completely real.' }
-        : { speaker: '[YOUR NAME]', text: 'Right — so even when the page looks right, the address bar tells the truth. Always look at the address bar before typing anything.' }
+        : { speaker: '[YOUR NAME]', text: 'Right - so even when the page looks right, the address bar tells the truth. Always look at the address bar before typing anything.' }
       : isQuizBDialogue
       ? sbQuizStep === 1
         ? { speaker: '[YOUR NAME]', text: 'There it is. The real sender address is not the NMC. The real link does not go to the official website. Two checks, five seconds, and the whole trick falls apart.' }
@@ -1817,7 +1817,7 @@ export default function App() {
         : { speaker: '[YOUR NAME]', text: 'You know now. And knowing now means it will not work on you again.' }
       : isQuizCDialogue
       ? sbQuizStep === 1
-        ? { speaker: '[YOUR NAME]', text: 'Deleting it is safe — but it does not teach you anything for next time. What if the next scam looks slightly different? If you practice checking the address and the link, you build a skill. Deleting without looking is safe once. Checking teaches you forever.' }
+        ? { speaker: '[YOUR NAME]', text: 'Deleting it is safe - but it does not teach you anything for next time. What if the next scam looks slightly different? If you practice checking the address and the link, you build a skill. Deleting without looking is safe once. Checking teaches you forever.' }
         : { speaker: 'OLD FINN', text: 'She said something like that too. That knowing why something is wrong is more valuable than just avoiding it.' }
       : null
     const sbInspectDone = sbInspected.sender && sbInspected.link
@@ -1834,9 +1834,9 @@ export default function App() {
         goToChapter({ number: 'III', title: 'Into The Lighthouse' }, 'seabright-113')
         return
       }
-      if (nextIdx === 177) {
+      if (nextIdx === 176) {
         playClick()
-        goToChapter({ number: 'IV', title: 'Echoes in the Sunshare Square' }, 'seabright-177')
+        goToChapter({ number: 'IV', title: 'Echoes in the Sunshare Square' }, 'seabright-176')
         return
       }
       const nextLine = SB_LINES[nextIdx]
@@ -1876,7 +1876,7 @@ export default function App() {
           playClick()
           setSeabrightLine(l => l + 1)
         } else {
-          // Wrong/partial answer — loop back to the question
+          // Wrong/partial answer - loop back to the question
           playCardIn()
           setSbQuizAnswer(null)
           setSbQuizStep(0)
@@ -1897,13 +1897,13 @@ export default function App() {
     const showCqOverlay = isCoralQuiz && !isCqADialogue && !isCqBDialogue && !isCqCDialogue && !isCqBRemember
     const inCqDialogue = isCqADialogue || isCqBDialogue || isCqCDialogue
     const cqDialogueLine = isCqADialogue
-      ? { speaker: 'CORAL', text: 'That is what I nearly did. Responding to everything just in case is exactly what the scammers want. They only need one person out of a hundred to respond. The safer habit is to always verify through a channel you trust — not the one the message gives you.' }
+      ? { speaker: 'CORAL', text: 'That is what I nearly did. Responding to everything just in case is exactly what the scammers want. They only need one person out of a hundred to respond. The safer habit is to always verify through a channel you trust - not the one the message gives you.' }
       : isCqBDialogue
       ? cqStep === 1
         ? { speaker: '[YOUR NAME]', text: 'If you are ever genuinely worried that something is a real emergency, you call the coastguard yourself. On a number you already have saved or that you find on the official website. Not by replying to the message that told you there was an emergency. That way, if it is real, help is on the way. If it was fake, you have given them nothing.' }
         : { speaker: 'CORAL', text: '...That actually makes sense.' }
       : isCqCDialogue
-      ? { speaker: '[YOUR NAME]', text: 'Asking an adult is always a good move — but it helps to understand why too, so you can make the call yourself when no adult is around. The rule is: verify the concern through a channel you found yourself, not one the message gave you.' }
+      ? { speaker: '[YOUR NAME]', text: 'Asking an adult is always a good move - but it helps to understand why too, so you can make the call yourself when no adult is around. The rule is: verify the concern through a channel you found yourself, not one the message gave you.' }
       : null
     const advanceCQ = () => {
       if (!cqAnswer) return
@@ -1953,8 +1953,8 @@ export default function App() {
       setSbQuizBHolding(p => ({ ...p, link: false }))
     }
     const goBackSB = () => { playBack(); setSeabrightLine(l => Math.max(0, l - 1)) }
-    // Rosa — present throughout Sunshare Square; expressions shift per section
-    const rosaSectionActive = sbLine.bg === 'sunshare'
+    // Rosa - present throughout Sunshare Square; expressions shift per section
+    const rosaSectionActive = sbLine.bg === 'sunshare' && seabrightLine >= 177 && sbLine.type === 'dialogue'
     const rosaSpeaking = (rosaSectionActive && sbLine.type === 'dialogue' && (sbLine.speaker === 'ROSA' || sbLine.speaker === '???'))
       || (inPqDialogue && pqDialogueLine?.speaker === 'ROSA')
       || (inSqDialogue && sqDialogueLine?.speaker === 'ROSA')
@@ -1962,13 +1962,17 @@ export default function App() {
       || (inFqDialogue && fqDialogueLine?.speaker === 'ROSA')
       || (inCyqDialogue && cyqDialogueLine?.speaker === 'ROSA')
     const rosaImage = (() => {
-      if (seabrightLine >= 183) return aunt2             // final directive — composed
+      if (seabrightLine >= 183) return aunt2             // final directive - composed
       if (seabrightLine >= 181) return aunt2Thinking     // name reveal + contrast with Celia
       return aunt2Left                                   // arrival / mysterious ???
     })()
     const showPriya = (sbLine.type === 'dialogue' && sbLine.speaker === 'PRIYA')
       || (inSqDialogue && sqDialogueLine?.speaker === 'PRIYA')
       || (inCyqDialogue && cyqDialogueLine?.speaker === 'PRIYA')
+    const priyaSectionActive = (
+      (seabrightLine >= 184 && seabrightLine <= 195) ||
+      (seabrightLine >= 204 && seabrightLine <= 290)
+    ) && sbLine.type === 'dialogue'
     const priyaImage = sbLine.text?.includes('what happened') || sbLine.text?.includes('Someone else') || sbLine.text?.includes('normal things')
       ? priyaUnhappy
       : priyaHappy
@@ -1977,12 +1981,27 @@ export default function App() {
       || (inCqDialogue && cqDialogueLine?.speaker === 'OLD FINN')
       || (inSaqDialogue && saqDialogueLine?.speaker === 'OLD FINN')
       || (inBqDialogue && bqDialogueLine?.speaker === 'OLD FINN')
+    // Sections where Old Finn is physically present but not necessarily speaking (hidden during narration)
+    const finnSectionActive = sbLine.type !== 'narrator' && (
+      (seabrightLine >= 3 && seabrightLine <= 29)
+      || (seabrightLine >= 44 && seabrightLine <= 52)
+      || (seabrightLine >= 88 && seabrightLine <= 111)
+    )
+    // Coral stays visible (dimmed) during conversational lines; hidden during info cards, quiz overlays, and narration
+    const CORAL_HIDDEN_TYPES = ['narrator', 'coral-redflags', 'coral-quiz',
+      'tablet-popup', 'scam-ad-info', 'tablet-timer-reset', 'scam-ad-redflags',
+      'scam-ad-quiz', 'scammed-info', 'scammed-steps']
+    const coralSectionActive = (
+      (seabrightLine >= 38 && seabrightLine <= 43)    // "URGENT in capitals" back-and-forth
+      || (seabrightLine >= 51 && seabrightLine <= 88)  // tablet/scam/confession section
+      || (seabrightLine === 89 && inBqDialogue)        // bram-quiz dialogue bubbles only (not overlay or safe-move card)
+    ) && !CORAL_HIDDEN_TYPES.includes(sbLine.type)
     const showCoral = (sbLine.type === 'dialogue' && sbLine.speaker === 'CORAL')
       || (inQuizDialogue && quizDialogueLine?.speaker === 'CORAL')
       || (inCqDialogue && cqDialogueLine?.speaker === 'CORAL')
       || (inSaqDialogue && saqDialogueLine?.speaker === 'CORAL')
       || (inBqDialogue && bqDialogueLine?.speaker === 'CORAL')
-    // Celia — present from lighthouse-door onwards; speaking lifts/brightens, silent dims
+    // Celia - present from lighthouse-door onwards; speaking lifts/brightens, silent dims
     const celiaSectionActive = sbLine.bg === 'lighthouse-door' || sbLine.bg === 'lighthouse-int'
     const celiaSpeaking = celiaSectionActive && !isAuntReveal && sbLine.type === 'dialogue' && sbLine.speaker === 'CELIA'
     const celiaImage = (() => {
@@ -2016,16 +2035,16 @@ export default function App() {
       >
         <div className="seabright-stage" onClick={
           isNarrator ? advanceSB
-          // Partial-UI overlays (phone/tablet don't cover the full stage — stage click acts as fallback)
+          // Partial-UI overlays (phone/tablet don't cover the full stage - stage click acts as fallback)
           : (isPhoneEmail || isPhoneInspect || isPhoneText || isPublicProfile || isTabletPopup || (isTimerReset && timerResetPhase === 'reset')) ? advanceSB
-          // Full-screen overlays (smishing-info-overlay is inset:0 and handles its own onClick —
-          // do NOT duplicate here or the click fires advanceSB twice via event bubbling)
-          : isSaqBSafeMove ? advanceSAQ
-          : isBqBSafeMove ? advanceBQ
-          : isPqCSafeMove ? advancePQ
-          : isSqBSafeMove ? advanceSQ
-          : isOqBSafeMove ? advanceOQ
-          : isFqBSafeMove ? advanceFQ
+          // Full-screen overlays (smishing-info-overlay is inset:0 and handles its own onClick -
+          // do NOT duplicate here or the click fires the advance twice via event bubbling)
+          : isSaqBSafeMove ? undefined
+          : isBqBSafeMove ? undefined
+          : isPqCSafeMove ? undefined
+          : isSqBSafeMove ? undefined
+          : isOqBSafeMove ? undefined
+          : isFqBSafeMove ? undefined
           : isQuizAInfoCard ? advanceQuizStep
           : isCqBRemember ? advanceCQ
           : undefined
@@ -2073,36 +2092,36 @@ export default function App() {
             </div>
           )}
 
-          {/* Old Finn character */}
-          {showFinn && (
-            <img src={oldFinn} alt="Old Finn" className="seabright-finn" />
+          {/* Old Finn character - stays visible (dimmed) when in scene but not speaking */}
+          {(showFinn || finnSectionActive) && (
+            <img src={oldFinn} alt="Old Finn" className={`seabright-finn${!showFinn ? ' seabright-finn--silent' : ''}`} />
           )}
 
-          {/* Coral character */}
-          {showCoral && (
-            <img src={coralImg} alt="Coral" className="seabright-coral" />
+          {/* Coral character - stays visible (dimmed) when in scene but not speaking */}
+          {(showCoral || coralSectionActive) && (
+            <img src={coralImg} alt="Coral" className={`seabright-coral${!showCoral ? ' seabright-coral--silent' : ''}`} />
           )}
 
-          {/* Priya character */}
-          {showPriya && (
-            <img src={priyaImage} alt="Priya" className="seabright-priya" />
+          {/* Priya character - stays visible (dimmed) during dialogue scenes in her section */}
+          {(showPriya || priyaSectionActive) && (
+            <img src={priyaImage} alt="Priya" className={`seabright-priya${!showPriya ? ' seabright-priya--silent' : ''}`} />
           )}
 
-          {/* Celia character — stays present throughout lighthouse door + interior, dims when silent */}
+          {/* Celia character - stays present throughout lighthouse door + interior, dims when silent */}
           {celiaSectionActive && !isAuntReveal && seabrightLine >= 118 && (
             <div className={`seabright-celia-wrap${celiaSpeaking ? ' seabright-celia-wrap--speaking' : ' seabright-celia-wrap--silent'}`}>
               <img src={celiaImage} alt="Celia" className="seabright-celia-img" />
             </div>
           )}
 
-          {/* Rosa character — right side, present throughout Sunshare Square */}
+          {/* Rosa character - right side, present throughout Sunshare Square */}
           {rosaSectionActive && (
             <div className={`seabright-rosa-wrap${rosaSpeaking ? ' seabright-rosa-wrap--speaking' : ' seabright-rosa-wrap--silent'}`}>
               <img src={rosaImage} alt="Rosa" className="seabright-rosa-img" />
             </div>
           )}
 
-          {/* Priya public profile — blue phone screen beside the bench */}
+          {/* Priya public profile - blue phone screen beside the bench */}
           {isPublicProfile && (
             <div className="sb-phone-wrap" onClick={advanceSB}>
               <div className="sb-phone-frame sb-phone-frame--blue">
@@ -2132,7 +2151,7 @@ export default function App() {
             </div>
           )}
 
-          {/* Security questions profile — same profile with security question answers highlighted */}
+          {/* Security questions profile - same profile with security question answers highlighted */}
           {isSecurityQuestionsProfile && (
             <div className="sb-phone-wrap" onClick={advanceSB}>
               <div className="sb-phone-frame sb-phone-frame--blue">
@@ -2150,7 +2169,7 @@ export default function App() {
                       </div>
                       <div className="sb-profile-row--flagged">
                         <span className="sb-profile-flag-label">SECURITY Q: primary school</span>
-                        <span>Post:</span> "Miss my old primary school so much — Millbank Primary was the best"
+                        <span>Post:</span> "Miss my old primary school so much - Millbank Primary was the best"
                       </div>
                       <div className="sb-profile-row--flagged">
                         <span className="sb-profile-flag-label">SECURITY Q: first pet</span>
@@ -2232,12 +2251,12 @@ export default function App() {
                     <p className="quiz-question">Priya asks: <strong>"Does this mean I should stop posting? I do not want to stop. It is how I stay connected with people."</strong></p>
                     <div className="quiz-options">
                       {[
-                        { id: 'A', text: 'Yes - the safest option is to stop posting publicly entirely.' },
-                        { id: 'B', text: 'No - but make the account private so only approved followers can see your posts.' },
-                        { id: 'C', text: 'No - keep posting, but check your privacy settings so strangers cannot see your posts, and stop including details that build a map of your life.' },
-                      ].map(({ id, text }) => (
-                        <div key={id} className="quiz-option" onClick={e => { e.stopPropagation(); playOptionSelect(); id === 'C' ? playCorrect() : id === 'B' ? playPartial() : playWrong(); setPqAnswer(id) }}>
-                          <span className="quiz-option-key">{id}</span>
+                        { display: 'A', id: 'A', text: 'Yes - the safest option is to stop posting publicly entirely.' },
+                        { display: 'B', id: 'B', text: 'No - but make the account private so only approved followers can see your posts.' },
+                        { display: 'C', id: 'C', text: 'No - keep posting, but check your privacy settings so strangers cannot see your posts, and stop including details that build a map of your life.' },
+                      ].map(({ display, id, text }) => (
+                        <div key={display} className="quiz-option" onClick={e => { e.stopPropagation(); playOptionSelect(); id === 'C' ? playCorrect() : id === 'B' ? playPartial() : playWrong(); setPqAnswer(id) }}>
+                          <span className="quiz-option-key">{display}</span>
                           <span className="quiz-option-text">{text}</span>
                         </div>
                       ))}
@@ -2301,12 +2320,12 @@ export default function App() {
                   <div className="smishing-flag-card smishing-flag-card--wide">
                     <div className="smishing-flag-label">SECURITY QUESTION AWARENESS</div>
                     <div className="smishing-flag-title">THE SECURITY QUESTION TRAP</div>
-                    <p className="smishing-flag-body">Security questions ask for personal information — pet names, schools, birthdays, favourite things. These feel private. But for most people, these same details are visible somewhere on their public profiles. The answer to "what was your first pet's name" is not private information if you posted a birthday tribute to that pet last year. Treat security question answers like passwords — never use real information that could be found online.</p>
+                    <p className="smishing-flag-body">Security questions ask for personal information - pet names, schools, birthdays, favourite things. These feel private. But for most people, these same details are visible somewhere on their public profiles. The answer to "what was your first pet's name" is not private information if you posted a birthday tribute to that pet last year. Treat security question answers like passwords - never use real information that could be found online.</p>
                   </div>
                   <div className="smishing-flag-card smishing-flag-card--wide">
                     <div className="smishing-flag-label">THE SAFE APPROACH</div>
                     <div className="smishing-flag-title">THE LIE IS THE PROTECTION</div>
-                    <p className="smishing-flag-body">The safest way to answer security questions is to lie consistently. Your first pet is not whatever name you used — it is a random word only you know. Your primary school is not the one you tagged in photos — it is another random word. These fake answers cannot be found on your public profile because they are not true. Write them down somewhere safe — you will need them if you forget.</p>
+                    <p className="smishing-flag-body">The safest way to answer security questions is to lie consistently. Your first pet is not whatever name you used - it is a random word only you know. Your primary school is not the one you tagged in photos - it is another random word. These fake answers cannot be found on your public profile because they are not true. Write them down somewhere safe - you will need them if you forget.</p>
                   </div>
                 </div>
                 <div className="smishing-continue">tap anywhere to continue</div>
@@ -2324,12 +2343,12 @@ export default function App() {
                     <p className="quiz-question">Priya asks: <strong>"But they also changed my password. How did they know my original password to log in the first time?"</strong></p>
                     <div className="quiz-options">
                       {[
-                        { id: 'A', text: 'They probably guessed it — most gaming passwords are easy to guess.' },
-                        { id: 'B', text: 'They used the security questions to reset the password without needing to know the original one. They never had to guess — they just told the platform they forgot the password and answered the questions.' },
-                        { id: 'C', text: 'They must have had access to his device.' },
-                      ].map(({ id, text }) => (
-                        <div key={id} className="quiz-option" onClick={e => { e.stopPropagation(); playOptionSelect(); id === 'B' ? playCorrect() : playWrong(); setSqAnswer(id) }}>
-                          <span className="quiz-option-key">{id}</span>
+                        { display: 'A', id: 'B', text: 'They used the security questions to reset the password without needing to know the original one. They never had to guess - they just told the platform they forgot the password and answered the questions.' },
+                        { display: 'B', id: 'A', text: 'They probably guessed it - most gaming passwords are easy to guess.' },
+                        { display: 'C', id: 'C', text: 'They must have had access to his device.' },
+                      ].map(({ display, id, text }) => (
+                        <div key={display} className="quiz-option" onClick={e => { e.stopPropagation(); playOptionSelect(); id === 'B' ? playCorrect() : playWrong(); setSqAnswer(id) }}>
+                          <span className="quiz-option-key">{display}</span>
                           <span className="quiz-option-text">{text}</span>
                         </div>
                       ))}
@@ -2390,7 +2409,7 @@ export default function App() {
                   <div className="smishing-flag-card smishing-flag-card--wide">
                     <div className="smishing-flag-label">ONLINE SAFETY AWARENESS</div>
                     <div className="smishing-flag-title">THE SECRET-KEEPING REQUEST</div>
-                    <p className="smishing-flag-body">When someone online asks you to keep your friendship, your conversations, or your contact details secret from your parents or trusted adults — that is a red flag. People with good intentions do not need secrecy. The request to hide things from the people who care about you is one of the clearest warning signs that something may be wrong, regardless of how friendly the person has seemed until now.</p>
+                    <p className="smishing-flag-body">When someone online asks you to keep your friendship, your conversations, or your contact details secret from your parents or trusted adults - that is a red flag. People with good intentions do not need secrecy. The request to hide things from the people who care about you is one of the clearest warning signs that something may be wrong, regardless of how friendly the person has seemed until now.</p>
                   </div>
                 </div>
                 <div className="smishing-continue">tap anywhere to continue</div>
@@ -2406,7 +2425,7 @@ export default function App() {
                   <div className="smishing-flag-card smishing-flag-card--wide">
                     <div className="smishing-flag-label">ONLINE SAFETY AWARENESS</div>
                     <div className="smishing-flag-title">THE VERIFICATION QUESTIONS</div>
-                    <p className="smishing-flag-body">Knowing someone's username, gaming stats, and favourite team is not the same as knowing who they are. Before trusting someone you met online with anything personal — your real name, your phone number, your school, your location — ask: can I verify anything about them through a route that does not go through them? Has anyone I trust in real life ever met or spoken to them? If both answers are no, treat them as a stranger regardless of how long you have been talking.</p>
+                    <p className="smishing-flag-body">Knowing someone's username, gaming stats, and favourite team is not the same as knowing who they are. Before trusting someone you met online with anything personal - your real name, your phone number, your school, your location - ask: can I verify anything about them through a route that does not go through them? Has anyone I trust in real life ever met or spoken to them? If both answers are no, treat them as a stranger regardless of how long you have been talking.</p>
                   </div>
                 </div>
                 <div className="smishing-continue">tap anywhere to continue</div>
@@ -2424,12 +2443,12 @@ export default function App() {
                     <p className="quiz-question">Priya asks: <strong>"What should I do? I do not want to accuse him of anything. What if he is genuinely just a nice person who uses a different app?"</strong></p>
                     <div className="quiz-options">
                       {[
-                        { id: 'A', text: 'Ignore the message and block him — better to be safe.' },
-                        { id: 'B', text: 'Tell a trusted adult — a parent or carer — about the message before doing anything else. Then decide together.' },
-                        { id: 'C', text: 'Reply and stay on the current app, but do not give the phone number.' },
-                      ].map(({ id, text }) => (
-                        <div key={id} className="quiz-option" onClick={e => { e.stopPropagation(); playOptionSelect(); id === 'B' ? playCorrect() : id === 'C' ? playPartial() : playWrong(); setOqAnswer(id) }}>
-                          <span className="quiz-option-key">{id}</span>
+                        { display: 'A', id: 'A', text: 'Ignore the message and block him - better to be safe.' },
+                        { display: 'B', id: 'B', text: 'Tell a trusted adult - a parent or carer - about the message before doing anything else. Then decide together.' },
+                        { display: 'C', id: 'C', text: 'Reply and stay on the current app, but do not give the phone number.' },
+                      ].map(({ display, id, text }) => (
+                        <div key={display} className="quiz-option" onClick={e => { e.stopPropagation(); playOptionSelect(); id === 'B' ? playCorrect() : id === 'C' ? playPartial() : playWrong(); setOqAnswer(id) }}>
+                          <span className="quiz-option-key">{display}</span>
                           <span className="quiz-option-text">{text}</span>
                         </div>
                       ))}
@@ -2492,12 +2511,12 @@ export default function App() {
                     <p className="quiz-question">Priya wants to start fixing everything right now. She asks: <strong>"What do I do first?"</strong> There are three things that need doing. In what order do you do them?</p>
                     <div className="quiz-options">
                       {[
-                        { id: 'A', text: 'Change the gaming account password first, then email, then set up a password manager.' },
-                        { id: 'B', text: 'Secure the email first — because whoever has the email can reset everything else. Then change all other passwords. Then set up a password manager to manage them going forward.' },
-                        { id: 'C', text: 'Set up a password manager first, then change all passwords through it.' },
-                      ].map(({ id, text }) => (
-                        <div key={id} className="quiz-option" onClick={e => { e.stopPropagation(); playOptionSelect(); id === 'B' ? playCorrect() : id === 'C' ? playPartial() : playWrong(); setFqAnswer(id) }}>
-                          <span className="quiz-option-key">{id}</span>
+                        { display: 'A', id: 'B', text: 'Secure the email first - because whoever has the email can reset everything else. Then change all other passwords. Then set up a password manager to manage them going forward.' },
+                        { display: 'B', id: 'A', text: 'Change the gaming account password first, then email, then set up a password manager.' },
+                        { display: 'C', id: 'C', text: 'Set up a password manager first, then change all passwords through it.' },
+                      ].map(({ display, id, text }) => (
+                        <div key={display} className="quiz-option" onClick={e => { e.stopPropagation(); playOptionSelect(); id === 'B' ? playCorrect() : id === 'C' ? playPartial() : playWrong(); setFqAnswer(id) }}>
+                          <span className="quiz-option-key">{display}</span>
                           <span className="quiz-option-text">{text}</span>
                         </div>
                       ))}
@@ -2542,7 +2561,7 @@ export default function App() {
                   <div className="smishing-flag-card smishing-flag-card--wide">
                     <div className="smishing-flag-label">SAFE MOVE</div>
                     <div className="smishing-flag-title">EMAIL FIRST, ALWAYS</div>
-                    <p className="smishing-flag-body">Your email account is the master key to everything else online — because "forgot password" for almost every other service sends a reset link to your email. Secure your email with a strong, unique password before anything else. Then change everything else. Then use a password manager.</p>
+                    <p className="smishing-flag-body">Your email account is the master key to everything else online - because "forgot password" for almost every other service sends a reset link to your email. Secure your email with a strong, unique password before anything else. Then change everything else. Then use a password manager.</p>
                   </div>
                 </div>
                 <div className="smishing-continue">tap anywhere to continue</div>
@@ -2558,7 +2577,7 @@ export default function App() {
                   <div className="smishing-flag-card smishing-flag-card--wide">
                     <div className="smishing-flag-label">ONLINE SAFETY AWARENESS</div>
                     <div className="smishing-flag-title">WHO TO TRUST ONLINE</div>
-                    <p className="smishing-flag-body">Trust online builds the same way trust builds anywhere — slowly, verifiably, and never in secret. Someone you cannot verify, who asks for secrecy from the people who care about you, and who wants to move contact somewhere private, is asking you to give up the things that keep you safe. You are allowed to slow down. You are allowed to ask questions. You are always allowed to tell someone.</p>
+                    <p className="smishing-flag-body">Trust online builds the same way trust builds anywhere - slowly, verifiably, and never in secret. Someone you cannot verify, who asks for secrecy from the people who care about you, and who wants to move contact somewhere private, is asking you to give up the things that keep you safe. You are allowed to slow down. You are allowed to ask questions. You are always allowed to tell someone.</p>
                   </div>
                 </div>
                 <div className="smishing-continue">tap anywhere to continue</div>
@@ -2573,7 +2592,7 @@ export default function App() {
                   <div className="smishing-flag-card smishing-flag-card--wide">
                     <div className="smishing-flag-label">CYBERBULLYING AWARENESS</div>
                     <div className="smishing-flag-title">THE BYSTANDER POSITION</div>
-                    <p className="smishing-flag-body">A bystander is someone who sees harm happening and does not act. In cyberbullying, bystanders often outnumber both the person causing harm and the person experiencing it. Staying silent feels neutral — but silence in a group chat means the behaviour continues unchallenged, and the person being targeted sees the silence too. Doing nothing is still doing something.</p>
+                    <p className="smishing-flag-body">A bystander is someone who sees harm happening and does not act. In cyberbullying, bystanders often outnumber both the person causing harm and the person experiencing it. Staying silent feels neutral - but silence in a group chat means the behaviour continues unchallenged, and the person being targeted sees the silence too. Doing nothing is still doing something.</p>
                   </div>
                 </div>
                 <div className="smishing-continue">tap anywhere to continue</div>
@@ -2588,7 +2607,7 @@ export default function App() {
                   <div className="smishing-flag-card smishing-flag-card--wide">
                     <div className="smishing-flag-label">CYBERBULLYING AWARENESS</div>
                     <div className="smishing-flag-title">THE VICTIM POSITION</div>
-                    <p className="smishing-flag-body">When someone is the target of cyberbullying — mocking posts, fake messages, shared screenshots, exclusion from groups — they often feel completely alone, even when they are surrounded by people who saw it. One person speaking up — even quietly and privately — changes that. It does not fix everything. But it breaks the isolation.</p>
+                    <p className="smishing-flag-body">When someone is the target of cyberbullying - mocking posts, fake messages, shared screenshots, exclusion from groups - they often feel completely alone, even when they are surrounded by people who saw it. One person speaking up - even quietly and privately - changes that. It does not fix everything. But it breaks the isolation.</p>
                   </div>
                 </div>
                 <div className="smishing-continue">tap anywhere to continue</div>
@@ -2603,15 +2622,15 @@ export default function App() {
                 {!cyqAnswer && (
                   <>
                     <div className="quiz-header">WHAT DO YOU SAY?</div>
-                    <p className="quiz-question">Priya asks: <strong>"The people in the group — they were just going along with it. Does that mean it is not really their fault?"</strong></p>
+                    <p className="quiz-question">Priya asks: <strong>"The people in the group - they were just going along with it. Does that mean it is not really their fault?"</strong></p>
                     <div className="quiz-options">
                       {[
-                        { id: 'A', text: 'Going along with something harmful still makes you responsible. They chose to share it.' },
-                        { id: 'B', text: 'Going along with it is still a choice, even if they did not think of it that way. The effect on the person targeted is the same.' },
-                        { id: 'C', text: 'If they did not think about it and did not mean any harm, they probably should not be judged too harshly.' },
-                      ].map(({ id, text }) => (
-                        <div key={id} className="quiz-option" onClick={e => { e.stopPropagation(); playOptionSelect(); id === 'B' ? playCorrect() : playWrong(); setCyqAnswer(id) }}>
-                          <span className="quiz-option-key">{id}</span>
+                        { display: 'A', id: 'A', text: 'Going along with something harmful still makes you responsible. They chose to share it.' },
+                        { display: 'B', id: 'C', text: 'If they did not think about it and did not mean any harm, they probably should not be judged too harshly.' },
+                        { display: 'C', id: 'B', text: 'Going along with it is still a choice, even if they did not think of it that way. The effect on the person targeted is the same.' },
+                      ].map(({ display, id, text }) => (
+                        <div key={display} className="quiz-option" onClick={e => { e.stopPropagation(); playOptionSelect(); id === 'B' ? playCorrect() : playWrong(); setCyqAnswer(id) }}>
+                          <span className="quiz-option-key">{display}</span>
                           <span className="quiz-option-text">{text}</span>
                         </div>
                       ))}
@@ -2670,9 +2689,9 @@ export default function App() {
                 <div className="smishing-info-flags">
                   <div className="smishing-flag-card smishing-flag-card--wide">
                     <div className="smishing-flag-label">SAFE MOVE</div>
-                    <div className="smishing-flag-title">WHAT TO DO — ALL THREE POSITIONS</div>
+                    <div className="smishing-flag-title">WHAT TO DO - ALL THREE POSITIONS</div>
                     <p className="smishing-flag-body"><strong>If you are targeted:</strong> tell a trusted adult, report the content, do not reply to provoke, keep evidence.</p>
-                    <p className="smishing-flag-body" style={{ marginTop: 8 }}><strong>If you are a bystander:</strong> you do not have to be loud — message the person privately, report the post, tell an adult, refuse to share or react.</p>
+                    <p className="smishing-flag-body" style={{ marginTop: 8 }}><strong>If you are a bystander:</strong> you do not have to be loud - message the person privately, report the post, tell an adult, refuse to share or react.</p>
                     <p className="smishing-flag-body" style={{ marginTop: 8 }}><strong>If you have contributed to harm:</strong> you cannot undo it, but you can stop, you can speak to a trusted adult, and you can choose differently next time.</p>
                   </div>
                 </div>
@@ -2681,28 +2700,30 @@ export default function App() {
             </div>
           )}
 
-          {/* ── Location pin demo — phone showing auto-added pin ─────────── */}
+          {/* ── Location pin demo - phone showing auto-added pin ─────────── */}
           {isLocationPinDemo && (
             <div className="sb-phone-wrap" onClick={advanceSB}>
               <div className="sb-phone-frame sb-phone-frame--blue">
                 <img src={phoneBlue} alt="" className="sb-phone-img" aria-hidden="true" />
                 <div className="sb-phone-screen sb-phone-screen--profile">
                   <div className="sb-profile">
-                    <div className="sb-profile-kicker">COMMUNITY BOARD — ABOUT TO POST</div>
+                    <div className="sb-profile-kicker">COMMUNITY BOARD - ABOUT TO POST</div>
                     <div className="sb-profile-title">Photo Preview</div>
                     <div className="sb-profile-subtitle">Tap to share publicly</div>
                     <div className="sb-profile-list">
                       <div style={{ background: 'rgba(220,60,40,0.08)', border: '1px solid rgba(220,60,40,0.3)', padding: '8px 10px', borderRadius: 6 }}>
                         <span style={{ display: 'block', fontSize: 9, fontWeight: 900, color: '#c03020', letterSpacing: '0.06em', marginBottom: 4 }}>⚠ AUTO-ADDED BY APP</span>
-                        <span style={{ color: '#1a5c8a', fontWeight: 800 }}>📍 Location:</span> Home — 14 Millbank Road, Seabright
+                        <span style={{ color: '#1a5c8a', fontWeight: 800 }}>📍 Location:</span> Home - 14 Millbank Road, Seabright
                       </div>
                       <div><span>Caption:</span> "Lazy Sunday morning ☀️"</div>
-                      <div><span>Photo:</span> Bedroom window, street visible in background.</div>
+                      <div style={{ padding: 0, overflow: 'hidden', borderRadius: 5 }}>
+                        <img src={bedroomImg} alt="Bedroom window with street visible" style={{ width: '100%', height: 110, objectFit: 'cover', display: 'block' }} />
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="sb-phone-hint" style={{ fontStyle: 'italic', opacity: 0.75 }}>Rosa taps the location pin — it appeared automatically when the photo was taken. Tap to continue.</div>
+              <div className="sb-phone-hint" style={{ fontStyle: 'italic', opacity: 0.75 }}>Rosa taps the location pin - it appeared automatically when the photo was taken. Tap to continue.</div>
             </div>
           )}
 
@@ -2712,21 +2733,21 @@ export default function App() {
               <div className="mg2-instructions-panel picture-test-instructions-panel">
                 <div className="mg2-instructions-header">
                   <div className="mg2-instructions-alert">✎</div>
-                  <div className="mg2-instructions-title">MINIGAME 2: EDIT BEFORE YOU POST</div>
+                  <div className="mg2-instructions-title">EDIT BEFORE YOU POST</div>
                 </div>
                 <p className="mg2-instructions-body">
-                  A stream of posts is coming through the community board — things people in Sunshare Square are about to share publicly. Each post has something in it that gives too much away.
+                  A stream of posts is coming through the community board - things people in Sunshare Square are about to share publicly. Each post has something in it that gives too much away.
                 </p>
                 <p className="mg2-instructions-body">
-                  Your job is to <strong>edit</strong> each one before it goes live — removing just the risky detail and keeping the spirit of what the person wanted to share.
+                  Your job is to <strong>edit</strong> each one before it goes live - removing just the risky detail and keeping the spirit of what the person wanted to share.
                 </p>
                 <div className="mg2-instructions-divider" />
                 <div className="mg2-instructions-how-label">HOW TO PLAY</div>
                 <p className="mg2-instructions-body">
-                  Each post glows with a subtle highlight on the risky element. Tap the highlighted section to remove or blur it. You can replace details with something vaguer — for example, changing a specific school name to "school" or removing a house number from a photo.
+                  Each post glows with a subtle highlight on the risky element. Tap the highlighted section to remove or blur it. You can replace details with something vaguer - for example, changing a specific school name to "school" or removing a house number from a photo.
                 </p>
                 <p className="mg2-instructions-body">
-                  The goal is not to destroy the post — it is to share it safely. You have <strong>8 seconds</strong> per post before it automatically goes live unedited.
+                  The goal is not to destroy the post - it is to share it safely. You have <strong>8 seconds</strong> per post before it automatically goes live unedited.
                 </p>
                 <div className="mg2-instructions-cta">TAP ANYWHERE TO BEGIN</div>
               </div>
@@ -2739,7 +2760,7 @@ export default function App() {
               <div className="mg2-instructions-panel picture-test-instructions-panel">
                 <div className="mg2-instructions-header">
                   <div className="mg2-instructions-alert">□</div>
-                  <div className="mg2-instructions-title">MINIGAME 1: THE PICTURE TEST</div>
+                  <div className="mg2-instructions-title">THE PICTURE TEST</div>
                 </div>
                 <p className="mg2-instructions-body">
                   A series of posts are queued to go live on Sunshare Square's public board. Some are fine. Some reveal too much. Some seem fine alone but are dangerous when you consider what the person has already posted.
@@ -2800,7 +2821,7 @@ export default function App() {
             </div>
           )}
 
-          {/* Dialogue bubble — anchored to bottom, never moves */}
+          {/* Dialogue bubble - anchored to bottom, never moves */}
           {((!isNarrator && !isPhoneEmail && !isPhoneInspect && !isUrlPreview && !isEmailRedflags && !isPhishingInfo && !isPhishingQuiz && !isPhoneText && !isPublicProfile && !isSecurityQuestionsProfile && !isSecurityQuestionInfo && !isSecurityQuestionQuiz && !isSecretKeepingInfo && !isVerificationInfo && !isOnlineTrustQuiz && !isOnlineTrustInfo && !isBystanderInfo && !isVictimInfo && !isCyberbullyingQuiz && !isAllPositionsInfo && !isPasswordFixQuiz && !isLocationPinDemo && !isEditBeforePostInstructions && !isEditBeforePostGame && !isProfileFootprints && !isDigitalFootprintInfo && !isPrivacyQuiz && !isPictureTestInstructions && !isPictureTestGame && !isFeelingsInfo && !isCoralRedflags && !isCoralQuiz && !isRealOrFake && !isTabletPopup && !isScamAdInfo && !isTimerReset && !isScamAdRedflags && !isScamAdQuiz && !isScammedInfo && !isScammedSteps && !isCarolQuiz && !isMg2Instructions && !isMinigame2 && !isCompassReveal && !isAuntReveal && !isNotebookReveal && !isKnotReveal && !isPrismReveal && !isPrismStored && !isDeepfakeInfo && !isShadowGlimpse && !isNotebookPage && !isStrongboxReveal && !isShadowReveal && !isPasswordLesson && !isPasswordMinigameInstructions && !isPasswordMinigame && !isStrongboxSeal && !isShadowManInfo)
            || inQuizDialogue || inCqDialogue || inSaqDialogue || inBqDialogue || inPqDialogue || inSqDialogue || inOqDialogue || inFqDialogue || inCyqDialogue) && (() => {
             const activeLine = inCyqDialogue ? cyqDialogueLine : inFqDialogue ? fqDialogueLine : inOqDialogue ? oqDialogueLine : inSqDialogue ? sqDialogueLine : inPqDialogue ? pqDialogueLine : inBqDialogue ? bqDialogueLine : inSaqDialogue ? saqDialogueLine : inCqDialogue ? cqDialogueLine : inQuizDialogue ? quizDialogueLine : sbLine
@@ -2835,7 +2856,7 @@ export default function App() {
             )
           })()}
 
-          {/* Quiz path A step 3 — Address Bar Rule card */}
+          {/* Quiz path A step 3 - Address Bar Rule card */}
           {isQuizAInfoCard && (
             <div className="smishing-info-overlay" onClick={advanceQuizStep}>
               <div className="smishing-info-panel">
@@ -2843,7 +2864,7 @@ export default function App() {
                   <div className="smishing-flag-card">
                     <div className="smishing-flag-label">THE RULE</div>
                     <div className="smishing-flag-title">THE ADDRESS BAR RULE</div>
-                    <p className="smishing-flag-body">Before you type any login details or personal information on a website — stop and look at the address bar at the top of the screen. Does it match the real website you expected? Even if the page looks perfect, a wrong address means a fake site.</p>
+                    <p className="smishing-flag-body">Before you type any login details or personal information on a website - stop and look at the address bar at the top of the screen. Does it match the real website you expected? Even if the page looks perfect, a wrong address means a fake site.</p>
                   </div>
                 </div>
                 <div className="smishing-continue">tap anywhere to continue</div>
@@ -2877,7 +2898,7 @@ export default function App() {
             </div>
           )}
 
-          {/* Phone inspect — same email with interactive magnifying glass hotspots */}
+          {/* Phone inspect - same email with interactive magnifying glass hotspots */}
           {isPhoneInspect && (
             <div className="sb-phone-wrap" onClick={advanceSB}>
               <div className="sb-phone-frame">
@@ -2901,7 +2922,7 @@ export default function App() {
                             </svg>
                           </button>
                         ) : (
-                          <div className="sb-inspect-callout">Display name ≠ real address — this domain is made up</div>
+                          <div className="sb-inspect-callout">Display name ≠ real address - this domain is made up</div>
                         )}
                       </div>
                     </div>
@@ -2924,7 +2945,7 @@ export default function App() {
                             </svg>
                           </button>
                         ) : (
-                          <div className="sb-inspect-callout">Not an official domain — crafted to look real</div>
+                          <div className="sb-inspect-callout">Not an official domain - crafted to look real</div>
                         )}
                       </div>
                     </div>
@@ -2937,7 +2958,7 @@ export default function App() {
             </div>
           )}
 
-          {/* URL preview — press-and-hold the link to reveal real destination */}
+          {/* URL preview - press-and-hold the link to reveal real destination */}
           {isUrlPreview && (
             <div className="sb-phone-wrap" onClick={urlRevealed ? advanceSB : undefined}>
               <div className="sb-phone-frame">
@@ -2996,12 +3017,12 @@ export default function App() {
                   <div className="smishing-flag-card">
                     <div className="smishing-flag-label">RED FLAG</div>
                     <div className="smishing-flag-title">FAKE SENDER ADDRESS</div>
-                    <p className="smishing-flag-body">The display name looked official but the real email address — seabright-port-renewal.com — was not a real government or authority address. Real official addresses use .gov.uk or the company's actual domain.</p>
+                    <p className="smishing-flag-body">The display name looked official but the real email address - seabright-port-renewal.com - was not a real government or authority address. Real official addresses use .gov.us or the company's actual domain.</p>
                   </div>
                   <div className="smishing-flag-card">
                     <div className="smishing-flag-label">RED FLAG</div>
                     <div className="smishing-flag-title">URGENT DEADLINE</div>
-                    <p className="smishing-flag-body">'Expires in 24 HOURS' — urgent deadlines are designed to make you panic and act without thinking. Real organisations give you plenty of time and send warning letters first.</p>
+                    <p className="smishing-flag-body">'Expires in 24 HOURS' - urgent deadlines are designed to make you panic and act without thinking. Real organisations give you plenty of time and send warning letters first.</p>
                   </div>
                   <div className="smishing-flag-card">
                     <div className="smishing-flag-label">RED FLAG</div>
@@ -3014,19 +3035,19 @@ export default function App() {
             </div>
           )}
 
-          {/* Phishing info card — same style as observatory smishing-info */}
+          {/* Phishing info card - same style as observatory smishing-info */}
           {isPhishingInfo && (
             <div className="smishing-info-overlay" onClick={advanceSB}>
               <div className="smishing-info-panel">
                 <div className="smishing-info-section">
                   <h2 className="smishing-info-heading">WHAT IS PHISHING?</h2>
-                  <p className="smishing-info-body">Phishing is when someone sends a fake message pretending to be from someone you trust — a school, a gaming platform, a delivery company — to trick you into clicking a link or giving away information. The name comes from fishing. They throw out a line and wait for someone to bite.</p>
+                  <p className="smishing-info-body">Phishing is when someone sends a fake message pretending to be from someone you trust - a school, a gaming platform, a delivery company - to trick you into clicking a link or giving away information. The name comes from fishing. They throw out a line and wait for someone to bite.</p>
                 </div>
                 <div className="smishing-info-flags">
                   <div className="smishing-flag-card">
                     <div className="smishing-flag-label">THE TRICK</div>
                     <div className="smishing-flag-title">THE SENDER NAME TRICK</div>
-                    <p className="smishing-flag-body">On any email, there are two things: the display name (what you see first) and the actual email address (the real identity). The display name can be anything — it costs nothing to fake. Always tap or hover on the sender name to see the real address underneath. That is the one that cannot lie as easily.</p>
+                    <p className="smishing-flag-body">On any email, there are two things: the display name (what you see first) and the actual email address (the real identity). The display name can be anything - it costs nothing to fake. Always tap or hover on the sender name to see the real address underneath. That is the one that cannot lie as easily.</p>
                   </div>
                 </div>
                 <div className="smishing-continue">tap anywhere to continue</div>
@@ -3046,12 +3067,12 @@ export default function App() {
                     <p className="quiz-question">A new email arrives on Old Finn's phone while you are sitting there. Subject: <strong>'FINAL WARNING - Seabright Fishing Licence expires TODAY.'</strong> Sender name: <strong>'National Maritime Center (NMC) .'</strong> What do you do?</p>
                     <div className="quiz-options">
                       {[
-                        { id: 'A', text: 'Tap the link immediately — if the licence really expires today there is no time to waste.' },
-                        { id: 'B', text: 'Press and hold the sender name to check the real email address, and press and hold the link to see where it goes before doing anything.' },
-                        { id: 'C', text: 'Delete it immediately — anything this urgent is definitely a scam.' },
-                      ].map(({ id, text }) => (
-                        <div key={id} className="quiz-option" onClick={e => { e.stopPropagation(); playOptionSelect(); id === 'B' ? playCorrect() : id === 'A' ? playWrong() : playPartial(); setSbQuizAnswer(id) }}>
-                          <span className="quiz-option-key">{id}</span>
+                        { display: 'A', id: 'B', text: 'Press and hold the sender name to check the real email address, and press and hold the link to see where it goes before doing anything.' },
+                        { display: 'B', id: 'A', text: 'Tap the link immediately - if the licence really expires today there is no time to waste.' },
+                        { display: 'C', id: 'C', text: 'Delete it immediately - anything this urgent is definitely a scam.' },
+                      ].map(({ display, id, text }) => (
+                        <div key={display} className="quiz-option" onClick={e => { e.stopPropagation(); playOptionSelect(); id === 'B' ? playCorrect() : id === 'A' ? playWrong() : playPartial(); setSbQuizAnswer(id) }}>
+                          <span className="quiz-option-key">{display}</span>
                           <span className="quiz-option-text">{text}</span>
                         </div>
                       ))}
@@ -3059,8 +3080,8 @@ export default function App() {
                   </>
                 )}
 
-                {/* ── Answer A — INCORRECT (step 0 only: fake login page) ── */}
-                {/* Steps 1-2 are dialogue bubbles; step 3 is a full-screen card — both rendered outside this overlay */}
+                {/* ── Answer A - INCORRECT (step 0 only: fake login page) ── */}
+                {/* Steps 1-2 are dialogue bubbles; step 3 is a full-screen card - both rendered outside this overlay */}
                 {sbQuizAnswer === 'A' && sbQuizStep === 0 && (
                   <div className="quiz-result">
                     <div className="quiz-feedback quiz-feedback--wrong">
@@ -3080,13 +3101,13 @@ export default function App() {
                           <div className="sb-fake-login-btn">Sign in</div>
                         </div>
                       </div>
-                      <p className="quiz-woman-says" style={{ marginTop: 10 }}>Address bar shows <strong style={{ color: 'rgba(200,40,30,0.9)' }}>nmc-licence-renewal.com</strong> — not <strong>nmc.gov</strong>. Even if the page looks official, the address gives it away.</p>
+                      <p className="quiz-woman-says" style={{ marginTop: 10 }}>Address bar shows <strong style={{ color: 'rgba(200,40,30,0.9)' }}>nmc-licence-renewal.com</strong> - not <strong>nmc.gov</strong>. Even if the page looks official, the address gives it away.</p>
                     </div>
                     <div className="smishing-continue" style={{ padding: '10px 22px', cursor: 'pointer' }} onClick={advanceQuizStep}>tap to continue</div>
                   </div>
                 )}
 
-                {/* ── Answer B — CORRECT (step 0 = holds; steps 1-3 = dialogue bubbles; step 4 = remember card) ── */}
+                {/* ── Answer B - CORRECT (step 0 = holds; steps 1-3 = dialogue bubbles; step 4 = remember card) ── */}
                 {sbQuizAnswer === 'B' && (sbQuizStep === 0 || sbQuizStep === 4) && (
                   <div className="quiz-result">
                     <div className="quiz-feedback quiz-feedback--correct">
@@ -3118,7 +3139,7 @@ export default function App() {
                             </div>
                           </div>
                           <p className="quiz-woman-says" style={{ marginTop: 8, fontSize: '0.78rem', color: 'rgba(100,120,110,0.7)' }}>
-                            {sbQuizBReveals.sender && sbQuizBReveals.link ? 'Both checks done — tap to continue.' : sbQuizBReveals.sender || sbQuizBReveals.link ? 'Now hold the other one.' : 'Hold each item to reveal the real details.'}
+                            {sbQuizBReveals.sender && sbQuizBReveals.link ? 'Both checks done - tap to continue.' : sbQuizBReveals.sender || sbQuizBReveals.link ? 'Now hold the other one.' : 'Hold each item to reveal the real details.'}
                           </p>
                         </>
                       )}
@@ -3135,7 +3156,7 @@ export default function App() {
                   </div>
                 )}
 
-                {/* ── Answer C — PARTIALLY RIGHT (step 0 only; steps 1-2 are dialogue bubbles) ── */}
+                {/* ── Answer C - PARTIALLY RIGHT (step 0 only; steps 1-2 are dialogue bubbles) ── */}
                 {sbQuizAnswer === 'C' && sbQuizStep === 0 && (
                   <div className="quiz-result">
                     <div className="quiz-feedback quiz-feedback--partial">
@@ -3206,11 +3227,11 @@ export default function App() {
                     <div className="smishing-flag-title">THE THREE FEELINGS SCAMMERS USE</div>
                     <p className="smishing-flag-body">Almost every scam message uses one or more of these three feelings to bypass your thinking.</p>
                     <div className="sb-feelings-list">
-                      <div className="sb-feeling-row"><span className="sb-feeling-name">URGENCY</span> — you must act NOW or something bad will happen.</div>
-                      <div className="sb-feeling-row"><span className="sb-feeling-name">FEAR</span> — something terrible is already happening or will happen to you.</div>
-                      <div className="sb-feeling-row"><span className="sb-feeling-name">AUTHORITY</span> — this message is from someone official and powerful who you cannot question.</div>
+                      <div className="sb-feeling-row"><span className="sb-feeling-name">URGENCY</span> - you must act NOW or something bad will happen.</div>
+                      <div className="sb-feeling-row"><span className="sb-feeling-name">FEAR</span> - something terrible is already happening or will happen to you.</div>
+                      <div className="sb-feeling-row"><span className="sb-feeling-name">AUTHORITY</span> - this message is from someone official and powerful who you cannot question.</div>
                     </div>
-                    <p className="smishing-flag-body" style={{ marginTop: 10 }}>When you feel any of these from a message — pause. Name the feeling. Then check.</p>
+                    <p className="smishing-flag-body" style={{ marginTop: 10 }}>When you feel any of these from a message - pause. Name the feeling. Then check.</p>
                   </div>
                   <div className="smishing-flag-card">
                     <div className="smishing-flag-label">RED FLAG: URGENCY</div>
@@ -3225,7 +3246,7 @@ export default function App() {
                   <div className="smishing-flag-card">
                     <div className="smishing-flag-label">RED FLAG: AUTHORITY</div>
                     <div className="smishing-flag-title">'COASTGUARD EMERGENCY SERVICES'</div>
-                    <p className="smishing-flag-body">Sender names can be set to anything. The real coastguard contacts harbour masters and boat captains through registered channels — not random crew members by text.</p>
+                    <p className="smishing-flag-body">Sender names can be set to anything. The real coastguard contacts harbour masters and boat captains through registered channels - not random crew members by text.</p>
                   </div>
                   <div className="smishing-flag-card">
                     <div className="smishing-flag-label">RED FLAG: THE REQUEST</div>
@@ -3246,7 +3267,7 @@ export default function App() {
                   <div className="smishing-flag-card smishing-flag-card--wide">
                     <div className="smishing-flag-label">UNDERSTANDING SCAMS</div>
                     <div className="smishing-flag-title">HOW SCAM MESSAGES WORK ON YOUR FEELINGS</div>
-                    <p className="smishing-flag-body">Scam messages are not just about words. They are about feelings. They are engineered to make you feel something so strongly — fear, panic, urgency — that you act before your brain has time to catch up.</p>
+                    <p className="smishing-flag-body">Scam messages are not just about words. They are about feelings. They are engineered to make you feel something so strongly - fear, panic, urgency - that you act before your brain has time to catch up.</p>
                     <p className="smishing-flag-body" style={{ marginTop: 10 }}>The moment you feel that spike of panic from a message, that is your signal to <strong>slow down</strong>, not speed up.</p>
                   </div>
                 </div>
@@ -3263,7 +3284,7 @@ export default function App() {
                   <div className="smishing-flag-card smishing-flag-card--wide">
                     <div className="smishing-flag-label">WHAT IS A SCAM AD?</div>
                     <div className="smishing-flag-title">FAKE ADVERTISEMENTS ON REAL WEBSITES</div>
-                    <p className="smishing-flag-body">Scam ads are fake advertisements designed to get you to click them. They appear on real websites — sometimes even good, trustworthy websites — because the website rents out advertising space and does not always control who buys it.</p>
+                    <p className="smishing-flag-body">Scam ads are fake advertisements designed to get you to click them. They appear on real websites - sometimes even good, trustworthy websites - because the website rents out advertising space and does not always control who buys it.</p>
                     <p className="smishing-flag-body" style={{ marginTop: 10 }}>The website is not the danger. The ad sitting on it might be.</p>
                   </div>
                 </div>
@@ -3321,7 +3342,7 @@ export default function App() {
                   <div className="smishing-flag-card">
                     <div className="smishing-flag-label">RED FLAG: WRONG WEBSITE ADDRESS</div>
                     <div className="smishing-flag-title">seabright-freegear-claims.co</div>
-                    <p className="smishing-flag-body">The ad came from seabright-freegear-claims.co — not from any real fishing equipment retailer. Check the address bar before tapping anything.</p>
+                    <p className="smishing-flag-body">The ad came from seabright-freegear-claims.co - not from any real fishing equipment retailer. Check the address bar before tapping anything.</p>
                   </div>
                 </div>
                 <div className="smishing-continue">tap anywhere to continue</div>
@@ -3339,12 +3360,12 @@ export default function App() {
                     <p className="quiz-question">Coral asks: <strong>"But what if a real competition came up as an ad? How do I know the difference?"</strong></p>
                     <div className="quiz-options">
                       {[
-                        { id: 'A', text: 'Real competitions never advertise online, so any online ad for a competition is automatically fake.' },
-                        { id: 'B', text: 'Open a new browser tab and search for the company name directly. If the competition is real, it will exist on their actual official website.' },
-                        { id: 'C', text: 'Check if the ad has good grammar and looks professional — real ads look better than fake ones.' },
-                      ].map(({ id, text }) => (
-                        <div key={id} className="quiz-option" onClick={e => { e.stopPropagation(); playOptionSelect(); id === 'B' ? playCorrect() : playWrong(); setSaqAnswer(id) }}>
-                          <span className="quiz-option-key">{id}</span>
+                        { display: 'A', id: 'A', text: 'Real competitions never advertise online, so any online ad for a competition is automatically fake.' },
+                        { display: 'B', id: 'B', text: 'Open a new browser tab and search for the company name directly. If the competition is real, it will exist on their actual official website.' },
+                        { display: 'C', id: 'C', text: 'Check if the ad has good grammar and looks professional - real ads look better than fake ones.' },
+                      ].map(({ display, id, text }) => (
+                        <div key={display} className="quiz-option" onClick={e => { e.stopPropagation(); playOptionSelect(); id === 'B' ? playCorrect() : playWrong(); setSaqAnswer(id) }}>
+                          <span className="quiz-option-key">{display}</span>
                           <span className="quiz-option-text">{text}</span>
                         </div>
                       ))}
@@ -3357,7 +3378,7 @@ export default function App() {
                     <div className="quiz-feedback quiz-feedback--wrong">
                       <div className="quiz-verdict">✗ INCORRECT</div>
                       <p className="quiz-narrator-beat">Coral frowns. Old Finn shakes his head slowly.</p>
-                      <p className="quiz-woman-says">Real companies do advertise online — but real competitions also appear on their actual verified website. The test is not whether an ad exists. It is whether you can find the competition yourself on the real site.</p>
+                      <p className="quiz-woman-says">Real companies do advertise online - but real competitions also appear on their actual verified website. The test is not whether an ad exists. It is whether you can find the competition yourself on the real site.</p>
                     </div>
                     <div className="smishing-continue" style={{ padding: '10px 22px', cursor: 'pointer' }} onClick={e => { e.stopPropagation(); advanceSAQ() }}>tap to continue</div>
                   </div>
@@ -3401,7 +3422,7 @@ export default function App() {
             </div>
           )}
 
-          {/* ── What to do if scammed — intro card ─────────────────────── */}
+          {/* ── What to do if scammed - intro card ─────────────────────── */}
           {isScammedInfo && (
             <div className="smishing-info-overlay" onClick={advanceSB}>
               <div className="smishing-info-panel">
@@ -3409,7 +3430,7 @@ export default function App() {
                   <div className="smishing-flag-card smishing-flag-card--wide">
                     <div className="smishing-flag-label">WHAT TO DO IF YOU THINK YOU HAVE BEEN SCAMMED</div>
                     <div className="smishing-flag-title">DO NOT BE EMBARRASSED. DO NOT WAIT.</div>
-                    <p className="smishing-flag-body">If you clicked a link, replied to a message, or gave away any information — and then realised it might have been a scam — there are clear steps to take. The most important thing is: do not be embarrassed and do not wait. Speed matters.</p>
+                    <p className="smishing-flag-body">If you clicked a link, replied to a message, or gave away any information - and then realised it might have been a scam - there are clear steps to take. The most important thing is: do not be embarrassed and do not wait. Speed matters.</p>
                   </div>
                 </div>
                 <div className="smishing-continue">tap anywhere to continue</div>
@@ -3417,7 +3438,7 @@ export default function App() {
             </div>
           )}
 
-          {/* ── What to do if scammed — four steps card ─────────────────── */}
+          {/* ── What to do if scammed - four steps card ─────────────────── */}
           {isScammedSteps && (
             <div className="smishing-info-overlay" onClick={advanceSB}>
               <div className="smishing-info-panel">
@@ -3425,7 +3446,7 @@ export default function App() {
                   <div className="smishing-flag-card">
                     <div className="smishing-flag-label">SAFE MOVE: STEP 1</div>
                     <div className="smishing-flag-title">TELL A TRUSTED ADULT IMMEDIATELY</div>
-                    <p className="smishing-flag-body">Tell a parent, guardian, teacher, or another adult you trust — right away. Not tomorrow. Not after you have tried to fix it yourself. Now. They can help you check what happened and what needs to be done.</p>
+                    <p className="smishing-flag-body">Tell a parent, guardian, teacher, or another adult you trust - right away. Not tomorrow. Not after you have tried to fix it yourself. Now. They can help you check what happened and what needs to be done.</p>
                   </div>
                   <div className="smishing-flag-card">
                     <div className="smishing-flag-label">SAFE MOVE: STEP 2</div>
@@ -3440,7 +3461,7 @@ export default function App() {
                   <div className="smishing-flag-card">
                     <div className="smishing-flag-label">SAFE MOVE: STEP 4</div>
                     <div className="smishing-flag-title">BLOCK THE SENDER</div>
-                    <p className="smishing-flag-body">Once you have reported it, block the number or email address. It will not stop them completely — they can create new addresses — but it removes this specific route to you.</p>
+                    <p className="smishing-flag-body">Once you have reported it, block the number or email address. It will not stop them completely - they can create new addresses - but it removes this specific route to you.</p>
                   </div>
                 </div>
                 <div className="smishing-continue">tap anywhere to continue</div>
@@ -3457,7 +3478,7 @@ export default function App() {
                   <div className="mg2-instructions-title">DANGER ON THE SCREEN</div>
                 </div>
                 <p className="mg2-instructions-body">
-                  Pop-up ads and suspicious notifications are going to appear on the screen, fast. Some are real and harmless. Some are scam attempts. Your job is to <strong>CLOSE</strong> the dangerous ones before any of the fishermen can tap them — and <strong>LEAVE</strong> the real ones alone.
+                  Pop-up ads and suspicious notifications are going to appear on the screen, fast. Some are real and harmless. Some are scam attempts. Your job is to <strong>CLOSE</strong> the dangerous ones before any of the fishermen can tap them - and <strong>LEAVE</strong> the real ones alone.
                 </p>
                 <p className="mg2-instructions-body">
                   Get it wrong and a fisherman taps the scam. Get it right and they stay safe.
@@ -3465,7 +3486,7 @@ export default function App() {
                 <div className="mg2-instructions-divider" />
                 <div className="mg2-instructions-how-label">HOW TO PLAY</div>
                 <p className="mg2-instructions-body">
-                  Scam pop-ups are highlighted with a subtle warning glow at the edges — but you have to look carefully. Check the sender address, the language, and the link before deciding. Speed increases with each round. Use everything you learned from Old Finn and Coral to make the right call quickly.
+                  Scam pop-ups are highlighted with a subtle warning glow at the edges - but you have to look carefully. Check the sender address, the language, and the link before deciding. Speed increases with each round. Use everything you learned from Old Finn and Coral to make the right call quickly.
                 </p>
                 <div className="mg2-instructions-cta">TAP ANYWHERE TO BEGIN</div>
               </div>
@@ -3499,7 +3520,7 @@ export default function App() {
                 <p className="compass-reveal-desc">A worn leather journal, filled cover to cover with Mira's small neat handwriting. Diagrams, observations, lessons, sketches of places. Several pages are bookmarked with folded corners.</p>
                 <div className="compass-reveal-inscription">
                   <span className="compass-reveal-inscription-label">This is the notebook that was in the photograph. She has been carrying it everywhere.</span>
-                  <em className="compass-reveal-quote">You can read one bookmarked page now — the others will unlock as you travel.</em>
+                  <em className="compass-reveal-quote">You can read one bookmarked page now - the others will unlock as you travel.</em>
                 </div>
               </div>
               <div className="smishing-continue">tap anywhere to continue</div>
@@ -3513,7 +3534,7 @@ export default function App() {
               <div className="compass-reveal-card">
                 <div className="compass-reveal-label">ITEM COLLECTED</div>
                 <div className="compass-reveal-name">THE GOLDEN KNOT</div>
-                <p className="compass-reveal-desc">A small solid object, perfectly formed, warm gold in colour. It feels heavier than it looks. There is no visible beginning and no visible end — it is a knot with no loose thread, no gap, no way in.</p>
+                <p className="compass-reveal-desc">A small solid object, perfectly formed, warm gold in colour. It feels heavier than it looks. There is no visible beginning and no visible end - it is a knot with no loose thread, no gap, no way in.</p>
                 <div className="compass-reveal-inscription">
                   <span className="compass-reveal-inscription-label">Celia turns it once between her fingers before handing it over. She says nothing about it yet.</span>
                   <em className="compass-reveal-quote">But Mira has left a note about it in the notebook.</em>
@@ -3523,19 +3544,19 @@ export default function App() {
             </div>
           )}
 
-          {/* Prism reveal — Mira's item 2 */}
+          {/* Prism reveal - Mira's item 2 */}
           {isPrismReveal && (
             <div className="compass-reveal-overlay" onClick={advanceSB}>
               <img src={prismImg} alt="Glass Prism" className="compass-reveal-img prism-reveal-img" />
               <div className="compass-reveal-card">
-                <div className="compass-reveal-label">ITEM COLLECTED: Mira's Prism — Item 2 of 3</div>
+                <div className="compass-reveal-label">ITEM COLLECTED: Mira's Prism - Item 3 of 3</div>
                 <div className="compass-reveal-name prism-reveal-name">GLASS PRISM</div>
                 <p className="compass-reveal-desc">A small glass prism, perfectly clear. Hold it up to the light and it splits the beam into every colour at once.</p>
                 <div className="compass-reveal-inscription">
                   <span className="compass-reveal-inscription-label">On the flat base, in tiny engraved letters:</span>
                   <em className="compass-reveal-quote">'Everything visible has a source.'</em>
                 </div>
-                <p className="compass-reveal-note">This is the second of three items Mira has left for you to carry safely to her. It goes in the strongbox.</p>
+                <p className="compass-reveal-note">This is the third of three items Mira has left for you to carry safely to her. It goes in the strongbox.</p>
               </div>
               <div className="smishing-continue">tap anywhere to continue</div>
             </div>
@@ -3554,7 +3575,7 @@ export default function App() {
                   <div className="smishing-flag-card smishing-flag-card--wide">
                     <div className="smishing-flag-label">SAFE MOVE</div>
                     <div className="smishing-flag-title">IF THIS HAPPENS TO YOU OR SOMEONE YOU KNOW</div>
-                    <p className="smishing-flag-body"><strong>Tell a trusted adult immediately</strong> — a parent, carer, or teacher. Do not try to handle it alone.</p>
+                    <p className="smishing-flag-body"><strong>Tell a trusted adult immediately</strong> - a parent, carer, or teacher. Do not try to handle it alone.</p>
                     <p className="smishing-flag-body" style={{ marginTop: 8 }}>Do not share or look at the images. Report them to the platform using the report function.</p>
                     <p className="smishing-flag-body" style={{ marginTop: 8 }}>This is not the victim's fault. What was done is wrong and illegal, and there are people who can help.</p>
                   </div>
@@ -3564,7 +3585,7 @@ export default function App() {
             </div>
           )}
 
-          {/* Shadow glimpse — edge of square, scary blink */}
+          {/* Shadow glimpse - edge of square, scary blink */}
           {isShadowGlimpse && (
             <div className="sb-shadow-reveal sb-shadow-glimpse" onClick={e => { e.stopPropagation(); advanceSB() }}>
               <div className="sb-shadow-glitch-overlay" aria-hidden="true" />
@@ -3590,7 +3611,7 @@ export default function App() {
             </div>
           )}
 
-          {/* Password minigame — instructions */}
+          {/* Password minigame - instructions */}
           {isPasswordMinigameInstructions && (
             <div className="smishing-info-overlay" onClick={advanceSB}>
               <div className="smishing-info-panel">
@@ -3598,8 +3619,8 @@ export default function App() {
                   <div className="smishing-flag-card smishing-flag-card--wide">
                     <div className="smishing-flag-label">MINIGAME P1</div>
                     <div className="smishing-flag-title">SET THE STRONGBOX PASSWORD</div>
-                    <p className="smishing-flag-body">The strongbox needs a password before you leave the lighthouse. Choose your passphrase carefully — it needs to be strong enough to keep the Shadow Man out. Mira's notebook page is open for reference.</p>
-                    <p className="smishing-flag-body" style={{ marginTop: 10 }}><strong>HOW TO PLAY:</strong> Type four or more random unrelated words to create your passphrase. The game will show you a strength meter as you type — watch it respond to length, not just complexity. Avoid words related to your name, your pets, your school, or things you like. The more random and unconnected the words, the better.</p>
+                    <p className="smishing-flag-body">The strongbox needs a password before you leave the lighthouse. Choose your passphrase carefully - it needs to be strong enough to keep the Shadow Man out. Mira's notebook page is open for reference.</p>
+                    <p className="smishing-flag-body" style={{ marginTop: 10 }}><strong>HOW TO PLAY:</strong> Type four or more random unrelated words to create your passphrase. The game will show you a strength meter as you type - watch it respond to length, not just complexity. Avoid words related to your name, your pets, your school, or things you like. The more random and unconnected the words, the better.</p>
                   </div>
                 </div>
                 <div className="smishing-continue">tap anywhere to begin</div>
@@ -3620,8 +3641,8 @@ export default function App() {
                   <div className="smishing-flag-card smishing-flag-card--wide">
                     <div className="smishing-flag-label">HOW THE SHADOW MAN OPERATES</div>
                     <div className="smishing-flag-title">HE FOLLOWS GAPS</div>
-                    <p className="smishing-flag-body">That is all he does — but it is enough. Weak passwords are gaps. Reused passwords are gaps. Personal information left publicly visible is a gap.</p>
-                    <p className="smishing-flag-body" style={{ marginTop: 10 }}>The work you do across this journey — setting strong passwords, protecting information, understanding how scams work — is the work of closing gaps. Every gap you close is one less route for him.</p>
+                    <p className="smishing-flag-body">That is all he does - but it is enough. Weak passwords are gaps. Reused passwords are gaps. Personal information left publicly visible is a gap.</p>
+                    <p className="smishing-flag-body" style={{ marginTop: 10 }}>The work you do across this journey - setting strong passwords, protecting information, understanding how scams work - is the work of closing gaps. Every gap you close is one less route for him.</p>
                   </div>
                 </div>
                 <div className="smishing-continue">tap anywhere to continue</div>
@@ -3634,7 +3655,7 @@ export default function App() {
             <StrongboxSealScene onComplete={advanceSB} />
           )}
 
-          {/* Password lesson — length */}
+          {/* Password lesson - length */}
           {isPasswordLessonLength && (
             <div className="smishing-info-overlay" onClick={advanceSB}>
               <div className="smishing-info-panel">
@@ -3642,8 +3663,8 @@ export default function App() {
                   <div className="smishing-flag-card smishing-flag-card--wide">
                     <div className="smishing-flag-label">PASSWORD LESSON</div>
                     <div className="smishing-flag-title">LENGTH BEATS COMPLEXITY</div>
-                    <p className="smishing-flag-body">A short password full of symbols — like <strong>P@ssw0rd1</strong> — looks secure but is not. It is only 9 characters, and a computer can crack it quickly.</p>
-                    <p className="smishing-flag-body" style={{ marginTop: 10 }}>A passphrase of four random unrelated words — <strong>tiger-cloud-lamp-river</strong> — is 23 characters of pure randomness. Every extra character multiplies the difficulty enormously. That is why length is the most powerful tool you have.</p>
+                    <p className="smishing-flag-body">A short password full of symbols - like <strong>P@ssw0rd1</strong> - looks secure but is not. It is only 9 characters, and a computer can crack it quickly.</p>
+                    <p className="smishing-flag-body" style={{ marginTop: 10 }}>A passphrase of four random unrelated words - <strong>tiger-cloud-lamp-river</strong> - is 23 characters of pure randomness. Every extra character multiplies the difficulty enormously. That is why length is the most powerful tool you have.</p>
                   </div>
                 </div>
                 <div className="smishing-continue">tap anywhere to continue</div>
@@ -3651,7 +3672,7 @@ export default function App() {
             </div>
           )}
 
-          {/* Password lesson — random words */}
+          {/* Password lesson - random words */}
           {isPasswordLessonRandom && (
             <div className="smishing-info-overlay" onClick={advanceSB}>
               <div className="smishing-info-panel">
@@ -3659,8 +3680,8 @@ export default function App() {
                   <div className="smishing-flag-card smishing-flag-card--wide">
                     <div className="smishing-flag-label">PASSWORD LESSON</div>
                     <div className="smishing-flag-title">WHY RANDOM WORDS?</div>
-                    <p className="smishing-flag-body">The words must be random — not related to you, not a phrase you know, not your favourite things. <strong>'I love football'</strong> is guessable.</p>
-                    <p className="smishing-flag-body" style={{ marginTop: 10 }}><strong>'tiger cloud lamp river'</strong> is strong because it means nothing — there is no pattern to exploit, no personal information to guess from.</p>
+                    <p className="smishing-flag-body">The words must be random - not related to you, not a phrase you know, not your favourite things. <strong>'I love football'</strong> is guessable.</p>
+                    <p className="smishing-flag-body" style={{ marginTop: 10 }}><strong>'tiger cloud lamp river'</strong> is strong because it means nothing - there is no pattern to exploit, no personal information to guess from.</p>
                   </div>
                 </div>
                 <div className="smishing-continue">tap anywhere to continue</div>
@@ -3668,7 +3689,7 @@ export default function App() {
             </div>
           )}
 
-          {/* Password lesson — reuse */}
+          {/* Password lesson - reuse */}
           {isPasswordLessonReuse && (
             <div className="smishing-info-overlay" onClick={advanceSB}>
               <div className="smishing-info-panel">
@@ -3676,7 +3697,7 @@ export default function App() {
                   <div className="smishing-flag-card smishing-flag-card--wide">
                     <div className="smishing-flag-label">PASSWORD LESSON</div>
                     <div className="smishing-flag-title">THE REUSE PROBLEM</div>
-                    <p className="smishing-flag-body">Using the same password across multiple accounts feels practical — one thing to remember. But it means that if any one of those accounts is compromised, every account with that password is now vulnerable.</p>
+                    <p className="smishing-flag-body">Using the same password across multiple accounts feels practical - one thing to remember. But it means that if any one of those accounts is compromised, every account with that password is now vulnerable.</p>
                     <p className="smishing-flag-body" style={{ marginTop: 10 }}>An attacker who gets into your gaming account and finds your email address will immediately try that same password on your email. If it works, they have both. Then they try it on social media. Then on anything else you have accounts for.</p>
                   </div>
                 </div>
@@ -3685,7 +3706,7 @@ export default function App() {
             </div>
           )}
 
-          {/* Password lesson — domino */}
+          {/* Password lesson - domino */}
           {isPasswordLessonDomino && (
             <div className="smishing-info-overlay" onClick={advanceSB}>
               <div className="smishing-info-panel">
@@ -3694,7 +3715,7 @@ export default function App() {
                     <div className="smishing-flag-label">PASSWORD LESSON</div>
                     <div className="smishing-flag-title">THE DOMINO EFFECT</div>
                     <p className="smishing-flag-body">Password reuse turns one breach into many. This is called the domino effect. One password, one account compromised, and every account it was reused on falls in sequence.</p>
-                    <p className="smishing-flag-body" style={{ marginTop: 10 }}>The answer is not a more complicated password — it is a different password for every account.</p>
+                    <p className="smishing-flag-body" style={{ marginTop: 10 }}>The answer is not a more complicated password - it is a different password for every account.</p>
                   </div>
                 </div>
                 <div className="smishing-continue">tap anywhere to continue</div>
@@ -3702,7 +3723,7 @@ export default function App() {
             </div>
           )}
 
-          {/* Password lesson — manager */}
+          {/* Password lesson - manager */}
           {isPasswordLessonManager && (
             <div className="smishing-info-overlay" onClick={advanceSB}>
               <div className="smishing-info-panel">
@@ -3710,7 +3731,7 @@ export default function App() {
                   <div className="smishing-flag-card smishing-flag-card--wide">
                     <div className="smishing-flag-label">PASSWORD LESSON</div>
                     <div className="smishing-flag-title">HOW TO MANAGE MANY PASSWORDS</div>
-                    <p className="smishing-flag-body">The solution to needing different passwords for everything is a password manager — a secure app that stores all your passwords and can generate long random ones for each account. You remember one strong master passphrase (like the one you set for the strongbox) and the password manager handles the rest.</p>
+                    <p className="smishing-flag-body">The solution to needing different passwords for everything is a password manager - a secure app that stores all your passwords and can generate long random ones for each account. You remember one strong master passphrase (like the one you set for the strongbox) and the password manager handles the rest.</p>
                     <p className="smishing-flag-body" style={{ marginTop: 10 }}>The one password you truly need to remember is the one that opens the manager.</p>
                   </div>
                 </div>
@@ -3742,15 +3763,15 @@ export default function App() {
                 {!bqAnswer && (
                   <>
                     <div className="quiz-header">WHAT DO YOU DO?</div>
-                    <p className="quiz-question">Coral has just told you he clicked a suspicious link three days ago, gave his harbour login on the fake page, but has been too embarrassed to tell anyone because he is the most experienced fisherman in the village and feels like he should have known better. What do you say?</p>
+                    <p className="quiz-question">Coral has just told you she clicked a suspicious link three days ago, gave her harbour login on the fake page, but has been too embarrassed to tell anyone because she is the most experienced fisher in the village and feels like she should have known better. What do you say?</p>
                     <div className="quiz-options">
                       {[
-                        { id: 'A', text: 'He should have known better — he is old enough to recognise a scam.' },
-                        { id: 'B', text: 'These scams are engineered by professionals specifically to fool experienced people. Tell a trusted person right now — three days is already a long time to wait.' },
-                        { id: 'C', text: 'It is probably too late to do anything after three days, so he should just be more careful in future.' },
-                      ].map(({ id, text }) => (
-                        <div key={id} className="quiz-option" onClick={e => { e.stopPropagation(); playOptionSelect(); id === 'B' ? playCorrect() : playWrong(); setBqAnswer(id) }}>
-                          <span className="quiz-option-key">{id}</span>
+                        { display: 'A', id: 'B', text: 'These scams are engineered by professionals specifically to fool experienced people. Tell a trusted person right now - three days is already a long time to wait.' },
+                        { display: 'B', id: 'A', text: 'She should have known better - she is old enough to recognise a scam.' },
+                        { display: 'C', id: 'C', text: 'It is probably too late to do anything after three days, so she should just be more careful in future.' },
+                      ].map(({ display, id, text }) => (
+                        <div key={display} className="quiz-option" onClick={e => { e.stopPropagation(); playOptionSelect(); id === 'B' ? playCorrect() : playWrong(); setBqAnswer(id) }}>
+                          <span className="quiz-option-key">{display}</span>
                           <span className="quiz-option-text">{text}</span>
                         </div>
                       ))}
@@ -3811,19 +3832,19 @@ export default function App() {
             <div className="quiz-overlay pq-overlay">
               <div className="quiz-panel pq-panel-sb">
 
-                {/* No answer yet — question + options */}
+                {/* No answer yet - question + options */}
                 {!cqAnswer && (
                   <>
                     <div className="quiz-header">WHAT DO YOU DO?</div>
                     <p className="quiz-question">You are helping Coral explain this to three other fishermen who received similar messages. One of them crosses his arms and says: <strong>"But what if it HAD been real? What if I had ignored a real emergency?"</strong></p>
                     <div className="quiz-options">
                       {[
-                        { id: 'A', text: 'He has a point — it is better to respond to everything just in case.' },
-                        { id: 'B', text: 'Explain that the way to check a real emergency is to contact the coastguard yourself on their official number, not by replying to the message.' },
-                        { id: 'C', text: 'Tell him that if he is not sure, he should ask an adult.' },
-                      ].map(({ id, text }) => (
-                        <div key={id} className="quiz-option" onClick={e => { e.stopPropagation(); playOptionSelect(); id === 'B' ? playCorrect() : id === 'A' ? playWrong() : playPartial(); setCqAnswer(id) }}>
-                          <span className="quiz-option-key">{id}</span>
+                        { display: 'A', id: 'A', text: 'He has a point - it is better to respond to everything just in case.' },
+                        { display: 'B', id: 'B', text: 'Explain that the way to check a real emergency is to contact the coastguard yourself on their official number, not by replying to the message.' },
+                        { display: 'C', id: 'C', text: 'Tell him that if he is not sure, he should ask an adult.' },
+                      ].map(({ display, id, text }) => (
+                        <div key={display} className="quiz-option" onClick={e => { e.stopPropagation(); playOptionSelect(); id === 'B' ? playCorrect() : id === 'A' ? playWrong() : playPartial(); setCqAnswer(id) }}>
+                          <span className="quiz-option-key">{display}</span>
                           <span className="quiz-option-text">{text}</span>
                         </div>
                       ))}
@@ -3831,7 +3852,7 @@ export default function App() {
                   </>
                 )}
 
-                {/* Answer A — INCORRECT (step 0 only; step 1 = CORAL dialogue bubble) */}
+                {/* Answer A - INCORRECT (step 0 only; step 1 = CORAL dialogue bubble) */}
                 {cqAnswer === 'A' && cqStep === 0 && (
                   <div className="quiz-result">
                     <div className="quiz-feedback quiz-feedback--wrong">
@@ -3843,7 +3864,7 @@ export default function App() {
                   </div>
                 )}
 
-                {/* Answer B — CORRECT (step 0 = verdict; steps 1-2 = dialogue bubbles; step 3 = remember card) */}
+                {/* Answer B - CORRECT (step 0 = verdict; steps 1-2 = dialogue bubbles; step 3 = remember card) */}
                 {cqAnswer === 'B' && (cqStep === 0 || cqStep === 3) && (
                   <div className="quiz-result">
                     <div className="quiz-feedback quiz-feedback--correct">
@@ -3854,7 +3875,7 @@ export default function App() {
                       {cqStep === 3 && (
                         <div className="quiz-remember">
                           <div className="quiz-remember-label">SAFE MOVE: VERIFY THROUGH YOUR OWN CHANNEL</div>
-                          <p className="quiz-remember-body">If a message claims there is an emergency, do not use any contact details or links from that message. Find the official number yourself — from a website you know, a saved contact, or a printed card — and call that. If the emergency is real, you will reach them. If it was fake, you have given the scammer nothing.</p>
+                          <p className="quiz-remember-body">If a message claims there is an emergency, do not use any contact details or links from that message. Find the official number yourself - from a website you know, a saved contact, or a printed card - and call that. If the emergency is real, you will reach them. If it was fake, you have given the scammer nothing.</p>
                         </div>
                       )}
                     </div>
@@ -3862,7 +3883,7 @@ export default function App() {
                   </div>
                 )}
 
-                {/* Answer C — PARTIALLY RIGHT (step 0 only; step 1 = [YOUR NAME] dialogue bubble) */}
+                {/* Answer C - PARTIALLY RIGHT (step 0 only; step 1 = [YOUR NAME] dialogue bubble) */}
                 {cqAnswer === 'C' && cqStep === 0 && (
                   <div className="quiz-result">
                     <div className="quiz-feedback quiz-feedback--partial">
@@ -3877,7 +3898,7 @@ export default function App() {
             </div>
           )}
 
-          {/* ── Coral quiz B step 3 — remember card (full-screen, like quiz A info card) ── */}
+          {/* ── Coral quiz B step 3 - remember card (full-screen, like quiz A info card) ── */}
           {isCqBRemember && (
             <div className="smishing-info-overlay" onClick={advanceCQ}>
               <div className="smishing-info-panel">
@@ -3885,7 +3906,7 @@ export default function App() {
                   <div className="smishing-flag-card">
                     <div className="smishing-flag-label">SAFE MOVE</div>
                     <div className="smishing-flag-title">VERIFY THROUGH YOUR OWN CHANNEL</div>
-                    <p className="smishing-flag-body">If a message claims there is an emergency, do not use any contact details or links from that message. Find the official number yourself — from a website you know, a saved contact, or a printed card — and call that. If the emergency is real, you will reach them. If it was fake, you have given the scammer nothing.</p>
+                    <p className="smishing-flag-body">If a message claims there is an emergency, do not use any contact details or links from that message. Find the official number yourself - from a website you know, a saved contact, or a printed card - and call that. If the emergency is real, you will reach them. If it was fake, you have given the scammer nothing.</p>
                   </div>
                 </div>
                 <div className="smishing-continue">tap anywhere to continue</div>
@@ -3946,7 +3967,7 @@ export default function App() {
   }
 
   if (view === 'home') {
-    // Read localStorage directly — bypass the _savedOnce cache which may be stale
+    // Read localStorage directly - bypass the _savedOnce cache which may be stale
     const freshSave = (() => { try { return JSON.parse(localStorage.getItem(SAVE_KEY) || 'null') || {} } catch { return {} } })()
     const freshView = freshSave.view
     const freshAllowed = loadDemoModeFlag() || !['story-observatory', 'demo'].includes(freshView)
@@ -4036,7 +4057,7 @@ export default function App() {
                 num: 'I', title: 'A Letter from Nowhere', img: bedroomImg,
                 start: devNav(() => { setStartBedroomLine(0); goToChapter({ number: 'I', title: 'A Letter from Nowhere' }, 'start-bedroom') }),
                 subs: [
-                  { label: 'Bedroom — opening', fn: devNav(() => { setStartBedroomLine(0); setView('start-bedroom') }) },
+                  { label: 'Bedroom - opening', fn: devNav(() => { setStartBedroomLine(0); setView('start-bedroom') }) },
                 ]
               },
               {
@@ -4061,7 +4082,7 @@ export default function App() {
               },
               {
                 num: 'IV', title: 'Echoes in the Sunshare Square', img: sunshareSquare,
-                start: devNav(() => goToChapter({ number: 'IV', title: 'Echoes in the Sunshare Square' }, 'seabright-177')),
+                start: devNav(() => goToChapter({ number: 'IV', title: 'Echoes in the Sunshare Square' }, 'seabright-176')),
                 subs: [
                   { label: 'Sunshare Square arrival', fn: sb(177) },
                   { label: 'The Picture Test', fn: sb(198) },
@@ -4094,7 +4115,7 @@ export default function App() {
                     <div key={ch.num} className="landing-dev-chapter">
                       <div className="landing-dev-chapter-row">
                         <button className="landing-dev-btn landing-dev-btn--chapter" onClick={ch.start}>
-                          {ch.num} — {ch.title}
+                          {ch.num} - {ch.title}
                         </button>
                         {ch.subs.length > 0 && (
                           <button className="landing-dev-expand" onClick={() => toggleChapter(ch.num)}>
@@ -4223,13 +4244,13 @@ export default function App() {
         <div className="demo-root">
           <button className="demo-home-link" onClick={goToDemoHome}>⌂ Home</button>
           <div className="demo-panel">
-            <div className="demo-badge">REAL OR FAKE? — MINIGAME</div>
+            <div className="demo-badge">REAL OR FAKE? - MINIGAME</div>
             <h2 className="demo-heading">Now it is your turn.</h2>
             <p className="demo-body">
-              You have just seen how the Shadow Man targeted the people of Seabright — phishing emails, fake domains, urgent language designed to panic rather than inform.
+              You have just seen how the Shadow Man targeted the people of Seabright - phishing emails, fake domains, urgent language designed to panic rather than inform.
             </p>
             <p className="demo-body">
-              Below are five messages — emails and texts — just like the ones the fishermen received. Your job is to decide: is each one real, or fake? Look at the sender address and the link. The name can be copied. The domain cannot be faked perfectly.
+              Below are five messages - emails and texts - just like the ones the fishermen received. Your job is to decide: is each one real, or fake? Look at the sender address and the link. The name can be copied. The domain cannot be faked perfectly.
             </p>
             <button className="demo-start-btn" onClick={() => { playClick(); setDemoStep('game') }}>START MINIGAME →</button>
           </div>
@@ -4248,7 +4269,7 @@ export default function App() {
       return (
         <div className="demo-root">
           <div className="demo-panel">
-            <div className="demo-badge">USER TEST — COMPLETE</div>
+            <div className="demo-badge">USER TEST - COMPLETE</div>
             <h2 className="demo-heading">Thank you for playing.</h2>
             <p className="demo-body">
               Your time and feedback help us build a better experience for young people learning to stay safe online.
@@ -4256,7 +4277,7 @@ export default function App() {
             <p className="demo-body">
               If you have notes or observations, please share them with the team. Every detail helps.
             </p>
-            <p className="demo-body demo-body--sig">— The When Mira Calls Team</p>
+            <p className="demo-body demo-body--sig">- The When Mira Calls Team</p>
             <button className="demo-start-btn" onClick={() => { clearDemoProgress(); goToDemoHome() }}>← Back to Home</button>
           </div>
         </div>
@@ -4276,7 +4297,7 @@ export default function App() {
     )
   }
 
-  // Starting sequence — name entry
+  // Starting sequence - name entry
   if (view === 'start-name') {
     const confirm = () => {
       if (!startNameInput.trim()) return
@@ -4307,7 +4328,7 @@ export default function App() {
     )
   }
 
-  // Starting sequence — name reveal
+  // Starting sequence - name reveal
   if (view === 'start-reveal') {
     return (
       <div className="game-root start-reveal-root" onClick={() => { playClick(); setStartBedroomLine(0); setView('start-opener') }}>
@@ -4320,7 +4341,7 @@ export default function App() {
     )
   }
 
-  // Starting sequence — atmospheric opener (black screen)
+  // Starting sequence - atmospheric opener (black screen)
   if (view === 'start-opener') {
     return (
       <div className="game-root start-opener-root" onClick={() => { playClick(); setView('instructions') }}>
@@ -4333,7 +4354,7 @@ export default function App() {
     )
   }
 
-  // Starting sequence — bedroom narration
+  // Starting sequence - bedroom narration
   if (view === 'start-bedroom') {
     const atLast = startBedroomLine >= BEDROOM_LINES.length - 1
     const envelopeFromLine = BEDROOM_LINES.findIndex(l => l.showEnvelope)
@@ -4400,13 +4421,13 @@ export default function App() {
                 <div className="letter-body">
                   <p className="letter-salutation">Hello, {resolveName('[PLAYER NAME]')}.</p>
                   <p>I expect this is a bit of a surprise.</p>
-                  <p>I am your Aunt Mira. I know — you probably had no idea you had one. That is not your fault. It is a long story, and I promise I will explain everything properly when you find me.</p>
+                  <p>I am your Aunt Mira. I know - you probably had no idea you had one. That is not your fault. It is a long story, and I promise I will explain everything properly when you find me.</p>
                   <p>Which is the point of this letter: I need you to come and find me. It is important. More important than I can put in a letter.</p>
-                  <p>I have not given you my address. That is deliberate — I cannot write it down right now. But I have left you a way to find me. You just need to look at something you have already seen.</p>
+                  <p>I have not given you my address. That is deliberate - I cannot write it down right now. But I have left you a way to find me. You just need to look at something you have already seen.</p>
                   <p>Along the way, people will give you things that belong to me. Keep them safe. Every single one. Do not let anyone take them from you. I will need them when you arrive.</p>
                   <p>I am very much looking forward to finally meeting you properly.</p>
                   <div className="letter-sign-block">
-                    <span className="letter-sign-dash">—</span>
+                    <span className="letter-sign-dash">-</span>
                     <span className="letter-signature">Aunt Mira</span>
                   </div>
                   <p className="letter-ps"><span className="letter-ps-label">P.S.</span> Give Biscuit a scratch behind the ears from me. He will pretend not to enjoy it. He will enjoy it.</p>
@@ -4418,7 +4439,7 @@ export default function App() {
             </div>
           )}
 
-          {/* Envelope — appears when post is mentioned, tap to read letter */}
+          {/* Envelope - appears when post is mentioned, tap to read letter */}
           <div
             className={`bedroom-envelope${showBedroomEnvelope ? ' bedroom-envelope--visible' : ''}`}
             onClick={showBedroomEnvelope ? (e) => { e.stopPropagation(); playCardIn(); setShowBedroomLetter(true) } : undefined}
@@ -4570,7 +4591,7 @@ export default function App() {
           </div>
           )}
 
-          {/* CyberSafe title overlay — appears after photo fills screen */}
+          {/* CyberSafe title overlay - appears after photo fills screen */}
           {showTitle && (
             <div className="cybersafe-title-overlay" onClick={() => setView('outro')}>
               <div className="cybersafe-title-vignette" />
@@ -4578,7 +4599,7 @@ export default function App() {
                 <h1 className="cybersafe-title-headline">When Mira Calls</h1>
                 <h2 className="cybersafe-title-sub">a digital mystery</h2>
                 <p className="cybersafe-title-tagline">Built by students at Berkeley</p>
-                <div className="cybersafe-title-press">— tap to continue —</div>
+                <div className="cybersafe-title-press">- tap to continue -</div>
               </div>
             </div>
           )}
@@ -4593,7 +4614,7 @@ export default function App() {
       <div className="game-root" style={{ background: '#080e1a' }}>
         {(DEMO_ONLY || demoMode) && <button className="demo-home-link" onClick={goToDemoHome}>⌂ Home</button>}
         <div className="name-entry-screen">
-          <p className="name-entry-label">Before you begin — what is your name?</p>
+          <p className="name-entry-label">Before you begin - what is your name?</p>
           <input
             className="name-entry-input"
             type="text"
@@ -4719,7 +4740,7 @@ export default function App() {
                 <div className="smishing-panel">
                   <div className="smishing-header">
                     <span className="smishing-alert-icon" aria-hidden="true">⚠</span>
-                    <span className="smishing-title">SMISHING MESSAGE — INTERCEPTED</span>
+                    <span className="smishing-title">SMISHING MESSAGE - INTERCEPTED</span>
                   </div>
                   <div className="smishing-phone">
                     <div className="smishing-from">
@@ -4741,7 +4762,7 @@ export default function App() {
               <div className="smishing-info-panel">
                 <div className="smishing-info-section">
                   <h2 className="smishing-info-heading">SMISHING</h2>
-                  <p className="smishing-info-body">Smishing is phishing by text message. Like email phishing, it uses fake senders and urgent language to trick you into clicking a link or giving away information. What makes smishing particularly dangerous is personalisation — when an attacker has gathered your personal information from public sources, they can make a fake text sound like it genuinely comes from someone or something that knows you. The text feels real because the details in it are real. But the request is always the red flag.</p>
+                  <p className="smishing-info-body">Smishing is phishing by text message. Like email phishing, it uses fake senders and urgent language to trick you into clicking a link or giving away information. What makes smishing particularly dangerous is personalisation - when an attacker has gathered your personal information from public sources, they can make a fake text sound like it genuinely comes from someone or something that knows you. The text feels real because the details in it are real. But the request is always the red flag.</p>
                 </div>
                 <div className="smishing-info-flags">
                   <div className="smishing-flag-card">
@@ -4751,7 +4772,7 @@ export default function App() {
                   </div>
                   <div className="smishing-flag-card">
                     <div className="smishing-flag-label">RED FLAG</div>
-                    <div className="smishing-flag-title">URGENCY — ONE HOUR DEADLINE</div>
+                    <div className="smishing-flag-title">URGENCY - ONE HOUR DEADLINE</div>
                     <p className="smishing-flag-body">Real account reviews do not have one-hour reply windows sent by text. Real processes use official channels and give plenty of time.</p>
                   </div>
                   <div className="smishing-flag-card">
@@ -4771,7 +4792,7 @@ export default function App() {
                 <div className="vishing-panel">
                   <div className="vishing-header">
                     <span className="vishing-rec" aria-hidden="true">⏺</span>
-                    <span className="vishing-title">VISHING CALL — RECORDED</span>
+                    <span className="vishing-title">VISHING CALL - RECORDED</span>
                   </div>
                   <div className="vishing-meta">
                     <span className="vishing-meta-label">Caller:</span>
@@ -4784,7 +4805,7 @@ export default function App() {
                       ))}
                     </div>
                     <p className="vishing-quote">
-                      'Good afternoon. I am calling from the National Cyber Safety Authority regarding a security concern associated with your child's online account. I have your child's details here — first name Priya, registered at Sunshare Academy. We have detected unauthorised access attempts and require a verification code to secure the account immediately. I will send a code to your registered number now — please read it back to me to complete the security process.'
+                      'Good afternoon. I am calling from the National Cyber Safety Authority regarding a security concern associated with your child's online account. I have your child's details here - first name Priya, registered at Sunshare Academy. We have detected unauthorised access attempts and require a verification code to secure the account immediately. I will send a code to your registered number now - please read it back to me to complete the security process.'
                     </p>
                   </div>
                   <div className="smishing-continue">tap anywhere to continue</div>
@@ -4797,18 +4818,18 @@ export default function App() {
               <div className="smishing-info-panel">
                 <div className="smishing-info-section">
                   <h2 className="smishing-info-heading">VISHING</h2>
-                  <p className="smishing-info-body">Vishing is voice phishing — scam phone calls. They work the same way as smishing but use a real human voice, which adds authority and urgency that text cannot match. A real voice saying your name, your child's school, and a professional script feels more legitimate than any text. The key tactics are: authority (official-sounding name and title), personalisation (real details gathered in advance), and a manufactured process that ends with you handing over something valuable.</p>
+                  <p className="smishing-info-body">Vishing is voice phishing - scam phone calls. They work the same way as smishing but use a real human voice, which adds authority and urgency that text cannot match. A real voice saying your name, your child's school, and a professional script feels more legitimate than any text. The key tactics are: authority (official-sounding name and title), personalisation (real details gathered in advance), and a manufactured process that ends with you handing over something valuable.</p>
                 </div>
                 <div className="smishing-info-flags">
                   <div className="smishing-flag-card">
                     <div className="smishing-flag-label">RED FLAG</div>
                     <div className="smishing-flag-title">ASKING FOR A CODE THEY JUST SENT</div>
-                    <p className="smishing-flag-body">A caller who says 'I will send you a code — please read it back to me' is intercepting your authentication code. No legitimate organisation uses this process. The code you receive is for you to enter yourself — never to read to a caller.</p>
+                    <p className="smishing-flag-body">A caller who says 'I will send you a code - please read it back to me' is intercepting your authentication code. No legitimate organisation uses this process. The code you receive is for you to enter yourself - never to read to a caller.</p>
                   </div>
                   <div className="smishing-flag-card">
                     <div className="smishing-flag-label">RED FLAG</div>
                     <div className="smishing-flag-title">AUTHORITY PLUS URGENCY PLUS PERSONALISATION</div>
-                    <p className="smishing-flag-body">When all three appear together — official title, genuine personal details, and time pressure — that combination should trigger maximum caution, not maximum trust. The sophistication of the attack does not make it legitimate.</p>
+                    <p className="smishing-flag-body">When all three appear together - official title, genuine personal details, and time pressure - that combination should trigger maximum caution, not maximum trust. The sophistication of the attack does not make it legitimate.</p>
                   </div>
                 </div>
                 <div className="smishing-continue">tap anywhere to continue</div>
@@ -4820,18 +4841,18 @@ export default function App() {
               <div className="smishing-info-panel mfa-info-panel">
                 <div className="smishing-info-section">
                   <h2 className="smishing-info-heading">MFA: WHAT IS MULTI-FACTOR AUTHENTICATION?</h2>
-                  <p className="smishing-info-body">Multi-Factor Authentication — MFA, also called Two-Factor Authentication or 2FA — means using two different types of proof to verify your identity. Something you know (a password or passphrase) and something you have (a phone that receives a code, an app that generates one, or a physical key). Even if an attacker gets your password through phishing or a data breach, they cannot get in without the second factor. It is the most powerful single protection you can add to any account.</p>
+                  <p className="smishing-info-body">Multi-Factor Authentication - MFA, also called Two-Factor Authentication or 2FA - means using two different types of proof to verify your identity. Something you know (a password or passphrase) and something you have (a phone that receives a code, an app that generates one, or a physical key). Even if an attacker gets your password through phishing or a data breach, they cannot get in without the second factor. It is the most powerful single protection you can add to any account.</p>
                 </div>
                 <div className="smishing-info-flags">
                   <div className="smishing-flag-card">
                     <div className="smishing-flag-label mfa-label">MFA</div>
                     <div className="smishing-flag-title">THE THREE FACTORS</div>
-                    <p className="smishing-flag-body">Authentication uses three possible factors: something you KNOW (password, passphrase, PIN), something you HAVE (phone, authenticator app, physical key), and something you ARE (fingerprint, face ID). MFA combines at least two of these. A password alone is one factor. A password plus a code sent to your phone is two factors. Two factors means an attacker needs both — which is exponentially harder to achieve.</p>
+                    <p className="smishing-flag-body">Authentication uses three possible factors: something you KNOW (password, passphrase, PIN), something you HAVE (phone, authenticator app, physical key), and something you ARE (fingerprint, face ID). MFA combines at least two of these. A password alone is one factor. A password plus a code sent to your phone is two factors. Two factors means an attacker needs both - which is exponentially harder to achieve.</p>
                   </div>
                   <div className="smishing-flag-card">
                     <div className="smishing-flag-label mfa-label">MFA</div>
                     <div className="smishing-flag-title">WHERE TO ENABLE IT</div>
-                    <p className="smishing-flag-body">Most major platforms — email, gaming accounts, social media — offer MFA in their security settings. It adds a few seconds to logging in. It makes your account approximately ten times harder to compromise. Enable it on every account that offers it, starting with your email.</p>
+                    <p className="smishing-flag-body">Most major platforms - email, gaming accounts, social media - offer MFA in their security settings. It adds a few seconds to logging in. It makes your account approximately ten times harder to compromise. Enable it on every account that offers it, starting with your email.</p>
                   </div>
                 </div>
                 <div className="smishing-continue">tap anywhere to continue</div>
@@ -4844,18 +4865,18 @@ export default function App() {
               <div className="smishing-info-panel finalgame-intro-panel">
                 <div className="smishing-info-section">
                   <h2 className="smishing-info-heading">MINIGAME FINAL: WHO IS THE REAL AUNT MIRA?</h2>
-                  <p className="smishing-info-body">Throughout your time in the Observatory, both women interacted with you. One of them is Aunt Mira. One of them is the Shadow Man's impostor. You have collected clues about their behaviour — things they said, things they did, and things they did not do. Now you must use everything you have learned across the entire journey to identify which one is real.</p>
+                  <p className="smishing-info-body">Throughout your time in the Observatory, both women interacted with you. One of them is Aunt Mira. One of them is the Shadow Man's impostor. You have collected clues about their behaviour - things they said, things they did, and things they did not do. Now you must use everything you have learned across the entire journey to identify which one is real.</p>
                 </div>
                 <div className="smishing-info-flags">
                   <div className="smishing-flag-card">
                     <div className="smishing-flag-label finalgame-label">HOW TO PLAY</div>
                     <div className="smishing-flag-title">REVIEW THE EVIDENCE</div>
-                    <p className="smishing-flag-body">You will be shown seven pieces of evidence collected from the Observatory. Work through each one carefully — you can review them in any order before making your final choice.</p>
+                    <p className="smishing-flag-body">You will be shown seven pieces of evidence collected from the Observatory. Work through each one carefully - you can review them in any order before making your final choice.</p>
                   </div>
                   <div className="smishing-flag-card">
                     <div className="smishing-flag-label finalgame-label">HOW TO PLAY</div>
                     <div className="smishing-flag-title">GETTING IT RIGHT MATTERS MORE THAN GETTING IT FAST</div>
-                    <p className="smishing-flag-body">If you choose incorrectly, Mira will gently explain what you overlooked — then you try again. There is no penalty for looking again. Take your time.</p>
+                    <p className="smishing-flag-body">If you choose incorrectly, Mira will gently explain what you overlooked - then you try again. There is no penalty for looking again. Take your time.</p>
                   </div>
                 </div>
                 <div className="smishing-continue">tap anywhere to begin</div>
@@ -4883,18 +4904,18 @@ export default function App() {
               <div className="smishing-info-panel permanence-info-panel">
                 <div className="smishing-info-section">
                   <h2 className="smishing-info-heading">THE PERMANENCE OF THE INTERNET IN ACTION</h2>
-                  <p className="smishing-info-body">The Shadow Man's file on the people of Sunshare Square is not built only from what they post today. It is built from everything they ever posted publicly — including things they deleted months or years ago. He collected those posts before they were removed, and they have been useful ever since. This is why the question to ask before posting is not 'can I delete this later?' It is 'am I comfortable with this existing permanently?' You control deletion. You do not control every copy.</p>
+                  <p className="smishing-info-body">The Shadow Man's file on the people of Sunshare Square is not built only from what they post today. It is built from everything they ever posted publicly - including things they deleted months or years ago. He collected those posts before they were removed, and they have been useful ever since. This is why the question to ask before posting is not 'can I delete this later?' It is 'am I comfortable with this existing permanently?' You control deletion. You do not control every copy.</p>
                 </div>
                 <div className="smishing-info-flags">
                   <div className="smishing-flag-card">
                     <div className="smishing-flag-label permanence-label">REMEMBER</div>
                     <div className="smishing-flag-title">YOU CONTROL DELETION. NOT EVERY COPY.</div>
-                    <p className="smishing-flag-body">When you delete a post, you remove your copy. But anyone who saved it, screenshotted it, or cached it still has theirs. A post that existed publicly — even briefly — may have been collected by anyone, anywhere.</p>
+                    <p className="smishing-flag-body">When you delete a post, you remove your copy. But anyone who saved it, screenshotted it, or cached it still has theirs. A post that existed publicly - even briefly - may have been collected by anyone, anywhere.</p>
                   </div>
                   <div className="smishing-flag-card">
                     <div className="smishing-flag-label permanence-label">REMEMBER</div>
                     <div className="smishing-flag-title">ASK THE RIGHT QUESTION BEFORE POSTING</div>
-                    <p className="smishing-flag-body">The question is not 'can I delete this later?' — you can. The question is 'am I comfortable with this existing permanently, in someone else's copy, being used in ways I cannot predict?' Post accordingly.</p>
+                    <p className="smishing-flag-body">The question is not 'can I delete this later?' - you can. The question is 'am I comfortable with this existing permanently, in someone else's copy, being used in ways I cannot predict?' Post accordingly.</p>
                   </div>
                 </div>
                 <div className="smishing-continue">tap anywhere to continue</div>
@@ -4906,7 +4927,7 @@ export default function App() {
               <div className="smishing-info-panel se-info-panel">
                 <div className="smishing-info-section">
                   <h2 className="smishing-info-heading">SOCIAL ENGINEERING</h2>
-                  <p className="smishing-info-body">Social engineering is the art of manipulating people rather than systems. Instead of breaking through a firewall or cracking a code, a social engineer exploits human psychology — trust, fear, urgency, authority, helpfulness — to get people to hand over information or access voluntarily.</p>
+                  <p className="smishing-info-body">Social engineering is the art of manipulating people rather than systems. Instead of breaking through a firewall or cracking a code, a social engineer exploits human psychology - trust, fear, urgency, authority, helpfulness - to get people to hand over information or access voluntarily.</p>
                 </div>
                 <div className="se-attacks-section">
                   <div className="se-attacks-label">EVERY ATTACK ON THIS JOURNEY WAS SOCIAL ENGINEERING</div>
@@ -4944,21 +4965,21 @@ export default function App() {
             >
               <div className="quiz-panel">
                 <div className="quiz-header">WHAT DO YOU DO?</div>
-                <p className="quiz-question">Jaylen asks: If I have MFA on, and someone calls me pretending to be from the gaming platform and asks me to read them my authentication code — what do I do?</p>
+                <p className="quiz-question">Jaylen asks: If I have MFA on, and someone calls me pretending to be from the gaming platform and asks me to read them my authentication code - what do I do?</p>
 
                 {!mfaQuizAnswer ? (
                   <div className="quiz-options">
                     {[
-                      { id: 'A', text: 'Read them the code — they verified they are from the platform and I have MFA enabled so it is safe.' },
-                      { id: 'B', text: 'Never read an authentication code to anyone over the phone. MFA codes are for you to enter yourself — not to share.' },
-                      { id: 'C', text: 'Ask them to verify who they are by giving me some account details first.' },
-                    ].map(({ id, text }) => (
+                      { display: 'A', id: 'A', text: 'Read them the code - they verified they are from the platform and I have MFA enabled so it is safe.' },
+                      { display: 'B', id: 'C', text: 'Ask them to verify who they are by giving me some account details first.' },
+                      { display: 'C', id: 'B', text: 'Never read an authentication code to anyone over the phone. MFA codes are for you to enter yourself - not to share.' },
+                    ].map(({ display, id, text }) => (
                       <div
-                        key={id}
+                        key={display}
                         className="quiz-option"
                         onClick={(e) => { e.stopPropagation(); playOptionSelect(); id === 'B' ? playCorrect() : playWrong(); setMfaQuizAnswer(id) }}
                       >
-                        <span className="quiz-option-key">{id}</span>
+                        <span className="quiz-option-key">{display}</span>
                         <span className="quiz-option-text">{text}</span>
                       </div>
                     ))}
@@ -4968,13 +4989,13 @@ export default function App() {
                     {mfaQuizAnswer === 'A' && (
                       <div className="quiz-feedback quiz-feedback--wrong">
                         <div className="quiz-verdict">✗ INCORRECT</div>
-                        <p className="quiz-woman-says">That is exactly what the caller wants. Having MFA enabled does not make it safe to share the code — it makes the code the target. No legitimate platform will ever call and ask you to read back a code. The code exists to authenticate you to the platform, not to a caller.</p>
+                        <p className="quiz-woman-says">That is exactly what the caller wants. Having MFA enabled does not make it safe to share the code - it makes the code the target. No legitimate platform will ever call and ask you to read back a code. The code exists to authenticate you to the platform, not to a caller.</p>
                       </div>
                     )}
                     {mfaQuizAnswer === 'B' && (
                       <div className="quiz-feedback quiz-feedback--correct">
                         <div className="quiz-verdict">✓ CORRECT</div>
-                        <p className="quiz-woman-says">MFA only protects you if you keep the second factor private. The moment you read that code to someone — even someone who seems completely legitimate — you have handed them the key. Authentication codes are generated for you to use, not to share. Hang up.</p>
+                        <p className="quiz-woman-says">MFA only protects you if you keep the second factor private. The moment you read that code to someone - even someone who seems completely legitimate - you have handed them the key. Authentication codes are generated for you to use, not to share. Hang up.</p>
                         <div className="quiz-remember">
                           <div className="quiz-remember-label">REMEMBER: AUTHENTICATION CODES ARE PRIVATE</div>
                           <p className="quiz-remember-body">An authentication code sent to your phone or generated by your app is a single-use key. The moment you share it, it can be used to access your account. No legitimate caller will ever ask for it.</p>
@@ -4984,7 +5005,7 @@ export default function App() {
                     {mfaQuizAnswer === 'C' && (
                       <div className="quiz-feedback quiz-feedback--wrong">
                         <div className="quiz-verdict">✗ INCORRECT</div>
-                        <p className="quiz-woman-says">A skilled caller can answer basic account questions — they gathered that information before the call. Verifying their identity by asking questions does not protect you. The rule is simple: hang up and never share the code.</p>
+                        <p className="quiz-woman-says">A skilled caller can answer basic account questions - they gathered that information before the call. Verifying their identity by asking questions does not protect you. The rule is simple: hang up and never share the code.</p>
                       </div>
                     )}
                     {mfaQuizAnswer === 'B'
@@ -5008,16 +5029,16 @@ export default function App() {
                 {!quizAnswer ? (
                   <div className="quiz-options">
                     {[
-                      { id: 'A', text: 'Stay on the call and verify the caller\'s identity by asking questions.' },
-                      { id: 'B', text: 'End the call immediately. Then call the organisation directly on a number found independently — not one the caller provides. Do not enter any codes or click any links related to the call.' },
-                      { id: 'C', text: 'Ask the caller to hold while they check the code.' },
-                    ].map(({ id, text }) => (
+                      { display: 'A', id: 'B', text: 'End the call immediately. Then call the organisation directly on a number found independently - not one the caller provides. Do not enter any codes or click any links related to the call.' },
+                      { display: 'B', id: 'A', text: 'Stay on the call and verify the caller\'s identity by asking questions.' },
+                      { display: 'C', id: 'C', text: 'Ask the caller to hold while they check the code.' },
+                    ].map(({ display, id, text }) => (
                       <div
-                        key={id}
+                        key={display}
                         className="quiz-option"
                         onClick={(e) => { e.stopPropagation(); playOptionSelect(); id === 'B' ? playCorrect() : playWrong(); setQuizAnswer(id) }}
                       >
-                        <span className="quiz-option-key">{id}</span>
+                        <span className="quiz-option-key">{display}</span>
                         <span className="quiz-option-text">{text}</span>
                       </div>
                     ))}
@@ -5033,17 +5054,17 @@ export default function App() {
                     {quizAnswer === 'B' && (
                       <div className="quiz-feedback quiz-feedback--correct">
                         <div className="quiz-verdict">✓ CORRECT</div>
-                        <p className="quiz-woman-says">End the call. Then find the official number yourself — on the organisation's website, not from the caller. If it was real, calling the official number will confirm it and allow you to continue through a legitimate channel. If it was fake, you have given them nothing.</p>
+                        <p className="quiz-woman-says">End the call. Then find the official number yourself - on the organisation's website, not from the caller. If it was real, calling the official number will confirm it and allow you to continue through a legitimate channel. If it was fake, you have given them nothing.</p>
                         <div className="quiz-remember">
                           <div className="quiz-remember-label">REMEMBER: HANG UP AND CALL BACK INDEPENDENTLY</div>
-                          <p className="quiz-remember-body">If a phone call asks for codes, passwords, or personal information — hang up. Then find the official contact number yourself and call back through that. Never call a number the suspicious caller gave you.</p>
+                          <p className="quiz-remember-body">If a phone call asks for codes, passwords, or personal information - hang up. Then find the official contact number yourself and call back through that. Never call a number the suspicious caller gave you.</p>
                         </div>
                       </div>
                     )}
                     {quizAnswer === 'C' && (
                       <div className="quiz-feedback quiz-feedback--wrong">
                         <div className="quiz-verdict">✗ INCORRECT</div>
-                        <p className="quiz-woman-says">Putting a visher on hold does not protect you. They know you are uncertain — they use that. End the call completely and call back on an independent number.</p>
+                        <p className="quiz-woman-says">Putting a visher on hold does not protect you. They know you are uncertain - they use that. End the call completely and call back on an independent number.</p>
                       </div>
                     )}
                     {quizAnswer === 'B'
