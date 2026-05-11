@@ -162,7 +162,7 @@ export default function GuidesOverlay({ onClose }) {
 
           <PCGSection label="World 1" title="Seabright: The Fishing Village" teal>
             <WhatHappened>
-              <p>A fishing village has been paralyzed by scam messages. Emails pretending to be from the Harbour Authority, fake delivery texts, and scam advertisements designed to create false urgency, all targeting login details and personal information. Your child worked through what happened with each fisherman, figured out how they were fooled, and helped the village understand what to watch for. Old Finn admitted he was embarrassed. Bram had waited three days to tell anyone. <strong>The boats were moving again by the end.</strong></p>
+              <p>A fishing village has been paralyzed by scam messages. Emails pretending to be from the Harbor Authority, fake delivery texts, and scam advertisements designed to create false urgency, all targeting login details and personal information. Your child worked through what happened with each fisherman, figured out how they were fooled, and helped the village understand what to watch for. Old Finn admitted he was embarrassed. Bram had waited three days to tell anyone. <strong>The boats were moving again by the end.</strong></p>
             </WhatHappened>
             <QB
               question='"Old Finn said he was embarrassed, that they are not stupid people, but they still fell for it. Why do you think that happened?"'

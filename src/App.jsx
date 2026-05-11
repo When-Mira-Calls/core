@@ -40,7 +40,7 @@ import shadowFigure1 from '../assets/shadow1.png'
 import consolScreenGreen from '../assets/Consol Screen - green.png'
 import consolScreenBlue from '../assets/Consol Screen - blue.png'
 import starrySky from '../assets/Starry Sky.png'
-import seabrightHarbour from '../assets/SeaBright Harbor.png'
+import seabrightHarbor from '../assets/SeaBright Harbor.png'
 import seabrightAmbience from '../audio/seabright.wav'
 import sunshareAmbience from '../audio/sunshare.mp3'
 import mainAmbience from '../audio/main.mp3'
@@ -149,7 +149,7 @@ const observatoryStory = {
     { speaker: 'Narrator', text: 'The locked room reveals the Shadow Man\'s full trail.', showIntRoom: true },
     { speaker: '', text: '', showTrailMap: true, hideBubble: true, showIntRoom: true },
     { speaker: 'Narrator', text: 'The screen in the locked room shows the Shadow Man\'s trail in red - every stop, every gap, every piece of information collected.', showIntRoom: true },
-    { speaker: 'Narrator', text: 'Seabright: the phishing emails that harvested harbour logins.', showIntRoom: true },
+    { speaker: 'Narrator', text: 'Seabright: the phishing emails that harvested harbor logins.', showIntRoom: true },
     { speaker: 'Narrator', text: 'The lighthouse: circling for weaknesses in the strongbox.', showIntRoom: true },
     { speaker: 'Narrator', text: 'Sunshare Square: collecting personal information from public profiles, building a picture of every person who lived and posted there.', showIntRoom: true },
     { speaker: 'Narrator', text: 'And then arriving here, ahead of you, with an impostor in place.', showIntRoom: true },
@@ -972,7 +972,7 @@ export default function App() {
     return () => cancelAnimationFrame(frameId)
   }, [view, showTitle])
 
-  // Seabright waves — full volume at harbour (0–111), quiet at lighthouse (112–175), off at sunshare
+  // Seabright waves — full volume at harbor (0–111), quiet at lighthouse (112–175), off at sunshare
   useEffect(() => {
     let audio = seabrightAudioRef.current
     if (!audio) {
@@ -982,9 +982,9 @@ export default function App() {
       seabrightAudioRef.current = audio
     }
 
-    const isHarbour    = view === 'seabright' && seabrightLine < 112
+    const isHarbor    = view === 'seabright' && seabrightLine < 112
     const isLighthouse = view === 'seabright' && seabrightLine >= 112 && seabrightLine < 176
-    const targetVol    = isHarbour ? 1.0 : isLighthouse ? 0.28 : 0
+    const targetVol    = isHarbor ? 1.0 : isLighthouse ? 0.28 : 0
 
     let frameId
     if (targetVol > 0) {
@@ -1330,7 +1330,7 @@ export default function App() {
     const SB_LINES = [
       { type: 'narrator', text: 'The bus drops you at the edge of Seabright and you smell the sea before you see it. Salt and cold air and something else - something quieter than you expected. A fishing village should be noisy. Engines, voices, the clank of equipment. But Seabright is almost silent.' },
       { type: 'narrator', text: 'Something is really wrong here. This place looks like it has just… stopped.' },
-      { type: 'narrator', text: 'You take a few steps toward the harbour. Almost immediately, a weathered man in a heavy coat breaks away from one of the groups and walks straight toward you - like he was watching for you.' },
+      { type: 'narrator', text: 'You take a few steps toward the harbor. Almost immediately, a weathered man in a heavy coat breaks away from one of the groups and walks straight toward you - like he was watching for you.' },
       { type: 'dialogue', speaker: 'OLD FINN', text: 'You must be the one she said was coming. She described you exactly right.' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'She? Do you mean Mira? My aunt?' },
       { type: 'dialogue', speaker: 'OLD FINN', text: 'She was here two days ago. Sat in my kitchen, drank half my tea supply, fixed the latch on my door that has been broken for three years, and then left before I woke up. She said her nephew or niece would arrive and would help us sort out what has been happening. Are you them?' },
@@ -1338,15 +1338,15 @@ export default function App() {
       { type: 'dialogue', speaker: 'OLD FINN', text: 'Sit down. It is going to take a moment to explain. And it is embarrassing, honestly. We are not stupid people. But we were tricked, and badly, and now the village cannot function properly and nobody knows how to fix it.' },
       { type: 'narrator', text: 'Old Finn holds out his phone. On the screen is an email. He has read it so many times trying to figure out what went wrong that the edges of the screen are worn from his thumbs.' },
       { type: 'phone-email' },
-      { type: 'dialogue', speaker: 'OLD FINN', text: 'I forwarded this to twelve people before lunch. I thought it was real. The harbour authority sends us emails sometimes about licences and renewals. This looked exactly like those emails.' },
+      { type: 'dialogue', speaker: 'OLD FINN', text: 'I forwarded this to twelve people before lunch. I thought it was real. The harbor authority sends us emails sometimes about licences and renewals. This looked exactly like those emails.' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'It does look pretty convincing at first.' },
-      { type: 'dialogue', speaker: 'OLD FINN', text: 'I clicked the link. It took me to a page asking for my harbour login and password. I typed them in. Within two hours my account was locked and someone else was using it to cancel supply orders.' },
+      { type: 'dialogue', speaker: 'OLD FINN', text: 'I clicked the link. It took me to a page asking for my harbor login and password. I typed them in. Within two hours my account was locked and someone else was using it to cancel supply orders.' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'Can I look at the email more carefully?' },
       { type: 'dialogue', speaker: 'OLD FINN', text: 'Be my guest. I wish I had looked more carefully myself.' },
       { type: 'phone-inspect' },
-      { type: 'dialogue', speaker: '[YOUR NAME]', text: 'The sender name says "Seabright Harbour Authority" - but look at the actual email address underneath. seabright-port-renewal.com. That is not a real harbour authority address.' },
+      { type: 'dialogue', speaker: '[YOUR NAME]', text: 'The sender name says "Seabright Harbor Authority" - but look at the actual email address underneath. seabright-port-renewal.com. That is not a real harbor authority address.' },
       { type: 'dialogue', speaker: 'OLD FINN', text: 'I did not look at the address. Just the name.' },
-      { type: 'dialogue', speaker: '[YOUR NAME]', text: 'That is exactly what they were counting on. The display name is just whatever they want to type - anyone can write "Seabright Harbour Authority" as their name. The real address is what matters, and that one has been made up to look official.' },
+      { type: 'dialogue', speaker: '[YOUR NAME]', text: 'That is exactly what they were counting on. The display name is just whatever they want to type - anyone can write "Seabright Harbor Authority" as their name. The real address is what matters, and that one has been made up to look official.' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'And the link - where does it actually go?' },
       { type: 'dialogue', speaker: 'OLD FINN', text: 'I did not check. I just tapped it.' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'On a phone, if you press and hold a link before tapping it, the real web address appears. On a computer, you hover your mouse over it without clicking. Let me show you.' },
@@ -1356,7 +1356,7 @@ export default function App() {
       { type: 'email-redflags' },
       { type: 'phishing-info' },
       { type: 'phishing-quiz' },
-      { type: 'narrator', text: 'Old Finn takes you along the harbour wall to where a young woman is sitting on a bollard, staring at her phone with the expression of someone trying to figure out where exactly everything went wrong.' },
+      { type: 'narrator', text: 'Old Finn takes you along the harbor wall to where a young woman is sitting on a bollard, staring at her phone with the expression of someone trying to figure out where exactly everything went wrong.' },
       { type: 'dialogue', speaker: 'OLD FINN', text: 'This is Coral. She is one of our best young fishers. Three days ago she nearly handed over the login code to our entire crew schedule system to someone pretending to be the coastguard.' },
       { type: 'dialogue', speaker: 'CORAL', text: 'Nearly. I stopped myself. But only just. And I cannot figure out why I almost did it when looking back it seems so obvious.' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'Can I see what the message said?' },
@@ -1367,12 +1367,12 @@ export default function App() {
       { type: 'feelings-info' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'Look at this message carefully. How many things in it are trying to make you feel scared or rushed?' },
       { type: 'dialogue', speaker: 'CORAL', text: 'URGENT in capitals. Emergency beacon. Fifteen minutes. Failure to respond may delay rescue. Every single sentence.' },
-      { type: 'dialogue', speaker: '[YOUR NAME]', text: 'Exactly. A real emergency involving a real boat would be handled by the coastguard calling the boat directly, contacting the harbour master, and dispatching a vessel. They would not send a text asking a crew member to reply with an access code.' },
+      { type: 'dialogue', speaker: '[YOUR NAME]', text: 'Exactly. A real emergency involving a real boat would be handled by the coastguard calling the boat directly, contacting the harbor master, and dispatching a vessel. They would not send a text asking a crew member to reply with an access code.' },
       { type: 'dialogue', speaker: 'CORAL', text: 'When you say it like that it sounds obvious.' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'It always sounds obvious afterwards. That is how it works. In the moment, the panic is real. The trick is learning to name what you are feeling before acting on it.' },
       { type: 'coral-redflags' },
       { type: 'coral-quiz' },
-      { type: 'narrator', text: 'Old Finn gathers a small group of fishermen around the harbour-front bench. They have been comparing messages on their phones for two days, trying to figure out which ones were real and which ones tricked them.' },
+      { type: 'narrator', text: 'Old Finn gathers a small group of fishermen around the harbor-front bench. They have been comparing messages on their phones for two days, trying to figure out which ones were real and which ones tricked them.' },
       { type: 'dialogue', speaker: 'OLD FINN', text: 'We have been going through these for two days and we keep second-guessing ourselves. Can you help us sort them out?' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'Yes. And I am going to show you what to look for in each one so you can do this yourselves next time.' },
       { type: 'real-or-fake' },
@@ -1404,7 +1404,7 @@ export default function App() {
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'Good. Being annoyed by it is the right response. It means you are seeing through it.' },
       { type: 'scam-ad-redflags' },
       { type: 'scam-ad-quiz' },
-      { type: 'narrator', text: 'Back at the harbour wall, Coral pulls you aside. She looks like someone who has been carrying something uncomfortable for three days and is finally ready to put it down.' },
+      { type: 'narrator', text: 'Back at the harbor wall, Coral pulls you aside. She looks like someone who has been carrying something uncomfortable for three days and is finally ready to put it down.' },
       { type: 'dialogue', speaker: 'CORAL', text: 'I need to tell you something I have not told Old Finn yet. Yesterday morning - before I knew about any of this - I tapped a link in a text message before I could stop myself. The page loaded for maybe two seconds before I realised and closed it. I do not think anything happened. But I have been worried ever since.' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'You did the right thing closing it. How long ago was this?' },
       { type: 'dialogue', speaker: 'CORAL', text: 'Yesterday. About ten in the morning.' },
@@ -1416,7 +1416,7 @@ export default function App() {
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'Then the most important thing is to tell a trusted adult today - not because you are in trouble, but because an adult can check your phone for anything suspicious and make sure nothing happened in those two seconds. If something did get through, catching it today is much better than catching it next week.' },
       { type: 'dialogue', speaker: 'CORAL', text: 'You are saying I am not going to get in trouble?' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'You spotted something was wrong and closed it immediately. That is good instinct. The only mistake would be staying quiet about it out of embarrassment. The scam was designed by people who study how to trick people. Getting nearly caught does not mean you were careless. It means they were skilled.' },
-      { type: 'dialogue', speaker: 'OLD FINN', text: '(arriving, having overheard the last part) She is right, Coral. Come on - we will call the harbour authority together and you can talk to your dad tonight.' },
+      { type: 'dialogue', speaker: 'OLD FINN', text: '(arriving, having overheard the last part) She is right, Coral. Come on - we will call the harbor authority together and you can talk to your dad tonight.' },
       { type: 'bram-quiz' },
       { type: 'narrator', text: 'Old Finn has an idea. He rounds up a few of the younger fishermen - including Coral - and sets them in front of the village tablet. If they are going to understand how to protect themselves, they need to practice reacting quickly to what they see. He asks you to run the exercise.' },
       { type: 'dialogue', speaker: 'OLD FINN', text: 'They know the theory now. Let them practice the reaction.' },
@@ -1428,7 +1428,7 @@ export default function App() {
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'That is the thing about this skill. The more you practice, the faster it becomes automatic. You stop reading every suspicious message carefully after a while - you just feel when something is wrong and you check before you act.' },
       { type: 'dialogue', speaker: 'CORAL', text: 'It gets easier?' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'Much easier. And once it is automatic, it is actually quite satisfying. Like spotting the trick before the magician finishes the trick.' },
-      { type: 'narrator', text: 'It takes the rest of the afternoon. You go with Old Finn from fisherman to fisherman, and each time the conversation goes roughly the same way: embarrassment, then relief, then understanding, then a kind of quiet determination. By early evening, compromised accounts have been reported and locked. Passwords have been changed. The harbour booking system is back online.' },
+      { type: 'narrator', text: 'It takes the rest of the afternoon. You go with Old Finn from fisherman to fisherman, and each time the conversation goes roughly the same way: embarrassment, then relief, then understanding, then a kind of quiet determination. By early evening, compromised accounts have been reported and locked. Passwords have been changed. The harbor booking system is back online.' },
       { type: 'dialogue', speaker: 'OLD FINN', text: 'You have done something today that we could not do for ourselves. Not because we are stupid - but because nobody had ever explained it to us in plain language. Where did you learn all of this?' },
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'Honestly? I did not know most of it this morning. I think I just knew enough to ask the right questions.' },
       { type: 'dialogue', speaker: 'OLD FINN', text: 'She said you would say something like that.' },
@@ -1441,7 +1441,7 @@ export default function App() {
       { type: 'dialogue', speaker: '[YOUR NAME]', text: 'The lighthouse on the cliff?' },
       { type: 'dialogue', speaker: 'OLD FINN', text: 'There is someone up there. Has been for three days. We did not ask questions - she had Mira\'s eyes and we have learned not to ask too many questions about people with Mira\'s eyes.' },
       { type: 'narrator', bg: 'lighthouse', text: 'You look up at the cliff. The lighthouse beam is sweeping in its slow circle - steady now, where it flickered before. Someone is up there, keeping the light running, waiting for you to finish what you came to do.\n\nYou say goodbye to Old Finn and Coral. You promise to come back when you have found Mira. Old Finn waves you off without a word, which from Old Finn, you are beginning to understand, is the highest possible compliment.' },
-      { type: 'narrator', bg: 'lighthouse', text: 'The path up the cliff is narrow and winds between gorse bushes that smell of coconut in the cold air. Below, you can hear the harbour coming back to life - the chug of an engine, someone calling across the water. You did that. Not bad for a Saturday.' },
+      { type: 'narrator', bg: 'lighthouse', text: 'The path up the cliff is narrow and winds between gorse bushes that smell of coconut in the cold air. Below, you can hear the harbor coming back to life - the chug of an engine, someone calling across the water. You did that. Not bad for a Saturday.' },
       { type: 'dialogue', bg: 'lighthouse', speaker: '[YOUR NAME]', text: 'She climbed this path. Mira climbed this path and I am finally gonna find her.' },
       { type: 'narrator', bg: 'lighthouse', text: 'You keep climbing, your heart pounding in your chest.' },
       { type: 'narrator', bg: 'lighthouse-door', text: 'Footsteps. Quick, light footsteps. The door opens. And you go absolutely still.' },
@@ -1478,7 +1478,7 @@ export default function App() {
       { type: 'dialogue', bg: 'lighthouse-int', speaker: '[YOUR NAME]', text: 'Who?' },
       { type: 'dialogue', bg: 'lighthouse-int', speaker: 'CELIA', text: 'He does not have a name that anyone knows. We call him the Shadow Man. He follows the gaps - weak passwords, unlocked boxes, information left unprotected. He has been following Mira\'s trail for a long time. He wants what she has gathered. And now he knows you have some of it.' },
       { type: 'dialogue', bg: 'lighthouse-int', speaker: '[YOUR NAME]', text: 'How does he know?' },
-      { type: 'dialogue', bg: 'lighthouse-int', speaker: 'CELIA', text: 'Because he was watching the harbour when you arrived at Seabright. And he has been watching this cliff path since you started climbing.' },
+      { type: 'dialogue', bg: 'lighthouse-int', speaker: 'CELIA', text: 'Because he was watching the harbor when you arrived at Seabright. And he has been watching this cliff path since you started climbing.' },
       { type: 'shadow-reveal', bg: 'lighthouse-int' },
       { type: 'narrator', bg: 'lighthouse-int', text: 'The lighthouse beam sweeps the cliff path below. For two full seconds, caught in the light, a figure stands at the base of the path. Completely still. Watching. Then the beam moves on. By the time it sweeps back: nothing. Only the pressed-down grass where something stood.' },
       { type: 'dialogue', bg: 'lighthouse-int', speaker: '[YOUR NAME]', text: '...Was that him?' },
@@ -1500,7 +1500,7 @@ export default function App() {
         'tiger  cloud  lamp  river',
         '',
         'Four completely random words.',
-        '23 characters. No pattern.',
+        '22 characters. No pattern.',
         'The same computer would take thousands of years.',
         '',
         'The complexity did not make P@ssw0rd1 strong.',
@@ -2216,7 +2216,7 @@ export default function App() {
     return (
       <div
         className="game-root seabright-root"
-        style={{ backgroundImage: `url(${sbLine.bg === 'sunshare' ? sunshareSquare : sbLine.bg === 'lighthouse-int' ? lighthouseInt : sbLine.bg === 'lighthouse-door' ? lighthouseDoor : sbLine.bg === 'lighthouse' ? lighthouseExt : seabrightHarbour})` }}
+        style={{ backgroundImage: `url(${sbLine.bg === 'sunshare' ? sunshareSquare : sbLine.bg === 'lighthouse-int' ? lighthouseInt : sbLine.bg === 'lighthouse-door' ? lighthouseDoor : sbLine.bg === 'lighthouse' ? lighthouseExt : seabrightHarbor})` }}
       >
         <div className="seabright-stage" onClick={
           isNarrator ? advanceSB
@@ -2243,11 +2243,11 @@ export default function App() {
                   <div className="sb-email">
                     <div className="sb-email-header">EMAIL MESSAGE</div>
                     <div className="sb-email-from">
-                      <span className="sb-email-label">From:</span> Seabright Harbour Authority<br />
-                      <span className="sb-email-address">&lt;harbour.admin@seabright-port-renewal.com&gt;</span>
+                      <span className="sb-email-label">From:</span> Seabright Harbor Authority<br />
+                      <span className="sb-email-address">&lt;harbor.admin@seabright-port-renewal.com&gt;</span>
                     </div>
                     <div className="sb-email-body">
-                      <span className="sb-email-urgent">URGENT:</span> Your harbour access registration expires in <strong>24 HOURS</strong>. You must verify your account immediately or your fishing licence will be suspended.
+                      <span className="sb-email-urgent">URGENT:</span> Your harbor access registration expires in <strong>24 HOURS</strong>. You must verify your account immediately or your fishing licence will be suspended.
                     </div>
                     <div className="sb-email-link">
                       Click here to renew:<br />
@@ -2383,7 +2383,7 @@ export default function App() {
                   <div className="smishing-flag-card profile-footprint-card">
                     <div className="smishing-flag-label">TEACHER'S NAME</div>
                     <div className="smishing-flag-title">FOOTPRINT FOUND</div>
-                    <p className="smishing-flag-body"><strong>"My teacher Mrs Okafor"</strong> mentioned in a post. A stranger now knows the name of Priya's teacher. In a fake message pretending to be Priya, they could say "Mrs Okafor set us extra homework" and it would sound completely authentic.</p>
+                    <p className="smishing-flag-body"><strong>"My teacher Mrs Okafor"</strong> mentioned in a post. A stranger now knows the name of Priya's teacher. In a fake message pretending to be Priya, they could say "Mrs Okafor sent us extra homework" and it would sound completely authentic.</p>
                   </div>
                   <div className="smishing-flag-card profile-footprint-card">
                     <div className="smishing-flag-label">ROUTINE</div>
@@ -2505,12 +2505,12 @@ export default function App() {
                   <div className="smishing-flag-card smishing-flag-card--wide">
                     <div className="smishing-flag-label">SECURITY QUESTION AWARENESS</div>
                     <div className="smishing-flag-title">THE SECURITY QUESTION TRAP</div>
-                    <p className="smishing-flag-body">Security questions ask for personal information - pet names, schools, birthdays, favourite things. These feel private. But for most people, these same details are visible somewhere on their public profiles. The answer to "what was your first pet's name" is not private information if you posted a birthday tribute to that pet last year. Treat security question answers like passwords - never use real information that could be found online.</p>
+                    <p className="smishing-flag-body">Security questions ask for personal information - pet names, schools, birthdays, favourite things. These feel private. But for most people, these same details are visible somewhere on their public profiles. The answer to "what was your first pet's name" is not private information if you posted a birthday tribute to that pet last year. Treat security question answers like passwords - never use information that could be found online.</p>
                   </div>
                   <div className="smishing-flag-card smishing-flag-card--wide">
                     <div className="smishing-flag-label">THE SAFE APPROACH</div>
-                    <div className="smishing-flag-title">THE LIE IS THE PROTECTION</div>
-                    <p className="smishing-flag-body">The safest way to answer security questions is to lie consistently. Your first pet is not whatever name you used - it is a random word only you know. Your primary school is not the one you tagged in photos - it is another random word. These fake answers cannot be found on your public profile because they are not true. Write them down somewhere safe - you will need them if you forget.</p>
+                    <div className="smishing-flag-title">THE ANSWER NO ONE CAN FIND</div>
+                    <p className="smishing-flag-body">Security questions have a weakness: answers are often findable. The school you attended, the pet you grew up with - these live in your photos, your posts, your profile. The stronger move is to use an answer only you would know, one that cannot be easily found. Something that exists nowhere else.</p>
                   </div>
                 </div>
                 <div className="smishing-continue">tap anywhere to continue</div>
@@ -3066,11 +3066,11 @@ export default function App() {
                   <div className="sb-email">
                     <div className="sb-email-header">EMAIL MESSAGE</div>
                     <div className="sb-email-from">
-                      <span className="sb-email-label">From:</span> Seabright Harbour Authority<br />
-                      <span className="sb-email-address">&lt;harbour.admin@seabright-port-renewal.com&gt;</span>
+                      <span className="sb-email-label">From:</span> Seabright Harbor Authority<br />
+                      <span className="sb-email-address">&lt;harbor.admin@seabright-port-renewal.com&gt;</span>
                     </div>
                     <div className="sb-email-body">
-                      <span className="sb-email-urgent">URGENT:</span> Your harbour access registration expires in <strong>24 HOURS</strong>. You must verify your account immediately or your fishing licence will be suspended.
+                      <span className="sb-email-urgent">URGENT:</span> Your harbor access registration expires in <strong>24 HOURS</strong>. You must verify your account immediately or your fishing licence will be suspended.
                     </div>
                     <div className="sb-email-link">
                       Click here to renew:<br />
@@ -3092,9 +3092,9 @@ export default function App() {
                   <div className="sb-email">
                     <div className="sb-email-header">EMAIL MESSAGE</div>
                     <div className="sb-email-from">
-                      <span className="sb-email-label">From:</span> Seabright Harbour Authority<br />
+                      <span className="sb-email-label">From:</span> Seabright Harbor Authority<br />
                       <div className={`sb-inspect-spot${sbInspected.sender ? ' sb-inspect-spot--revealed' : ''}`}>
-                        <span className="sb-email-address">&lt;harbour.admin@seabright-port-renewal.com&gt;</span>
+                        <span className="sb-email-address">&lt;harbor.admin@seabright-port-renewal.com&gt;</span>
                         {!sbInspected.sender ? (
                           <button
                             className="sb-inspect-mag"
@@ -3112,7 +3112,7 @@ export default function App() {
                       </div>
                     </div>
                     <div className="sb-email-body">
-                      <span className="sb-email-urgent">URGENT:</span> Your harbour access registration expires in <strong>24 HOURS</strong>. You must verify your account immediately or your fishing licence will be suspended.
+                      <span className="sb-email-urgent">URGENT:</span> Your harbor access registration expires in <strong>24 HOURS</strong>. You must verify your account immediately or your fishing licence will be suspended.
                     </div>
                     <div className="sb-email-link">
                       Click here to renew:<br />
@@ -3152,11 +3152,11 @@ export default function App() {
                   <div className="sb-email">
                     <div className="sb-email-header">EMAIL MESSAGE</div>
                     <div className="sb-email-from">
-                      <span className="sb-email-label">From:</span> Seabright Harbour Authority<br />
-                      <span className="sb-email-address">&lt;harbour.admin@seabright-port-renewal.com&gt;</span>
+                      <span className="sb-email-label">From:</span> Seabright Harbor Authority<br />
+                      <span className="sb-email-address">&lt;harbor.admin@seabright-port-renewal.com&gt;</span>
                     </div>
                     <div className="sb-email-body">
-                      <span className="sb-email-urgent">URGENT:</span> Your harbour access registration expires in <strong>24 HOURS</strong>. You must verify your account immediately or your fishing licence will be suspended.
+                      <span className="sb-email-urgent">URGENT:</span> Your harbor access registration expires in <strong>24 HOURS</strong>. You must verify your account immediately or your fishing licence will be suspended.
                     </div>
                     <div className="sb-email-link">
                       Click here to renew:<br />
@@ -3202,7 +3202,7 @@ export default function App() {
                   <div className="smishing-flag-card">
                     <div className="smishing-flag-label">RED FLAG</div>
                     <div className="smishing-flag-title">FAKE SENDER ADDRESS</div>
-                    <p className="smishing-flag-body">The display name looked official but the real email address - seabright-port-renewal.com - was not a real government or authority address. Real official addresses use .gov.us or the company's actual domain.</p>
+                    <p className="smishing-flag-body">The display name looked official but the real email address - seabright-port-renewal.com - was not a real government or authority address. Real official addresses use .gov or the company's actual domain.</p>
                   </div>
                   <div className="smishing-flag-card">
                     <div className="smishing-flag-label">RED FLAG</div>
@@ -3431,7 +3431,7 @@ export default function App() {
                   <div className="smishing-flag-card">
                     <div className="smishing-flag-label">RED FLAG: AUTHORITY</div>
                     <div className="smishing-flag-title">'COASTGUARD EMERGENCY SERVICES'</div>
-                    <p className="smishing-flag-body">Sender names can be set to anything. The real coastguard contacts harbour masters and boat captains through registered channels - not random crew members by text.</p>
+                    <p className="smishing-flag-body">Sender names can be set to anything. The real coastguard contacts harbor masters and boat captains through registered channels - not random crew members by text.</p>
                   </div>
                   <div className="smishing-flag-card">
                     <div className="smishing-flag-label">RED FLAG: THE REQUEST</div>
@@ -3849,7 +3849,7 @@ export default function App() {
                     <div className="smishing-flag-label">PASSWORD LESSON</div>
                     <div className="smishing-flag-title">LENGTH BEATS COMPLEXITY</div>
                     <p className="smishing-flag-body">A short password full of symbols - like <strong>P@ssw0rd1</strong> - looks secure but is not. It is only 9 characters, and a computer can crack it quickly.</p>
-                    <p className="smishing-flag-body" style={{ marginTop: 10 }}>A passphrase of four random unrelated words - <strong>tiger-cloud-lamp-river</strong> - is 23 characters of pure randomness. Every extra character multiplies the difficulty enormously. That is why length is the most powerful tool you have.</p>
+                    <p className="smishing-flag-body" style={{ marginTop: 10 }}>A passphrase of four random unrelated words - <strong>tiger-cloud-lamp-river</strong> - is 22 characters of pure randomness. Every extra character multiplies the difficulty enormously. That is why length is the most powerful tool you have.</p>
                   </div>
                 </div>
                 <div className="smishing-continue">tap anywhere to continue</div>
@@ -3865,8 +3865,8 @@ export default function App() {
                   <div className="smishing-flag-card smishing-flag-card--wide">
                     <div className="smishing-flag-label">PASSWORD LESSON</div>
                     <div className="smishing-flag-title">WHY RANDOM WORDS?</div>
-                    <p className="smishing-flag-body">The words must be random - not related to you, not a phrase you know, not your favourite things. <strong>'I love football'</strong> is guessable.</p>
-                    <p className="smishing-flag-body" style={{ marginTop: 10 }}><strong>'tiger cloud lamp river'</strong> is strong because it means nothing - there is no pattern to exploit, no personal information to guess from.</p>
+                    <p className="smishing-flag-body">Strong passphrases are long and random. Long means four words or more. Random means no one could predict your choices - not from knowing you, not from guessing common phrases.</p>
+                    <p className="smishing-flag-body" style={{ marginTop: 10 }}><strong>'tiger cloud lamp river'</strong> works because the words have no connection to each other and no connection to you. The more unpredictable, the stronger.</p>
                   </div>
                 </div>
                 <div className="smishing-continue">tap anywhere to continue</div>
@@ -3882,8 +3882,8 @@ export default function App() {
                   <div className="smishing-flag-card smishing-flag-card--wide">
                     <div className="smishing-flag-label">PASSWORD LESSON</div>
                     <div className="smishing-flag-title">THE REUSE PROBLEM</div>
-                    <p className="smishing-flag-body">Using the same password across multiple accounts feels practical - one thing to remember. But it means that if any one of those accounts is compromised, every account with that password is now vulnerable.</p>
-                    <p className="smishing-flag-body" style={{ marginTop: 10 }}>An attacker who gets into your gaming account and finds your email address will immediately try that same password on your email. If it works, they have both. Then they try it on social media. Then on anything else you have accounts for.</p>
+                    <p className="smishing-flag-body">Using the same password across multiple accounts feels practical - one thing to remember. But if any one of those accounts is broken into, every account with that password is now at risk.</p>
+                    <p className="smishing-flag-body" style={{ marginTop: 10 }}>Whoever broke in and found your email address will immediately try that same password on your email. If it works, they have both. Then they try it on social media. Then on anything else you have accounts for.</p>
                   </div>
                 </div>
                 <div className="smishing-continue">tap anywhere to continue</div>
@@ -3899,7 +3899,7 @@ export default function App() {
                   <div className="smishing-flag-card smishing-flag-card--wide">
                     <div className="smishing-flag-label">PASSWORD LESSON</div>
                     <div className="smishing-flag-title">THE DOMINO EFFECT</div>
-                    <p className="smishing-flag-body">Password reuse turns one breach into many. This is called the domino effect. One password, one account compromised, and every account it was reused on falls in sequence.</p>
+                    <p className="smishing-flag-body">Password reuse turns one break-in into many. One password, one account broken into, and every account it was reused on falls one after another.</p>
                     <p className="smishing-flag-body" style={{ marginTop: 10 }}>The answer is not a more complicated password - it is a different password for every account.</p>
                   </div>
                 </div>
@@ -3948,7 +3948,7 @@ export default function App() {
                 {!bqAnswer && (
                   <>
                     <div className="quiz-header">WHAT DO YOU DO?</div>
-                    <p className="quiz-question">Coral has just told you she clicked a suspicious link three days ago, gave her harbour login on the fake page, but has been too embarrassed to tell anyone because she is the most experienced fisher in the village and feels like she should have known better. What do you say?</p>
+                    <p className="quiz-question">Coral has just told you she clicked a suspicious link three days ago, gave her harbor login on the fake page, but has been too embarrassed to tell anyone because she is the most experienced fisher in the village and feels like she should have known better. What do you say?</p>
                     <div className="quiz-options">
                       {[
                         { display: 'A', id: 'B', text: 'These scams are engineered by professionals specifically to fool experienced people. Tell a trusted person right now - three days is already a long time to wait.' },
@@ -3978,7 +3978,7 @@ export default function App() {
                   <div className="quiz-result">
                     <div className="quiz-feedback quiz-feedback--correct">
                       <div className="quiz-verdict">✓ CORRECT</div>
-                      <p className="quiz-narrator-beat">Coral sits down heavily on the harbour wall.</p>
+                      <p className="quiz-narrator-beat">Coral sits down heavily on the harbor wall.</p>
                     </div>
                     <div className="smishing-continue" style={{ padding: '10px 22px', cursor: 'pointer' }} onClick={e => { e.stopPropagation(); advanceBQ() }}>tap to continue</div>
                   </div>
@@ -4279,10 +4279,10 @@ export default function App() {
                 ]
               },
               {
-                num: 'II', title: 'SeaBright Ahoy!', img: seabrightHarbour,
+                num: 'II', title: 'SeaBright Ahoy!', img: seabrightHarbor,
                 start: ch(54)(() => goToChapter({ number: 'II', title: 'SeaBright Ahoy!' }, 'seabright-0')),
                 subs: [
-                  { label: 'Harbour arrival — meeting Old Finn', fn: sb2(0) },
+                  { label: 'Harbor arrival — meeting Old Finn', fn: sb2(0) },
                   { label: 'Old Finn\'s phishing email', fn: sb2(8) },
                   { label: 'Meeting Coral — smishing text', fn: sb2(28) },
                   { label: 'Real or Fake? minigame', fn: sb2(47) },

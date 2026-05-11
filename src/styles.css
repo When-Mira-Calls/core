@@ -6168,8 +6168,8 @@ html,body,#root { height: 100%; margin: 0; }
 ═══════════════════════════════════════════════════════════════ */
 
 /* ═══════════════════════════════════════════════════════════════
-   REAL OR FAKE - Fishing Village / Harbour theme
-   Palette: deep harbour navy · sea teal · lantern brass · parchment
+   REAL OR FAKE - Fishing Village / Harbor theme
+   Palette: deep harbor navy · sea teal · lantern brass · parchment
 ═══════════════════════════════════════════════════════════════ */
 
 /* ── Background: fishing net texture ────────────────────────── */
@@ -6208,7 +6208,7 @@ html,body,#root { height: 100%; margin: 0; }
   to   { transform: rotate(28deg); }
 }
 
-/* ── Background: harbour water waves (SVG, 3 depth layers) ───── */
+/* ── Background: harbor water waves (SVG, 3 depth layers) ───── */
 .orf-bg-water {
   position: absolute;
   bottom: 0;
@@ -6225,7 +6225,7 @@ html,body,#root { height: 100%; margin: 0; }
   to   { transform: translateX(-50%); }
 }
 
-/* ── Root backdrop - night harbour water ─────────────────────── */
+/* ── Root backdrop - night harbor water ─────────────────────── */
 .orf-root {
   position: absolute;
   inset: 0;
@@ -6276,7 +6276,7 @@ html,body,#root { height: 100%; margin: 0; }
   100% { background: transparent; }
 }
 
-/* ── Console - harbour dispatch panel ───────────────────────── */
+/* ── Console - harbor dispatch panel ───────────────────────── */
 .orf-console {
   position: relative;
   display: flex;
@@ -6352,7 +6352,7 @@ html,body,#root { height: 100%; margin: 0; }
   gap: 6px;
   align-items: center;
 }
-/* Pips like harbour buoy lights */
+/* Pips like harbor buoy lights */
 .orf-pip {
   width: 9px;
   height: 9px;
@@ -6393,13 +6393,13 @@ html,body,#root { height: 100%; margin: 0; }
   overflow-y: auto;
 }
 
-/* ── Email card - aged harbour ledger page ───────────────────── */
+/* ── Email card - aged harbor ledger page ───────────────────── */
 .orf-email-card {
   position: relative;
   /* Parchment / aged paper */
   background: #f2ece0;
   border-radius: 8px;
-  /* Top border: harbour navy stripe */
+  /* Top border: harbor navy stripe */
   border-top: 3px solid rgba(22, 62, 95, 0.65);
   box-shadow:
     0 2px 0 rgba(0,0,0,.06) inset,
@@ -6427,7 +6427,7 @@ html,body,#root { height: 100%; margin: 0; }
   box-shadow: 0 10px 36px rgba(0,0,0,.55), 0 0 30px rgba(18,120,100,.14);
 }
 
-/* ── Stamp - harbour authority ink ──────────────────────────── */
+/* ── Stamp - harbor authority ink ──────────────────────────── */
 .orf-stamp {
   position: absolute;
   top: 50%;
@@ -6461,7 +6461,7 @@ html,body,#root { height: 100%; margin: 0; }
   padding: 13px 15px 10px;
   border-bottom: 1px solid rgba(22, 48, 68, 0.1);
 }
-/* Avatar - deep harbour navy */
+/* Avatar - deep harbor navy */
 .orf-avatar {
   width: 36px;
   height: 36px;
@@ -6536,7 +6536,7 @@ html,body,#root { height: 100%; margin: 0; }
   margin: 0;
   padding: 10px 15px 7px;
 }
-/* Link row - looks like a harbour chart reference */
+/* Link row - looks like a harbor chart reference */
 .orf-email-link-row {
   display: flex;
   align-items: flex-start;
@@ -6650,7 +6650,7 @@ html,body,#root { height: 100%; margin: 0; }
   transform: translateX(2px);
 }
 
-/* ── Action buttons - harbour signal levers ──────────────────── */
+/* ── Action buttons - harbor signal levers ──────────────────── */
 .orf-actions {
   flex-shrink: 0;
   display: flex;
@@ -6693,7 +6693,7 @@ html,body,#root { height: 100%; margin: 0; }
 .orf-action-label {
   font-size: 0.8rem;
 }
-/* REAL - safe harbour channel: deep teal */
+/* REAL - safe harbor channel: deep teal */
 .orf-action-btn--real {
   background: linear-gradient(175deg, rgba(8, 65, 78, 1), rgba(5, 46, 56, 1));
   color: rgba(44, 190, 212, 0.96);

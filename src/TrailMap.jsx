@@ -11,8 +11,8 @@ const LOCATIONS = [
     labelX: 118, labelY: 282,
     numX: 118, numY: 293,
     num: '01',
-    name: 'Seabright Harbour',
-    desc: 'Phishing emails harvested harbour worker logins. First breach in the chain.',
+    name: 'Seabright Harbor',
+    desc: 'Phishing emails harvested harbor worker logins. First breach in the chain.',
   },
   {
     id: 'lighthouse',
