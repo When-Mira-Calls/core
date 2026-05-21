@@ -24,3 +24,6 @@ TestResults.xml
 node_modules/
 dist/
 .DS_Store
+# Local Netlify folder
+.netlify
+deno.lock
